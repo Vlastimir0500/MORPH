@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "sim"))
 
 from morph_assembler_v2 import assemble
 from morph_isa_model_v2 import MorphISAModelV2, STATE_CODES
+from morph_contract_v2 import run_contract
 
 
 class RTLComparisonV2Tests(unittest.TestCase):
@@ -89,6 +90,16 @@ class RTLComparisonV2Tests(unittest.TestCase):
                 int(snapshot.fault),
             )
             self.assertEqual(got, want, f"Mismatch at trace index {index}\nRTL={got}\nModel={want}")
+
+    def test_contract_generated_scenarios_match_rtl(self):
+        contract_path = ROOT / "protocols" / "v2_edge_timed_release.contract.json"
+        report_path = ROOT / "build" / "v2_edge_timed_release.model-conformance-report.json"
+        report, _ = run_contract(contract_path, report_path)
+        self.assertEqual(report["status"], "PASS")
+        words = [int(word, 16) for word in report["words_hex"]]
+        for scenario in report["scenarios"]:
+            with self.subTest(scenario=scenario["name"]):
+                self.run_diff_words(words, scenario["pin_trace"])
 
     def test_drive_wait_release_halt(self):
         self.run_diff_words(assemble("DRIVE 3, 1\nWAIT 2\nRELEASE 3\nHALT"), [0] * 32)
