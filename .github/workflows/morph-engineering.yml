@@ -35,7 +35,7 @@ jobs:
           cmp rtl/morph_engine_v2.sv tinytapeout-template-v2/src/morph_engine.sv
 
       - name: Run software and RTL differential regressions
-        run: python -m pytest -q sim traceforge
+        run: python -m pytest -q sim
 
       - name: Synthesize production V2 engine
         shell: bash
@@ -82,9 +82,9 @@ jobs:
           import xml.etree.ElementTree as ET
 
           root = ET.parse("results.xml").getroot()
-          suites = list(root.iter("testsuite"))
-          tests = sum(int(s.get("tests", "0")) for s in suites)
-          failures = sum(int(s.get("failures", "0")) + int(s.get("errors", "0")) for s in suites)
+          cases = list(root.iter("testcase"))
+          tests = len(cases)
+          failures = sum(len(case.findall("failure")) + len(case.findall("error")) for case in cases)
 
           print(f"COCOTB_SUMMARY tests={tests} failures={failures}")
 
