@@ -1,0 +1,151 @@
+name: MORPH Engineering Gates
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rtl-regression:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install verification tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y verilator yosys iverilog make g++
+
+      - name: Install Python test runner
+        run: python -m pip install pytest
+
+      - name: Verify protected baseline and source mirror
+        run: |
+          echo "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552  rtl/morph_engine_v2.sv" | sha256sum -c -
+          echo "5a61cb59f5ccfabe6c10e92fc70b94a8bf3da34a136b76e1cc6e07adecb2ac5a  protocols/v2_uart_rx_a6.hex" | sha256sum -c -
+          cmp rtl/morph_engine_v2.sv tinytapeout-template-v2/src/morph_engine.sv
+
+      - name: Run software and RTL differential regressions
+        run: python -m pytest -q sim traceforge
+
+      - name: Synthesize production V2 engine
+        shell: bash
+        run: |
+          mkdir -p build
+          set -o pipefail
+          yosys -p 'read_verilog -sv rtl/morph_engine_v2.sv; hierarchy -check -top morph_engine_v2; proc; opt; check -assert; synth -top morph_engine_v2 -flatten; check -assert; stat' 2>&1 | tee build/morph_engine_v2_yosys.log
+
+      - name: Publish synthesis log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: morph-engine-v2-synthesis
+          path: build/morph_engine_v2_yosys.log
+          if-no-files-found: warn
+
+  tinytapeout-rtl:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Icarus Verilog
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog make g++
+
+      - name: Install Cocotb requirements
+        run: python -m pip install -r tinytapeout-template-v2/test/requirements.txt
+
+      - name: Run TinyTapeout simulation tests
+        shell: bash
+        run: |
+          cd tinytapeout-template-v2/test
+          make clean
+          make
+          python - <<'PY'
+          import sys
+          import xml.etree.ElementTree as ET
+
+          root = ET.parse("results.xml").getroot()
+          suites = list(root.iter("testsuite"))
+          tests = sum(int(s.get("tests", "0")) for s in suites)
+          failures = sum(int(s.get("failures", "0")) + int(s.get("errors", "0")) for s in suites)
+
+          print(f"COCOTB_SUMMARY tests={tests} failures={failures}")
+
+          if tests == 0 or failures:
+              sys.exit(1)
+          PY
+
+      - name: Publish Cocotb results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: morph-cocotb-results
+          path: |
+            tinytapeout-template-v2/test/results.xml
+            tinytapeout-template-v2/test/tb.fst
+            tinytapeout-template-v2/test/output/
+          if-no-files-found: warn
+
+  gds:
+    needs:
+      - rtl-regression
+      - tinytapeout-rtl
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Stage TinyTapeout project at workspace root
+        run: |
+          mkdir -p src docs
+          cp -a tinytapeout-template-v2/src/. src/
+          cp -a tinytapeout-template-v2/docs/. docs/
+          cp tinytapeout-template-v2/info.yaml info.yaml
+          cp tinytapeout-template-v2/LICENSE LICENSE
+          cmp rtl/morph_engine_v2.sv src/morph_engine.sv
+
+      - uses: TinyTapeout/tt-gds-action@ihp-cmos5l
+        with:
+          pdk: ihp-sg13cmos5l
+
+  precheck:
+    needs: gds
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: TinyTapeout/tt-gds-action/precheck@ihp-cmos5l
+
+  gate-level-test:
+    needs: gds
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Stage TinyTapeout project at workspace root
+        run: |
+          mkdir -p src docs
+          cp -a tinytapeout-template-v2/src/. src/
+          cp -a tinytapeout-template-v2/docs/. docs/
+          cp tinytapeout-template-v2/info.yaml info.yaml
+          cp tinytapeout-template-v2/LICENSE LICENSE
+
+      - uses: TinyTapeout/tt-gds-action/gl_test@ihp-cmos5l
