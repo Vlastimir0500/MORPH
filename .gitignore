@@ -37,3 +37,7 @@ core.*
 *.spice
 net-VGND.csv
 net-VPWR.csv
+
+**/sim_build/
+*.vvp
+results.xml
