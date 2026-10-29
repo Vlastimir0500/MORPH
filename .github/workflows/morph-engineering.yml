@@ -28,6 +28,9 @@ jobs:
       - name: Install Python test runner
         run: python -m pip install pytest
 
+      - name: Prepare build directory
+        run: mkdir -p build
+
       - name: Verify protected baseline and source mirror
         run: |
           echo "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552  rtl/morph_engine_v2.sv" | sha256sum -c -
