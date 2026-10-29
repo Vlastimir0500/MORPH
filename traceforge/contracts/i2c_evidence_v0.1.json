@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "name": "i2c_evidence_v0_1",
+  "checks": [
+    {
+      "id": "fresh_i2c_ack_start_stop_test_passed",
+      "kind": "all_cases_match",
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "cases_path": "cases",
+      "where": {
+        "protocol": "i2c",
+        "test_name": "test_i2c_address_probe_ack_stop"
+      },
+      "assertions": {
+        "status": "PASS",
+        "simulated_this_run": true,
+        "source_assertions_present": true,
+        "engine_matches_production_rtl": true,
+        "requirements.address_bits": [1, 0, 1, 0, 0, 0, 0, 0],
+        "requirements.ack_level": 0,
+        "requirements.start_events": 1,
+        "requirements.stop_condition_required": true,
+        "requirements.rising_count": 10,
+        "requirements.nack_flag_expected": false,
+        "requirements.bus_lines_released_after_stop": true
+      },
+      "min_matches": 1
+    },
+    {
+      "id": "fresh_i2c_nack_release_test_passed",
+      "kind": "all_cases_match",
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "cases_path": "cases",
+      "where": {
+        "protocol": "i2c",
+        "test_name": "test_i2c_nack_releases_bus"
+      },
+      "assertions": {
+        "status": "PASS",
+        "simulated_this_run": true,
+        "source_assertions_present": true,
+        "engine_matches_production_rtl": true,
+        "requirements.nack_flag_expected": true,
+        "requirements.sda_scl_released_after_nack": true
+      },
+      "min_matches": 1
+    },
+    {
+      "id": "no_cocotb_suite_failures",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "path": "summary.suite_failures",
+      "expected": 0
+    },
+    {
+      "id": "engine_copy_matches_production_rtl",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "path": "sources.engine_matches_production_rtl",
+      "expected": true
+    }
+  ]
+}

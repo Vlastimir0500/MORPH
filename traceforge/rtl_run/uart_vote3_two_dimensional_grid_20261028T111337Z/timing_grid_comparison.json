@@ -1,0 +1,768 @@
+[
+  {
+    "initial_wait": 207,
+    "loop_wait": 207,
+    "correct": 736,
+    "silent": 32,
+    "flagged": 0,
+    "wins": 440,
+    "regressions": 24,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 24,
+        "regressions": 24,
+        "correct_decode": 168
+      },
+      "-5": {
+        "correct_decode": 184,
+        "silent_misdecode": 8,
+        "wins": 56
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 207,
+    "loop_wait": 208,
+    "correct": 736,
+    "silent": 32,
+    "flagged": 0,
+    "wins": 440,
+    "regressions": 24,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 24,
+        "regressions": 24,
+        "correct_decode": 168
+      },
+      "-5": {
+        "correct_decode": 184,
+        "silent_misdecode": 8,
+        "wins": 56
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 207,
+    "loop_wait": 209,
+    "correct": 728,
+    "silent": 40,
+    "flagged": 0,
+    "wins": 440,
+    "regressions": 32,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 32,
+        "regressions": 32,
+        "correct_decode": 160
+      },
+      "-5": {
+        "correct_decode": 184,
+        "silent_misdecode": 8,
+        "wins": 56
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 208,
+    "loop_wait": 207,
+    "correct": 720,
+    "silent": 48,
+    "flagged": 0,
+    "wins": 440,
+    "regressions": 40,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 24,
+        "regressions": 24,
+        "correct_decode": 168
+      },
+      "-5": {
+        "silent_misdecode": 24,
+        "regressions": 16,
+        "correct_decode": 168,
+        "wins": 56
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 208,
+    "loop_wait": 208,
+    "correct": 712,
+    "silent": 56,
+    "flagged": 0,
+    "wins": 440,
+    "regressions": 48,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 32,
+        "regressions": 32,
+        "correct_decode": 160
+      },
+      "-5": {
+        "silent_misdecode": 24,
+        "regressions": 16,
+        "correct_decode": 168,
+        "wins": 56
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 209,
+    "loop_wait": 207,
+    "correct": 712,
+    "silent": 56,
+    "flagged": 0,
+    "wins": 440,
+    "regressions": 48,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 32,
+        "regressions": 32,
+        "correct_decode": 160
+      },
+      "-5": {
+        "silent_misdecode": 24,
+        "regressions": 16,
+        "correct_decode": 168,
+        "wins": 56
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 209,
+    "loop_wait": 208,
+    "correct": 688,
+    "silent": 80,
+    "flagged": 0,
+    "wins": 432,
+    "regressions": 64,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 48,
+        "regressions": 48,
+        "correct_decode": 144
+      },
+      "-5": {
+        "silent_misdecode": 32,
+        "regressions": 16,
+        "correct_decode": 160,
+        "wins": 48
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 210,
+    "loop_wait": 207,
+    "correct": 688,
+    "silent": 80,
+    "flagged": 0,
+    "wins": 432,
+    "regressions": 64,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 48,
+        "regressions": 48,
+        "correct_decode": 144
+      },
+      "-5": {
+        "silent_misdecode": 32,
+        "regressions": 16,
+        "correct_decode": 160,
+        "wins": 48
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 208,
+    "loop_wait": 209,
+    "correct": 680,
+    "silent": 88,
+    "flagged": 0,
+    "wins": 432,
+    "regressions": 72,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 56,
+        "regressions": 56,
+        "correct_decode": 136
+      },
+      "-5": {
+        "silent_misdecode": 32,
+        "regressions": 16,
+        "correct_decode": 160,
+        "wins": 48
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 211,
+    "loop_wait": 207,
+    "correct": 672,
+    "silent": 96,
+    "flagged": 0,
+    "wins": 432,
+    "regressions": 80,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 48,
+        "regressions": 48,
+        "correct_decode": 144
+      },
+      "-5": {
+        "silent_misdecode": 48,
+        "regressions": 32,
+        "correct_decode": 144,
+        "wins": 48
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 210,
+    "loop_wait": 208,
+    "correct": 664,
+    "silent": 104,
+    "flagged": 0,
+    "wins": 432,
+    "regressions": 88,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 56,
+        "regressions": 56,
+        "correct_decode": 136
+      },
+      "-5": {
+        "silent_misdecode": 48,
+        "regressions": 32,
+        "correct_decode": 144,
+        "wins": 48
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 211,
+    "loop_wait": 208,
+    "correct": 640,
+    "silent": 128,
+    "flagged": 0,
+    "wins": 424,
+    "regressions": 104,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 72,
+        "regressions": 72,
+        "correct_decode": 120
+      },
+      "-5": {
+        "silent_misdecode": 56,
+        "regressions": 32,
+        "correct_decode": 136,
+        "wins": 40
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 209,
+    "loop_wait": 209,
+    "correct": 632,
+    "silent": 136,
+    "flagged": 0,
+    "wins": 424,
+    "regressions": 112,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 80,
+        "regressions": 80,
+        "correct_decode": 112
+      },
+      "-5": {
+        "silent_misdecode": 56,
+        "regressions": 32,
+        "correct_decode": 136,
+        "wins": 40
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 210,
+    "loop_wait": 209,
+    "correct": 584,
+    "silent": 184,
+    "flagged": 0,
+    "wins": 416,
+    "regressions": 152,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 104,
+        "regressions": 104,
+        "correct_decode": 88
+      },
+      "-5": {
+        "silent_misdecode": 80,
+        "regressions": 48,
+        "correct_decode": 112,
+        "wins": 32
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 211,
+    "loop_wait": 209,
+    "correct": 536,
+    "silent": 232,
+    "flagged": 0,
+    "wins": 408,
+    "regressions": 192,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 128,
+        "regressions": 128,
+        "correct_decode": 64
+      },
+      "-5": {
+        "silent_misdecode": 104,
+        "regressions": 64,
+        "correct_decode": 88,
+        "wins": 24
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 207,
+    "loop_wait": 210,
+    "correct": 512,
+    "silent": 256,
+    "flagged": 0,
+    "wins": 384,
+    "regressions": 192,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 192,
+        "regressions": 192
+      },
+      "-5": {
+        "correct_decode": 128,
+        "silent_misdecode": 64
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 208,
+    "loop_wait": 210,
+    "correct": 384,
+    "silent": 384,
+    "flagged": 0,
+    "wins": 384,
+    "regressions": 320,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 192,
+        "regressions": 192
+      },
+      "-5": {
+        "silent_misdecode": 192,
+        "regressions": 128
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 209,
+    "loop_wait": 210,
+    "correct": 384,
+    "silent": 384,
+    "flagged": 0,
+    "wins": 384,
+    "regressions": 320,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 192,
+        "regressions": 192
+      },
+      "-5": {
+        "silent_misdecode": 192,
+        "regressions": 128
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 210,
+    "loop_wait": 210,
+    "correct": 384,
+    "silent": 384,
+    "flagged": 0,
+    "wins": 384,
+    "regressions": 320,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 192,
+        "regressions": 192
+      },
+      "-5": {
+        "silent_misdecode": 192,
+        "regressions": 128
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 211,
+    "loop_wait": 210,
+    "correct": 384,
+    "silent": 384,
+    "flagged": 0,
+    "wins": 384,
+    "regressions": 320,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 192,
+        "regressions": 192
+      },
+      "-5": {
+        "silent_misdecode": 192,
+        "regressions": 128
+      },
+      "5": {
+        "correct_decode": 192,
+        "wins": 192
+      },
+      "7": {
+        "correct_decode": 192,
+        "wins": 192
+      }
+    }
+  },
+  {
+    "initial_wait": 207,
+    "loop_wait": 211,
+    "correct": 368,
+    "silent": 400,
+    "flagged": 0,
+    "wins": 296,
+    "regressions": 248,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 152,
+        "regressions": 152,
+        "correct_decode": 40
+      },
+      "-5": {
+        "correct_decode": 32,
+        "silent_misdecode": 160,
+        "regressions": 96
+      },
+      "5": {
+        "correct_decode": 136,
+        "wins": 136,
+        "silent_misdecode": 56
+      },
+      "7": {
+        "correct_decode": 160,
+        "wins": 160,
+        "silent_misdecode": 32
+      }
+    }
+  },
+  {
+    "initial_wait": 211,
+    "loop_wait": 211,
+    "correct": 352,
+    "silent": 416,
+    "flagged": 0,
+    "wins": 136,
+    "regressions": 104,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 56,
+        "regressions": 56,
+        "correct_decode": 136
+      },
+      "-5": {
+        "silent_misdecode": 80,
+        "regressions": 48,
+        "correct_decode": 112,
+        "wins": 32
+      },
+      "5": {
+        "correct_decode": 40,
+        "wins": 40,
+        "silent_misdecode": 152
+      },
+      "7": {
+        "correct_decode": 64,
+        "wins": 64,
+        "silent_misdecode": 128
+      }
+    }
+  },
+  {
+    "initial_wait": 210,
+    "loop_wait": 211,
+    "correct": 352,
+    "silent": 416,
+    "flagged": 0,
+    "wins": 176,
+    "regressions": 144,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 80,
+        "regressions": 80,
+        "correct_decode": 112
+      },
+      "-5": {
+        "silent_misdecode": 104,
+        "regressions": 64,
+        "correct_decode": 88,
+        "wins": 24
+      },
+      "5": {
+        "correct_decode": 64,
+        "wins": 64,
+        "silent_misdecode": 128
+      },
+      "7": {
+        "correct_decode": 88,
+        "wins": 88,
+        "silent_misdecode": 104
+      }
+    }
+  },
+  {
+    "initial_wait": 209,
+    "loop_wait": 211,
+    "correct": 352,
+    "silent": 416,
+    "flagged": 0,
+    "wins": 216,
+    "regressions": 184,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 104,
+        "regressions": 104,
+        "correct_decode": 88
+      },
+      "-5": {
+        "silent_misdecode": 128,
+        "regressions": 80,
+        "correct_decode": 64,
+        "wins": 16
+      },
+      "5": {
+        "correct_decode": 88,
+        "wins": 88,
+        "silent_misdecode": 104
+      },
+      "7": {
+        "correct_decode": 112,
+        "wins": 112,
+        "silent_misdecode": 80
+      }
+    }
+  },
+  {
+    "initial_wait": 208,
+    "loop_wait": 211,
+    "correct": 352,
+    "silent": 416,
+    "flagged": 0,
+    "wins": 256,
+    "regressions": 224,
+    "rtl_model_mismatches": 0,
+    "offset_results": {
+      "-7": {
+        "silent_misdecode": 128,
+        "regressions": 128,
+        "correct_decode": 64
+      },
+      "-5": {
+        "silent_misdecode": 152,
+        "regressions": 96,
+        "correct_decode": 40,
+        "wins": 8
+      },
+      "5": {
+        "correct_decode": 112,
+        "wins": 112,
+        "silent_misdecode": 80
+      },
+      "7": {
+        "correct_decode": 136,
+        "wins": 136,
+        "silent_misdecode": 56
+      }
+    }
+  }
+]

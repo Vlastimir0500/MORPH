@@ -1,0 +1,372 @@
+{
+  "schema": "morph.trace-validation-report.v0.1",
+  "status": "PASS",
+  "checks_passed": 26,
+  "checks_failed": 0,
+  "checks": [
+    {
+      "name": "SPI trace schema",
+      "status": "PASS",
+      "observed": "morph.protocol-trace.v0.1",
+      "expected": "morph.protocol-trace.v0.1"
+    },
+    {
+      "name": "I2C ACK trace schema",
+      "status": "PASS",
+      "observed": "morph.protocol-trace.v0.1",
+      "expected": "morph.protocol-trace.v0.1"
+    },
+    {
+      "name": "I2C NACK trace schema",
+      "status": "PASS",
+      "observed": "morph.protocol-trace.v0.1",
+      "expected": "morph.protocol-trace.v0.1"
+    },
+    {
+      "name": "SPI captured active-low CS and release",
+      "status": "PASS",
+      "observed": {
+        "active_seen": true,
+        "release_cycle": 406
+      },
+      "expected": "CS active and subsequently released"
+    },
+    {
+      "name": "SPI MOSI sequence",
+      "status": "PASS",
+      "observed": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "SPI rising edge count",
+      "status": "PASS",
+      "observed": 8,
+      "expected": 8
+    },
+    {
+      "name": "SPI falling edge count",
+      "status": "PASS",
+      "observed": 8,
+      "expected": 8
+    },
+    {
+      "name": "SPI high-phase durations",
+      "status": "PASS",
+      "observed": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24
+      ],
+      "expected": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "name": "SPI rising-edge spacing",
+      "status": "PASS",
+      "observed": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "expected": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ]
+    },
+    {
+      "name": "SPI CS stays active at every rising edge",
+      "status": "PASS",
+      "observed": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "expected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "SPI CS release timing",
+      "status": "PASS",
+      "observed": 2,
+      "expected": 2
+    },
+    {
+      "name": "I2C ACK trace bus reconstruction",
+      "status": "PASS",
+      "observed": true,
+      "expected": true
+    },
+    {
+      "name": "I2C address bits",
+      "status": "PASS",
+      "observed": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "I2C slave ACK level",
+      "status": "PASS",
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "I2C START count",
+      "status": "PASS",
+      "observed": 1,
+      "expected": 1
+    },
+    {
+      "name": "I2C STOP observed",
+      "status": "PASS",
+      "observed": [
+        1178
+      ],
+      "expected": "at least one STOP"
+    },
+    {
+      "name": "I2C master clock-edge count",
+      "status": "PASS",
+      "observed": 10,
+      "expected": 10
+    },
+    {
+      "name": "I2C no false fault after ACK",
+      "status": "PASS",
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "I2C lines released after STOP",
+      "status": "PASS",
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "I2C NACK fault is signaled",
+      "status": "PASS",
+      "observed": {
+        "cycle": 1168,
+        "uio_oe": 128,
+        "uio_out": 128
+      },
+      "expected": "fault output asserted"
+    },
+    {
+      "name": "I2C NACK releases SDA/SCL",
+      "status": "PASS",
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "I2C NACK trace contains no slave ACK",
+      "status": "PASS",
+      "observed": false,
+      "expected": false
+    },
+    {
+      "name": "Fresh Cocotb trace tests passed",
+      "status": "PASS",
+      "observed": {
+        "test_spi_mode0_a5_trace": "PASS",
+        "test_i2c_address_probe_ack_trace": "PASS",
+        "test_i2c_nack_trace": "PASS"
+      },
+      "expected": {
+        "test_spi_mode0_a5_trace": "PASS",
+        "test_i2c_address_probe_ack_trace": "PASS",
+        "test_i2c_nack_trace": "PASS"
+      }
+    },
+    {
+      "name": "Fresh Cocotb suite contains no failures",
+      "status": "PASS",
+      "observed": [],
+      "expected": []
+    },
+    {
+      "name": "TinyTapeout engine matches production RTL",
+      "status": "PASS",
+      "observed": {
+        "production": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+        "tinytapeout_copy": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552"
+      },
+      "expected": "identical SHA-256"
+    },
+    {
+      "name": "Production RTL unchanged by trace workflow",
+      "status": "PASS",
+      "observed": {
+        "before": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+        "after": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+        "current": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552"
+      },
+      "expected": "same SHA-256 before and after"
+    }
+  ],
+  "cocotb_results": {
+    "test_spi_mode0_a5_trace": "PASS",
+    "test_i2c_address_probe_ack_trace": "PASS",
+    "test_i2c_nack_trace": "PASS"
+  },
+  "rtl_sha256_before": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "rtl_sha256_after": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "rtl_sha256_current": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "tinytapeout_engine_sha256": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "trace_files": [
+    "/home/rattan_0500/MORPH/traceforge/rtl_run/protocol_traces/spi_mode0_a5_trace.json",
+    "/home/rattan_0500/MORPH/traceforge/rtl_run/protocol_traces/i2c_address_probe_ack_trace.json",
+    "/home/rattan_0500/MORPH/traceforge/rtl_run/protocol_traces/i2c_nack_trace.json"
+  ],
+  "spi_observations": {
+    "samples": 406,
+    "mosi_bits": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "rising_cycles": [
+      30,
+      80,
+      130,
+      180,
+      230,
+      280,
+      330,
+      380
+    ],
+    "falling_cycles": [
+      54,
+      104,
+      154,
+      204,
+      254,
+      304,
+      354,
+      404
+    ],
+    "high_phase_cycles": [
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24
+    ],
+    "rising_edge_spacing_cycles": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "cs_release_cycle": 406
+  },
+  "i2c_ack_observations": {
+    "address_bits": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ack_level": 0,
+    "start_cycles": [
+      10
+    ],
+    "stop_cycles": [
+      1178
+    ],
+    "master_scl_rising_edges": 10,
+    "bus_model_consistent": true,
+    "final_uio_oe": 0,
+    "final_uio_out": 0,
+    "final_lines_released": true,
+    "final_fault_clear": true
+  },
+  "i2c_nack_observations": {
+    "samples": 1168,
+    "terminal_fault_release_cycle": 1168
+  }
+}

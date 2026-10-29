@@ -1,0 +1,1511 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.66 (git sha1 86f2ddebce7e98ce7cacc27e8a5c14cb53b51b51, clang++ 21.1.8 -fPIC -O3)
+
+1. Executing Liberty frontend: /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_typ_1p20V_25C.lib
+Imported 84 cell types from liberty file.
+
+2. Executing Liberty frontend: /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_typ_1p2V_3p3V_25C.lib
+Imported 15 cell types from liberty file.
+[INFO] Using SDC file '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/06-yosys-synthesis/synthesis.abc.sdc' for ABC…
+
+3. Executing Verilog-2005 frontend: /home/rattan_0500/MORPH/tinytapeout-template/src/project.v
+Parsing SystemVerilog input from `/home/rattan_0500/MORPH/tinytapeout-template/src/project.v' to AST representation.
+Storing AST representation for module `$abstract\tt_um_rattandeep_morph'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv
+Parsing SystemVerilog input from `/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv' to AST representation.
+Storing AST representation for module `$abstract\morph_engine'.
+Successfully finished Verilog frontend.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\tt_um_rattandeep_morph'.
+Generating RTLIL representation for module `\tt_um_rattandeep_morph'.
+
+6.1. Analyzing design hierarchy..
+Top module:  \tt_um_rattandeep_morph
+
+6.2. Executing AST frontend in derive mode using pre-parsed AST for module `\morph_engine'.
+Generating RTLIL representation for module `\morph_engine'.
+
+6.3. Analyzing design hierarchy..
+Top module:  \tt_um_rattandeep_morph
+Used module:     \morph_engine
+
+6.4. Analyzing design hierarchy..
+Top module:  \tt_um_rattandeep_morph
+Used module:     \morph_engine
+Removing unused module `$abstract\morph_engine'.
+Removing unused module `$abstract\tt_um_rattandeep_morph'.
+Removed 2 unused modules.
+Renaming module tt_um_rattandeep_morph to tt_um_rattandeep_morph.
+
+7. Executing ATTRMAP pass (move or copy attributes).
+
+8. Executing TRIBUF pass.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \tt_um_rattandeep_morph
+Used module:     \morph_engine
+
+9.2. Analyzing design hierarchy..
+Top module:  \tt_um_rattandeep_morph
+Used module:     \morph_engine
+Removed 0 unused modules.
+
+10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/home/rattan_0500/MORPH/tinytapeout-template/src/project.v:30$5 in module tt_um_rattandeep_morph.
+Marked 7 switch rules as full_case in process $proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15 in module morph_engine.
+Removed a total of 0 dead cases.
+
+12. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 3 assignments to connections.
+
+13. Executing PROC_INIT pass (extract init attributes).
+
+14. Executing PROC_ARST pass (detect async resets in processes).
+
+15. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~13 debug messages>
+
+16. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\tt_um_rattandeep_morph.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/project.v:30$5'.
+     1/3: $0\program_low_valid[0:0]
+     2/3: $0\program_address[3:0]
+     3/3: $0\program_low_byte[7:0]
+Creating decoders for process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+     1/11: $0\pin_prev[0:0]
+     2/11: $1$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$21
+     3/11: $1$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_DATA[15:0]$20
+     4/11: $1$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_ADDR[3:0]$19
+     5/11: $0\state[1:0]
+     6/11: $0\wait_count[7:0]
+     7/11: $0\ir[15:0]
+     8/11: $0\pc[3:0]
+     9/11: $0\shift_reg[7:0]
+    10/11: $0\sample_reg[0:0]
+    11/11: $0\pin_out[0:0]
+
+17. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+18. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\tt_um_rattandeep_morph.\program_low_byte' using process `\tt_um_rattandeep_morph.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/project.v:30$5'.
+  created $dff cell `$procdff$199' with positive edge clock.
+Creating register for signal `\tt_um_rattandeep_morph.\program_address' using process `\tt_um_rattandeep_morph.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/project.v:30$5'.
+  created $dff cell `$procdff$200' with positive edge clock.
+Creating register for signal `\tt_um_rattandeep_morph.\program_low_valid' using process `\tt_um_rattandeep_morph.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/project.v:30$5'.
+  created $dff cell `$procdff$201' with positive edge clock.
+Creating register for signal `\morph_engine.\pin_out' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$202' with positive edge clock.
+Creating register for signal `\morph_engine.\sample_reg' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$203' with positive edge clock.
+Creating register for signal `\morph_engine.\shift_reg' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$204' with positive edge clock.
+Creating register for signal `\morph_engine.\pc' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$205' with positive edge clock.
+Creating register for signal `\morph_engine.\ir' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$206' with positive edge clock.
+Creating register for signal `\morph_engine.\wait_count' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$207' with positive edge clock.
+Creating register for signal `\morph_engine.\pin_prev' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$208' with positive edge clock.
+Creating register for signal `\morph_engine.\state' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$209' with positive edge clock.
+Creating register for signal `\morph_engine.$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_ADDR' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$210' with positive edge clock.
+Creating register for signal `\morph_engine.$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_DATA' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$211' with positive edge clock.
+Creating register for signal `\morph_engine.$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN' using process `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+  created $dff cell `$procdff$212' with positive edge clock.
+
+19. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+20. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\tt_um_rattandeep_morph.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/project.v:30$5'.
+Removing empty process `tt_um_rattandeep_morph.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/project.v:30$5'.
+Found and cleaned up 9 empty switches in `\morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+Removing empty process `morph_engine.$proc$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:25$15'.
+Cleaned up 13 empty switches.
+
+21. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_rattandeep_morph...
+Checking module morph_engine...
+Found and reported 0 problems.
+
+22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+<suppressed ~7 debug messages>
+Optimizing module morph_engine.
+<suppressed ~11 debug messages>
+
+23. Executing FLATTEN pass (flatten design).
+Deleting now unused module morph_engine.
+<suppressed ~1 debug messages>
+
+24. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+25. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 6 unused cells and 59 unused wires.
+<suppressed ~7 debug messages>
+
+26. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+27. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 109 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Computing hashes of 87 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+<suppressed ~66 debug messages>
+Removed a total of 22 cells.
+
+28. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$39: \program_low_valid -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~62 debug messages>
+
+29. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+    New ctrl vector for $pmux cell $flatten\engine.$procmux$145: { $flatten\engine.$procmux$146_CMP $auto$opt_reduce.cc:135:opt_pmux$216 $flatten\engine.$procmux$94_CMP $flatten\engine.$procmux$98_CMP }
+    Consolidated identical input bits for $mux cell $flatten\engine.$procmux$69:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18
+      New ports: A=1'0, B=1'1, Y=$flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0]
+      New connections: $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [15:1] = { $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] $flatten\engine.$0$memwr$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:27$14_EN[15:0]$18 [0] }
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 2 changes.
+
+30. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 88 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+31. Executing OPT_DFF pass (perform DFF optimizations).
+
+32. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 0 unused cells and 22 unused wires.
+<suppressed ~1 debug messages>
+
+33. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+<suppressed ~1 debug messages>
+
+34. Rerunning OPT passes. (Maybe there is more to do…)
+
+35. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~61 debug messages>
+
+36. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 0 changes.
+
+37. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 87 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+38. Executing OPT_DFF pass (perform DFF optimizations).
+
+39. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+40. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+41. Rerunning OPT passes. (Maybe there is more to do…)
+
+42. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~61 debug messages>
+
+43. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 0 changes.
+
+44. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 87 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+45. Executing OPT_DFF pass (perform DFF optimizations).
+
+46. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+
+47. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+48. Executing FSM pass (extract and optimize FSM).
+
+48.1. Executing FSM_DETECT pass (finding FSMs in design).
+Found FSM state register tt_um_rattandeep_morph.engine.state.
+
+48.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\engine.state' from module `\tt_um_rattandeep_morph'.
+  found $dff cell for state register: $flatten\engine.$procdff$209
+  root of input selection tree: $flatten\engine.$0\state[1:0]
+  found reset state: 2'00 (guessed from mux tree)
+  found ctrl input: \rst_n
+  found state code: 2'00
+  found ctrl input: $flatten\engine.$procmux$139_CMP
+  found ctrl input: $flatten\engine.$procmux$109_CMP
+  found ctrl input: $flatten\engine.$procmux$119_CMP
+  found ctrl input: $flatten\engine.$procmux$100_CMP
+  found ctrl input: \engine.ir [0]
+  found ctrl input: $flatten\engine.$logic_and$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:113$37_Y
+  found ctrl input: $flatten\engine.$logic_and$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:108$34_Y
+  found ctrl input: $flatten\engine.$le$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:97$30_Y
+  found ctrl input: $flatten\engine.$procmux$148_CMP
+  found ctrl input: $flatten\engine.$procmux$118_CMP
+  found state code: 2'11
+  found ctrl input: $flatten\engine.$eq$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:64$26_Y
+  found state code: 2'10
+  found state code: 2'01
+  found ctrl output: $flatten\engine.$procmux$100_CMP
+  found ctrl output: $flatten\engine.$procmux$119_CMP
+  found ctrl output: $flatten\engine.$procmux$109_CMP
+  found ctrl output: $flatten\engine.$procmux$139_CMP
+  ctrl inputs: { \engine.ir [0] $flatten\engine.$eq$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:64$26_Y $flatten\engine.$le$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:97$30_Y $flatten\engine.$logic_and$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:108$34_Y $flatten\engine.$logic_and$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:113$37_Y $flatten\engine.$procmux$118_CMP $flatten\engine.$procmux$148_CMP \rst_n }
+  ctrl outputs: { $flatten\engine.$0\state[1:0] $flatten\engine.$procmux$100_CMP $flatten\engine.$procmux$109_CMP $flatten\engine.$procmux$119_CMP $flatten\engine.$procmux$139_CMP }
+  transition:       2'00 8'-------0 ->       2'00 6'001000
+  transition:       2'00 8'-------1 ->       2'01 6'011000
+  transition:       2'10 8'-------0 ->       2'00 6'000100
+  transition:       2'10 8'--0----1 ->       2'10 6'100100
+  transition:       2'10 8'--1----1 ->       2'00 6'000100
+  transition:       2'01 8'-------0 ->       2'00 6'000010
+  transition:       2'01 8'-----001 ->       2'00 6'000010
+  transition:       2'01 8'-0---1-1 ->       2'10 6'100010
+  transition:       2'01 8'-1---1-1 ->       2'00 6'000010
+  transition:       2'01 8'------11 ->       2'11 6'110010
+  transition:       2'11 8'-------0 ->       2'00 6'000001
+  transition:       2'11 8'0---0--1 ->       2'11 6'110001
+  transition:       2'11 8'0---1--1 ->       2'00 6'000001
+  transition:       2'11 8'1--0---1 ->       2'11 6'110001
+  transition:       2'11 8'1--1---1 ->       2'00 6'000001
+
+48.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\engine.state$217' from module `\tt_um_rattandeep_morph'.
+
+48.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 13 unused cells and 13 unused wires.
+<suppressed ~14 debug messages>
+
+48.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\engine.state$217' from module `\tt_um_rattandeep_morph'.
+  Removing unused output signal $flatten\engine.$0\state[1:0] [0].
+  Removing unused output signal $flatten\engine.$0\state[1:0] [1].
+
+48.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\engine.state$217' from module `\tt_um_rattandeep_morph' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  00 -> ---1
+  10 -> --1-
+  01 -> -1--
+  11 -> 1---
+
+48.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\engine.state$217' from module `tt_um_rattandeep_morph':
+-------------------------------------
+
+  Information on FSM $fsm$\engine.state$217 (\engine.state):
+
+  Number of input signals:    8
+  Number of output signals:   4
+  Number of state bits:       4
+
+  Input signals:
+    0: \rst_n
+    1: $flatten\engine.$procmux$148_CMP
+    2: $flatten\engine.$procmux$118_CMP
+    3: $flatten\engine.$logic_and$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:113$37_Y
+    4: $flatten\engine.$logic_and$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:108$34_Y
+    5: $flatten\engine.$le$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:97$30_Y
+    6: $flatten\engine.$eq$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:64$26_Y
+    7: \engine.ir [0]
+
+  Output signals:
+    0: $flatten\engine.$procmux$139_CMP
+    1: $flatten\engine.$procmux$119_CMP
+    2: $flatten\engine.$procmux$109_CMP
+    3: $flatten\engine.$procmux$100_CMP
+
+  State encoding:
+    0:     4'---1  <RESET STATE>
+    1:     4'--1-
+    2:     4'-1--
+    3:     4'1---
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 8'-------0   ->     0 4'1000
+      1:     0 8'-------1   ->     2 4'1000
+      2:     1 8'-------0   ->     0 4'0100
+      3:     1 8'--1----1   ->     0 4'0100
+      4:     1 8'--0----1   ->     1 4'0100
+      5:     2 8'-------0   ->     0 4'0010
+      6:     2 8'-----001   ->     0 4'0010
+      7:     2 8'-1---1-1   ->     0 4'0010
+      8:     2 8'-0---1-1   ->     1 4'0010
+      9:     2 8'------11   ->     3 4'0010
+     10:     3 8'-------0   ->     0 4'0001
+     11:     3 8'0---1--1   ->     0 4'0001
+     12:     3 8'1--1---1   ->     0 4'0001
+     13:     3 8'0---0--1   ->     3 4'0001
+     14:     3 8'1--0---1   ->     3 4'0001
+
+-------------------------------------
+
+48.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\engine.state$217' from module `\tt_um_rattandeep_morph'.
+
+49. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+<suppressed ~2 debug messages>
+
+50. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 100 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+51. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~52 debug messages>
+
+52. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 0 changes.
+
+53. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 100 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+54. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$201 ($dff) from module tt_um_rattandeep_morph (D = $procmux$44_Y, Q = \program_low_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$276 ($sdff) from module tt_um_rattandeep_morph (D = $procmux$42_Y, Q = \program_low_valid).
+Adding SRST signal on $procdff$200 ($dff) from module tt_um_rattandeep_morph (D = $procmux$52_Y, Q = \program_address, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:337:slice$278 ($sdff) from module tt_um_rattandeep_morph (D = \ui_in [3:0], Q = \program_address).
+Adding SRST signal on $procdff$199 ($dff) from module tt_um_rattandeep_morph (D = $procmux$60_Y, Q = \program_low_byte, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$284 ($sdff) from module tt_um_rattandeep_morph (D = \uio_in, Q = \program_low_byte).
+Adding SRST signal on $flatten\engine.$procdff$202 ($dff) from module tt_um_rattandeep_morph (D = $flatten\engine.$procmux$194_Y, Q = \engine.pin_out, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$290 ($sdff) from module tt_um_rattandeep_morph (D = \engine.ir [0], Q = \engine.pin_out).
+Adding SRST signal on $flatten\engine.$procdff$203 ($dff) from module tt_um_rattandeep_morph (D = $flatten\engine.$procmux$179_Y, Q = \engine.sample_reg, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$294 ($sdff) from module tt_um_rattandeep_morph (D = \uio_in [0], Q = \engine.sample_reg).
+Adding SRST signal on $flatten\engine.$procdff$208 ($dff) from module tt_um_rattandeep_morph (D = \uio_in [0], Q = \engine.pin_prev, rval = 1'0).
+Adding SRST signal on $flatten\engine.$procdff$207 ($dff) from module tt_um_rattandeep_morph (D = $flatten\engine.$procmux$108_Y, Q = \engine.wait_count, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$299 ($sdff) from module tt_um_rattandeep_morph (D = $flatten\engine.$procmux$108_Y, Q = \engine.wait_count).
+Adding SRST signal on $flatten\engine.$procdff$206 ($dff) from module tt_um_rattandeep_morph (D = $flatten\engine.$procmux$126_Y, Q = \engine.ir, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:337:slice$309 ($sdff) from module tt_um_rattandeep_morph (D = $flatten\engine.$memrd$\prog_mem$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:44$23_DATA, Q = \engine.ir).
+Adding SRST signal on $flatten\engine.$procdff$205 ($dff) from module tt_um_rattandeep_morph (D = $flatten\engine.$procmux$138_Y, Q = \engine.pc, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:337:slice$311 ($sdff) from module tt_um_rattandeep_morph (D = $flatten\engine.$procmux$138_Y, Q = \engine.pc).
+Adding SRST signal on $flatten\engine.$procdff$204 ($dff) from module tt_um_rattandeep_morph (D = $flatten\engine.$procmux$165_Y, Q = \engine.shift_reg, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$327 ($sdff) from module tt_um_rattandeep_morph (D = { \engine.shift_reg [6:0] \engine.sample_reg }, Q = \engine.shift_reg).
+
+55. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 22 unused cells and 30 unused wires.
+<suppressed ~23 debug messages>
+
+56. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+<suppressed ~2 debug messages>
+
+57. Rerunning OPT passes. (Maybe there is more to do…)
+
+58. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+59. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 0 changes.
+
+60. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 96 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Computing hashes of 95 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Computing hashes of 94 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+61. Executing OPT_DFF pass (perform DFF optimizations).
+
+62. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+63. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+64. Rerunning OPT passes. (Maybe there is more to do…)
+
+65. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+66. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 0 changes.
+
+67. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 94 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+68. Executing OPT_DFF pass (perform DFF optimizations).
+
+69. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+
+70. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+71. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell tt_um_rattandeep_morph.$auto$opt_dff.cc:235:make_patterns_logic$318 ($ne).
+Removed top 2 bits (of 3) from port B of cell tt_um_rattandeep_morph.$auto$fsm_map.cc:77:implement_pattern_cache$268 ($eq).
+Removed top 1 bits (of 2) from port B of cell tt_um_rattandeep_morph.$auto$fsm_map.cc:77:implement_pattern_cache$255 ($eq).
+Removed top 1 bits (of 3) from port B of cell tt_um_rattandeep_morph.$auto$fsm_map.cc:77:implement_pattern_cache$251 ($eq).
+Removed top 1 bits (of 3) from port B of cell tt_um_rattandeep_morph.$auto$fsm_map.cc:77:implement_pattern_cache$238 ($eq).
+Removed top 2 bits (of 3) from port B of cell tt_um_rattandeep_morph.$auto$fsm_map.cc:77:implement_pattern_cache$230 ($eq).
+Removed top 7 bits (of 8) from mux cell tt_um_rattandeep_morph.$ternary$/home/rattan_0500/MORPH/tinytapeout-template/src/project.v:60$12 ($mux).
+Removed top 3 bits (of 4) from port B of cell tt_um_rattandeep_morph.$flatten\engine.$procmux$154_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell tt_um_rattandeep_morph.$flatten\engine.$procmux$153_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tt_um_rattandeep_morph.$flatten\engine.$procmux$147_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tt_um_rattandeep_morph.$flatten\engine.$procmux$146_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell tt_um_rattandeep_morph.$flatten\engine.$procmux$98_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tt_um_rattandeep_morph.$flatten\engine.$procmux$94_CMP0 ($eq).
+Removed top 31 bits (of 32) from port B of cell tt_um_rattandeep_morph.$flatten\engine.$le$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:97$30 ($le).
+
+72. Executing PEEPOPT pass (run peephole optimizers).
+
+73. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+
+74. Executing BOOTH pass (map to Booth multipliers).
+Mapped 0 multipliers.
+
+75. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module tt_um_rattandeep_morph:
+  creating $macc model for $flatten\engine.$add$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:79$28 ($add).
+  creating $macc model for $flatten\engine.$sub$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:102$32 ($sub).
+  creating $alu model for $macc $flatten\engine.$sub$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:102$32.
+  creating $alu model for $macc $flatten\engine.$add$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:79$28.
+  creating $alu model for $flatten\engine.$le$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:97$30 ($le): merged with $flatten\engine.$sub$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:102$32.
+  creating $alu cell for $flatten\engine.$add$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:79$28: $auto$alumacc.cc:512:replace_alu$331
+  creating $alu cell for $flatten\engine.$sub$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:102$32, $flatten\engine.$le$/home/rattan_0500/MORPH/tinytapeout-template/src/morph_engine.sv:97$30: $auto$alumacc.cc:512:replace_alu$334
+  created 2 $alu and 0 $macc cells.
+
+76. Executing ARITH_TREE pass.
+
+77. Executing SHARE pass (SAT-based resource sharing).
+
+78. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+79. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 96 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+80. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+81. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 0 changes.
+
+82. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 96 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+83. Executing OPT_DFF pass (perform DFF optimizations).
+
+84. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+85. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+86. Rerunning OPT passes. (Maybe there is more to do…)
+
+87. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+88. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 0 changes.
+
+89. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 96 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+90. Executing OPT_DFF pass (perform DFF optimizations).
+
+91. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+
+92. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+93. Executing MEMORY pass.
+
+93.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+93.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+93.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing tt_um_rattandeep_morph.engine.prog_mem write port 0.
+
+93.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+93.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\engine.prog_mem'[0] in module `\tt_um_rattandeep_morph': merging output FF to cell.
+    Write port 0: non-transparent.
+
+93.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 1 unused cells and 17 unused wires.
+<suppressed ~2 debug messages>
+
+93.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+93.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+93.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+
+93.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+94. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+
+95. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+<suppressed ~15 debug messages>
+
+96. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 84 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Computing hashes of 83 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+97. Executing OPT_DFF pass (perform DFF optimizations).
+
+98. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~1 debug messages>
+
+99. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \engine.prog_mem in module \tt_um_rattandeep_morph:
+  created 16 $dff cells and 0 static cells of width 16.
+Extracted data FF from read port 0 of tt_um_rattandeep_morph.engine.prog_mem: $\engine.prog_mem$rdreg[0]
+  read interface: 1 $dff and 15 $mux cells.
+  write interface: 16 write mux blocks.
+
+100. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+<suppressed ~9 debug messages>
+
+101. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 174 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+102. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~54 debug messages>
+
+103. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+    New ctrl vector for $pmux cell $flatten\engine.$procmux$138: $auto$opt_reduce.cc:135:opt_pmux$568
+    New ctrl vector for $pmux cell $flatten\engine.$procmux$145: { $auto$opt_reduce.cc:135:opt_pmux$570 $flatten\engine.$procmux$146_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:129:opt_pmux$569: { $flatten\engine.$procmux$118_CMP $flatten\engine.$procmux$147_CMP $flatten\engine.$procmux$153_CMP $flatten\engine.$procmux$154_CMP }
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 3 changes.
+
+104. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 176 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+105. Executing OPT_SHARE pass.
+
+106. Executing OPT_DFF pass (perform DFF optimizations).
+
+107. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 2 unused cells and 38 unused wires.
+<suppressed ~3 debug messages>
+
+108. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+109. Rerunning OPT passes. (Maybe there is more to do…)
+
+110. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~54 debug messages>
+
+111. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 0 changes.
+
+112. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 174 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+113. Executing OPT_SHARE pass.
+
+114. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\engine.prog_mem[0]$362 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[0]).
+Adding EN signal on $memory\engine.prog_mem[1]$364 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[1]).
+Adding EN signal on $memory\engine.prog_mem[2]$366 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[2]).
+Adding EN signal on $memory\engine.prog_mem[3]$368 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[3]).
+Adding EN signal on $memory\engine.prog_mem[4]$370 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[4]).
+Adding EN signal on $memory\engine.prog_mem[5]$372 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[5]).
+Adding EN signal on $memory\engine.prog_mem[6]$374 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[6]).
+Adding EN signal on $memory\engine.prog_mem[7]$376 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[7]).
+Adding EN signal on $memory\engine.prog_mem[8]$378 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[8]).
+Adding EN signal on $memory\engine.prog_mem[9]$380 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[9]).
+Adding EN signal on $memory\engine.prog_mem[10]$382 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[10]).
+Adding EN signal on $memory\engine.prog_mem[11]$384 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[11]).
+Adding EN signal on $memory\engine.prog_mem[12]$386 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[12]).
+Adding EN signal on $memory\engine.prog_mem[13]$388 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[13]).
+Adding EN signal on $memory\engine.prog_mem[14]$390 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[14]).
+Adding EN signal on $memory\engine.prog_mem[15]$392 ($dff) from module tt_um_rattandeep_morph (D = { \uio_in \program_low_byte }, Q = \engine.prog_mem[15]).
+
+115. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 16 unused cells and 16 unused wires.
+<suppressed ~17 debug messages>
+
+116. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+117. Rerunning OPT passes. (Maybe there is more to do…)
+
+118. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+119. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 0 changes.
+
+120. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 158 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+121. Executing OPT_SHARE pass.
+
+122. Executing OPT_DFF pass (perform DFF optimizations).
+
+123. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+
+124. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+125. Executing TECHMAP pass (map to technology primitives).
+
+125.1. Executing Verilog-2005 frontend: /nix/store/a9l8l27f050y0ah3jilxkzxwrkfi561z-yosys-0.66/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/a9l8l27f050y0ah3jilxkzxwrkfi561z-yosys-0.66/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+125.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod$403a3c2fa431a154c52a6a5429d7a6260b5d144f\_90_alu for cells of type $alu.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $pmux.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~583 debug messages>
+
+126. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+<suppressed ~168 debug messages>
+
+127. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 848 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Computing hashes of 818 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Computing hashes of 812 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+<suppressed ~108 debug messages>
+Removed a total of 36 cells.
+
+128. Executing OPT_DFF pass (perform DFF optimizations).
+
+129. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 133 unused cells and 193 unused wires.
+<suppressed ~134 debug messages>
+
+130. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+131. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 679 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+132. Executing OPT_DFF pass (perform DFF optimizations).
+
+133. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+
+134. Executing ABC pass (technology mapping using ABC).
+
+134.1. Extracting gate netlist of module `\tt_um_rattandeep_morph' to `<abc-temp-dir>/input.blif'..
+
+134.1.1. Executed ABC.
+Extracted 434 gates and 667 wires to a netlist network with 232 inputs and 53 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+134.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       12
+ABC RESULTS:            ANDNOT cells:       70
+ABC RESULTS:               MUX cells:      198
+ABC RESULTS:              NAND cells:       11
+ABC RESULTS:               NOR cells:       11
+ABC RESULTS:               NOT cells:       11
+ABC RESULTS:                OR cells:       52
+ABC RESULTS:             ORNOT cells:       15
+ABC RESULTS:              XNOR cells:        2
+ABC RESULTS:               XOR cells:        8
+ABC RESULTS:        internal signals:      382
+ABC RESULTS:           input signals:      232
+ABC RESULTS:          output signals:       53
+Removing temp directory.
+Removing global temp directory.
+
+135. Executing OPT pass (performing simple optimizations).
+
+135.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+<suppressed ~93 debug messages>
+
+135.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 635 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Computing hashes of 632 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+135.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+135.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 1 unused cells and 459 unused wires.
+<suppressed ~4 debug messages>
+
+135.5. Finished fast OPT passes.
+
+136. Executing HIERARCHY pass (managing design hierarchy).
+
+136.1. Analyzing design hierarchy..
+Top module:  \tt_um_rattandeep_morph
+
+136.2. Analyzing design hierarchy..
+Top module:  \tt_um_rattandeep_morph
+Removed 0 unused modules.
+
+137. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_rattandeep_morph...
+Found and reported 0 problems.
+
+138. Printing statistics.
+
+=== tt_um_rattandeep_morph ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      422 wires
+      797 wire bits
+       48 public wires
+      408 public wire bits
+        8 ports
+       43 port bits
+      631 cells
+       70   $_ANDNOT_
+       12   $_AND_
+      192   $_DFFE_PP_
+        4   $_DFF_P_
+      198   $_MUX_
+       11   $_NAND_
+        8   $_NOR_
+       10   $_NOT_
+       15   $_ORNOT_
+       52   $_OR_
+       47   $_SDFFE_PN0P_
+        1   $_SDFF_PN0_
+        2   $_XNOR_
+        8   $_XOR_
+        1   $scopeinfo
+
+139. Executing OPT pass (performing simple optimizations).
+
+139.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+139.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 631 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+139.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_rattandeep_morph..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+139.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_rattandeep_morph.
+Performed a total of 0 changes.
+
+139.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_rattandeep_morph'.
+Computing hashes of 631 cells of `\tt_um_rattandeep_morph'.
+Finding duplicate cells in `\tt_um_rattandeep_morph'.
+Removed a total of 0 cells.
+
+139.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+139.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+
+139.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_rattandeep_morph.
+
+139.9. Finished fast OPT passes. (There is nothing left to do.)
+
+140. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 1 unused cells and 14 unused wires.
+<suppressed ~15 debug messages>
+{
+   "creator": "Yosys 0.66 (git sha1 86f2ddebce7e98ce7cacc27e8a5c14cb53b51b51, clang++ 21.1.8 -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/tmp/5193b8dd648c4cdca895f6b98e8c8167.lib -liberty /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/tmp/893e8e88404143988af3ca427acdee9d.lib ",
+   "modules": {
+      "\\tt_um_rattandeep_morph": {
+         "num_wires":         408,
+         "num_wire_bits":     744,
+         "num_pub_wires":     34,
+         "num_pub_wire_bits": 355,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         630,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 70,
+            "$_AND_": 12,
+            "$_DFFE_PP_": 192,
+            "$_DFF_P_": 4,
+            "$_MUX_": 198,
+            "$_NAND_": 11,
+            "$_NOR_": 8,
+            "$_NOT_": 10,
+            "$_ORNOT_": 15,
+            "$_OR_": 52,
+            "$_SDFFE_PN0P_": 47,
+            "$_SDFF_PN0_": 1,
+            "$_XNOR_": 2,
+            "$_XOR_": 8
+         }
+      }
+   },
+      "design": {
+         "num_wires":         408,
+         "num_wire_bits":     744,
+         "num_pub_wires":     34,
+         "num_pub_wire_bits": 355,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         630,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 70,
+            "$_AND_": 12,
+            "$_DFFE_PP_": 192,
+            "$_DFF_P_": 4,
+            "$_MUX_": 198,
+            "$_NAND_": 11,
+            "$_NOR_": 8,
+            "$_NOT_": 10,
+            "$_ORNOT_": 15,
+            "$_OR_": 52,
+            "$_SDFFE_PN0P_": 47,
+            "$_SDFF_PN0_": 1,
+            "$_XNOR_": 2,
+            "$_XOR_": 8
+         }
+      }
+}
+
+141. Printing statistics.
+
+=== tt_um_rattandeep_morph ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      408 wires
+      744 wire bits
+       34 public wires
+      355 public wire bits
+        8 ports
+       43 port bits
+      630 cells
+       70   $_ANDNOT_
+       12   $_AND_
+      192   $_DFFE_PP_
+        4   $_DFF_P_
+      198   $_MUX_
+       11   $_NAND_
+        8   $_NOR_
+       10   $_NOT_
+       15   $_ORNOT_
+       52   $_OR_
+       47   $_SDFFE_PN0P_
+        1   $_SDFF_PN0_
+        2   $_XNOR_
+        8   $_XOR_
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_DFFE_PP_ is unknown!
+   Area for cell type $_DFF_P_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_SDFFE_PN0P_ is unknown!
+   Area for cell type $_SDFF_PN0_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+
+[INFO] Applying tri-state buffer mapping from '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/tribuff_map.v'…
+
+142. Executing TECHMAP pass (map to technology primitives).
+
+142.1. Executing Verilog-2005 frontend: /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/tribuff_map.v
+Parsing Verilog input from `/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/tribuff_map.v' to AST representation.
+Generating RTLIL representation for module `$_TBUF_'.
+Successfully finished Verilog frontend.
+
+142.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+143. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+[INFO] Applying latch mapping from '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/latch_map.v'…
+
+144. Executing TECHMAP pass (map to technology primitives).
+
+144.1. Executing Verilog-2005 frontend: /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/latch_map.v
+Parsing Verilog input from `/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/latch_map.v' to AST representation.
+Generating RTLIL representation for module `$_DLATCH_P_'.
+Generating RTLIL representation for module `$_DLATCH_PN0_'.
+Generating RTLIL representation for module `$_DLATCH_N_'.
+Generating RTLIL representation for module `$_DLATCH_NN0_'.
+Successfully finished Verilog frontend.
+
+144.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~6 debug messages>
+
+145. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+146. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sg13cmos5l_dfrbpq_1 (noninv, pins=4, area=48.99) is a direct match for cell type $_DFF_PN0_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    unmapped dff cell: $_DFF_P_
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sg13cmos5l_dfrbpq_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff cell: $_DFF_PN1_
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    unmapped dff cell: $_DFFE_PP_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+146.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+<suppressed ~4 debug messages>
+Mapping DFF cells in module `\tt_um_rattandeep_morph':
+  mapped 244 $_DFF_PN0_ cells to \sg13cmos5l_dfrbpq_1 cells.
+{
+   "creator": "Yosys 0.66 (git sha1 86f2ddebce7e98ce7cacc27e8a5c14cb53b51b51, clang++ 21.1.8 -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/tmp/5193b8dd648c4cdca895f6b98e8c8167.lib -liberty /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/tmp/893e8e88404143988af3ca427acdee9d.lib ",
+   "modules": {
+      "\\tt_um_rattandeep_morph": {
+         "num_wires":         695,
+         "num_wire_bits":     1031,
+         "num_pub_wires":     34,
+         "num_pub_wire_bits": 355,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         917,
+         "num_submodules":       0,
+         "area":              11953.267200,
+         "sequential_area":    11953.267200,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 70,
+            "$_AND_": 12,
+            "$_MUX_": 485,
+            "$_NAND_": 11,
+            "$_NOR_": 8,
+            "$_NOT_": 10,
+            "$_ORNOT_": 15,
+            "$_OR_": 52,
+            "$_XNOR_": 2,
+            "$_XOR_": 8,
+            "sg13cmos5l_dfrbpq_1": 244
+         }
+      }
+   },
+      "design": {
+         "num_wires":         695,
+         "num_wire_bits":     1031,
+         "num_pub_wires":     34,
+         "num_pub_wire_bits": 355,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         917,
+         "num_submodules":       0,
+         "area":              11953.267200,
+         "sequential_area":    11953.267200,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 70,
+            "$_AND_": 12,
+            "$_MUX_": 485,
+            "$_NAND_": 11,
+            "$_NOR_": 8,
+            "$_NOT_": 10,
+            "$_ORNOT_": 15,
+            "$_OR_": 52,
+            "$_XNOR_": 2,
+            "$_XOR_": 8,
+            "sg13cmos5l_dfrbpq_1": 244
+         }
+      }
+}
+
+147. Printing statistics.
+
+=== tt_um_rattandeep_morph ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      695        - wires
+     1031        - wire bits
+       34        - public wires
+      355        - public wire bits
+        8        - ports
+       43        - port bits
+      917  1.2E+04 cells
+       70        -   $_ANDNOT_
+       12        -   $_AND_
+      485        -   $_MUX_
+       11        -   $_NAND_
+        8        -   $_NOR_
+       10        -   $_NOT_
+       15        -   $_ORNOT_
+       52        -   $_OR_
+        2        -   $_XNOR_
+        8        -   $_XOR_
+      244  1.2E+04   sg13cmos5l_dfrbpq_1
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+
+   Chip area for module '\tt_um_rattandeep_morph': 11953.267200
+     of which used for sequential elements: 11953.267200 (100.00%)
+
+[INFO] Using generated ABC strategy script '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/06-yosys-synthesis/AREA_0.abc'…
+
+148. Executing ABC pass (technology mapping using ABC).
+
+148.1. Extracting gate netlist of module `\tt_um_rattandeep_morph' to `/tmp/yosys-abc-7vqP8n/input.blif'..
+
+148.1.1. Executed ABC.
+Extracted 673 gates and 935 wires to a netlist network with 261 inputs and 245 outputs.
+Running ABC script: /tmp/yosys-abc-7vqP8n/abc.script
+ABC: ======== ABC command line "source /tmp/yosys-abc-7vqP8n/abc.script"
+ABC: + read_blif /tmp/yosys-abc-7vqP8n/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache/yosys_merged_13009430.scl 
+ABC: + read_constr -v /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/06-yosys-synthesis/synthesis.abc.sdc 
+ABC: Setting driving cell to be "sg13cmos5l_buf_4/X".
+ABC: Setting output load to be 6.000000.
+ABC: + source /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/06-yosys-synthesis/AREA_0.abc 
+ABC: Error: The network is combinational.
+ABC: Cannot find the default PI driving cell (sg13cmos5l_buf_4/X) in the library.
+ABC: WireLoad = "none"  Gates =    743 (  4.4 %)   Cap =  7.7 ff ( 10.2 %)   Area =     7785.29 ( 79.5 %)   Delay =  1248.77 ps  (  7.4 %)               
+ABC: Path  0 --      63 : 0    1 pi                 A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =   3.1 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --     567 : 2    5 sg13cmos5l_nand2_1 A =   7.26  Df =  81.7  -25.6 ps  S =  87.7 ps  Cin =  2.9 ff  Cout =  14.5 ff  Cmax = 300.0 ff  G =  486  
+ABC: Path  2 --     569 : 2    2 sg13cmos5l_nor2_1  A =   7.26  Df = 176.6  -64.9 ps  S =  77.8 ps  Cin =  3.0 ff  Cout =   6.2 ff  Cmax = 300.0 ff  G =  199  
+ABC: Path  3 --    1057 : 3    4 sg13cmos5l_nand3_1 A =   9.07  Df = 317.5 -133.8 ps  S = 118.0 ps  Cin =  3.0 ff  Cout =  11.9 ff  Cmax = 300.0 ff  G =  392  
+ABC: Path  4 --    1075 : 3   16 sg13cmos5l_nor3_1  A =   9.07  Df = 977.3 -601.6 ps  S = 826.2 ps  Cin =  3.0 ff  Cout =  65.1 ff  Cmax = 300.0 ff  G = 2158  
+ABC: Path  5 --    1076 : 3    1 sg13cmos5l_mux2_1  A =  18.14  Df =1248.8 -660.2 ps  S =  55.6 ps  Cin =  3.6 ff  Cout =   6.0 ff  Cmax = 300.0 ff  G =  167  
+ABC: Start-point = pi62 (\ui_in [4]).  End-point = po111 ($auto$rtlil.cc:3501:MuxGate$2668).
+ABC: netlist                       : i/o =  261/  245  lat =    0  nd =   743  edge =   1973  area =7784.82  delay = 6.00  lev = 6
+ABC: + write_blif /tmp/yosys-abc-7vqP8n/output.blif 
+
+148.1.2. Re-integrating ABC results.
+ABC RESULTS:   sg13cmos5l_a21o_1 cells:        3
+ABC RESULTS:   sg13cmos5l_a21oi_1 cells:       60
+ABC RESULTS:   sg13cmos5l_a221oi_1 cells:        2
+ABC RESULTS:   sg13cmos5l_a22oi_1 cells:        8
+ABC RESULTS:   sg13cmos5l_and2_1 cells:       11
+ABC RESULTS:   sg13cmos5l_inv_1 cells:       33
+ABC RESULTS:   sg13cmos5l_mux2_1 cells:      147
+ABC RESULTS:   sg13cmos5l_mux4_1 cells:        4
+ABC RESULTS:   sg13cmos5l_nand2_1 cells:       58
+ABC RESULTS:   sg13cmos5l_nand2b_1 cells:        9
+ABC RESULTS:   sg13cmos5l_nand3_1 cells:       12
+ABC RESULTS:   sg13cmos5l_nand4_1 cells:        2
+ABC RESULTS:   sg13cmos5l_nor2_1 cells:      172
+ABC RESULTS:   sg13cmos5l_nor2b_1 cells:       12
+ABC RESULTS:   sg13cmos5l_nor3_1 cells:        8
+ABC RESULTS:   sg13cmos5l_nor4_1 cells:       51
+ABC RESULTS:   sg13cmos5l_o21ai_1 cells:      146
+ABC RESULTS:   sg13cmos5l_or2_1 cells:        5
+ABC RESULTS:        internal signals:      429
+ABC RESULTS:           input signals:      261
+ABC RESULTS:          output signals:      245
+Removing temp directory.
+Removing global temp directory.
+
+149. Executing SETUNDEF pass (replace undef values with defined constants).
+
+150. Executing HILOMAP pass (mapping to constant drivers).
+
+151. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+152. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_rattandeep_morph..
+Removed 0 unused cells and 1028 unused wires.
+<suppressed ~77 debug messages>
+
+153. Executing INSBUF pass (insert buffer cells for connected wires).
+Add tt_um_rattandeep_morph/$auto$insbuf.cc:97:execute$4195: \engine.pin_out -> \uio_out [0]
+
+154. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_rattandeep_morph...
+Found and reported 0 problems.
+{
+   "creator": "Yosys 0.66 (git sha1 86f2ddebce7e98ce7cacc27e8a5c14cb53b51b51, clang++ 21.1.8 -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/tmp/5193b8dd648c4cdca895f6b98e8c8167.lib -liberty /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/tmp/893e8e88404143988af3ca427acdee9d.lib ",
+   "modules": {
+      "\\tt_um_rattandeep_morph": {
+         "num_wires":         1230,
+         "num_wire_bits":     1265,
+         "num_pub_wires":     244,
+         "num_pub_wire_bits": 279,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         1246,
+         "num_submodules":       0,
+         "area":              21618.273600,
+         "sequential_area":    11953.267200,
+         "num_cells_by_type": {
+            "sg13cmos5l_a21o_1": 3,
+            "sg13cmos5l_a21oi_1": 60,
+            "sg13cmos5l_a221oi_1": 2,
+            "sg13cmos5l_a22oi_1": 8,
+            "sg13cmos5l_and2_1": 11,
+            "sg13cmos5l_buf_1": 1,
+            "sg13cmos5l_dfrbpq_1": 244,
+            "sg13cmos5l_inv_1": 33,
+            "sg13cmos5l_mux2_1": 147,
+            "sg13cmos5l_mux4_1": 4,
+            "sg13cmos5l_nand2_1": 58,
+            "sg13cmos5l_nand2b_1": 9,
+            "sg13cmos5l_nand3_1": 12,
+            "sg13cmos5l_nand4_1": 2,
+            "sg13cmos5l_nor2_1": 172,
+            "sg13cmos5l_nor2b_1": 12,
+            "sg13cmos5l_nor3_1": 8,
+            "sg13cmos5l_nor4_1": 51,
+            "sg13cmos5l_o21ai_1": 146,
+            "sg13cmos5l_or2_1": 5,
+            "sg13cmos5l_tiehi": 244,
+            "sg13cmos5l_tielo": 14
+         }
+      }
+   },
+      "design": {
+         "num_wires":         1230,
+         "num_wire_bits":     1265,
+         "num_pub_wires":     244,
+         "num_pub_wire_bits": 279,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         1246,
+         "num_submodules":       0,
+         "area":              21618.273600,
+         "sequential_area":    11953.267200,
+         "num_cells_by_type": {
+            "sg13cmos5l_a21o_1": 3,
+            "sg13cmos5l_a21oi_1": 60,
+            "sg13cmos5l_a221oi_1": 2,
+            "sg13cmos5l_a22oi_1": 8,
+            "sg13cmos5l_and2_1": 11,
+            "sg13cmos5l_buf_1": 1,
+            "sg13cmos5l_dfrbpq_1": 244,
+            "sg13cmos5l_inv_1": 33,
+            "sg13cmos5l_mux2_1": 147,
+            "sg13cmos5l_mux4_1": 4,
+            "sg13cmos5l_nand2_1": 58,
+            "sg13cmos5l_nand2b_1": 9,
+            "sg13cmos5l_nand3_1": 12,
+            "sg13cmos5l_nand4_1": 2,
+            "sg13cmos5l_nor2_1": 172,
+            "sg13cmos5l_nor2b_1": 12,
+            "sg13cmos5l_nor3_1": 8,
+            "sg13cmos5l_nor4_1": 51,
+            "sg13cmos5l_o21ai_1": 146,
+            "sg13cmos5l_or2_1": 5,
+            "sg13cmos5l_tiehi": 244,
+            "sg13cmos5l_tielo": 14
+         }
+      }
+}
+
+155. Printing statistics.
+
+=== tt_um_rattandeep_morph ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     1230        - wires
+     1265        - wire bits
+      244        - public wires
+      279        - public wire bits
+        8        - ports
+       43        - port bits
+     1246 2.16E+04 cells
+        3   38.102   sg13cmos5l_a21o_1
+       60   544.32   sg13cmos5l_a21oi_1
+        2    29.03   sg13cmos5l_a221oi_1
+        8   86.789   sg13cmos5l_a22oi_1
+       11   99.792   sg13cmos5l_and2_1
+        1    7.258   sg13cmos5l_buf_1
+      244  1.2E+04   sg13cmos5l_dfrbpq_1
+       33  179.626   sg13cmos5l_inv_1
+      147 2.67E+03   sg13cmos5l_mux2_1
+        4   152.41   sg13cmos5l_mux4_1
+       58  420.941   sg13cmos5l_nand2_1
+        9   81.648   sg13cmos5l_nand2b_1
+       12  108.864   sg13cmos5l_nand3_1
+        2   21.773   sg13cmos5l_nand4_1
+      172 1.25E+03   sg13cmos5l_nor2_1
+       12  108.864   sg13cmos5l_nor2b_1
+        8   72.576   sg13cmos5l_nor3_1
+       51  555.206   sg13cmos5l_nor4_1
+      146 1.32E+03   sg13cmos5l_o21ai_1
+        5    45.36   sg13cmos5l_or2_1
+      244 1.77E+03   sg13cmos5l_tiehi
+       14  101.606   sg13cmos5l_tielo
+
+   Chip area for module '\tt_um_rattandeep_morph': 21618.273600
+     of which used for sequential elements: 11953.267200 (55.29%)
+
+156. Executing Verilog backend.
+Dumping module `\tt_um_rattandeep_morph'.
+
+157. Executing JSON backend.

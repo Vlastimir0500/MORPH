@@ -1,0 +1,42 @@
+{
+  "tool": "TRACEFORGE",
+  "version": "0.7.1",
+  "test": "replay minimized UART counterexample",
+  "source_seed": 26261051,
+  "payload": "0x00",
+  "symbol_offsets_cycles": [
+    -9,
+    0,
+    -15,
+    -57,
+    0,
+    -36,
+    -40,
+    -59,
+    0,
+    0
+  ],
+  "symbol_durations_cycles": [
+    427,
+    436,
+    421,
+    379,
+    436,
+    400,
+    396,
+    377,
+    436,
+    436
+  ],
+  "input_cycles": 4394,
+  "saved_waveform_matches_reconstruction": true,
+  "rtl_reference_model_cycle_match": true,
+  "first_mismatch": null,
+  "expected_shift_register": "0x00",
+  "observed_shift_register": "0x01",
+  "error_flag_pin7": false,
+  "core_fault": false,
+  "silent_misdecode_reproduced": true,
+  "production_rtl_sha256": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "replay_passed": true
+}

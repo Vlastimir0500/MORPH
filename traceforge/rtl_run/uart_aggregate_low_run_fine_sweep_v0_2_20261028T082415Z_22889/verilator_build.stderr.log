@@ -1,0 +1,6 @@
+%Warning-WIDTHTRUNC: /home/rattan_0500/MORPH/traceforge/rtl_run/uart_aggregate_low_run_fine_sweep_v0_2_20261028T082415Z_22889/morph_engine_v2_traceforge_tb.sv:65:26: Operator ASSIGN expects 6 bits on the Assign RHS, but Assign RHS's VARREF 'i' generates 32 bits.
+                                                                                                                                                                    : ... note: In instance 'morph_engine_v2_diff_tb'
+   65 |             program_addr = i;
+      |                          ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.053
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.

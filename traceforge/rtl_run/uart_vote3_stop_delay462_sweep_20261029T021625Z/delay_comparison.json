@@ -1,0 +1,108 @@
+[
+  {
+    "delay": 70,
+    "rejected": 20,
+    "silent_acceptances": 4,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": [
+      "blind2_negative_stop_A2_462",
+      "blind2_negative_stop_BE_462",
+      "blind2_negative_stop_E4_462",
+      "blind2_negative_stop_F3_462"
+    ]
+  },
+  {
+    "delay": 80,
+    "rejected": 20,
+    "silent_acceptances": 4,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": [
+      "blind2_negative_stop_A2_462",
+      "blind2_negative_stop_BE_462",
+      "blind2_negative_stop_E4_462",
+      "blind2_negative_stop_F3_462"
+    ]
+  },
+  {
+    "delay": 90,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": []
+  },
+  {
+    "delay": 100,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": []
+  },
+  {
+    "delay": 110,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": []
+  },
+  {
+    "delay": 120,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": []
+  },
+  {
+    "delay": 130,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": []
+  },
+  {
+    "delay": 140,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": []
+  },
+  {
+    "delay": 150,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": []
+  },
+  {
+    "delay": 160,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": []
+  },
+  {
+    "delay": 170,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": []
+  },
+  {
+    "delay": 180,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0,
+    "failure_cases": []
+  }
+]

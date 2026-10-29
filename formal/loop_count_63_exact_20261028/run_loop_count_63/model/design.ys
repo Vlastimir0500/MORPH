@@ -1,0 +1,8 @@
+# running in run_loop_count_63/src/
+read -formal -sv morph_engine_v2.sv morph_loop_count_63.sv
+prep -top morph_loop_count_63
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

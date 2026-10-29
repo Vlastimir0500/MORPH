@@ -1,0 +1,6613 @@
+{
+  "tool": "TRACEFORGE",
+  "version": "0.1.0",
+  "experiment": "Cycle-level diagnosis around the UART aggregate low-run boundary",
+  "scope": "Finite simulation diagnostic for the current UART RX firmware and RTL. Not a universal UART timing specification.",
+  "summary": {
+    "status": "PASS",
+    "cases": 7,
+    "classification_counts": {
+      "correct_decode": 4,
+      "silent_misdecode": 3
+    },
+    "rtl_reference_model_mismatches": 0,
+    "low_run_delta_minus_217": "silent_misdecode",
+    "low_run_delta_minus_216": "silent_misdecode",
+    "low_run_delta_minus_215": "correct_decode",
+    "nominal_baseline": "correct_decode",
+    "known_counterexample_vector_exact_match": true,
+    "production_rtl_unchanged": true
+  },
+  "parameters": {
+    "nominal_symbol_duration_cycles": 436,
+    "nominal_low_run_cycles": 3924,
+    "tested_deltas_cycles": [
+      -218,
+      -217,
+      -216,
+      -215,
+      -214,
+      -213,
+      0
+    ],
+    "saved_counterexample_aggregate_delta_cycles": -216,
+    "sample_instruction_pcs": [
+      2,
+      6,
+      11
+    ]
+  },
+  "source_hashes": {
+    "production_rtl_sha256_before": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+    "production_rtl_sha256_after": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+    "uart_rx_firmware_sha256": "5a61cb59f5ccfabe6c10e92fc70b94a8bf3da34a136b76e1cc6e07adecb2ac5a",
+    "source_testbench_sha256": "bd13cc8c3682d9ceb07b0fa7697867562363854b2214489f6338d88902544773",
+    "isolated_testbench_sha256": "3ab9023642062ffde3906c2827d3039be7f4640b9c1e50fbdd1c4f246c4b1050",
+    "saved_counterexample_report_sha256": "5bf00246d6f6f349e41e630b6b82e15fc45a96ec561a093df22ff785baf6d91d",
+    "saved_counterexample_vector_sha256": "034d439aff144806b89696715a2f47b20c5b285e6f320c676cc38c12b3500990"
+  },
+  "cycle_trace_csv": "/home/rattan_0500/MORPH/traceforge/rtl_run/uart_boundary_diagnostic_v0_1_20261028T082705Z_22994/boundary_trace_cycles.csv",
+  "cases": [
+    {
+      "delta_cycles": -218,
+      "low_run_duration_cycles": 3706,
+      "expected_shift_register": "0x00",
+      "observed_shift_register": "0x01",
+      "error_flag_pin7": false,
+      "core_fault": false,
+      "classification": "silent_misdecode",
+      "rtl_reference_model_match": true,
+      "first_mismatch": null,
+      "input_rising_edge_vector_index": 3716,
+      "input_rising_edge_trace_index": 3717,
+      "trace_rows": 4393,
+      "event_count": 47,
+      "events": [
+        {
+          "trace_index": 227,
+          "input_vector_index": 226,
+          "distance_from_input_rising_edge_cycles": -3490,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 2,
+          "instruction_hex": "0x30D6",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 228,
+          "input_vector_index": 227,
+          "distance_from_input_rising_edge_cycles": -3489,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 2,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 665,
+          "input_vector_index": 664,
+          "distance_from_input_rising_edge_cycles": -3052,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x30D7",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 666,
+          "input_vector_index": 665,
+          "distance_from_input_rising_edge_cycles": -3051,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 667,
+          "input_vector_index": 666,
+          "distance_from_input_rising_edge_cycles": -3050,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1099,
+          "input_vector_index": 1098,
+          "distance_from_input_rising_edge_cycles": -2618,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1101,
+          "input_vector_index": 1100,
+          "distance_from_input_rising_edge_cycles": -2616,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1102,
+          "input_vector_index": 1101,
+          "distance_from_input_rising_edge_cycles": -2615,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1103,
+          "input_vector_index": 1102,
+          "distance_from_input_rising_edge_cycles": -2614,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1535,
+          "input_vector_index": 1534,
+          "distance_from_input_rising_edge_cycles": -2182,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1537,
+          "input_vector_index": 1536,
+          "distance_from_input_rising_edge_cycles": -2180,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1538,
+          "input_vector_index": 1537,
+          "distance_from_input_rising_edge_cycles": -2179,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1539,
+          "input_vector_index": 1538,
+          "distance_from_input_rising_edge_cycles": -2178,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1971,
+          "input_vector_index": 1970,
+          "distance_from_input_rising_edge_cycles": -1746,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1973,
+          "input_vector_index": 1972,
+          "distance_from_input_rising_edge_cycles": -1744,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1974,
+          "input_vector_index": 1973,
+          "distance_from_input_rising_edge_cycles": -1743,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1975,
+          "input_vector_index": 1974,
+          "distance_from_input_rising_edge_cycles": -1742,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2407,
+          "input_vector_index": 2406,
+          "distance_from_input_rising_edge_cycles": -1310,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2409,
+          "input_vector_index": 2408,
+          "distance_from_input_rising_edge_cycles": -1308,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2410,
+          "input_vector_index": 2409,
+          "distance_from_input_rising_edge_cycles": -1307,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2411,
+          "input_vector_index": 2410,
+          "distance_from_input_rising_edge_cycles": -1306,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2843,
+          "input_vector_index": 2842,
+          "distance_from_input_rising_edge_cycles": -874,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2845,
+          "input_vector_index": 2844,
+          "distance_from_input_rising_edge_cycles": -872,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2846,
+          "input_vector_index": 2845,
+          "distance_from_input_rising_edge_cycles": -871,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2847,
+          "input_vector_index": 2846,
+          "distance_from_input_rising_edge_cycles": -870,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3279,
+          "input_vector_index": 3278,
+          "distance_from_input_rising_edge_cycles": -438,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3281,
+          "input_vector_index": 3280,
+          "distance_from_input_rising_edge_cycles": -436,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3282,
+          "input_vector_index": 3281,
+          "distance_from_input_rising_edge_cycles": -435,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3283,
+          "input_vector_index": 3282,
+          "distance_from_input_rising_edge_cycles": -434,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3711,
+          "input_vector_index": 3710,
+          "distance_from_input_rising_edge_cycles": -6,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 4,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3712,
+          "input_vector_index": 3711,
+          "distance_from_input_rising_edge_cycles": -5,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 3,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3713,
+          "input_vector_index": 3712,
+          "distance_from_input_rising_edge_cycles": -4,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 2,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3714,
+          "input_vector_index": 3713,
+          "distance_from_input_rising_edge_cycles": -3,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 1,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3715,
+          "input_vector_index": 3714,
+          "distance_from_input_rising_edge_cycles": -2,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3716,
+          "input_vector_index": 3715,
+          "distance_from_input_rising_edge_cycles": -1,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 10,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3717,
+          "input_vector_index": 3716,
+          "distance_from_input_rising_edge_cycles": 0,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3718,
+          "input_vector_index": 3717,
+          "distance_from_input_rising_edge_cycles": 1,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3719,
+          "input_vector_index": 3718,
+          "distance_from_input_rising_edge_cycles": 2,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest",
+            "sample_register_changed"
+          ]
+        },
+        {
+          "trace_index": 3720,
+          "input_vector_index": 3719,
+          "distance_from_input_rising_edge_cycles": 3,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 7,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3721,
+          "input_vector_index": 3720,
+          "distance_from_input_rising_edge_cycles": 4,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 8,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "shift_register_changed"
+          ]
+        },
+        {
+          "trace_index": 3722,
+          "input_vector_index": 3721,
+          "distance_from_input_rising_edge_cycles": 5,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3723,
+          "input_vector_index": 3722,
+          "distance_from_input_rising_edge_cycles": 6,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 213,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 4151,
+          "input_vector_index": 4150,
+          "distance_from_input_rising_edge_cycles": 434,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 4153,
+          "input_vector_index": 4152,
+          "distance_from_input_rising_edge_cycles": 436,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 11,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4154,
+          "input_vector_index": 4153,
+          "distance_from_input_rising_edge_cycles": 437,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 11,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4155,
+          "input_vector_index": 4154,
+          "distance_from_input_rising_edge_cycles": 438,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 12,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 4157,
+          "input_vector_index": 4156,
+          "distance_from_input_rising_edge_cycles": 440,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 13,
+          "instruction_hex": "0x8010",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        }
+      ]
+    },
+    {
+      "delta_cycles": -217,
+      "low_run_duration_cycles": 3707,
+      "expected_shift_register": "0x00",
+      "observed_shift_register": "0x01",
+      "error_flag_pin7": false,
+      "core_fault": false,
+      "classification": "silent_misdecode",
+      "rtl_reference_model_match": true,
+      "first_mismatch": null,
+      "input_rising_edge_vector_index": 3717,
+      "input_rising_edge_trace_index": 3718,
+      "trace_rows": 4394,
+      "event_count": 47,
+      "events": [
+        {
+          "trace_index": 227,
+          "input_vector_index": 226,
+          "distance_from_input_rising_edge_cycles": -3491,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 2,
+          "instruction_hex": "0x30D6",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 228,
+          "input_vector_index": 227,
+          "distance_from_input_rising_edge_cycles": -3490,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 2,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 665,
+          "input_vector_index": 664,
+          "distance_from_input_rising_edge_cycles": -3053,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x30D7",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 666,
+          "input_vector_index": 665,
+          "distance_from_input_rising_edge_cycles": -3052,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 667,
+          "input_vector_index": 666,
+          "distance_from_input_rising_edge_cycles": -3051,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1099,
+          "input_vector_index": 1098,
+          "distance_from_input_rising_edge_cycles": -2619,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1101,
+          "input_vector_index": 1100,
+          "distance_from_input_rising_edge_cycles": -2617,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1102,
+          "input_vector_index": 1101,
+          "distance_from_input_rising_edge_cycles": -2616,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1103,
+          "input_vector_index": 1102,
+          "distance_from_input_rising_edge_cycles": -2615,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1535,
+          "input_vector_index": 1534,
+          "distance_from_input_rising_edge_cycles": -2183,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1537,
+          "input_vector_index": 1536,
+          "distance_from_input_rising_edge_cycles": -2181,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1538,
+          "input_vector_index": 1537,
+          "distance_from_input_rising_edge_cycles": -2180,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1539,
+          "input_vector_index": 1538,
+          "distance_from_input_rising_edge_cycles": -2179,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1971,
+          "input_vector_index": 1970,
+          "distance_from_input_rising_edge_cycles": -1747,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1973,
+          "input_vector_index": 1972,
+          "distance_from_input_rising_edge_cycles": -1745,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1974,
+          "input_vector_index": 1973,
+          "distance_from_input_rising_edge_cycles": -1744,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1975,
+          "input_vector_index": 1974,
+          "distance_from_input_rising_edge_cycles": -1743,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2407,
+          "input_vector_index": 2406,
+          "distance_from_input_rising_edge_cycles": -1311,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2409,
+          "input_vector_index": 2408,
+          "distance_from_input_rising_edge_cycles": -1309,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2410,
+          "input_vector_index": 2409,
+          "distance_from_input_rising_edge_cycles": -1308,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2411,
+          "input_vector_index": 2410,
+          "distance_from_input_rising_edge_cycles": -1307,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2843,
+          "input_vector_index": 2842,
+          "distance_from_input_rising_edge_cycles": -875,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2845,
+          "input_vector_index": 2844,
+          "distance_from_input_rising_edge_cycles": -873,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2846,
+          "input_vector_index": 2845,
+          "distance_from_input_rising_edge_cycles": -872,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2847,
+          "input_vector_index": 2846,
+          "distance_from_input_rising_edge_cycles": -871,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3279,
+          "input_vector_index": 3278,
+          "distance_from_input_rising_edge_cycles": -439,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3281,
+          "input_vector_index": 3280,
+          "distance_from_input_rising_edge_cycles": -437,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3282,
+          "input_vector_index": 3281,
+          "distance_from_input_rising_edge_cycles": -436,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3283,
+          "input_vector_index": 3282,
+          "distance_from_input_rising_edge_cycles": -435,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3712,
+          "input_vector_index": 3711,
+          "distance_from_input_rising_edge_cycles": -6,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 3,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3713,
+          "input_vector_index": 3712,
+          "distance_from_input_rising_edge_cycles": -5,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 2,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3714,
+          "input_vector_index": 3713,
+          "distance_from_input_rising_edge_cycles": -4,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 1,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3715,
+          "input_vector_index": 3714,
+          "distance_from_input_rising_edge_cycles": -3,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3716,
+          "input_vector_index": 3715,
+          "distance_from_input_rising_edge_cycles": -2,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 10,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3717,
+          "input_vector_index": 3716,
+          "distance_from_input_rising_edge_cycles": -1,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3718,
+          "input_vector_index": 3717,
+          "distance_from_input_rising_edge_cycles": 0,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3719,
+          "input_vector_index": 3718,
+          "distance_from_input_rising_edge_cycles": 1,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest",
+            "sample_register_changed"
+          ]
+        },
+        {
+          "trace_index": 3720,
+          "input_vector_index": 3719,
+          "distance_from_input_rising_edge_cycles": 2,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 7,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3721,
+          "input_vector_index": 3720,
+          "distance_from_input_rising_edge_cycles": 3,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 8,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "shift_register_changed"
+          ]
+        },
+        {
+          "trace_index": 3722,
+          "input_vector_index": 3721,
+          "distance_from_input_rising_edge_cycles": 4,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3723,
+          "input_vector_index": 3722,
+          "distance_from_input_rising_edge_cycles": 5,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 213,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3724,
+          "input_vector_index": 3723,
+          "distance_from_input_rising_edge_cycles": 6,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 212,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 4151,
+          "input_vector_index": 4150,
+          "distance_from_input_rising_edge_cycles": 433,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 4153,
+          "input_vector_index": 4152,
+          "distance_from_input_rising_edge_cycles": 435,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 11,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4154,
+          "input_vector_index": 4153,
+          "distance_from_input_rising_edge_cycles": 436,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 11,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4155,
+          "input_vector_index": 4154,
+          "distance_from_input_rising_edge_cycles": 437,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 12,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 4157,
+          "input_vector_index": 4156,
+          "distance_from_input_rising_edge_cycles": 439,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 13,
+          "instruction_hex": "0x8010",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        }
+      ]
+    },
+    {
+      "delta_cycles": -216,
+      "low_run_duration_cycles": 3708,
+      "expected_shift_register": "0x00",
+      "observed_shift_register": "0x01",
+      "error_flag_pin7": false,
+      "core_fault": false,
+      "classification": "silent_misdecode",
+      "rtl_reference_model_match": true,
+      "first_mismatch": null,
+      "input_rising_edge_vector_index": 3718,
+      "input_rising_edge_trace_index": 3719,
+      "trace_rows": 4395,
+      "event_count": 47,
+      "events": [
+        {
+          "trace_index": 227,
+          "input_vector_index": 226,
+          "distance_from_input_rising_edge_cycles": -3492,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 2,
+          "instruction_hex": "0x30D6",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 228,
+          "input_vector_index": 227,
+          "distance_from_input_rising_edge_cycles": -3491,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 2,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 665,
+          "input_vector_index": 664,
+          "distance_from_input_rising_edge_cycles": -3054,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x30D7",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 666,
+          "input_vector_index": 665,
+          "distance_from_input_rising_edge_cycles": -3053,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 667,
+          "input_vector_index": 666,
+          "distance_from_input_rising_edge_cycles": -3052,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1099,
+          "input_vector_index": 1098,
+          "distance_from_input_rising_edge_cycles": -2620,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1101,
+          "input_vector_index": 1100,
+          "distance_from_input_rising_edge_cycles": -2618,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1102,
+          "input_vector_index": 1101,
+          "distance_from_input_rising_edge_cycles": -2617,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1103,
+          "input_vector_index": 1102,
+          "distance_from_input_rising_edge_cycles": -2616,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1535,
+          "input_vector_index": 1534,
+          "distance_from_input_rising_edge_cycles": -2184,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1537,
+          "input_vector_index": 1536,
+          "distance_from_input_rising_edge_cycles": -2182,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1538,
+          "input_vector_index": 1537,
+          "distance_from_input_rising_edge_cycles": -2181,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1539,
+          "input_vector_index": 1538,
+          "distance_from_input_rising_edge_cycles": -2180,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1971,
+          "input_vector_index": 1970,
+          "distance_from_input_rising_edge_cycles": -1748,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1973,
+          "input_vector_index": 1972,
+          "distance_from_input_rising_edge_cycles": -1746,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1974,
+          "input_vector_index": 1973,
+          "distance_from_input_rising_edge_cycles": -1745,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1975,
+          "input_vector_index": 1974,
+          "distance_from_input_rising_edge_cycles": -1744,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2407,
+          "input_vector_index": 2406,
+          "distance_from_input_rising_edge_cycles": -1312,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2409,
+          "input_vector_index": 2408,
+          "distance_from_input_rising_edge_cycles": -1310,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2410,
+          "input_vector_index": 2409,
+          "distance_from_input_rising_edge_cycles": -1309,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2411,
+          "input_vector_index": 2410,
+          "distance_from_input_rising_edge_cycles": -1308,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2843,
+          "input_vector_index": 2842,
+          "distance_from_input_rising_edge_cycles": -876,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2845,
+          "input_vector_index": 2844,
+          "distance_from_input_rising_edge_cycles": -874,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2846,
+          "input_vector_index": 2845,
+          "distance_from_input_rising_edge_cycles": -873,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2847,
+          "input_vector_index": 2846,
+          "distance_from_input_rising_edge_cycles": -872,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3279,
+          "input_vector_index": 3278,
+          "distance_from_input_rising_edge_cycles": -440,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3281,
+          "input_vector_index": 3280,
+          "distance_from_input_rising_edge_cycles": -438,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3282,
+          "input_vector_index": 3281,
+          "distance_from_input_rising_edge_cycles": -437,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3283,
+          "input_vector_index": 3282,
+          "distance_from_input_rising_edge_cycles": -436,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3713,
+          "input_vector_index": 3712,
+          "distance_from_input_rising_edge_cycles": -6,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 2,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3714,
+          "input_vector_index": 3713,
+          "distance_from_input_rising_edge_cycles": -5,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 1,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3715,
+          "input_vector_index": 3714,
+          "distance_from_input_rising_edge_cycles": -4,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3716,
+          "input_vector_index": 3715,
+          "distance_from_input_rising_edge_cycles": -3,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 10,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3717,
+          "input_vector_index": 3716,
+          "distance_from_input_rising_edge_cycles": -2,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3718,
+          "input_vector_index": 3717,
+          "distance_from_input_rising_edge_cycles": -1,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3719,
+          "input_vector_index": 3718,
+          "distance_from_input_rising_edge_cycles": 0,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest",
+            "sample_register_changed"
+          ]
+        },
+        {
+          "trace_index": 3720,
+          "input_vector_index": 3719,
+          "distance_from_input_rising_edge_cycles": 1,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 7,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3721,
+          "input_vector_index": 3720,
+          "distance_from_input_rising_edge_cycles": 2,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 8,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "shift_register_changed"
+          ]
+        },
+        {
+          "trace_index": 3722,
+          "input_vector_index": 3721,
+          "distance_from_input_rising_edge_cycles": 3,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3723,
+          "input_vector_index": 3722,
+          "distance_from_input_rising_edge_cycles": 4,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 213,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3724,
+          "input_vector_index": 3723,
+          "distance_from_input_rising_edge_cycles": 5,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 212,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3725,
+          "input_vector_index": 3724,
+          "distance_from_input_rising_edge_cycles": 6,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 211,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 4151,
+          "input_vector_index": 4150,
+          "distance_from_input_rising_edge_cycles": 432,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 4153,
+          "input_vector_index": 4152,
+          "distance_from_input_rising_edge_cycles": 434,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 11,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4154,
+          "input_vector_index": 4153,
+          "distance_from_input_rising_edge_cycles": 435,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 11,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4155,
+          "input_vector_index": 4154,
+          "distance_from_input_rising_edge_cycles": 436,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 12,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 4157,
+          "input_vector_index": 4156,
+          "distance_from_input_rising_edge_cycles": 438,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 13,
+          "instruction_hex": "0x8010",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x01",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        }
+      ]
+    },
+    {
+      "delta_cycles": -215,
+      "low_run_duration_cycles": 3709,
+      "expected_shift_register": "0x00",
+      "observed_shift_register": "0x00",
+      "error_flag_pin7": false,
+      "core_fault": false,
+      "classification": "correct_decode",
+      "rtl_reference_model_match": true,
+      "first_mismatch": null,
+      "input_rising_edge_vector_index": 3719,
+      "input_rising_edge_trace_index": 3720,
+      "trace_rows": 4396,
+      "event_count": 47,
+      "events": [
+        {
+          "trace_index": 227,
+          "input_vector_index": 226,
+          "distance_from_input_rising_edge_cycles": -3493,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 2,
+          "instruction_hex": "0x30D6",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 228,
+          "input_vector_index": 227,
+          "distance_from_input_rising_edge_cycles": -3492,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 2,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 665,
+          "input_vector_index": 664,
+          "distance_from_input_rising_edge_cycles": -3055,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x30D7",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 666,
+          "input_vector_index": 665,
+          "distance_from_input_rising_edge_cycles": -3054,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 667,
+          "input_vector_index": 666,
+          "distance_from_input_rising_edge_cycles": -3053,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1099,
+          "input_vector_index": 1098,
+          "distance_from_input_rising_edge_cycles": -2621,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1101,
+          "input_vector_index": 1100,
+          "distance_from_input_rising_edge_cycles": -2619,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1102,
+          "input_vector_index": 1101,
+          "distance_from_input_rising_edge_cycles": -2618,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1103,
+          "input_vector_index": 1102,
+          "distance_from_input_rising_edge_cycles": -2617,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1535,
+          "input_vector_index": 1534,
+          "distance_from_input_rising_edge_cycles": -2185,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1537,
+          "input_vector_index": 1536,
+          "distance_from_input_rising_edge_cycles": -2183,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1538,
+          "input_vector_index": 1537,
+          "distance_from_input_rising_edge_cycles": -2182,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1539,
+          "input_vector_index": 1538,
+          "distance_from_input_rising_edge_cycles": -2181,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1971,
+          "input_vector_index": 1970,
+          "distance_from_input_rising_edge_cycles": -1749,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1973,
+          "input_vector_index": 1972,
+          "distance_from_input_rising_edge_cycles": -1747,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1974,
+          "input_vector_index": 1973,
+          "distance_from_input_rising_edge_cycles": -1746,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1975,
+          "input_vector_index": 1974,
+          "distance_from_input_rising_edge_cycles": -1745,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2407,
+          "input_vector_index": 2406,
+          "distance_from_input_rising_edge_cycles": -1313,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2409,
+          "input_vector_index": 2408,
+          "distance_from_input_rising_edge_cycles": -1311,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2410,
+          "input_vector_index": 2409,
+          "distance_from_input_rising_edge_cycles": -1310,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2411,
+          "input_vector_index": 2410,
+          "distance_from_input_rising_edge_cycles": -1309,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2843,
+          "input_vector_index": 2842,
+          "distance_from_input_rising_edge_cycles": -877,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2845,
+          "input_vector_index": 2844,
+          "distance_from_input_rising_edge_cycles": -875,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2846,
+          "input_vector_index": 2845,
+          "distance_from_input_rising_edge_cycles": -874,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2847,
+          "input_vector_index": 2846,
+          "distance_from_input_rising_edge_cycles": -873,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3279,
+          "input_vector_index": 3278,
+          "distance_from_input_rising_edge_cycles": -441,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3281,
+          "input_vector_index": 3280,
+          "distance_from_input_rising_edge_cycles": -439,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3282,
+          "input_vector_index": 3281,
+          "distance_from_input_rising_edge_cycles": -438,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3283,
+          "input_vector_index": 3282,
+          "distance_from_input_rising_edge_cycles": -437,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3714,
+          "input_vector_index": 3713,
+          "distance_from_input_rising_edge_cycles": -6,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 1,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3715,
+          "input_vector_index": 3714,
+          "distance_from_input_rising_edge_cycles": -5,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3716,
+          "input_vector_index": 3715,
+          "distance_from_input_rising_edge_cycles": -4,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 10,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3717,
+          "input_vector_index": 3716,
+          "distance_from_input_rising_edge_cycles": -3,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3718,
+          "input_vector_index": 3717,
+          "distance_from_input_rising_edge_cycles": -2,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3719,
+          "input_vector_index": 3718,
+          "distance_from_input_rising_edge_cycles": -1,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3720,
+          "input_vector_index": 3719,
+          "distance_from_input_rising_edge_cycles": 0,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 7,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3721,
+          "input_vector_index": 3720,
+          "distance_from_input_rising_edge_cycles": 1,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 8,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3722,
+          "input_vector_index": 3721,
+          "distance_from_input_rising_edge_cycles": 2,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3723,
+          "input_vector_index": 3722,
+          "distance_from_input_rising_edge_cycles": 3,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 213,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3724,
+          "input_vector_index": 3723,
+          "distance_from_input_rising_edge_cycles": 4,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 212,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3725,
+          "input_vector_index": 3724,
+          "distance_from_input_rising_edge_cycles": 5,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 211,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3726,
+          "input_vector_index": 3725,
+          "distance_from_input_rising_edge_cycles": 6,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 210,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 4151,
+          "input_vector_index": 4150,
+          "distance_from_input_rising_edge_cycles": 431,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 4153,
+          "input_vector_index": 4152,
+          "distance_from_input_rising_edge_cycles": 433,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 11,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4154,
+          "input_vector_index": 4153,
+          "distance_from_input_rising_edge_cycles": 434,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 11,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4155,
+          "input_vector_index": 4154,
+          "distance_from_input_rising_edge_cycles": 435,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 12,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_register_changed"
+          ]
+        },
+        {
+          "trace_index": 4157,
+          "input_vector_index": 4156,
+          "distance_from_input_rising_edge_cycles": 437,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 13,
+          "instruction_hex": "0x8010",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        }
+      ]
+    },
+    {
+      "delta_cycles": -214,
+      "low_run_duration_cycles": 3710,
+      "expected_shift_register": "0x00",
+      "observed_shift_register": "0x00",
+      "error_flag_pin7": false,
+      "core_fault": false,
+      "classification": "correct_decode",
+      "rtl_reference_model_match": true,
+      "first_mismatch": null,
+      "input_rising_edge_vector_index": 3720,
+      "input_rising_edge_trace_index": 3721,
+      "trace_rows": 4397,
+      "event_count": 47,
+      "events": [
+        {
+          "trace_index": 227,
+          "input_vector_index": 226,
+          "distance_from_input_rising_edge_cycles": -3494,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 2,
+          "instruction_hex": "0x30D6",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 228,
+          "input_vector_index": 227,
+          "distance_from_input_rising_edge_cycles": -3493,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 2,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 665,
+          "input_vector_index": 664,
+          "distance_from_input_rising_edge_cycles": -3056,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x30D7",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 666,
+          "input_vector_index": 665,
+          "distance_from_input_rising_edge_cycles": -3055,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 667,
+          "input_vector_index": 666,
+          "distance_from_input_rising_edge_cycles": -3054,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1099,
+          "input_vector_index": 1098,
+          "distance_from_input_rising_edge_cycles": -2622,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1101,
+          "input_vector_index": 1100,
+          "distance_from_input_rising_edge_cycles": -2620,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1102,
+          "input_vector_index": 1101,
+          "distance_from_input_rising_edge_cycles": -2619,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1103,
+          "input_vector_index": 1102,
+          "distance_from_input_rising_edge_cycles": -2618,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1535,
+          "input_vector_index": 1534,
+          "distance_from_input_rising_edge_cycles": -2186,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1537,
+          "input_vector_index": 1536,
+          "distance_from_input_rising_edge_cycles": -2184,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1538,
+          "input_vector_index": 1537,
+          "distance_from_input_rising_edge_cycles": -2183,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1539,
+          "input_vector_index": 1538,
+          "distance_from_input_rising_edge_cycles": -2182,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1971,
+          "input_vector_index": 1970,
+          "distance_from_input_rising_edge_cycles": -1750,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1973,
+          "input_vector_index": 1972,
+          "distance_from_input_rising_edge_cycles": -1748,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1974,
+          "input_vector_index": 1973,
+          "distance_from_input_rising_edge_cycles": -1747,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1975,
+          "input_vector_index": 1974,
+          "distance_from_input_rising_edge_cycles": -1746,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2407,
+          "input_vector_index": 2406,
+          "distance_from_input_rising_edge_cycles": -1314,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2409,
+          "input_vector_index": 2408,
+          "distance_from_input_rising_edge_cycles": -1312,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2410,
+          "input_vector_index": 2409,
+          "distance_from_input_rising_edge_cycles": -1311,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2411,
+          "input_vector_index": 2410,
+          "distance_from_input_rising_edge_cycles": -1310,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2843,
+          "input_vector_index": 2842,
+          "distance_from_input_rising_edge_cycles": -878,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2845,
+          "input_vector_index": 2844,
+          "distance_from_input_rising_edge_cycles": -876,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2846,
+          "input_vector_index": 2845,
+          "distance_from_input_rising_edge_cycles": -875,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2847,
+          "input_vector_index": 2846,
+          "distance_from_input_rising_edge_cycles": -874,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3279,
+          "input_vector_index": 3278,
+          "distance_from_input_rising_edge_cycles": -442,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3281,
+          "input_vector_index": 3280,
+          "distance_from_input_rising_edge_cycles": -440,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3282,
+          "input_vector_index": 3281,
+          "distance_from_input_rising_edge_cycles": -439,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3283,
+          "input_vector_index": 3282,
+          "distance_from_input_rising_edge_cycles": -438,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3715,
+          "input_vector_index": 3714,
+          "distance_from_input_rising_edge_cycles": -6,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3716,
+          "input_vector_index": 3715,
+          "distance_from_input_rising_edge_cycles": -5,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 10,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3717,
+          "input_vector_index": 3716,
+          "distance_from_input_rising_edge_cycles": -4,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3718,
+          "input_vector_index": 3717,
+          "distance_from_input_rising_edge_cycles": -3,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3719,
+          "input_vector_index": 3718,
+          "distance_from_input_rising_edge_cycles": -2,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3720,
+          "input_vector_index": 3719,
+          "distance_from_input_rising_edge_cycles": -1,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 7,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3721,
+          "input_vector_index": 3720,
+          "distance_from_input_rising_edge_cycles": 0,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 8,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3722,
+          "input_vector_index": 3721,
+          "distance_from_input_rising_edge_cycles": 1,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3723,
+          "input_vector_index": 3722,
+          "distance_from_input_rising_edge_cycles": 2,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 213,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3724,
+          "input_vector_index": 3723,
+          "distance_from_input_rising_edge_cycles": 3,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 212,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3725,
+          "input_vector_index": 3724,
+          "distance_from_input_rising_edge_cycles": 4,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 211,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3726,
+          "input_vector_index": 3725,
+          "distance_from_input_rising_edge_cycles": 5,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 210,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3727,
+          "input_vector_index": 3726,
+          "distance_from_input_rising_edge_cycles": 6,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 209,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 4151,
+          "input_vector_index": 4150,
+          "distance_from_input_rising_edge_cycles": 430,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 4153,
+          "input_vector_index": 4152,
+          "distance_from_input_rising_edge_cycles": 432,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 11,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4154,
+          "input_vector_index": 4153,
+          "distance_from_input_rising_edge_cycles": 433,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 11,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4155,
+          "input_vector_index": 4154,
+          "distance_from_input_rising_edge_cycles": 434,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 12,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_register_changed"
+          ]
+        },
+        {
+          "trace_index": 4157,
+          "input_vector_index": 4156,
+          "distance_from_input_rising_edge_cycles": 436,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 13,
+          "instruction_hex": "0x8010",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        }
+      ]
+    },
+    {
+      "delta_cycles": -213,
+      "low_run_duration_cycles": 3711,
+      "expected_shift_register": "0x00",
+      "observed_shift_register": "0x00",
+      "error_flag_pin7": false,
+      "core_fault": false,
+      "classification": "correct_decode",
+      "rtl_reference_model_match": true,
+      "first_mismatch": null,
+      "input_rising_edge_vector_index": 3721,
+      "input_rising_edge_trace_index": 3722,
+      "trace_rows": 4398,
+      "event_count": 48,
+      "events": [
+        {
+          "trace_index": 227,
+          "input_vector_index": 226,
+          "distance_from_input_rising_edge_cycles": -3495,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 2,
+          "instruction_hex": "0x30D6",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 228,
+          "input_vector_index": 227,
+          "distance_from_input_rising_edge_cycles": -3494,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 2,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 665,
+          "input_vector_index": 664,
+          "distance_from_input_rising_edge_cycles": -3057,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x30D7",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 666,
+          "input_vector_index": 665,
+          "distance_from_input_rising_edge_cycles": -3056,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 667,
+          "input_vector_index": 666,
+          "distance_from_input_rising_edge_cycles": -3055,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1099,
+          "input_vector_index": 1098,
+          "distance_from_input_rising_edge_cycles": -2623,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1101,
+          "input_vector_index": 1100,
+          "distance_from_input_rising_edge_cycles": -2621,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1102,
+          "input_vector_index": 1101,
+          "distance_from_input_rising_edge_cycles": -2620,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1103,
+          "input_vector_index": 1102,
+          "distance_from_input_rising_edge_cycles": -2619,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1535,
+          "input_vector_index": 1534,
+          "distance_from_input_rising_edge_cycles": -2187,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1537,
+          "input_vector_index": 1536,
+          "distance_from_input_rising_edge_cycles": -2185,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1538,
+          "input_vector_index": 1537,
+          "distance_from_input_rising_edge_cycles": -2184,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1539,
+          "input_vector_index": 1538,
+          "distance_from_input_rising_edge_cycles": -2183,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1971,
+          "input_vector_index": 1970,
+          "distance_from_input_rising_edge_cycles": -1751,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1973,
+          "input_vector_index": 1972,
+          "distance_from_input_rising_edge_cycles": -1749,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1974,
+          "input_vector_index": 1973,
+          "distance_from_input_rising_edge_cycles": -1748,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1975,
+          "input_vector_index": 1974,
+          "distance_from_input_rising_edge_cycles": -1747,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2407,
+          "input_vector_index": 2406,
+          "distance_from_input_rising_edge_cycles": -1315,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2409,
+          "input_vector_index": 2408,
+          "distance_from_input_rising_edge_cycles": -1313,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2410,
+          "input_vector_index": 2409,
+          "distance_from_input_rising_edge_cycles": -1312,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2411,
+          "input_vector_index": 2410,
+          "distance_from_input_rising_edge_cycles": -1311,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2843,
+          "input_vector_index": 2842,
+          "distance_from_input_rising_edge_cycles": -879,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2845,
+          "input_vector_index": 2844,
+          "distance_from_input_rising_edge_cycles": -877,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2846,
+          "input_vector_index": 2845,
+          "distance_from_input_rising_edge_cycles": -876,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2847,
+          "input_vector_index": 2846,
+          "distance_from_input_rising_edge_cycles": -875,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3279,
+          "input_vector_index": 3278,
+          "distance_from_input_rising_edge_cycles": -443,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3281,
+          "input_vector_index": 3280,
+          "distance_from_input_rising_edge_cycles": -441,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3282,
+          "input_vector_index": 3281,
+          "distance_from_input_rising_edge_cycles": -440,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3283,
+          "input_vector_index": 3282,
+          "distance_from_input_rising_edge_cycles": -439,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3715,
+          "input_vector_index": 3714,
+          "distance_from_input_rising_edge_cycles": -7,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3716,
+          "input_vector_index": 3715,
+          "distance_from_input_rising_edge_cycles": -6,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 10,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3717,
+          "input_vector_index": 3716,
+          "distance_from_input_rising_edge_cycles": -5,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3718,
+          "input_vector_index": 3717,
+          "distance_from_input_rising_edge_cycles": -4,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3719,
+          "input_vector_index": 3718,
+          "distance_from_input_rising_edge_cycles": -3,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge",
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3720,
+          "input_vector_index": 3719,
+          "distance_from_input_rising_edge_cycles": -2,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 7,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3721,
+          "input_vector_index": 3720,
+          "distance_from_input_rising_edge_cycles": -1,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 8,
+          "instruction_hex": "0x5000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3722,
+          "input_vector_index": 3721,
+          "distance_from_input_rising_edge_cycles": 0,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3723,
+          "input_vector_index": 3722,
+          "distance_from_input_rising_edge_cycles": 1,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 213,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3724,
+          "input_vector_index": 3723,
+          "distance_from_input_rising_edge_cycles": 2,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 212,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3725,
+          "input_vector_index": 3724,
+          "distance_from_input_rising_edge_cycles": 3,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 211,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3726,
+          "input_vector_index": 3725,
+          "distance_from_input_rising_edge_cycles": 4,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 210,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3727,
+          "input_vector_index": 3726,
+          "distance_from_input_rising_edge_cycles": 5,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 209,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3728,
+          "input_vector_index": 3727,
+          "distance_from_input_rising_edge_cycles": 6,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 208,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 4151,
+          "input_vector_index": 4150,
+          "distance_from_input_rising_edge_cycles": 429,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 4153,
+          "input_vector_index": 4152,
+          "distance_from_input_rising_edge_cycles": 431,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 11,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4154,
+          "input_vector_index": 4153,
+          "distance_from_input_rising_edge_cycles": 432,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 11,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4155,
+          "input_vector_index": 4154,
+          "distance_from_input_rising_edge_cycles": 433,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 12,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_register_changed"
+          ]
+        },
+        {
+          "trace_index": 4157,
+          "input_vector_index": 4156,
+          "distance_from_input_rising_edge_cycles": 435,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 13,
+          "instruction_hex": "0x8010",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        }
+      ]
+    },
+    {
+      "delta_cycles": 0,
+      "low_run_duration_cycles": 3924,
+      "expected_shift_register": "0x00",
+      "observed_shift_register": "0x00",
+      "error_flag_pin7": false,
+      "core_fault": false,
+      "classification": "correct_decode",
+      "rtl_reference_model_match": true,
+      "first_mismatch": null,
+      "input_rising_edge_vector_index": 3934,
+      "input_rising_edge_trace_index": 3935,
+      "trace_rows": 4611,
+      "event_count": 51,
+      "events": [
+        {
+          "trace_index": 227,
+          "input_vector_index": 226,
+          "distance_from_input_rising_edge_cycles": -3708,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 2,
+          "instruction_hex": "0x30D6",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 228,
+          "input_vector_index": 227,
+          "distance_from_input_rising_edge_cycles": -3707,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 2,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 665,
+          "input_vector_index": 664,
+          "distance_from_input_rising_edge_cycles": -3270,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x30D7",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 666,
+          "input_vector_index": 665,
+          "distance_from_input_rising_edge_cycles": -3269,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 667,
+          "input_vector_index": 666,
+          "distance_from_input_rising_edge_cycles": -3268,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1099,
+          "input_vector_index": 1098,
+          "distance_from_input_rising_edge_cycles": -2836,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1101,
+          "input_vector_index": 1100,
+          "distance_from_input_rising_edge_cycles": -2834,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1102,
+          "input_vector_index": 1101,
+          "distance_from_input_rising_edge_cycles": -2833,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1103,
+          "input_vector_index": 1102,
+          "distance_from_input_rising_edge_cycles": -2832,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1535,
+          "input_vector_index": 1534,
+          "distance_from_input_rising_edge_cycles": -2400,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1537,
+          "input_vector_index": 1536,
+          "distance_from_input_rising_edge_cycles": -2398,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1538,
+          "input_vector_index": 1537,
+          "distance_from_input_rising_edge_cycles": -2397,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1539,
+          "input_vector_index": 1538,
+          "distance_from_input_rising_edge_cycles": -2396,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1971,
+          "input_vector_index": 1970,
+          "distance_from_input_rising_edge_cycles": -1964,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 1973,
+          "input_vector_index": 1972,
+          "distance_from_input_rising_edge_cycles": -1962,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1974,
+          "input_vector_index": 1973,
+          "distance_from_input_rising_edge_cycles": -1961,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 1975,
+          "input_vector_index": 1974,
+          "distance_from_input_rising_edge_cycles": -1960,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2407,
+          "input_vector_index": 2406,
+          "distance_from_input_rising_edge_cycles": -1528,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2409,
+          "input_vector_index": 2408,
+          "distance_from_input_rising_edge_cycles": -1526,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2410,
+          "input_vector_index": 2409,
+          "distance_from_input_rising_edge_cycles": -1525,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2411,
+          "input_vector_index": 2410,
+          "distance_from_input_rising_edge_cycles": -1524,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2843,
+          "input_vector_index": 2842,
+          "distance_from_input_rising_edge_cycles": -1092,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 2845,
+          "input_vector_index": 2844,
+          "distance_from_input_rising_edge_cycles": -1090,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2846,
+          "input_vector_index": 2845,
+          "distance_from_input_rising_edge_cycles": -1089,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 2847,
+          "input_vector_index": 2846,
+          "distance_from_input_rising_edge_cycles": -1088,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3279,
+          "input_vector_index": 3278,
+          "distance_from_input_rising_edge_cycles": -656,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3281,
+          "input_vector_index": 3280,
+          "distance_from_input_rising_edge_cycles": -654,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3282,
+          "input_vector_index": 3281,
+          "distance_from_input_rising_edge_cycles": -653,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3283,
+          "input_vector_index": 3282,
+          "distance_from_input_rising_edge_cycles": -652,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3715,
+          "input_vector_index": 3714,
+          "distance_from_input_rising_edge_cycles": -220,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3717,
+          "input_vector_index": 3716,
+          "distance_from_input_rising_edge_cycles": -218,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 6,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3718,
+          "input_vector_index": 3717,
+          "distance_from_input_rising_edge_cycles": -217,
+          "input_pin0": 0,
+          "state": 1,
+          "pc": 6,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 3719,
+          "input_vector_index": 3718,
+          "distance_from_input_rising_edge_cycles": -216,
+          "input_pin0": 0,
+          "state": 0,
+          "pc": 7,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 3929,
+          "input_vector_index": 3928,
+          "distance_from_input_rising_edge_cycles": -6,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 7,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3930,
+          "input_vector_index": 3929,
+          "distance_from_input_rising_edge_cycles": -5,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 6,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3931,
+          "input_vector_index": 3930,
+          "distance_from_input_rising_edge_cycles": -4,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 5,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3932,
+          "input_vector_index": 3931,
+          "distance_from_input_rising_edge_cycles": -3,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 4,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3933,
+          "input_vector_index": 3932,
+          "distance_from_input_rising_edge_cycles": -2,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 3,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3934,
+          "input_vector_index": 3933,
+          "distance_from_input_rising_edge_cycles": -1,
+          "input_pin0": 0,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 2,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3935,
+          "input_vector_index": 3934,
+          "distance_from_input_rising_edge_cycles": 0,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 8,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 1,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3936,
+          "input_vector_index": 3935,
+          "distance_from_input_rising_edge_cycles": 1,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3937,
+          "input_vector_index": 3936,
+          "distance_from_input_rising_edge_cycles": 2,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3938,
+          "input_vector_index": 3937,
+          "distance_from_input_rising_edge_cycles": 3,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 213,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3939,
+          "input_vector_index": 3938,
+          "distance_from_input_rising_edge_cycles": 4,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 212,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3940,
+          "input_vector_index": 3939,
+          "distance_from_input_rising_edge_cycles": 5,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 211,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 3941,
+          "input_vector_index": 3940,
+          "distance_from_input_rising_edge_cycles": 6,
+          "input_pin0": 1,
+          "state": 2,
+          "pc": 9,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 210,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "near_input_rising_edge"
+          ]
+        },
+        {
+          "trace_index": 4151,
+          "input_vector_index": 4150,
+          "distance_from_input_rising_edge_cycles": 216,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 10,
+          "instruction_hex": "0x30D5",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        },
+        {
+          "trace_index": 4153,
+          "input_vector_index": 4152,
+          "distance_from_input_rising_edge_cycles": 218,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 11,
+          "instruction_hex": "0x9206",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4154,
+          "input_vector_index": 4153,
+          "distance_from_input_rising_edge_cycles": 219,
+          "input_pin0": 1,
+          "state": 1,
+          "pc": 11,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 0,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "sample_instruction_state_transition"
+          ]
+        },
+        {
+          "trace_index": 4155,
+          "input_vector_index": 4154,
+          "distance_from_input_rising_edge_cycles": 220,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 12,
+          "instruction_hex": "0x2000",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest",
+            "sample_register_changed"
+          ]
+        },
+        {
+          "trace_index": 4157,
+          "input_vector_index": 4156,
+          "distance_from_input_rising_edge_cycles": 222,
+          "input_pin0": 1,
+          "state": 0,
+          "pc": 13,
+          "instruction_hex": "0x8010",
+          "pin_out_hex": "0x00",
+          "pin_oe_hex": "0x00",
+          "sample_reg": 1,
+          "shift_reg_hex": "0x00",
+          "wait_count": 0,
+          "timed_out": false,
+          "fault": false,
+          "event_tags": [
+            "pc_transition_of_interest"
+          ]
+        }
+      ]
+    }
+  ]
+}

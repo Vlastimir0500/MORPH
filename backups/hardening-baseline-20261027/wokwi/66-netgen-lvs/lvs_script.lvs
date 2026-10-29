@@ -1,0 +1,9 @@
+set circuit1 [readnet spice /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/64-magic-spiceextraction/tt_um_rattandeep_morph.spice]
+set circuit2 [readnet verilog /dev/null]
+puts "Reading SPICE netlist file '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice'..."
+readnet spice /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice $circuit2
+puts "Reading SPICE netlist file '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spi'..."
+readnet spice /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spi $circuit2
+puts "Reading Verilog netlist file '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/52-openroad-fillinsertion/tt_um_rattandeep_morph.pnl.v'..."
+readnet verilog /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/52-openroad-fillinsertion/tt_um_rattandeep_morph.pnl.v $circuit2
+lvs "$circuit1 tt_um_rattandeep_morph" "$circuit2 tt_um_rattandeep_morph" /nix/store/6a08ghhhzl5a07nr0ly762yh1ah6m5bj-python3-3.13.13-env/lib/python3.13/site-packages/librelane/scripts/netgen/setup.tcl /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/66-netgen-lvs/reports/lvs.netgen.rpt -blackbox -json

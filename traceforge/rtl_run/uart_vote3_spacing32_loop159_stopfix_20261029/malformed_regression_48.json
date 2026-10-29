@@ -1,0 +1,48 @@
+{
+  "experiment": "VOTE3 loop WAIT 159",
+  "cases": 48,
+  "classification_counts": {
+    "malformed_rejected": 44,
+    "malformed_silent_acceptance": 4
+  },
+  "by_category": {
+    "negative_start_frame": {
+      "malformed_rejected": 24
+    },
+    "negative_stop_frame": {
+      "malformed_rejected": 20,
+      "malformed_silent_acceptance": 4
+    }
+  },
+  "rtl_model_mismatches": 0,
+  "failures": [
+    {
+      "case": "new_negative_stop_9D_463",
+      "category": "negative_stop_frame",
+      "classification": "malformed_silent_acceptance",
+      "error_flag": false,
+      "observed_shift": "0xBC"
+    },
+    {
+      "case": "new_negative_stop_B7_463",
+      "category": "negative_stop_frame",
+      "classification": "malformed_silent_acceptance",
+      "error_flag": false,
+      "observed_shift": "0xE6"
+    },
+    {
+      "case": "new_negative_stop_E2_463",
+      "category": "negative_stop_frame",
+      "classification": "malformed_silent_acceptance",
+      "error_flag": false,
+      "observed_shift": "0x43"
+    },
+    {
+      "case": "new_negative_stop_F8_463",
+      "category": "negative_stop_frame",
+      "classification": "malformed_silent_acceptance",
+      "error_flag": false,
+      "observed_shift": "0x1F"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "cases": 1184,
+  "baseline_counts": {
+    "silent_misdecode": 121,
+    "correct_decode": 1015,
+    "error_flagged": 46,
+    "malformed_rejected": 2
+  },
+  "candidate_counts": {
+    "silent_misdecode": 111,
+    "correct_decode": 1025,
+    "error_flagged": 46,
+    "malformed_rejected": 2
+  },
+  "improved_cases": [
+    "matrix_00_period_412",
+    "matrix_55_period_412",
+    "matrix_3C_period_412",
+    "matrix_81_period_409",
+    "matrix_7E_period_412",
+    "matrix_A5_period_409",
+    "matrix_A6_period_409",
+    "minimized_counterexample_payload00",
+    "aggregate_low_run_delta_-217",
+    "aggregate_low_run_delta_-216"
+  ],
+  "regressed_cases": [],
+  "transitions": {
+    "silent_misdecode->silent_misdecode": 111,
+    "silent_misdecode->correct_decode": 10,
+    "correct_decode->correct_decode": 1015,
+    "error_flagged->error_flagged": 46,
+    "malformed_rejected->malformed_rejected": 2
+  },
+  "baseline_rtl_model_mismatches": 0,
+  "candidate_rtl_model_mismatches": 0,
+  "baseline_common_uniform_ranges": [
+    [
+      413,
+      460
+    ]
+  ],
+  "candidate_common_uniform_ranges": [
+    [
+      412,
+      460
+    ]
+  ]
+}

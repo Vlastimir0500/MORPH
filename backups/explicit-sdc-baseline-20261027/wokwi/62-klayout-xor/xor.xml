@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report-database>
+ <description>XOR /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/57-magic-streamout/tt_um_rattandeep_morph.magic.gds vs. /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/58-klayout-streamout/tt_um_rattandeep_morph.klayout.gds</description>
+ <original-file/>
+ <generator>drc: script='/nix/store/6a08ghhhzl5a07nr0ly762yh1ah6m5bj-python3-3.13.13-env/lib/python3.13/site-packages/librelane/scripts/klayout/xor.drc'</generator>
+ <top-cell>tt_um_rattandeep_morph</top-cell>
+ <tags>
+ </tags>
+ <categories>
+  <category>
+   <name>1/0</name>
+   <description>XOR data for layer 1/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>10/0</name>
+   <description>XOR data for layer 10/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>14/0</name>
+   <description>XOR data for layer 14/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>189/4</name>
+   <description>XOR data for layer 189/4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>19/0</name>
+   <description>XOR data for layer 19/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>29/0</name>
+   <description>XOR data for layer 29/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>30/0</name>
+   <description>XOR data for layer 30/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>31/0</name>
+   <description>XOR data for layer 31/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>49/0</name>
+   <description>XOR data for layer 49/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>5/0</name>
+   <description>XOR data for layer 5/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>50/0</name>
+   <description>XOR data for layer 50/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>50/2</name>
+   <description>XOR data for layer 50/2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>50/25</name>
+   <description>XOR data for layer 50/25</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>6/0</name>
+   <description>XOR data for layer 6/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>63/0</name>
+   <description>XOR data for layer 63/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8/0</name>
+   <description>XOR data for layer 8/0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8/2</name>
+   <description>XOR data for layer 8/2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8/25</name>
+   <description>XOR data for layer 8/25</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>99/31</name>
+   <description>XOR data for layer 99/31</description>
+   <categories>
+   </categories>
+  </category>
+ </categories>
+ <cells>
+  <cell>
+   <name>tt_um_rattandeep_morph</name>
+   <variant/>
+   <layout-name/>
+   <references>
+   </references>
+  </cell>
+ </cells>
+ <items>
+ </items>
+</report-database>

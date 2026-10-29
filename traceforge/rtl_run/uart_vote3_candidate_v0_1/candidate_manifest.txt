@@ -1,0 +1,7 @@
+Candidate: UART RX VOTE3 v0.1
+Opcode A: majority of the latest three SAMPLE reads
+Production RTL and firmware: unchanged
+Candidate RTL: morph_engine_v2_vote3.sv
+Candidate model: morph_isa_model_v2_vote3.py
+Candidate microprogram: v2_uart_rx_vote3_candidate.morph
+Candidate hex: v2_uart_rx_vote3_candidate.hex

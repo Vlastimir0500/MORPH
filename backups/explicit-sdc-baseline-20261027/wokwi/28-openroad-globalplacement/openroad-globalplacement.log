@@ -1,0 +1,151 @@
+[WARNING ORD-0032] Invalid thread number specification: None.
+Reading timing models for corner nom_typ_1p20V_25C…
+Reading timing library for the 'nom_typ_1p20V_25C' corner at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_typ_1p20V_25C.lib'…
+Reading timing library for the 'nom_typ_1p20V_25C' corner at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_typ_1p2V_3p3V_25C.lib'…
+Reading OpenROAD database at '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/27-odb-applydeftemplate/tt_um_rattandeep_morph.odb'…
+Reading design constraints file at '/nix/store/6a08ghhhzl5a07nr0ly762yh1ah6m5bj-python3-3.13.13-env/lib/python3.13/site-packages/librelane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 4.0
+[INFO] Setting input delay to: 4.0
+[INFO] Setting load to: 0.006
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.15
+[INFO] Setting timing derate to: 5.0%
+[INFO] Setting signal min routing layer to: Metal2 and clock min routing layer to Metal2. 
+[INFO] Setting signal max routing layer to: Metal4 and clock max routing layer to Metal4. 
++ global_placement -density 0.6 -routability_driven -pad_right 0 -pad_left 0 -init_wirelength_coef 0.25
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.480  3.780 ) um
+[INFO GPL-0004] CoreBBox: (  2.880  3.780 ) ( 1286.400 706.860 ) um
+[INFO GPL-0036] Movable instances area:      21618.576 um^2
+[INFO GPL-0037] Total instances area:        21618.576 um^2
+[INFO GPL-0035] Pin density area adjust:      1486.044 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:              1246
+[INFO GPL-0007] Movable instances:                1246
+[INFO GPL-0008] Fixed instances:                     0
+[INFO GPL-0009] Dummy instances:                     0
+[INFO GPL-0010] Number of nets:                   1265
+[INFO GPL-0011] Number of pins:                   3995
+[INFO GPL-0012] Die BBox:  (  0.000  0.000 ) ( 1289.280 710.640 ) um
+[INFO GPL-0013] Core BBox: (  2.880  3.780 ) ( 1286.400 706.860 ) um
+[INFO GPL-0016] Core area:                  902417.242 um^2
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                902417.242 um^2
+[INFO GPL-0017] Fixed instances area:            0.000 um^2
+[INFO GPL-0018] Movable instances area:      23104.620 um^2
+[INFO GPL-0019] Utilization:                     2.560 %
+[INFO GPL-0020] Standard cells area:         23104.620 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0005] ---- Execute Conjugate Gradient Initial Placement.
+[INFO GPL-0051] Source of initial instance position counters:
+	Odb location = 0	Core center = 1246	Region center = 0
+[InitialPlace]  Iter: 1 conjugate gradient residual: 0.03361063 HPWL: 49878280
+[InitialPlace]  Iter: 2 conjugate gradient residual: 0.00010073 HPWL: 18709601
+[InitialPlace]  Iter: 3 conjugate gradient residual: 0.00000011 HPWL: 17055294
+[InitialPlace]  Iter: 4 conjugate gradient residual: 0.00000011 HPWL: 17051676
+[InitialPlace]  Iter: 5 conjugate gradient residual: 0.00000011 HPWL: 17020172
+[INFO GPL-0033] ---- Initialize Nesterov Region: Top-level
+[INFO GPL-0023] Placement target density:       0.6000
+[INFO GPL-0024] Movable insts average area:     18.543 um^2
+[INFO GPL-0025] Ideal bin area:                 30.905 um^2
+[INFO GPL-0026] Ideal bin count:                 29199
+[INFO GPL-0027] Total bin area:             902417.242 um^2
+[INFO GPL-0028] Bin count (X, Y):         128 ,    128
+[INFO GPL-0029] Bin size (W * H):      10.027 *  5.493 um
+[INFO GPL-0030] Number of bins:                  16384
+[INFO GPL-0007] ---- Execute Nesterov Global Placement.
+[INFO GPL-0031] HPWL: Half-Perimeter Wirelength
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+        0 |   0.9772 |  5.167673e+03 |   +0.00% |  1.63e-16 |      
+       10 |   0.9743 |  5.133998e+03 |   -0.65% |  2.65e-16 |      
+       20 |   0.9741 |  5.152368e+03 |   +0.36% |  4.31e-16 |      
+       30 |   0.9742 |  5.145909e+03 |   -0.13% |  7.03e-16 |      
+       40 |   0.9742 |  5.142104e+03 |   -0.07% |  1.14e-15 |      
+       50 |   0.9742 |  5.146386e+03 |   +0.08% |  1.86e-15 |      
+       60 |   0.9742 |  5.144896e+03 |   -0.03% |  3.04e-15 |      
+       70 |   0.9742 |  5.143431e+03 |   -0.03% |  4.95e-15 |      
+       80 |   0.9742 |  5.145985e+03 |   +0.05% |  8.06e-15 |      
+       90 |   0.9742 |  5.148927e+03 |   +0.06% |  1.31e-14 |      
+      100 |   0.9742 |  5.155359e+03 |   +0.12% |  2.14e-14 |      
+      110 |   0.9742 |  5.169004e+03 |   +0.26% |  3.48e-14 |      
+      120 |   0.9742 |  5.191895e+03 |   +0.44% |  5.67e-14 |      
+      130 |   0.9742 |  5.234313e+03 |   +0.82% |  9.24e-14 |      
+      140 |   0.9741 |  5.312699e+03 |   +1.50% |  1.50e-13 |      
+      150 |   0.9698 |  5.428300e+03 |   +2.18% |  2.45e-13 |      
+      160 |   0.9696 |  5.609604e+03 |   +3.34% |  3.99e-13 |      
+      170 |   0.9651 |  5.917866e+03 |   +5.50% |  6.50e-13 |      
+      180 |   0.9612 |  6.391366e+03 |   +8.00% |  1.06e-12 |      
+      190 |   0.9518 |  7.010187e+03 |   +9.68% |  1.73e-12 |      
+      200 |   0.9447 |  7.691212e+03 |   +9.71% |  2.81e-12 |      
+      210 |   0.9342 |  8.297687e+03 |   +7.89% |  4.58e-12 |      
+      220 |   0.9204 |  8.881088e+03 |   +7.03% |  7.46e-12 |      
+      230 |   0.9067 |  9.796655e+03 |  +10.31% |  1.21e-11 |      
+      240 |   0.8879 |  1.058160e+04 |   +8.01% |  1.98e-11 |      
+      250 |   0.8635 |  1.123188e+04 |   +6.15% |  3.22e-11 |      
+      260 |   0.8370 |  1.255830e+04 |  +11.81% |  5.25e-11 |      
+      270 |   0.8069 |  1.325448e+04 |   +5.54% |  8.55e-11 |      
+      280 |   0.7661 |  1.360823e+04 |   +2.67% |  1.39e-10 |      
+      290 |   0.7232 |  1.502192e+04 |  +10.39% |  2.27e-10 |      
+      300 |   0.6773 |  1.563058e+04 |   +4.05% |  3.69e-10 |      
+      310 |   0.6304 |  1.671126e+04 |   +6.91% |  6.01e-10 |      
+[INFO GPL-0038] Routability snapshot saved at iter = 317
+      316 |   0.5988 |  1.743883e+04 |          |           |      
+      320 |   0.5804 |  1.788315e+04 |   +7.01% |  9.79e-10 |      
+      330 |   0.5249 |  1.909625e+04 |   +6.78% |  1.60e-09 |      
+      340 |   0.4801 |  2.029033e+04 |   +6.25% |  2.60e-09 |      
+      350 |   0.4204 |  2.118164e+04 |   +4.39% |  4.23e-09 |      
+      360 |   0.3771 |  2.215551e+04 |   +4.60% |  6.89e-09 |      
+      370 |   0.3323 |  2.278837e+04 |   +2.86% |  1.08e-08 |      
+      380 |   0.2899 |  2.376060e+04 |   +4.27% |  1.59e-08 |      
+[INFO GPL-0040] Routability iteration: 1
+[INFO GPL-0041] Total routing overflow: 0.0000
+[INFO GPL-0042] Number of overflowed tiles: 0 (0.00%)
+[INFO GPL-0043] Average top 0.5% routing congestion: 0.6830
+[INFO GPL-0044] Average top 1.0% routing congestion: 0.6607
+[INFO GPL-0045] Average top 2.0% routing congestion: 0.6478
+[INFO GPL-0046] Average top 5.0% routing congestion: 0.6175
+[INFO GPL-0047] Routability iteration weighted routing congestion: 0.6718
+[INFO GPL-0050] Weighted routing congestion is lower than target routing congestion(1.0100), end routability optimization.
+[INFO GPL-0090] Routability finished. Target routing congestion achieved succesfully.
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+      390 |   0.2569 |  2.442458e+04 |   +2.79% |  2.34e-08 |      
+      400 |   0.2250 |  2.514719e+04 |   +2.96% |  3.45e-08 |      
+      410 |   0.1948 |  2.396733e+04 |   -4.69% |  5.08e-08 |      
+      420 |   0.1710 |  2.445379e+04 |   +2.03% |  7.48e-08 |      
+      430 |   0.1424 |  2.487346e+04 |   +1.72% |  1.10e-07 |      
+      440 |   0.1134 |  2.518524e+04 |   +1.25% |  1.62e-07 |      
+      450 |   0.1029 |  2.553085e+04 |   +1.37% |  2.39e-07 |      
+      452 |   0.0993 |  2.560807e+04 |          |  2.69e-07 |      
+---------------------------------------------------------------
+[INFO GPL-1001] Global placement finished at iteration 452
+[INFO GPL-1003] Routability mode iteration count: 63
+[INFO GPL-1005] Routability final weighted congestion: 0.6738
+[INFO GPL-1002] Placed Cell Area            23104.6204
+[INFO GPL-1003] Available Free Area         902417.2416
+[INFO GPL-1004] Minimum Feasible Density        0.0300 (cell_area / free_area)
+[INFO GPL-1006]   Suggested Target Densities:
+[INFO GPL-1007]     - For 90% usage of free space: 0.0284
+[INFO GPL-1008]     - For 80% usage of free space: 0.0320
+[INFO GPL-1009]     - For 50% usage of free space: 0.0512
+[INFO GPL-1011] Original area (um^2): 23104.62
+[INFO GPL-1012] Total routability artificial inflation: 0.00 (+0.00%)
+[INFO GPL-1014] Final placement area: 23104.62 (+0.00%)
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+[INFO ODB-0403] 0 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Buffer                                    1       7.26
+  Inverter                                 33     179.63
+  Sequential cell                         244   11953.27
+  Multi-Input combinational cell          968    9478.43
+  Total                                  1246   21618.58
+Writing OpenROAD database to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/28-openroad-globalplacement/tt_um_rattandeep_morph.odb'…
+Writing netlist to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/28-openroad-globalplacement/tt_um_rattandeep_morph.nl.v'…
+Writing powered netlist to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/28-openroad-globalplacement/tt_um_rattandeep_morph.pnl.v'…
+Writing layout to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/28-openroad-globalplacement/tt_um_rattandeep_morph.def'…
+Writing timing constraints to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/28-openroad-globalplacement/tt_um_rattandeep_morph.sdc'…

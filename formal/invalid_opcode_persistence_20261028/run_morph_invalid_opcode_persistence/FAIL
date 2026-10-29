@@ -1,0 +1,6 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+engine_0 (smtbmc z3) returned FAIL
+counterexample trace: engine_0/trace.vcd
+counterexample trace: engine_0/trace.yw
+  failed assertion morph_invalid_opcode_formal._witness_.check_assert_morph_invalid_opcode_formal_sv_36_11 at morph_invalid_opcode_formal.sv:36.13-36.35 step 1

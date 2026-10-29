@@ -1,0 +1,65 @@
+[
+  {
+    "delay": 40,
+    "rejected": 20,
+    "silent_acceptances": 4,
+    "other": 0,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "delay": 50,
+    "rejected": 20,
+    "silent_acceptances": 4,
+    "other": 0,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "delay": 60,
+    "rejected": 20,
+    "silent_acceptances": 4,
+    "other": 0,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "delay": 70,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "delay": 80,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "delay": 90,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "delay": 100,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "delay": 110,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "delay": 120,
+    "rejected": 24,
+    "silent_acceptances": 0,
+    "other": 0,
+    "rtl_model_mismatches": 0
+  }
+]

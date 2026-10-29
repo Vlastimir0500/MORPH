@@ -1,0 +1,81 @@
+{
+  "matched_cases": 1184,
+  "baseline_counts": {
+    "silent_misdecode": 121,
+    "correct_decode": 1015,
+    "error_flagged": 46,
+    "malformed_rejected": 2
+  },
+  "candidate_counts": {
+    "silent_misdecode": 107,
+    "correct_decode": 1020,
+    "error_flagged": 55,
+    "malformed_rejected": 2
+  },
+  "transitions": {
+    "silent_misdecode->silent_misdecode": 99,
+    "silent_misdecode->correct_decode": 22,
+    "correct_decode->correct_decode": 998,
+    "correct_decode->error_flagged": 9,
+    "error_flagged->error_flagged": 46,
+    "correct_decode->silent_misdecode": 8,
+    "malformed_rejected->malformed_rejected": 2
+  },
+  "improved_cases": [
+    "matrix_00_period_411",
+    "matrix_00_period_412",
+    "matrix_55_period_411",
+    "matrix_55_period_412",
+    "matrix_3C_period_411",
+    "matrix_3C_period_412",
+    "matrix_81_period_408",
+    "matrix_81_period_409",
+    "matrix_7E_period_411",
+    "matrix_7E_period_412",
+    "matrix_A5_period_408",
+    "matrix_A5_period_409",
+    "matrix_A6_period_408",
+    "matrix_A6_period_409",
+    "jitter_80_034",
+    "jitter_80_133",
+    "minimized_counterexample_payload00",
+    "aggregate_low_run_delta_-220",
+    "aggregate_low_run_delta_-219",
+    "aggregate_low_run_delta_-218",
+    "aggregate_low_run_delta_-217",
+    "aggregate_low_run_delta_-216"
+  ],
+  "regressions": [
+    "matrix_00_period_459",
+    "matrix_00_period_460",
+    "matrix_55_period_459",
+    "matrix_55_period_460",
+    "matrix_3C_period_459",
+    "matrix_3C_period_460",
+    "matrix_81_period_462",
+    "matrix_81_period_463",
+    "matrix_7E_period_459",
+    "matrix_7E_period_460",
+    "matrix_A5_period_462",
+    "matrix_A5_period_463",
+    "matrix_A6_period_462",
+    "matrix_A6_period_463",
+    "jitter_60_030",
+    "jitter_60_141",
+    "jitter_80_110"
+  ],
+  "baseline_model_mismatches": 0,
+  "candidate_model_mismatches": 0,
+  "baseline_common_uniform_ranges": [
+    [
+      413,
+      460
+    ]
+  ],
+  "candidate_common_uniform_ranges": [
+    [
+      411,
+      458
+    ]
+  ]
+}

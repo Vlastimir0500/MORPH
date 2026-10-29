@@ -1,0 +1,103 @@
+{
+  "cases_compared": 932,
+  "baseline_rtl_model_mismatches": 0,
+  "previous_vote3_rtl_model_mismatches": 0,
+  "spread_sample_rtl_model_mismatches": 0,
+  "previous_vote3_vs_baseline": {
+    "classifications": {
+      "silent_misdecode": 90,
+      "correct_decode": 829,
+      "error_flagged": 13
+    },
+    "improvements": 441,
+    "regressions": 67,
+    "transitions": {
+      "correct_decode -> correct_decode": 388,
+      "silent_misdecode -> correct_decode": 441,
+      "correct_decode -> silent_misdecode": 63,
+      "silent_misdecode -> silent_misdecode": 27,
+      "correct_decode -> error_flagged": 4,
+      "error_flagged -> error_flagged": 9
+    },
+    "by_category": {
+      "independent_transient_glitch": {
+        "correct_decode": 696,
+        "silent_misdecode": 72
+      },
+      "independent_randomized_symbol_jitter": {
+        "correct_decode": 97,
+        "silent_misdecode": 2,
+        "error_flagged": 1
+      },
+      "independent_uniform_period": {
+        "silent_misdecode": 16,
+        "correct_decode": 36,
+        "error_flagged": 12
+      }
+    }
+  },
+  "spread_sample_vs_baseline": {
+    "classifications": {
+      "silent_misdecode": 18,
+      "correct_decode": 900,
+      "error_flagged": 14
+    },
+    "improvements": 456,
+    "regressions": 11,
+    "transitions": {
+      "correct_decode -> correct_decode": 444,
+      "silent_misdecode -> correct_decode": 456,
+      "correct_decode -> error_flagged": 5,
+      "silent_misdecode -> silent_misdecode": 12,
+      "error_flagged -> error_flagged": 9,
+      "correct_decode -> silent_misdecode": 6
+    },
+    "by_category": {
+      "independent_transient_glitch": {
+        "correct_decode": 768
+      },
+      "independent_randomized_symbol_jitter": {
+        "correct_decode": 96,
+        "error_flagged": 2,
+        "silent_misdecode": 2
+      },
+      "independent_uniform_period": {
+        "silent_misdecode": 16,
+        "correct_decode": 36,
+        "error_flagged": 12
+      }
+    }
+  },
+  "spread_sample_vs_previous_vote3": {
+    "classifications": {
+      "silent_misdecode": 18,
+      "correct_decode": 900,
+      "error_flagged": 14
+    },
+    "improvements": 73,
+    "regressions": 2,
+    "transitions": {
+      "correct_decode -> correct_decode": 827,
+      "silent_misdecode -> correct_decode": 73,
+      "correct_decode -> error_flagged": 1,
+      "correct_decode -> silent_misdecode": 1,
+      "error_flagged -> error_flagged": 13,
+      "silent_misdecode -> silent_misdecode": 17
+    },
+    "by_category": {
+      "independent_transient_glitch": {
+        "correct_decode": 768
+      },
+      "independent_randomized_symbol_jitter": {
+        "correct_decode": 96,
+        "error_flagged": 2,
+        "silent_misdecode": 2
+      },
+      "independent_uniform_period": {
+        "silent_misdecode": 16,
+        "correct_decode": 36,
+        "error_flagged": 12
+      }
+    }
+  }
+}

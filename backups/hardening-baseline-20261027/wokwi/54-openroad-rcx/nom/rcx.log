@@ -1,0 +1,37 @@
+[WARNING ORD-0032] Invalid thread number specification: None.
+Reading technology LEF file at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_tech.lef'…
+[INFO ODB-0227] LEF file: /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_tech.lef, created 15 layers, 52 vias
+Reading cell LEF file at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef'…
+[INFO ODB-0227] LEF file: /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef, created 84 library cells
+Reading gpio pad LEF file at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef'…
+[INFO ODB-0227] LEF file: /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef, created 22 library cells
+[INFO ODB-0127] Reading DEF file: /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/53-odb-cellfrequencytables/tt_um_rattandeep_morph.def
+[INFO ODB-0128] Design: tt_um_rattandeep_morph
+[INFO ODB-0130]     Created 45 pins.
+[INFO ODB-0131]     Created 71354 components and 147673 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 142708 connections.
+[INFO ODB-0133]     Created 1759 nets and 4953 connections.
+[INFO ODB-0134] Finished DEF file: /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/53-odb-cellfrequencytables/tt_um_rattandeep_morph.def
+Using RCX ruleset '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.tech/librelane/IHP_rcx_patterns.rules'…
+[INFO RCX-0431] Defined process_corner CURRENT_CORNER with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner CURRENT_CORNER
++ extract_parasitics  -ext_model_file /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.tech/librelane/IHP_rcx_patterns.rules -lef_res
+[INFO RCX-0435] Reading extraction model file /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.tech/librelane/IHP_rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation tt_um_rattandeep_morph (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 6176 rc segments
+[INFO RCX-0439] Coupling Cap extraction tt_um_rattandeep_morph ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 48% of 9442 wires extracted
+[INFO RCX-0442] 99% of 9442 wires extracted
+[INFO RCX-0045] Extract 1759 nets, 7934 rsegs, 7934 caps, 11810 ccs
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+[INFO ODB-0403] 0 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                             69601  873729.76
+  Antenna cell                              1       5.44
+  Standard cell                          1752   28682.04
+  Total                                 71354  902417.24
+Writing extracted parasitics to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/54-openroad-rcx/nom/tt_um_rattandeep_morph.nom.spef'…
+[INFO RCX-0443] 1759 nets finished

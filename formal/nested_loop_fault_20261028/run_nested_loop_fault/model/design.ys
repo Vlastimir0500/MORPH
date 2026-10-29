@@ -1,0 +1,8 @@
+# running in run_nested_loop_fault/src/
+read -formal -sv morph_engine_v2.sv morph_nested_loop_formal.sv
+prep -top morph_nested_loop_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

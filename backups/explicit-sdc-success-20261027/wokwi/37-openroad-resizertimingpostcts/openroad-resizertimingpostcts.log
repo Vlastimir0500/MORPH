@@ -1,0 +1,80 @@
+[WARNING ORD-0032] Invalid thread number specification: None.
+Reading timing models for corner nom_fast_1p32V_m40C…
+Reading timing library for the 'nom_fast_1p32V_m40C' corner at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_fast_1p32V_m40C.lib'…
+Reading timing library for the 'nom_fast_1p32V_m40C' corner at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_fast_1p32V_3p6V_m40C.lib'…
+Reading timing models for corner nom_slow_1p08V_125C…
+Reading timing library for the 'nom_slow_1p08V_125C' corner at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_slow_1p08V_125C.lib'…
+Reading timing library for the 'nom_slow_1p08V_125C' corner at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_slow_1p08V_3p0V_125C.lib'…
+Reading timing models for corner nom_typ_1p20V_25C…
+Reading timing library for the 'nom_typ_1p20V_25C' corner at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_typ_1p20V_25C.lib'…
+Reading timing library for the 'nom_typ_1p20V_25C' corner at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_typ_1p2V_3p3V_25C.lib'…
+Reading OpenROAD database at '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/35-openroad-cts/tt_um_rattandeep_morph.odb'…
+Reading design constraints file at '/home/rattan_0500/MORPH/tinytapeout-template/src/morph_pnr.sdc'…
+[INFO] No information on clock propagation in input SDC file-- propagating all clocks.
++ repair_timing -verbose -setup -setup_margin 0.05000000000000000277555756156289135105907917022705078125 -max_buffer_percent 50.0
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
++ repair_timing -verbose -hold -setup_margin 0.05000000000000000277555756156289135105907917022705078125 -hold_margin 0.1 -max_buffer_percent 50.0
+[INFO RSZ-0046] Found 240 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |  -0.072 | -11.820 | _1902_/D
+       10 |       0 |       9 |            0 |    +0.6% |  -0.071 | -11.181 | _1878_/D
+       20 |       0 |      20 |            0 |    +1.4% |  -0.070 | -10.476 | _1892_/D
+       30 |       0 |      31 |            0 |    +2.2% |  -0.069 |  -9.779 | _1940_/D
+       40 |       0 |      41 |            0 |    +2.9% |  -0.061 |  -9.133 | _1817_/D
+       50 |       0 |      51 |            0 |    +3.6% |  -0.057 |  -8.523 | _1965_/D
+       60 |       0 |      69 |            0 |    +4.9% |  -0.052 |  -7.953 | _1854_/D
+       70 |       0 |      84 |            0 |    +5.9% |  -0.052 |  -7.430 | _1787_/D
+       80 |       0 |      97 |            0 |    +6.8% |  -0.052 |  -6.910 | _1872_/D
+       90 |       0 |     112 |            0 |    +7.9% |  -0.052 |  -6.392 | _1906_/D
+      100 |       0 |     129 |            0 |    +9.1% |  -0.052 |  -5.874 | _1931_/D
+      110 |       0 |     148 |            0 |   +10.4% |  -0.052 |  -5.358 | _1959_/D
+      120 |       0 |     165 |            0 |   +11.6% |  -0.051 |  -4.844 | _1785_/D
+      130 |       0 |     182 |            0 |   +12.8% |  -0.051 |  -4.331 | _1899_/D
+      140 |       0 |     200 |            0 |   +14.1% |  -0.051 |  -3.821 | _1935_/D
+      150 |       0 |     217 |            0 |   +15.3% |  -0.051 |  -3.312 | _1958_/D
+      160 |       0 |     229 |            0 |   +16.2% |  -0.050 |  -2.807 | _1933_/D
+      170 |       0 |     243 |            0 |   +17.1% |  -0.050 |  -2.304 | _1868_/D
+      180 |       0 |     256 |            0 |   +18.1% |  -0.050 |  -1.804 | _1779_/D
+      190 |       0 |     271 |            0 |   +19.1% |  -0.049 |  -1.308 | _1790_/D
+      200 |       0 |     286 |            0 |   +20.2% |  -0.048 |  -0.818 | _1735_/D
+      210 |       0 |     300 |            0 |   +21.2% |  -0.037 |  -0.367 | _1738_/D
+      220 |       0 |     321 |            0 |   +22.6% |  -0.021 |  -0.116 | _1765_/D
+      230 |       0 |     331 |            0 |   +23.4% |   0.025 |   0.000 | _1760_/D
+      240 |       0 |     337 |            0 |   +23.8% |   0.089 |   0.000 | _1969_/D
+    final |       0 |     339 |            0 |   +23.9% |   0.109 |   0.000 | _1758_/D
+--------------------------------------------------------------------------------------
+[INFO RSZ-0032] Inserted 339 hold buffers.
++ detailed_placement -max_displacement  500 100 
+Placement Analysis
+---------------------------------
+total displacement       2697.5 u
+average displacement        1.5 u
+max displacement           14.8 u
+original HPWL           42335.4 u
+legalized HPWL          45413.8 u
+delta HPWL                    7 %
+
+[INFO DPL-0020] Mirrored 869 instances
+[INFO DPL-0021] HPWL before           45413.8 u
+[INFO DPL-0022] HPWL after            43555.1 u
+[INFO DPL-0023] HPWL delta               -4.1 %
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+[INFO ODB-0403] 678 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Buffer                                    1       7.26
+  Clock buffer                             19     448.16
+  Timing Repair Buffer                    477    6537.28
+  Inverter                                 33     179.63
+  Clock inverter                           10      78.02
+  Sequential cell                         244   11953.27
+  Multi-Input combinational cell          968    9478.43
+  Total                                  1752   28682.04
+Writing OpenROAD database to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_rattandeep_morph.odb'…
+Writing netlist to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_rattandeep_morph.nl.v'…
+Writing powered netlist to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_rattandeep_morph.pnl.v'…
+Writing layout to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_rattandeep_morph.def'…
+Writing timing constraints to '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_rattandeep_morph.sdc'…

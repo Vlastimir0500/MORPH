@@ -1,0 +1,142 @@
+{
+  "cases_compared": 980,
+  "baseline_classifications": {
+    "silent_misdecode": 659,
+    "correct_decode": 257,
+    "error_flagged": 16,
+    "malformed_rejected": 36,
+    "malformed_silent_acceptance": 12
+  },
+  "candidate_classifications": {
+    "silent_misdecode": 208,
+    "correct_decode": 707,
+    "error_flagged": 17,
+    "malformed_rejected": 48
+  },
+  "paired_transitions": {
+    "silent_misdecode -> correct_decode": 486,
+    "silent_misdecode -> silent_misdecode": 173,
+    "correct_decode -> correct_decode": 221,
+    "correct_decode -> silent_misdecode": 35,
+    "correct_decode -> error_flagged": 1,
+    "malformed_rejected -> malformed_rejected": 36,
+    "malformed_silent_acceptance -> malformed_rejected": 12,
+    "error_flagged -> error_flagged": 16
+  },
+  "valid_improvements": 486,
+  "valid_regressions": 36,
+  "malformed_rejected": 48,
+  "malformed_silent_acceptances": 0,
+  "baseline_rtl_model_mismatches": 0,
+  "candidate_rtl_model_mismatches": 0,
+  "regression_examples": [
+    "final_glitch_14_w35_b1_o-17",
+    "final_glitch_14_w35_b6_o-17",
+    "final_glitch_14_w37_b1_o-17",
+    "final_glitch_14_w37_b6_o-17",
+    "final_glitch_38_w35_b1_o-17",
+    "final_glitch_38_w35_b6_o-17",
+    "final_glitch_38_w37_b1_o-17",
+    "final_glitch_38_w37_b6_o-17",
+    "final_glitch_5D_w35_b1_o-17",
+    "final_glitch_5D_w35_b6_o-17",
+    "final_glitch_5D_w37_b1_o-17",
+    "final_glitch_5D_w37_b6_o-17",
+    "final_glitch_79_w35_b1_o-17",
+    "final_glitch_79_w35_b6_o-17",
+    "final_glitch_79_w37_b1_o-17",
+    "final_glitch_79_w37_b6_o-17",
+    "final_glitch_9B_w35_b1_o-17",
+    "final_glitch_9B_w35_b6_o-17",
+    "final_glitch_9B_w37_b1_o-17",
+    "final_glitch_9B_w37_b6_o-17",
+    "final_glitch_C6_w35_b1_o-17",
+    "final_glitch_C6_w35_b6_o-17",
+    "final_glitch_C6_w37_b1_o-17",
+    "final_glitch_C6_w37_b6_o-17",
+    "final_glitch_E9_w35_b1_o-17",
+    "final_glitch_E9_w35_b6_o-17",
+    "final_glitch_E9_w37_b1_o-17",
+    "final_glitch_E9_w37_b6_o-17",
+    "final_glitch_F5_w35_b1_o-17",
+    "final_glitch_F5_w35_b6_o-17"
+  ],
+  "by_category": {
+    "final_transient_glitch": {
+      "baseline": {
+        "silent_misdecode": 640,
+        "correct_decode": 128
+      },
+      "candidate": {
+        "correct_decode": 576,
+        "silent_misdecode": 192
+      },
+      "transitions": {
+        "silent_misdecode -> correct_decode": 480,
+        "silent_misdecode -> silent_misdecode": 160,
+        "correct_decode -> correct_decode": 96,
+        "correct_decode -> silent_misdecode": 32
+      }
+    },
+    "final_randomized_symbol_jitter": {
+      "baseline": {
+        "correct_decode": 98,
+        "silent_misdecode": 2
+      },
+      "candidate": {
+        "correct_decode": 98,
+        "error_flagged": 1,
+        "silent_misdecode": 1
+      },
+      "transitions": {
+        "correct_decode -> correct_decode": 97,
+        "correct_decode -> error_flagged": 1,
+        "silent_misdecode -> correct_decode": 1,
+        "silent_misdecode -> silent_misdecode": 1
+      }
+    },
+    "negative_start_frame": {
+      "baseline": {
+        "malformed_rejected": 24
+      },
+      "candidate": {
+        "malformed_rejected": 24
+      },
+      "transitions": {
+        "malformed_rejected -> malformed_rejected": 24
+      }
+    },
+    "negative_stop_frame": {
+      "baseline": {
+        "malformed_silent_acceptance": 12,
+        "malformed_rejected": 12
+      },
+      "candidate": {
+        "malformed_rejected": 24
+      },
+      "transitions": {
+        "malformed_silent_acceptance -> malformed_rejected": 12,
+        "malformed_rejected -> malformed_rejected": 12
+      }
+    },
+    "final_uniform_period": {
+      "baseline": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "candidate": {
+        "silent_misdecode": 15,
+        "correct_decode": 33,
+        "error_flagged": 16
+      },
+      "transitions": {
+        "silent_misdecode -> silent_misdecode": 12,
+        "silent_misdecode -> correct_decode": 5,
+        "correct_decode -> correct_decode": 28,
+        "error_flagged -> error_flagged": 16,
+        "correct_decode -> silent_misdecode": 3
+      }
+    }
+  }
+}

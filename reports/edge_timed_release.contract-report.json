@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "contract": "edge_timed_release",
+  "source": "/home/rattan_0500/MORPH/protocols/edge_timed_release.morph",
+  "source_sha256": "1ab09eecc2082699a148d9824248c726ed9683398ad1e44fe6132b68a7c6364e",
+  "status": "PASS",
+  "program_words": 7,
+  "words_hex": [
+    "4001",
+    "1001",
+    "3004",
+    "2000",
+    "5000",
+    "1000",
+    "6000"
+  ],
+  "disassembly": [
+    {
+      "address": 0,
+      "word": "4001",
+      "instruction": "EDGE RISE"
+    },
+    {
+      "address": 1,
+      "word": "1001",
+      "instruction": "DRIVE 1"
+    },
+    {
+      "address": 2,
+      "word": "3004",
+      "instruction": "WAIT 4"
+    },
+    {
+      "address": 3,
+      "word": "2000",
+      "instruction": "SAMPLE"
+    },
+    {
+      "address": 4,
+      "word": "5000",
+      "instruction": "SHIFT"
+    },
+    {
+      "address": 5,
+      "word": "1000",
+      "instruction": "DRIVE 0"
+    },
+    {
+      "address": 6,
+      "word": "6000",
+      "instruction": "BRANCH 0"
+    }
+  ],
+  "max_wait_cycles": 4,
+  "backward_branches": [
+    {
+      "address": 6,
+      "target": 0
+    }
+  ],
+  "checks": [
+    {
+      "id": "program_depth",
+      "passed": true,
+      "actual": 7,
+      "limit": 16
+    },
+    {
+      "id": "required_mnemonics",
+      "passed": true,
+      "missing": [],
+      "required": [
+        "EDGE",
+        "DRIVE",
+        "WAIT",
+        "SAMPLE",
+        "SHIFT",
+        "BRANCH"
+      ]
+    },
+    {
+      "id": "drive_sequence",
+      "passed": true,
+      "actual": [
+        1,
+        0
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "wait_bound",
+      "passed": true,
+      "actual_max_wait": 4,
+      "limit": 16
+    },
+    {
+      "id": "backward_branch",
+      "passed": true,
+      "actual": [
+        {
+          "address": 6,
+          "target": 0
+        }
+      ],
+      "required": true
+    },
+    {
+      "id": "temporal_scenarios",
+      "passed": true,
+      "passed_count": 1,
+      "total_count": 1
+    }
+  ],
+  "temporal_scenarios": [
+    {
+      "name": "rising_edge_timed_release",
+      "status": "PASS",
+      "cycle_convention": "cycle 1 is reset; pin_trace[0] is sampled at cycle 2",
+      "signal_checks": [
+        {
+          "signal": "pin_out_transitions",
+          "passed": true,
+          "expected": [
+            {
+              "cycle": 6,
+              "value": 1
+            },
+            {
+              "cycle": 18,
+              "value": 0
+            }
+          ],
+          "observed": [
+            {
+              "cycle": 6,
+              "value": 1
+            },
+            {
+              "cycle": 18,
+              "value": 0
+            }
+          ]
+        },
+        {
+          "signal": "shift_reg_transitions",
+          "passed": true,
+          "expected": [
+            {
+              "cycle": 16,
+              "value": 1
+            }
+          ],
+          "observed": [
+            {
+              "cycle": 16,
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "observed_transitions": {
+        "pin_out_transitions": [
+          {
+            "cycle": 6,
+            "value": 1
+          },
+          {
+            "cycle": 18,
+            "value": 0
+          }
+        ],
+        "shift_reg_transitions": [
+          {
+            "cycle": 16,
+            "value": 1
+          }
+        ]
+      }
+    }
+  ]
+}

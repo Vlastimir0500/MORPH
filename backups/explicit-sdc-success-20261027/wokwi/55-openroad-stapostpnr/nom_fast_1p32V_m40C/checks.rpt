@@ -1,0 +1,116 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= nom_fast_1p32V_m40C Corner ===================================
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: uio_oe[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  4.000000    4.000000 ^ input external delay
+     1    0.003328    0.013891    0.002057    4.002057 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.013891    0.000000    4.002057 ^ input2/A (sg13cmos5l_buf_1)
+     1    0.004785    0.018909    0.043401    4.045458 ^ input2/X (sg13cmos5l_buf_1)
+                                                         net2 (net)
+                      0.018920    0.000308    4.045765 ^ fanout138/A (sg13cmos5l_buf_1)
+     5    0.044910    0.121029    0.119734    4.165500 ^ fanout138/X (sg13cmos5l_buf_1)
+                                                         net138 (net)
+                      0.121040    0.001027    4.166527 ^ fanout134/A (sg13cmos5l_buf_1)
+     8    0.051505    0.138541    0.163621    4.330147 ^ fanout134/X (sg13cmos5l_buf_1)
+                                                         net134 (net)
+                      0.138555    0.001227    4.331375 ^ _1012_/A (sg13cmos5l_inv_1)
+     1    0.003776    0.032239    0.043162    4.374537 v _1012_/Y (sg13cmos5l_inv_1)
+                                                         _0371_ (net)
+                      0.032240    0.000280    4.374816 v fanout123/A (sg13cmos5l_buf_1)
+     7    0.052145    0.113390    0.126460    4.501276 v fanout123/X (sg13cmos5l_buf_1)
+                                                         net123 (net)
+                      0.113437    0.002032    4.503308 v _1045_/B (sg13cmos5l_nor3_1)
+     1    0.023811    0.208380    0.213188    4.716496 ^ _1045_/Y (sg13cmos5l_nor3_1)
+                                                         uio_oe[0] (net)
+                      0.208412    0.002220    4.718716 ^ uio_oe[0] (out)
+                                              4.718716   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.250000   19.750002   clock uncertainty
+                                  0.000000   19.750002   clock reconvergence pessimism
+                                 -4.000000   15.750001   output external delay
+                                             15.750001   data required time
+---------------------------------------------------------------------------------------------
+                                             15.750001   data required time
+                                             -4.718716   data arrival time
+---------------------------------------------------------------------------------------------
+                                             11.031284   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= nom_fast_1p32V_m40C Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= nom_fast_1p32V_m40C Corner ===================================
+
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+clkbuf_leaf_12_clk/X                      8     20    -12 (VIOLATED)
+clkbuf_leaf_3_clk/X                       8     20    -12 (VIOLATED)
+clkbuf_leaf_0_clk/X                       8     19    -11 (VIOLATED)
+clkbuf_leaf_11_clk/X                      8     19    -11 (VIOLATED)
+clkbuf_leaf_5_clk/X                       8     19    -11 (VIOLATED)
+clkbuf_leaf_7_clk/X                       8     19    -11 (VIOLATED)
+clkbuf_leaf_8_clk/X                       8     19    -11 (VIOLATED)
+clkbuf_leaf_9_clk/X                       8     19    -11 (VIOLATED)
+clkbuf_leaf_10_clk/X                      8     18    -10 (VIOLATED)
+clkbuf_leaf_1_clk/X                       8     18    -10 (VIOLATED)
+clkbuf_leaf_2_clk/X                       8     18    -10 (VIOLATED)
+clkbuf_leaf_6_clk/X                       8     18    -10 (VIOLATED)
+clkbuf_leaf_4_clk/X                       8     16     -8 (VIOLATED)
+clkbuf_leaf_13_clk/X                      8     14     -6 (VIOLATED)
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 13 unannotated drivers.
+ ui_in[7]
+ clkload0/Y
+ clkload1/X
+ clkload10/Y
+ clkload11/Y
+ clkload2/X
+ clkload3/Y
+ clkload4/Y
+ clkload5/Y
+ clkload6/Y
+ clkload7/Y
+ clkload8/Y
+ clkload9/Y
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 14
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================

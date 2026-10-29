@@ -1,0 +1,1884 @@
+{
+  "cases": 980,
+  "settings": {
+    "159": {
+      "wait": 159,
+      "cases": 980,
+      "valid_cases": 932,
+      "valid_classifications": {
+        "correct_decode": 252,
+        "error_flagged": 453,
+        "silent_misdecode": 227
+      },
+      "correct_valid_decodes": 252,
+      "malformed_cases": 48,
+      "malformed_classifications": {
+        "malformed_rejected": 44,
+        "malformed_silent_acceptance": 4
+      },
+      "malformed_rejected": 44,
+      "malformed_silent_acceptances": 4,
+      "rtl_model_mismatches": 0,
+      "classification_counts": {
+        "correct_decode": 252,
+        "error_flagged": 453,
+        "silent_misdecode": 227,
+        "malformed_rejected": 44,
+        "malformed_silent_acceptance": 4
+      },
+      "by_category": {
+        "negative_start_frame": {
+          "malformed_rejected": 24
+        },
+        "negative_stop_frame": {
+          "malformed_rejected": 20,
+          "malformed_silent_acceptance": 4
+        },
+        "new_randomized_symbol_jitter": {
+          "error_flagged": 49,
+          "silent_misdecode": 17,
+          "correct_decode": 34
+        },
+        "new_transient_glitch": {
+          "error_flagged": 384,
+          "silent_misdecode": 196,
+          "correct_decode": 188
+        },
+        "new_uniform_period": {
+          "correct_decode": 30,
+          "error_flagged": 20,
+          "silent_misdecode": 14
+        }
+      },
+      "failures": [
+        {
+          "case": "new_uniform_02_431",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_uniform_02_463",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_uniform_02_467",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_uniform_02_475",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_uniform_02_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_uniform_35_431",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xAC"
+        },
+        {
+          "case": "new_uniform_35_463",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xA6"
+        },
+        {
+          "case": "new_uniform_35_467",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xA6"
+        },
+        {
+          "case": "new_uniform_35_475",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xB6"
+        },
+        {
+          "case": "new_uniform_35_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xB6"
+        },
+        {
+          "case": "new_uniform_58_431",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1A"
+        },
+        {
+          "case": "new_uniform_58_463",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1D"
+        },
+        {
+          "case": "new_uniform_58_467",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1D"
+        },
+        {
+          "case": "new_uniform_58_475",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x0D"
+        },
+        {
+          "case": "new_uniform_58_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x0D"
+        },
+        {
+          "case": "new_uniform_7A_431",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5E"
+        },
+        {
+          "case": "new_uniform_7A_463",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5F"
+        },
+        {
+          "case": "new_uniform_7A_467",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5F"
+        },
+        {
+          "case": "new_uniform_7A_475",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x4F"
+        },
+        {
+          "case": "new_uniform_7A_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x4F"
+        },
+        {
+          "case": "new_uniform_9D_463",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBC"
+        },
+        {
+          "case": "new_uniform_9D_467",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBC"
+        },
+        {
+          "case": "new_uniform_9D_475",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBC"
+        },
+        {
+          "case": "new_uniform_9D_479",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBC"
+        },
+        {
+          "case": "new_uniform_B7_463",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xE6"
+        },
+        {
+          "case": "new_uniform_B7_467",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xE6"
+        },
+        {
+          "case": "new_uniform_B7_475",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xF6"
+        },
+        {
+          "case": "new_uniform_B7_479",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xF6"
+        },
+        {
+          "case": "new_uniform_E2_463",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x43"
+        },
+        {
+          "case": "new_uniform_E2_467",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x43"
+        },
+        {
+          "case": "new_uniform_E2_475",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x43"
+        },
+        {
+          "case": "new_uniform_E2_479",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x43"
+        },
+        {
+          "case": "new_uniform_F8_475",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1F",
+          "observed_shift": "0x0F"
+        },
+        {
+          "case": "new_uniform_F8_479",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1F",
+          "observed_shift": "0x0F"
+        },
+        {
+          "case": "new_glitch_02_w41_b0_o-21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b0_o+9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b0_o+21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b1_o-21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b1_o-9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b1_o+9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b1_o+21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b2_o-21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b2_o-9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b2_o+9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b2_o+21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b3_o-21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b3_o-9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b3_o+9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b3_o+21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b4_o-21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b4_o-9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b4_o+9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b4_o+21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b5_o-21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b5_o-9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b5_o+9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b5_o+21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b6_o-21",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_glitch_02_w41_b6_o-9",
+          "category": "new_transient_glitch",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        }
+      ]
+    },
+    "173": {
+      "wait": 173,
+      "cases": 980,
+      "valid_cases": 932,
+      "valid_classifications": {
+        "silent_misdecode": 180,
+        "correct_decode": 735,
+        "error_flagged": 17
+      },
+      "correct_valid_decodes": 735,
+      "malformed_cases": 48,
+      "malformed_classifications": {
+        "malformed_rejected": 36,
+        "malformed_silent_acceptance": 12
+      },
+      "malformed_rejected": 36,
+      "malformed_silent_acceptances": 12,
+      "rtl_model_mismatches": 0,
+      "classification_counts": {
+        "silent_misdecode": 180,
+        "correct_decode": 735,
+        "error_flagged": 17,
+        "malformed_rejected": 36,
+        "malformed_silent_acceptance": 12
+      },
+      "by_category": {
+        "negative_start_frame": {
+          "malformed_rejected": 24
+        },
+        "negative_stop_frame": {
+          "malformed_silent_acceptance": 12,
+          "malformed_rejected": 12
+        },
+        "new_randomized_symbol_jitter": {
+          "correct_decode": 99,
+          "error_flagged": 1
+        },
+        "new_transient_glitch": {
+          "correct_decode": 608,
+          "silent_misdecode": 160
+        },
+        "new_uniform_period": {
+          "silent_misdecode": 20,
+          "correct_decode": 28,
+          "error_flagged": 16
+        }
+      },
+      "failures": [
+        {
+          "case": "new_uniform_02_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_uniform_02_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_uniform_02_463",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_uniform_02_467",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_uniform_02_475",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_uniform_02_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_uniform_35_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xAD"
+        },
+        {
+          "case": "new_uniform_35_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xAD"
+        },
+        {
+          "case": "new_uniform_35_463",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xAC"
+        },
+        {
+          "case": "new_uniform_35_467",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xAE"
+        },
+        {
+          "case": "new_uniform_35_475",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xAE"
+        },
+        {
+          "case": "new_uniform_35_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xA6"
+        },
+        {
+          "case": "new_uniform_58_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x19"
+        },
+        {
+          "case": "new_uniform_58_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1B"
+        },
+        {
+          "case": "new_uniform_58_463",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1B"
+        },
+        {
+          "case": "new_uniform_58_467",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x19"
+        },
+        {
+          "case": "new_uniform_58_475",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1D"
+        },
+        {
+          "case": "new_uniform_58_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1D"
+        },
+        {
+          "case": "new_uniform_7A_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5D"
+        },
+        {
+          "case": "new_uniform_7A_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5F"
+        },
+        {
+          "case": "new_uniform_7A_463",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5F"
+        },
+        {
+          "case": "new_uniform_7A_467",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5F"
+        },
+        {
+          "case": "new_uniform_7A_475",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5F"
+        },
+        {
+          "case": "new_uniform_7A_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5F"
+        },
+        {
+          "case": "new_uniform_9D_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBB"
+        },
+        {
+          "case": "new_uniform_9D_463",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xB8"
+        },
+        {
+          "case": "new_uniform_9D_467",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xB8"
+        },
+        {
+          "case": "new_uniform_9D_475",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBC"
+        },
+        {
+          "case": "new_uniform_9D_479",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBC"
+        },
+        {
+          "case": "new_uniform_B7_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xEF"
+        },
+        {
+          "case": "new_uniform_B7_463",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xEC"
+        },
+        {
+          "case": "new_uniform_B7_467",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xEE"
+        },
+        {
+          "case": "new_uniform_B7_475",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xEE"
+        },
+        {
+          "case": "new_uniform_B7_479",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xE6"
+        },
+        {
+          "case": "new_uniform_E2_475",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x43"
+        },
+        {
+          "case": "new_uniform_E2_479",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x43"
+        },
+        {
+          "case": "new_glitch_02_w43_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0xC0"
+        },
+        {
+          "case": "new_glitch_02_w43_b1_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x00"
+        },
+        {
+          "case": "new_glitch_02_w43_b1_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x00"
+        },
+        {
+          "case": "new_glitch_02_w43_b2_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x60"
+        },
+        {
+          "case": "new_glitch_02_w43_b2_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x60"
+        },
+        {
+          "case": "new_glitch_02_w43_b3_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x50"
+        },
+        {
+          "case": "new_glitch_02_w43_b3_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x50"
+        },
+        {
+          "case": "new_glitch_02_w43_b4_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x48"
+        },
+        {
+          "case": "new_glitch_02_w43_b6_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x42"
+        },
+        {
+          "case": "new_glitch_02_w43_b7_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w45_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0xC0"
+        },
+        {
+          "case": "new_glitch_02_w45_b1_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x00"
+        },
+        {
+          "case": "new_glitch_02_w45_b1_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x00"
+        },
+        {
+          "case": "new_glitch_02_w45_b2_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x60"
+        },
+        {
+          "case": "new_glitch_02_w45_b2_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x60"
+        },
+        {
+          "case": "new_glitch_02_w45_b3_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x50"
+        },
+        {
+          "case": "new_glitch_02_w45_b3_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x50"
+        },
+        {
+          "case": "new_glitch_02_w45_b4_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x48"
+        },
+        {
+          "case": "new_glitch_02_w45_b6_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x42"
+        },
+        {
+          "case": "new_glitch_02_w45_b7_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_35_w43_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0x2C"
+        },
+        {
+          "case": "new_glitch_35_w43_b1_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xEC"
+        },
+        {
+          "case": "new_glitch_35_w43_b1_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xEC"
+        },
+        {
+          "case": "new_glitch_35_w43_b2_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0x8C"
+        }
+      ]
+    },
+    "187": {
+      "wait": 187,
+      "cases": 980,
+      "valid_cases": 932,
+      "valid_classifications": {
+        "silent_misdecode": 57,
+        "correct_decode": 871,
+        "error_flagged": 4
+      },
+      "correct_valid_decodes": 871,
+      "malformed_cases": 48,
+      "malformed_classifications": {
+        "malformed_rejected": 40,
+        "malformed_silent_acceptance": 8
+      },
+      "malformed_rejected": 40,
+      "malformed_silent_acceptances": 8,
+      "rtl_model_mismatches": 0,
+      "classification_counts": {
+        "silent_misdecode": 57,
+        "correct_decode": 871,
+        "error_flagged": 4,
+        "malformed_rejected": 40,
+        "malformed_silent_acceptance": 8
+      },
+      "by_category": {
+        "negative_start_frame": {
+          "malformed_rejected": 24
+        },
+        "negative_stop_frame": {
+          "malformed_silent_acceptance": 8,
+          "malformed_rejected": 16
+        },
+        "new_randomized_symbol_jitter": {
+          "correct_decode": 79,
+          "silent_misdecode": 21
+        },
+        "new_transient_glitch": {
+          "correct_decode": 752,
+          "silent_misdecode": 16
+        },
+        "new_uniform_period": {
+          "silent_misdecode": 20,
+          "correct_decode": 40,
+          "error_flagged": 4
+        }
+      },
+      "failures": [
+        {
+          "case": "new_uniform_02_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_uniform_02_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_uniform_02_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_uniform_02_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x40",
+          "observed_shift": "0x40"
+        },
+        {
+          "case": "new_uniform_35_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xB9"
+        },
+        {
+          "case": "new_uniform_35_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xB9"
+        },
+        {
+          "case": "new_uniform_35_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xA9"
+        },
+        {
+          "case": "new_uniform_35_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xAC"
+        },
+        {
+          "case": "new_uniform_58_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x15"
+        },
+        {
+          "case": "new_uniform_58_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x15"
+        },
+        {
+          "case": "new_uniform_58_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1D"
+        },
+        {
+          "case": "new_uniform_58_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1A"
+        },
+        {
+          "case": "new_uniform_7A_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5D"
+        },
+        {
+          "case": "new_uniform_7A_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5D"
+        },
+        {
+          "case": "new_uniform_7A_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5D"
+        },
+        {
+          "case": "new_uniform_7A_479",
+          "category": "new_uniform_period",
+          "classification": "error_flagged",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5E"
+        },
+        {
+          "case": "new_uniform_9D_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xB3"
+        },
+        {
+          "case": "new_uniform_9D_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xB3"
+        },
+        {
+          "case": "new_uniform_9D_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBB"
+        },
+        {
+          "case": "new_uniform_B7_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xFB"
+        },
+        {
+          "case": "new_uniform_B7_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xFB"
+        },
+        {
+          "case": "new_uniform_B7_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xEB"
+        },
+        {
+          "case": "new_uniform_E2_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x4F"
+        },
+        {
+          "case": "new_uniform_E2_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x4F"
+        },
+        {
+          "case": "new_glitch_02_w43_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0xC0"
+        },
+        {
+          "case": "new_glitch_02_w45_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0xC0"
+        },
+        {
+          "case": "new_glitch_35_w43_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0x2C"
+        },
+        {
+          "case": "new_glitch_35_w45_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0x2C"
+        },
+        {
+          "case": "new_glitch_58_w43_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x9A"
+        },
+        {
+          "case": "new_glitch_58_w45_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x9A"
+        },
+        {
+          "case": "new_glitch_7A_w43_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0xDE"
+        },
+        {
+          "case": "new_glitch_7A_w45_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0xDE"
+        },
+        {
+          "case": "new_glitch_9D_w43_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0x39"
+        },
+        {
+          "case": "new_glitch_9D_w45_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0x39"
+        },
+        {
+          "case": "new_glitch_B7_w43_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0x6D"
+        },
+        {
+          "case": "new_glitch_B7_w45_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0x6D"
+        },
+        {
+          "case": "new_glitch_E2_w43_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0xC7"
+        },
+        {
+          "case": "new_glitch_E2_w45_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0xC7"
+        },
+        {
+          "case": "new_glitch_F8_w43_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1F",
+          "observed_shift": "0x9F"
+        },
+        {
+          "case": "new_glitch_F8_w45_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1F",
+          "observed_shift": "0x9F"
+        },
+        {
+          "case": "new_jitter_20_015",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_jitter_20_018",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1B"
+        },
+        {
+          "case": "new_jitter_20_023",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5D"
+        },
+        {
+          "case": "new_jitter_40_004",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBB"
+        },
+        {
+          "case": "new_jitter_40_011",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xA9"
+        },
+        {
+          "case": "new_jitter_40_019",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_jitter_40_021",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBB"
+        },
+        {
+          "case": "new_jitter_40_024",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x18"
+        },
+        {
+          "case": "new_jitter_60_006",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x10"
+        },
+        {
+          "case": "new_jitter_60_009",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xAD"
+        },
+        {
+          "case": "new_jitter_60_021",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xB3"
+        },
+        {
+          "case": "new_jitter_60_022",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x1D"
+        },
+        {
+          "case": "new_jitter_80_002",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xFB"
+        },
+        {
+          "case": "new_jitter_80_004",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xBB"
+        },
+        {
+          "case": "new_jitter_80_005",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_jitter_80_006",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5D"
+        },
+        {
+          "case": "new_jitter_80_009",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5D"
+        },
+        {
+          "case": "new_jitter_80_013",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xB3"
+        },
+        {
+          "case": "new_jitter_80_018",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xEF"
+        },
+        {
+          "case": "new_jitter_80_021",
+          "category": "new_randomized_symbol_jitter",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xA9"
+        }
+      ]
+    },
+    "201": {
+      "wait": 201,
+      "cases": 980,
+      "valid_cases": 932,
+      "valid_classifications": {
+        "silent_misdecode": 696,
+        "correct_decode": 236
+      },
+      "correct_valid_decodes": 236,
+      "malformed_cases": 48,
+      "malformed_classifications": {
+        "malformed_rejected": 32,
+        "malformed_silent_acceptance": 16
+      },
+      "malformed_rejected": 32,
+      "malformed_silent_acceptances": 16,
+      "rtl_model_mismatches": 0,
+      "classification_counts": {
+        "silent_misdecode": 696,
+        "correct_decode": 236,
+        "malformed_rejected": 32,
+        "malformed_silent_acceptance": 16
+      },
+      "by_category": {
+        "negative_start_frame": {
+          "malformed_rejected": 24
+        },
+        "negative_stop_frame": {
+          "malformed_silent_acceptance": 16,
+          "malformed_rejected": 8
+        },
+        "new_randomized_symbol_jitter": {
+          "silent_misdecode": 86,
+          "correct_decode": 14
+        },
+        "new_transient_glitch": {
+          "silent_misdecode": 580,
+          "correct_decode": 188
+        },
+        "new_uniform_period": {
+          "silent_misdecode": 30,
+          "correct_decode": 34
+        }
+      },
+      "failures": [
+        {
+          "case": "new_uniform_02_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_uniform_02_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_uniform_02_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_uniform_02_431",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_uniform_35_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0x99"
+        },
+        {
+          "case": "new_uniform_35_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0x99"
+        },
+        {
+          "case": "new_uniform_35_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xB9"
+        },
+        {
+          "case": "new_uniform_35_431",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xAC",
+          "observed_shift": "0xA9"
+        },
+        {
+          "case": "new_uniform_58_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x35"
+        },
+        {
+          "case": "new_uniform_58_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x35"
+        },
+        {
+          "case": "new_uniform_58_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x15"
+        },
+        {
+          "case": "new_uniform_58_431",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1A",
+          "observed_shift": "0x15"
+        },
+        {
+          "case": "new_uniform_7A_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x7D"
+        },
+        {
+          "case": "new_uniform_7A_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x7D"
+        },
+        {
+          "case": "new_uniform_7A_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5D"
+        },
+        {
+          "case": "new_uniform_7A_431",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x5E",
+          "observed_shift": "0x5D"
+        },
+        {
+          "case": "new_uniform_9D_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xB3"
+        },
+        {
+          "case": "new_uniform_9D_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xB3"
+        },
+        {
+          "case": "new_uniform_9D_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xB3"
+        },
+        {
+          "case": "new_uniform_9D_431",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xB9",
+          "observed_shift": "0xB3"
+        },
+        {
+          "case": "new_uniform_B7_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xDB"
+        },
+        {
+          "case": "new_uniform_B7_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xDB"
+        },
+        {
+          "case": "new_uniform_B7_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xFB"
+        },
+        {
+          "case": "new_uniform_B7_431",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0xED",
+          "observed_shift": "0xEB"
+        },
+        {
+          "case": "new_uniform_E2_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x4F"
+        },
+        {
+          "case": "new_uniform_E2_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x4F"
+        },
+        {
+          "case": "new_uniform_E2_417",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x4F"
+        },
+        {
+          "case": "new_uniform_E2_431",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x47",
+          "observed_shift": "0x4F"
+        },
+        {
+          "case": "new_uniform_F8_403",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1F",
+          "observed_shift": "0x3F"
+        },
+        {
+          "case": "new_uniform_F8_407",
+          "category": "new_uniform_period",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x1F",
+          "observed_shift": "0x3F"
+        },
+        {
+          "case": "new_glitch_02_w41_b0_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b0_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b0_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b0_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b1_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b1_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b1_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b1_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b2_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b2_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b2_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b2_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b3_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b3_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b3_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b3_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b4_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b4_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b4_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b4_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b5_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b5_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b5_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b5_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b6_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b6_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b6_o+9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b6_o+21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b7_o-21",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        },
+        {
+          "case": "new_glitch_02_w41_b7_o-9",
+          "category": "new_transient_glitch",
+          "classification": "silent_misdecode",
+          "expected_shift": "0x40",
+          "observed_shift": "0x41"
+        }
+      ]
+    }
+  }
+}

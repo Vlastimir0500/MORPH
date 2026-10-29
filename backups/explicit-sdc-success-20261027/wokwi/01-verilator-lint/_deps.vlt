@@ -1,0 +1,7 @@
+`verilator_config
+lint_off -rule DECLFILENAME
+lint_off -rule EOFNEWLINE
+lint_off -rule UNDRIVEN -file "/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/tmp/a02d93e4aaa04916b9620ec2f410e0c0.bb.v"
+lint_off -rule UNUSEDSIGNAL -file "/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/tmp/a02d93e4aaa04916b9620ec2f410e0c0.bb.v"
+lint_off -rule UNDRIVEN -file "/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/tmp/1f12bfe361924ed380000348f7218d71.bb.v"
+lint_off -rule UNUSEDSIGNAL -file "/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/tmp/1f12bfe361924ed380000348f7218d71.bb.v"

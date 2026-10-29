@@ -1,0 +1,199 @@
+===== TRACEFORGE UART PHASE SWEEP v0.1 =====
+Run directory: /home/rattan_0500/MORPH/traceforge/rtl_run/uart_phase_candidate_compare_20261028T094113Z_52117_20261105
+Settings: [-12, -4, 0] cycles
+Cases per setting: 1184
+Total simulations: 3552
+Production RTL and firmware remain unchanged.
+Starting phase -12, WAIT=209
+Phase -12: 100/1184 simulations
+Phase -12: 200/1184 simulations
+Phase -12: 300/1184 simulations
+Phase -12: 400/1184 simulations
+Phase -12: 500/1184 simulations
+Phase -12: 600/1184 simulations
+Phase -12: 700/1184 simulations
+Phase -12: 800/1184 simulations
+Phase -12: 900/1184 simulations
+Phase -12: 1000/1184 simulations
+Phase -12: 1100/1184 simulations
+Phase -12: 1184/1184 simulations
+Starting phase -4, WAIT=213
+Phase -4: 100/1184 simulations
+Phase -4: 200/1184 simulations
+Phase -4: 300/1184 simulations
+Phase -4: 400/1184 simulations
+Phase -4: 500/1184 simulations
+Phase -4: 600/1184 simulations
+Phase -4: 700/1184 simulations
+Phase -4: 800/1184 simulations
+Phase -4: 900/1184 simulations
+Phase -4: 1000/1184 simulations
+Phase -4: 1100/1184 simulations
+Phase -4: 1184/1184 simulations
+Starting phase +0, WAIT=215
+Phase +0: 100/1184 simulations
+Phase +0: 200/1184 simulations
+Phase +0: 300/1184 simulations
+Phase +0: 400/1184 simulations
+Phase +0: 500/1184 simulations
+Phase +0: 600/1184 simulations
+Phase +0: 700/1184 simulations
+Phase +0: 800/1184 simulations
+Phase +0: 900/1184 simulations
+Phase +0: 1000/1184 simulations
+Phase +0: 1100/1184 simulations
+Phase +0: 1184/1184 simulations
+===== PHASE SWEEP SUMMARY =====
+shift | WAIT | matrix correct | silent | flagged | common range | jitter correct | jitter silent
+  -12 |  209 |            432 |     92 |      44 | [[411, 459]] |            570 |           25
+   -4 |  213 |            432 |     96 |      40 | [[412, 460]] |            572 |           23
+   +0 |  215 |            425 |    103 |      40 | [[413, 460]] |            573 |           24
+===== PAIRED DELTAS VS WAIT=215 =====
+{
+  "wait_209_phase_-12": {
+    "phase_shift_cycles": -12,
+    "correct_decode_delta": 10,
+    "silent_misdecode_delta": -16,
+    "error_flagged_delta": 6,
+    "improved_cases": 22,
+    "regressed_cases": 12,
+    "improvement_case_names": [
+      "matrix_00_period_411",
+      "matrix_00_period_412",
+      "matrix_55_period_411",
+      "matrix_55_period_412",
+      "matrix_3C_period_411",
+      "matrix_3C_period_412",
+      "matrix_81_period_408",
+      "matrix_81_period_409",
+      "matrix_7E_period_411",
+      "matrix_7E_period_412",
+      "matrix_A5_period_408",
+      "matrix_A5_period_409",
+      "matrix_A6_period_408",
+      "matrix_A6_period_409",
+      "jitter_80_013",
+      "jitter_80_145",
+      "minimized_counterexample_payload00",
+      "aggregate_low_run_delta_-220",
+      "aggregate_low_run_delta_-219",
+      "aggregate_low_run_delta_-218",
+      "aggregate_low_run_delta_-217",
+      "aggregate_low_run_delta_-216"
+    ],
+    "regression_case_names": [
+      "matrix_00_period_460",
+      "matrix_55_period_460",
+      "matrix_3C_period_460",
+      "matrix_81_period_463",
+      "matrix_7E_period_460",
+      "matrix_A5_period_463",
+      "matrix_A6_period_463",
+      "jitter_40_065",
+      "jitter_60_045",
+      "jitter_60_075",
+      "jitter_80_066",
+      "jitter_80_128"
+    ],
+    "classification_transitions": [
+      {
+        "baseline": "correct_decode",
+        "setting": "correct_decode",
+        "count": 994
+      },
+      {
+        "baseline": "correct_decode",
+        "setting": "error_flagged",
+        "count": 6
+      },
+      {
+        "baseline": "correct_decode",
+        "setting": "silent_misdecode",
+        "count": 6
+      },
+      {
+        "baseline": "error_flagged",
+        "setting": "error_flagged",
+        "count": 43
+      },
+      {
+        "baseline": "malformed_rejected",
+        "setting": "malformed_rejected",
+        "count": 2
+      },
+      {
+        "baseline": "silent_misdecode",
+        "setting": "correct_decode",
+        "count": 22
+      },
+      {
+        "baseline": "silent_misdecode",
+        "setting": "silent_misdecode",
+        "count": 111
+      }
+    ]
+  },
+  "wait_213_phase_-4": {
+    "phase_shift_cycles": -4,
+    "correct_decode_delta": 11,
+    "silent_misdecode_delta": -13,
+    "error_flagged_delta": 2,
+    "improved_cases": 13,
+    "regressed_cases": 2,
+    "improvement_case_names": [
+      "matrix_00_period_412",
+      "matrix_55_period_412",
+      "matrix_3C_period_412",
+      "matrix_81_period_409",
+      "matrix_7E_period_412",
+      "matrix_A5_period_409",
+      "matrix_A6_period_409",
+      "jitter_80_145",
+      "minimized_counterexample_payload00",
+      "aggregate_low_run_delta_-219",
+      "aggregate_low_run_delta_-218",
+      "aggregate_low_run_delta_-217",
+      "aggregate_low_run_delta_-216"
+    ],
+    "regression_case_names": [
+      "jitter_60_075",
+      "jitter_80_066"
+    ],
+    "classification_transitions": [
+      {
+        "baseline": "correct_decode",
+        "setting": "correct_decode",
+        "count": 1004
+      },
+      {
+        "baseline": "correct_decode",
+        "setting": "error_flagged",
+        "count": 2
+      },
+      {
+        "baseline": "error_flagged",
+        "setting": "error_flagged",
+        "count": 43
+      },
+      {
+        "baseline": "malformed_rejected",
+        "setting": "malformed_rejected",
+        "count": 2
+      },
+      {
+        "baseline": "silent_misdecode",
+        "setting": "correct_decode",
+        "count": 13
+      },
+      {
+        "baseline": "silent_misdecode",
+        "setting": "silent_misdecode",
+        "count": 120
+      }
+    ]
+  }
+}
+EXECUTION GATE: PASS
+JSON REPORT: /home/rattan_0500/MORPH/traceforge/reports/uart_phase_candidate_compare_20261028T094113Z_52117_20261105.json
+MARKDOWN REPORT: /home/rattan_0500/MORPH/traceforge/reports/uart_phase_candidate_compare_20261028T094113Z_52117_20261105.md
+PRODUCTION RTL SHA256 AFTER: 6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552

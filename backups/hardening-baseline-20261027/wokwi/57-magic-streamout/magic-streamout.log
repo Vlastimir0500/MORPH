@@ -1,0 +1,247 @@
+
+Magic 8.3 revision 674 - Compiled on Sat Jul 11 12:11:55 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=1048576]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Loading "/nix/store/6a08ghhhzl5a07nr0ly762yh1ah6m5bj-python3-3.13.13-env/lib/python3.13/site-packages/librelane/scripts/magic/wrapper.tcl" from command line.
+> gds read /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "sg13cmos5l_xor2_1".
+Reading "sg13cmos5l_xnor2_1".
+Reading "sg13cmos5l_tielo".
+Reading "sg13cmos5l_tiehi".
+CIF file read warning: CIF style sg13cmos5l(): units rescaled by factor of 5 / 1
+Reading "sg13cmos5l_slgcp_1".
+Reading "sg13cmos5l_sighold".
+Reading "sg13cmos5l_sdfrbpq_2".
+Reading "sg13cmos5l_sdfrbpq_1".
+Reading "sg13cmos5l_sdfrbp_2".
+Reading "sg13cmos5l_sdfrbp_1".
+Reading "sg13cmos5l_sdfbbp_1".
+Reading "sg13cmos5l_or4_2".
+Reading "sg13cmos5l_or4_1".
+Reading "sg13cmos5l_or3_2".
+Reading "sg13cmos5l_or3_1".
+Reading "sg13cmos5l_or2_2".
+Reading "sg13cmos5l_or2_1".
+Reading "sg13cmos5l_o21ai_1".
+Reading "sg13cmos5l_nor4_2".
+Reading "sg13cmos5l_nor4_1".
+Reading "sg13cmos5l_nor3_2".
+Reading "sg13cmos5l_nor3_1".
+Reading "sg13cmos5l_nor2b_2".
+Reading "sg13cmos5l_nor2b_1".
+Reading "sg13cmos5l_nor2_2".
+Reading "sg13cmos5l_nor2_1".
+Reading "sg13cmos5l_nand4_1".
+Reading "sg13cmos5l_nand3b_1".
+Reading "sg13cmos5l_nand3_1".
+Reading "sg13cmos5l_nand2b_2".
+Reading "sg13cmos5l_nand2b_1".
+Reading "sg13cmos5l_nand2_2".
+Reading "sg13cmos5l_nand2_1".
+Reading "sg13cmos5l_mux4_1".
+Reading "sg13cmos5l_mux2_2".
+Reading "sg13cmos5l_mux2_1".
+Reading "sg13cmos5l_lgcp_1".
+Reading "sg13cmos5l_inv_8".
+Reading "sg13cmos5l_inv_4".
+Reading "sg13cmos5l_inv_2".
+Reading "sg13cmos5l_inv_16".
+Reading "sg13cmos5l_inv_1".
+Reading "sg13cmos5l_fill_8".
+Reading "sg13cmos5l_fill_4".
+Reading "sg13cmos5l_fill_2".
+Reading "sg13cmos5l_fill_1".
+Reading "sg13cmos5l_einvn_8".
+Reading "sg13cmos5l_einvn_4".
+Reading "sg13cmos5l_einvn_2".
+Reading "sg13cmos5l_ebufn_8".
+Reading "sg13cmos5l_ebufn_4".
+Reading "sg13cmos5l_ebufn_2".
+Reading "sg13cmos5l_dlygate4sd3_1".
+Reading "sg13cmos5l_dlygate4sd2_1".
+Reading "sg13cmos5l_dlygate4sd1_1".
+Reading "sg13cmos5l_dllrq_1".
+Reading "sg13cmos5l_dllr_1".
+Reading "sg13cmos5l_dlhrq_1".
+Reading "sg13cmos5l_dlhr_1".
+Reading "sg13cmos5l_dlhq_1".
+Reading "sg13cmos5l_dfrbpq_2".
+Reading "sg13cmos5l_dfrbpq_1".
+Reading "sg13cmos5l_dfrbp_2".
+Reading "sg13cmos5l_dfrbp_1".
+Reading "sg13cmos5l_decap_8".
+Reading "sg13cmos5l_decap_4".
+Reading "sg13cmos5l_buf_8".
+Reading "sg13cmos5l_buf_4".
+Reading "sg13cmos5l_buf_2".
+Reading "sg13cmos5l_buf_16".
+Reading "sg13cmos5l_buf_1".
+Reading "sg13cmos5l_antennanp".
+Reading "sg13cmos5l_and4_2".
+Reading "sg13cmos5l_and4_1".
+Reading "sg13cmos5l_and3_2".
+Reading "sg13cmos5l_and3_1".
+Reading "sg13cmos5l_and2_2".
+Reading "sg13cmos5l_and2_1".
+Reading "sg13cmos5l_a22oi_1".
+Reading "sg13cmos5l_a221oi_1".
+Reading "sg13cmos5l_a21oi_2".
+Reading "sg13cmos5l_a21oi_1".
+Reading "sg13cmos5l_a21o_2".
+Reading "sg13cmos5l_a21o_1".
+> lef read /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef
+Reading LEF data from file /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef.
+This action cannot be undone.
+LEF read, Line 6473 (Message): Unknown keyword "ANTENNAMAXCUTCAR" in LEF file; ignoring.
+LEF read: Processed 7927 lines.
+> gds read /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/gds/sg13cmos5l_io.gds
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 5.0
+Library name: sg13cmos5l_io
+Reading "sg13cmos5l_DCPDiode".
+Reading "sg13cmos5l_DCNDiode".
+Reading "sg13cmos5l_IOPadIOVss".
+Reading "sg13cmos5l_SecondaryProtection".
+Reading "sg13cmos5l_LevelDown".
+Reading "sg13cmos5l_IOPadIn".
+Reading "sg13cmos5l_Filler10000".
+Reading "sg13cmos5l_io_nand2_x1".
+Reading "sg13cmos5l_io_inv_x1".
+Reading "sg13cmos5l_io_tie".
+Reading "sg13cmos5l_io_nor2_x1".
+Reading "sg13cmos5l_LevelUp".
+Reading "sg13cmos5l_GateDecode".
+Reading "sg13cmos5l_Clamp_P2N2D".
+Reading "sg13cmos5l_Clamp_N2N2D".
+Reading "sg13cmos5l_IOPadInOut4mA".
+Reading "sg13cmos5l_Clamp_P8N8D".
+Reading "sg13cmos5l_Clamp_N8N8D".
+Reading "sg13cmos5l_IOPadInOut16mA".
+Reading "sg13cmos5l_LevelUpInv".
+Reading "sg13cmos5l_GateLevelUpInv".
+Reading "sg13cmos5l_IOPadOut4mA".
+Reading "sg13cmos5l_IOPadOut16mA".
+Reading "sg13cmos5l_IOPadTriOut4mA".
+Reading "sg13cmos5l_Clamp_P15N15D".
+Reading "sg13cmos5l_Clamp_N15N15D".
+Reading "sg13cmos5l_IOPadInOut30mA".
+Reading "sg13cmos5l_IOPadOut30mA".
+Reading "sg13cmos5l_IOPadTriOut16mA".
+Reading "sg13cmos5l_IOPadTriOut30mA".
+Reading "sg13cmos5l_RCClampResistor".
+Reading "sg13cmos5l_RCClampInverter".
+Reading "sg13cmos5l_Clamp_N43N43D4R".
+Reading "sg13cmos5l_IOPadVdd".
+Reading "sg13cmos5l_Filler200".
+Reading "sg13cmos5l_Filler400".
+Reading "sg13cmos5l_Filler1000".
+Reading "sg13cmos5l_Filler2000".
+Reading "sg13cmos5l_Filler4000".
+Reading "sg13cmos5l_Clamp_P20N0D".
+Reading "sg13cmos5l_Clamp_N20N0D".
+Reading "sg13cmos5l_IOPadAnalog".
+Reading "sg13cmos5l_IOPadIOVdd".
+Reading "sg13cmos5l_Corner".
+Reading "sg13cmos5l_IOPadVss".
+Reading "sg13cmos5l_Gallery".
+> lef read /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef
+Reading LEF data from file /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef.
+This action cannot be undone.
+LEF read: Processed 3056 lines.
+Cell (NEWCELL) couldn't be read
+No such file or directory
+Creating new cell
+> lef read /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_tech.lef
+Reading LEF data from file /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_tech.lef.
+This action cannot be undone.
+LEF read, Line 82 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 83 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 84 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 90 (Message): Unknown keyword "MINIMUMCUT" in LEF file; ignoring.
+LEF read, Line 94 (Message): Unknown keyword "ANTENNACUMAREARATIO" in LEF file; ignoring.
+LEF read, Line 95 (Message): Unknown keyword "ANTENNACUMDIFFAREARATIO" in LEF file; ignoring.
+LEF read, Line 124 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 125 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 126 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 132 (Message): Unknown keyword "MINIMUMCUT" in LEF file; ignoring.
+LEF read, Line 137 (Message): Unknown keyword "ANTENNACUMAREARATIO" in LEF file; ignoring.
+LEF read, Line 138 (Message): Unknown keyword "ANTENNACUMDIFFAREARATIO" in LEF file; ignoring.
+LEF read, Line 165 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 166 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 167 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 173 (Message): Unknown keyword "MINIMUMCUT" in LEF file; ignoring.
+LEF read, Line 178 (Message): Unknown keyword "ANTENNACUMAREARATIO" in LEF file; ignoring.
+LEF read, Line 179 (Message): Unknown keyword "ANTENNACUMDIFFAREARATIO" in LEF file; ignoring.
+LEF read, Line 207 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 208 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 209 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 215 (Message): Unknown keyword "MINIMUMCUT" in LEF file; ignoring.
+LEF read, Line 220 (Message): Unknown keyword "ANTENNACUMAREARATIO" in LEF file; ignoring.
+LEF read, Line 221 (Message): Unknown keyword "ANTENNACUMDIFFAREARATIO" in LEF file; ignoring.
+LEF read, Line 247 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 248 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 249 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 254 (Message): Unknown keyword "ANTENNACUMAREARATIO" in LEF file; ignoring.
+LEF read, Line 255 (Message): Unknown keyword "ANTENNACUMDIFFAREARATIO" in LEF file; ignoring.
+LEF read: Processed 901 lines.
+> def read /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/53-odb-cellfrequencytables/tt_um_rattandeep_morph.def -noblockage
+Reading DEF data from file /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/53-odb-cellfrequencytables/tt_um_rattandeep_morph.def.
+This action cannot be undone.
+  Processed 3 vias total.
+  Processed 1 non-default rules total.
+  Processed 71354 subcell instances total.
+  Processed 45 pins total.
+  Processed 2 special nets total.
+  Processed 1759 nets total.
+DEF read: Processed 108542 lines.
+   Copying output for cell sg13cmos5l_decap_8 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_fill_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_mux2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_decap_4 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_fill_2 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_o21ai_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nand2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_tiehi from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_dlygate4sd3_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_dfrbpq_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nor2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_buf_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nor4_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_or2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_buf_8 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_inv_8 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_antennanp from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_inv_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_inv_2 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_a21oi_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_mux4_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nand2b_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nand3_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nor2b_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_and2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nor3_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_a221oi_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_a22oi_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nand4_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_inv_4 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_a21o_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_tielo from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Generating output for cell tt_um_rattandeep_morph
+[INFO] GDS Write Complete

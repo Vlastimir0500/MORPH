@@ -1,0 +1,127 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= nom_typ_1p20V_25C Corner ===================================
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: uio_oe[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  4.000000    4.000000 ^ input external delay
+    41    0.208353    0.218759    0.164089    4.164089 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.218772    0.000000    4.164089 ^ _1012_/A (sg13cmos5l_inv_1)
+    14    0.069231    0.238860    0.306955    4.471044 v _1012_/Y (sg13cmos5l_inv_1)
+                                                         _0371_ (net)
+                      0.238860    0.000176    4.471220 v _1045_/B (sg13cmos5l_nor3_1)
+     1    0.017437    0.262945    0.300303    4.771523 ^ _1045_/Y (sg13cmos5l_nor3_1)
+                                                         uio_oe[0] (net)
+                      0.262946    0.000393    4.771915 ^ uio_oe[0] (out)
+                                              4.771915   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.250000   19.750002   clock uncertainty
+                                  0.000000   19.750002   clock reconvergence pessimism
+                                 -4.000000   15.750001   output external delay
+                                             15.750001   data required time
+---------------------------------------------------------------------------------------------
+                                             15.750001   data required time
+                                             -4.771915   data arrival time
+---------------------------------------------------------------------------------------------
+                                             10.978086   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= nom_typ_1p20V_25C Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= nom_typ_1p20V_25C Corner ===================================
+
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+clk                                       8    244   -236 (VIOLATED)
+_1148_/Y                                  8     45    -37 (VIOLATED)
+_1150_/X                                  8     44    -36 (VIOLATED)
+_1248_/Y                                  8     44    -36 (VIOLATED)
+_1250_/Y                                  8     44    -36 (VIOLATED)
+rst_n                                     8     41    -33 (VIOLATED)
+_1731_/Q                                  8     25    -17 (VIOLATED)
+_1003_/Y                                  8     23    -15 (VIOLATED)
+_1220_/Y                                  8     20    -12 (VIOLATED)
+_1757_/Q                                  8     20    -12 (VIOLATED)
+_1744_/Q                                  8     17     -9 (VIOLATED)
+_1745_/Q                                  8     17     -9 (VIOLATED)
+_1746_/Q                                  8     17     -9 (VIOLATED)
+_1747_/Q                                  8     17     -9 (VIOLATED)
+_1748_/Q                                  8     17     -9 (VIOLATED)
+_1749_/Q                                  8     17     -9 (VIOLATED)
+_1750_/Q                                  8     17     -9 (VIOLATED)
+_1751_/Q                                  8     17     -9 (VIOLATED)
+_1002_/Y                                  8     16     -8 (VIOLATED)
+_1052_/Y                                  8     16     -8 (VIOLATED)
+_1068_/Y                                  8     16     -8 (VIOLATED)
+_1086_/Y                                  8     16     -8 (VIOLATED)
+_1104_/Y                                  8     16     -8 (VIOLATED)
+_1122_/Y                                  8     16     -8 (VIOLATED)
+_1537_/Y                                  8     16     -8 (VIOLATED)
+_1554_/Y                                  8     16     -8 (VIOLATED)
+_1571_/Y                                  8     16     -8 (VIOLATED)
+_1588_/Y                                  8     16     -8 (VIOLATED)
+_1659_/Y                                  8     16     -8 (VIOLATED)
+_1676_/Y                                  8     16     -8 (VIOLATED)
+_1693_/Y                                  8     16     -8 (VIOLATED)
+_1710_/Y                                  8     16     -8 (VIOLATED)
+_1167_/Y                                  8     15     -7 (VIOLATED)
+_1732_/Q                                  8     15     -7 (VIOLATED)
+_1012_/Y                                  8     14     -6 (VIOLATED)
+_0992_/Y                                  8     13     -5 (VIOLATED)
+_0993_/Y                                  8     13     -5 (VIOLATED)
+_0994_/Y                                  8     13     -5 (VIOLATED)
+_0995_/Y                                  8     13     -5 (VIOLATED)
+_1606_/Y                                  8     12     -4 (VIOLATED)
+_1619_/Y                                  8     12     -4 (VIOLATED)
+_1632_/Y                                  8     12     -4 (VIOLATED)
+_1645_/Y                                  8     12     -4 (VIOLATED)
+_1729_/Q                                  8     12     -4 (VIOLATED)
+_1730_/Q                                  8     11     -3 (VIOLATED)
+_1758_/Q                                  8     10     -2 (VIOLATED)
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 1 unannotated drivers.
+ ui_in[7]
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+Writing metric design__max_slew_violation__count__corner:nom_typ_1p20V_25C: 0
+max fanout violation count 46
+Writing metric design__max_fanout_violation__count__corner:nom_typ_1p20V_25C: 46
+max cap violation count 0
+Writing metric design__max_cap_violation__count__corner:nom_typ_1p20V_25C: 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================

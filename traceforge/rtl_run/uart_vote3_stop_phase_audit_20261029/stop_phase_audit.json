@@ -1,0 +1,179 @@
+[
+  {
+    "wait": 159,
+    "case": "new_negative_stop_02_407",
+    "period": 407,
+    "stop_start": 3673,
+    "stop_end_exclusive": 4080,
+    "sample_events": [
+      {
+        "instruction_pc": 16,
+        "cycle": 3857,
+        "vector_index": 3856,
+        "pin": 0,
+        "sample": 0,
+        "inside_injected_stop": true,
+        "offset_from_stop_start": 183
+      }
+    ],
+    "error_output": true,
+    "core_fault": false
+  },
+  {
+    "wait": 159,
+    "case": "new_negative_stop_9D_463",
+    "period": 463,
+    "stop_start": 4177,
+    "stop_end_exclusive": 4640,
+    "sample_events": [
+      {
+        "instruction_pc": 16,
+        "cycle": 3857,
+        "vector_index": 3856,
+        "pin": 1,
+        "sample": 1,
+        "inside_injected_stop": false,
+        "offset_from_stop_start": -321
+      },
+      {
+        "instruction_pc": 19,
+        "cycle": 3953,
+        "vector_index": 3952,
+        "pin": 1,
+        "sample": 1,
+        "inside_injected_stop": false,
+        "offset_from_stop_start": -225
+      }
+    ],
+    "error_output": false,
+    "core_fault": false
+  },
+  {
+    "wait": 173,
+    "case": "new_negative_stop_02_407",
+    "period": 407,
+    "stop_start": 3673,
+    "stop_end_exclusive": 4080,
+    "sample_events": [
+      {
+        "instruction_pc": 16,
+        "cycle": 4081,
+        "vector_index": 4080,
+        "pin": 1,
+        "sample": 1,
+        "inside_injected_stop": false,
+        "offset_from_stop_start": 407
+      },
+      {
+        "instruction_pc": 19,
+        "cycle": 4177,
+        "vector_index": 4176,
+        "pin": 1,
+        "sample": 1,
+        "inside_injected_stop": false,
+        "offset_from_stop_start": 503
+      }
+    ],
+    "error_output": false,
+    "core_fault": false
+  },
+  {
+    "wait": 173,
+    "case": "new_negative_stop_9D_463",
+    "period": 463,
+    "stop_start": 4177,
+    "stop_end_exclusive": 4640,
+    "sample_events": [
+      {
+        "instruction_pc": 16,
+        "cycle": 4081,
+        "vector_index": 4080,
+        "pin": 1,
+        "sample": 1,
+        "inside_injected_stop": false,
+        "offset_from_stop_start": -97
+      },
+      {
+        "instruction_pc": 19,
+        "cycle": 4177,
+        "vector_index": 4176,
+        "pin": 1,
+        "sample": 1,
+        "inside_injected_stop": false,
+        "offset_from_stop_start": -1
+      }
+    ],
+    "error_output": false,
+    "core_fault": false
+  },
+  {
+    "wait": 187,
+    "case": "new_negative_stop_02_407",
+    "period": 407,
+    "stop_start": 3673,
+    "stop_end_exclusive": 4080,
+    "sample_events": [
+      {
+        "instruction_pc": 16,
+        "cycle": 4305,
+        "vector_index": 4304,
+        "pin": 1,
+        "sample": 1,
+        "inside_injected_stop": false,
+        "offset_from_stop_start": 631
+      }
+    ],
+    "error_output": false,
+    "core_fault": false
+  },
+  {
+    "wait": 187,
+    "case": "new_negative_stop_9D_463",
+    "period": 463,
+    "stop_start": 4177,
+    "stop_end_exclusive": 4640,
+    "sample_events": [
+      {
+        "instruction_pc": 16,
+        "cycle": 4305,
+        "vector_index": 4304,
+        "pin": 0,
+        "sample": 0,
+        "inside_injected_stop": true,
+        "offset_from_stop_start": 127
+      }
+    ],
+    "error_output": true,
+    "core_fault": false
+  },
+  {
+    "wait": 201,
+    "case": "new_negative_stop_02_407",
+    "period": 407,
+    "stop_start": 3673,
+    "stop_end_exclusive": 4080,
+    "sample_events": [],
+    "error_output": false,
+    "core_fault": false
+  },
+  {
+    "wait": 201,
+    "case": "new_negative_stop_9D_463",
+    "period": 463,
+    "stop_start": 4177,
+    "stop_end_exclusive": 4640,
+    "sample_events": [
+      {
+        "instruction_pc": 16,
+        "cycle": 4529,
+        "vector_index": 4528,
+        "pin": 0,
+        "sample": 0,
+        "inside_injected_stop": true,
+        "offset_from_stop_start": 351
+      }
+    ],
+    "error_output": true,
+    "core_fault": false
+  }
+]

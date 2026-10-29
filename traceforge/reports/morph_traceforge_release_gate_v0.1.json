@@ -1,0 +1,52 @@
+{
+  "schema": "morph.traceforge-release-gate.v0.1",
+  "status": "PASS",
+  "production_rtl_modified": false,
+  "production_rtl_sha256_before": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "production_rtl_sha256_after": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "production_rtl_unchanged": true,
+  "tinytapeout_engine_copy_sha256_before": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "tinytapeout_engine_copy_sha256_after": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "engine_copy_matches_production_rtl": true,
+  "main_regression": {
+    "status": "PASS",
+    "tests_passed": 103,
+    "subtests_passed": 47,
+    "log": "/home/rattan_0500/MORPH/traceforge/rtl_run/release_gate_v0.1/pytest.log"
+  },
+  "full_tinytapeout_cocotb": {
+    "testcases": 15,
+    "failures": 0,
+    "failure_names": [],
+    "skipped": 0,
+    "skipped_names": [],
+    "status": "PASS",
+    "xml": "/home/rattan_0500/MORPH/traceforge/rtl_run/release_gate_v0.1/full_tt_results.xml"
+  },
+  "fresh_trace_capture_cocotb": {
+    "testcases": 3,
+    "failures": 0,
+    "failure_names": [],
+    "skipped": 0,
+    "skipped_names": [],
+    "status": "PASS",
+    "xml": "/home/rattan_0500/MORPH/traceforge/reports/traceforge_protocol_trace_results.xml"
+  },
+  "trace_contract_audit": {
+    "status": "PASS",
+    "checks_passed": 26,
+    "checks_failed": 0,
+    "report": "/home/rattan_0500/MORPH/traceforge/reports/protocol_trace_contract_validation_v0.1.json"
+  },
+  "negative_controls": {
+    "status": "PASS",
+    "scenarios_passed": 4,
+    "scenarios_failed": 0,
+    "report": "/home/rattan_0500/MORPH/traceforge/reports/traceforge_negative_controls_v0.1.json"
+  },
+  "trace_sha256": {
+    "spi_mode0_a5_trace.json": "516c33a15eda2064747a696490df8e884d949d9f74db324c6cfab10534b34c0d",
+    "i2c_address_probe_ack_trace.json": "5d564ef2b7fe22c10e2858f98dd1a89140a4ca98ce8c30f32b03ab711a48818d",
+    "i2c_nack_trace.json": "ddf566a584bc20d386e41b56db3c9a207141592cb6cfae26c359a0f9f2834b13"
+  }
+}

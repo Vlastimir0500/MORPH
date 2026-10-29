@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "contract": "i2c_evidence_v0_1",
+  "contract_sha256": "0eb1a5b80e5217fa73d9c4b1d7520dd80dd9c3a1b82f74d6078244e4b8d35bbf",
+  "status": "PASS",
+  "checks_passed": 4,
+  "checks_total": 4,
+  "checks": [
+    {
+      "id": "fresh_i2c_ack_start_stop_test_passed",
+      "kind": "all_cases_match",
+      "passed": true,
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "matched_cases": 1,
+      "minimum_required": 1,
+      "assertions_per_case": 11,
+      "failure_count": 0,
+      "failure_samples": []
+    },
+    {
+      "id": "fresh_i2c_nack_release_test_passed",
+      "kind": "all_cases_match",
+      "passed": true,
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "matched_cases": 1,
+      "minimum_required": 1,
+      "assertions_per_case": 6,
+      "failure_count": 0,
+      "failure_samples": []
+    },
+    {
+      "id": "no_cocotb_suite_failures",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "path": "summary.suite_failures",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "id": "engine_copy_matches_production_rtl",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "path": "sources.engine_matches_production_rtl",
+      "expected": true,
+      "actual": true
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+Checkpoint date: 2026-10-28
+RTL SHA-256: 6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552
+Main regression: 98 passed, 39 subtests passed
+Wrapper regression: 15 passed, 0 failed
+UART RX program: 18 words
+I2C address probe: 44 words

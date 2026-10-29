@@ -1,0 +1,14 @@
+{
+    "json_h": "/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/05-yosys-jsonheader/tt_um_rattandeep_morph.h.json",
+    "nl": "/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/06-yosys-synthesis/tt_um_rattandeep_morph.nl.v",
+    "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 1,
+        "design__inferred_latch__count": 0,
+        "design__instance__count": 1246,
+        "design__instance__area": 21618.2736,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 0
+    }
+}

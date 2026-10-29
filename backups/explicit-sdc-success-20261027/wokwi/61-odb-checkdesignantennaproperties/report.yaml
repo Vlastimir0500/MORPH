@@ -1,0 +1,5 @@
+- cell: tt_um_rattandeep_morph
+  inout: []
+  input:
+  - ui_in[7]
+  output: []

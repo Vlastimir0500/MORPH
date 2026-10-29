@@ -1,0 +1,1298 @@
+initial
+assume (= [$auto$async2sync.cc:107:execute$1195] false)
+assume (= [$auto$async2sync.cc:107:execute$1225] false)
+assume (= [$auto$async2sync.cc:107:execute$1231] false)
+assume (= [$auto$async2sync.cc:116:execute$1205] true)
+assume (= [$auto$async2sync.cc:116:execute$1211] true)
+assume (= [$auto$async2sync.cc:116:execute$1217] true)
+assume (= [$auto$async2sync.cc:116:execute$1229] true)
+assume (= [$auto$async2sync.cc:116:execute$1247] true)
+assume (= [dut.fault] true)
+assume (= [dut.ir] #x1001)
+assume (= [dut.loop_active] true)
+assume (= [dut.loop_pc] #b000010)
+assume (= [dut.loop_remaining] #b000000)
+assume (= [dut.loop_target] #b000000)
+assume (= [dut.pc] #b000000)
+assume (= [dut.pin_oe] #x00)
+assume (= [dut.pin_out] #x01)
+assume (= [dut.pin_prev] #x00)
+assume (= [dut.sample_reg] true)
+assume (= [dut.shift_reg] #x00)
+assume (= [dut.state] #b000)
+assume (= [dut.timed_out] true)
+assume (= [dut.wait_count] #x00)
+assume (= [phase] #b0000000000)
+assume (= [previous_pin] false)
+assume (= [reset_seen] false)
+assume (= [rising_edges] #b0000000)
+assume (= (select [dut.prog_mem] #b000000) #x0000)
+assume (= (select [dut.prog_mem] #b000001) #x1000)
+assume (= (select [dut.prog_mem] #b000010) #x9fc0)
+assume (= (select [dut.prog_mem] #b000011) #x0000)
+
+state 0
+assume (= [clk] false)
+
+state 1
+assume (= [clk] false)
+
+state 2
+assume (= [clk] false)
+
+state 3
+assume (= [clk] false)
+
+state 4
+assume (= [clk] false)
+
+state 5
+assume (= [clk] false)
+
+state 6
+assume (= [clk] false)
+
+state 7
+assume (= [clk] false)
+
+state 8
+assume (= [clk] false)
+
+state 9
+assume (= [clk] false)
+
+state 10
+assume (= [clk] false)
+
+state 11
+assume (= [clk] false)
+
+state 12
+assume (= [clk] false)
+
+state 13
+assume (= [clk] false)
+
+state 14
+assume (= [clk] false)
+
+state 15
+assume (= [clk] false)
+
+state 16
+assume (= [clk] false)
+
+state 17
+assume (= [clk] false)
+
+state 18
+assume (= [clk] false)
+
+state 19
+assume (= [clk] false)
+
+state 20
+assume (= [clk] false)
+
+state 21
+assume (= [clk] false)
+
+state 22
+assume (= [clk] false)
+
+state 23
+assume (= [clk] false)
+
+state 24
+assume (= [clk] false)
+
+state 25
+assume (= [clk] false)
+
+state 26
+assume (= [clk] false)
+
+state 27
+assume (= [clk] false)
+
+state 28
+assume (= [clk] false)
+
+state 29
+assume (= [clk] false)
+
+state 30
+assume (= [clk] false)
+
+state 31
+assume (= [clk] false)
+
+state 32
+assume (= [clk] false)
+
+state 33
+assume (= [clk] false)
+
+state 34
+assume (= [clk] false)
+
+state 35
+assume (= [clk] false)
+
+state 36
+assume (= [clk] false)
+
+state 37
+assume (= [clk] false)
+
+state 38
+assume (= [clk] false)
+
+state 39
+assume (= [clk] false)
+
+state 40
+assume (= [clk] false)
+
+state 41
+assume (= [clk] false)
+
+state 42
+assume (= [clk] false)
+
+state 43
+assume (= [clk] false)
+
+state 44
+assume (= [clk] false)
+
+state 45
+assume (= [clk] false)
+
+state 46
+assume (= [clk] false)
+
+state 47
+assume (= [clk] false)
+
+state 48
+assume (= [clk] false)
+
+state 49
+assume (= [clk] false)
+
+state 50
+assume (= [clk] false)
+
+state 51
+assume (= [clk] false)
+
+state 52
+assume (= [clk] false)
+
+state 53
+assume (= [clk] false)
+
+state 54
+assume (= [clk] false)
+
+state 55
+assume (= [clk] false)
+
+state 56
+assume (= [clk] false)
+
+state 57
+assume (= [clk] false)
+
+state 58
+assume (= [clk] false)
+
+state 59
+assume (= [clk] false)
+
+state 60
+assume (= [clk] false)
+
+state 61
+assume (= [clk] false)
+
+state 62
+assume (= [clk] false)
+
+state 63
+assume (= [clk] false)
+
+state 64
+assume (= [clk] false)
+
+state 65
+assume (= [clk] false)
+
+state 66
+assume (= [clk] false)
+
+state 67
+assume (= [clk] false)
+
+state 68
+assume (= [clk] false)
+
+state 69
+assume (= [clk] false)
+
+state 70
+assume (= [clk] false)
+
+state 71
+assume (= [clk] false)
+
+state 72
+assume (= [clk] false)
+
+state 73
+assume (= [clk] false)
+
+state 74
+assume (= [clk] false)
+
+state 75
+assume (= [clk] false)
+
+state 76
+assume (= [clk] false)
+
+state 77
+assume (= [clk] false)
+
+state 78
+assume (= [clk] false)
+
+state 79
+assume (= [clk] false)
+
+state 80
+assume (= [clk] false)
+
+state 81
+assume (= [clk] false)
+
+state 82
+assume (= [clk] false)
+
+state 83
+assume (= [clk] false)
+
+state 84
+assume (= [clk] false)
+
+state 85
+assume (= [clk] false)
+
+state 86
+assume (= [clk] false)
+
+state 87
+assume (= [clk] false)
+
+state 88
+assume (= [clk] false)
+
+state 89
+assume (= [clk] false)
+
+state 90
+assume (= [clk] false)
+
+state 91
+assume (= [clk] false)
+
+state 92
+assume (= [clk] false)
+
+state 93
+assume (= [clk] false)
+
+state 94
+assume (= [clk] false)
+
+state 95
+assume (= [clk] false)
+
+state 96
+assume (= [clk] false)
+
+state 97
+assume (= [clk] false)
+
+state 98
+assume (= [clk] false)
+
+state 99
+assume (= [clk] false)
+
+state 100
+assume (= [clk] false)
+
+state 101
+assume (= [clk] false)
+
+state 102
+assume (= [clk] false)
+
+state 103
+assume (= [clk] false)
+
+state 104
+assume (= [clk] false)
+
+state 105
+assume (= [clk] false)
+
+state 106
+assume (= [clk] false)
+
+state 107
+assume (= [clk] false)
+
+state 108
+assume (= [clk] false)
+
+state 109
+assume (= [clk] false)
+
+state 110
+assume (= [clk] false)
+
+state 111
+assume (= [clk] false)
+
+state 112
+assume (= [clk] false)
+
+state 113
+assume (= [clk] false)
+
+state 114
+assume (= [clk] false)
+
+state 115
+assume (= [clk] false)
+
+state 116
+assume (= [clk] false)
+
+state 117
+assume (= [clk] false)
+
+state 118
+assume (= [clk] false)
+
+state 119
+assume (= [clk] false)
+
+state 120
+assume (= [clk] false)
+
+state 121
+assume (= [clk] false)
+
+state 122
+assume (= [clk] false)
+
+state 123
+assume (= [clk] false)
+
+state 124
+assume (= [clk] false)
+
+state 125
+assume (= [clk] false)
+
+state 126
+assume (= [clk] false)
+
+state 127
+assume (= [clk] false)
+
+state 128
+assume (= [clk] false)
+
+state 129
+assume (= [clk] false)
+
+state 130
+assume (= [clk] false)
+
+state 131
+assume (= [clk] false)
+
+state 132
+assume (= [clk] false)
+
+state 133
+assume (= [clk] false)
+
+state 134
+assume (= [clk] false)
+
+state 135
+assume (= [clk] false)
+
+state 136
+assume (= [clk] false)
+
+state 137
+assume (= [clk] false)
+
+state 138
+assume (= [clk] false)
+
+state 139
+assume (= [clk] false)
+
+state 140
+assume (= [clk] false)
+
+state 141
+assume (= [clk] false)
+
+state 142
+assume (= [clk] false)
+
+state 143
+assume (= [clk] false)
+
+state 144
+assume (= [clk] false)
+
+state 145
+assume (= [clk] false)
+
+state 146
+assume (= [clk] false)
+
+state 147
+assume (= [clk] false)
+
+state 148
+assume (= [clk] false)
+
+state 149
+assume (= [clk] false)
+
+state 150
+assume (= [clk] false)
+
+state 151
+assume (= [clk] false)
+
+state 152
+assume (= [clk] false)
+
+state 153
+assume (= [clk] false)
+
+state 154
+assume (= [clk] false)
+
+state 155
+assume (= [clk] false)
+
+state 156
+assume (= [clk] false)
+
+state 157
+assume (= [clk] false)
+
+state 158
+assume (= [clk] false)
+
+state 159
+assume (= [clk] false)
+
+state 160
+assume (= [clk] false)
+
+state 161
+assume (= [clk] false)
+
+state 162
+assume (= [clk] false)
+
+state 163
+assume (= [clk] false)
+
+state 164
+assume (= [clk] false)
+
+state 165
+assume (= [clk] false)
+
+state 166
+assume (= [clk] false)
+
+state 167
+assume (= [clk] false)
+
+state 168
+assume (= [clk] false)
+
+state 169
+assume (= [clk] false)
+
+state 170
+assume (= [clk] false)
+
+state 171
+assume (= [clk] false)
+
+state 172
+assume (= [clk] false)
+
+state 173
+assume (= [clk] false)
+
+state 174
+assume (= [clk] false)
+
+state 175
+assume (= [clk] false)
+
+state 176
+assume (= [clk] false)
+
+state 177
+assume (= [clk] false)
+
+state 178
+assume (= [clk] false)
+
+state 179
+assume (= [clk] false)
+
+state 180
+assume (= [clk] false)
+
+state 181
+assume (= [clk] false)
+
+state 182
+assume (= [clk] false)
+
+state 183
+assume (= [clk] false)
+
+state 184
+assume (= [clk] false)
+
+state 185
+assume (= [clk] false)
+
+state 186
+assume (= [clk] false)
+
+state 187
+assume (= [clk] false)
+
+state 188
+assume (= [clk] false)
+
+state 189
+assume (= [clk] false)
+
+state 190
+assume (= [clk] false)
+
+state 191
+assume (= [clk] false)
+
+state 192
+assume (= [clk] false)
+
+state 193
+assume (= [clk] false)
+
+state 194
+assume (= [clk] false)
+
+state 195
+assume (= [clk] false)
+
+state 196
+assume (= [clk] false)
+
+state 197
+assume (= [clk] false)
+
+state 198
+assume (= [clk] false)
+
+state 199
+assume (= [clk] false)
+
+state 200
+assume (= [clk] false)
+
+state 201
+assume (= [clk] false)
+
+state 202
+assume (= [clk] false)
+
+state 203
+assume (= [clk] false)
+
+state 204
+assume (= [clk] false)
+
+state 205
+assume (= [clk] false)
+
+state 206
+assume (= [clk] false)
+
+state 207
+assume (= [clk] false)
+
+state 208
+assume (= [clk] false)
+
+state 209
+assume (= [clk] false)
+
+state 210
+assume (= [clk] false)
+
+state 211
+assume (= [clk] false)
+
+state 212
+assume (= [clk] false)
+
+state 213
+assume (= [clk] false)
+
+state 214
+assume (= [clk] false)
+
+state 215
+assume (= [clk] false)
+
+state 216
+assume (= [clk] false)
+
+state 217
+assume (= [clk] false)
+
+state 218
+assume (= [clk] false)
+
+state 219
+assume (= [clk] false)
+
+state 220
+assume (= [clk] false)
+
+state 221
+assume (= [clk] false)
+
+state 222
+assume (= [clk] false)
+
+state 223
+assume (= [clk] false)
+
+state 224
+assume (= [clk] false)
+
+state 225
+assume (= [clk] false)
+
+state 226
+assume (= [clk] false)
+
+state 227
+assume (= [clk] false)
+
+state 228
+assume (= [clk] false)
+
+state 229
+assume (= [clk] false)
+
+state 230
+assume (= [clk] false)
+
+state 231
+assume (= [clk] false)
+
+state 232
+assume (= [clk] false)
+
+state 233
+assume (= [clk] false)
+
+state 234
+assume (= [clk] false)
+
+state 235
+assume (= [clk] false)
+
+state 236
+assume (= [clk] false)
+
+state 237
+assume (= [clk] false)
+
+state 238
+assume (= [clk] false)
+
+state 239
+assume (= [clk] false)
+
+state 240
+assume (= [clk] false)
+
+state 241
+assume (= [clk] false)
+
+state 242
+assume (= [clk] false)
+
+state 243
+assume (= [clk] false)
+
+state 244
+assume (= [clk] false)
+
+state 245
+assume (= [clk] false)
+
+state 246
+assume (= [clk] false)
+
+state 247
+assume (= [clk] false)
+
+state 248
+assume (= [clk] false)
+
+state 249
+assume (= [clk] false)
+
+state 250
+assume (= [clk] false)
+
+state 251
+assume (= [clk] false)
+
+state 252
+assume (= [clk] false)
+
+state 253
+assume (= [clk] false)
+
+state 254
+assume (= [clk] false)
+
+state 255
+assume (= [clk] false)
+
+state 256
+assume (= [clk] false)
+
+state 257
+assume (= [clk] false)
+
+state 258
+assume (= [clk] false)
+
+state 259
+assume (= [clk] false)
+
+state 260
+assume (= [clk] false)
+
+state 261
+assume (= [clk] false)
+
+state 262
+assume (= [clk] false)
+
+state 263
+assume (= [clk] false)
+
+state 264
+assume (= [clk] false)
+
+state 265
+assume (= [clk] false)
+
+state 266
+assume (= [clk] false)
+
+state 267
+assume (= [clk] false)
+
+state 268
+assume (= [clk] false)
+
+state 269
+assume (= [clk] false)
+
+state 270
+assume (= [clk] false)
+
+state 271
+assume (= [clk] false)
+
+state 272
+assume (= [clk] false)
+
+state 273
+assume (= [clk] false)
+
+state 274
+assume (= [clk] false)
+
+state 275
+assume (= [clk] false)
+
+state 276
+assume (= [clk] false)
+
+state 277
+assume (= [clk] false)
+
+state 278
+assume (= [clk] false)
+
+state 279
+assume (= [clk] false)
+
+state 280
+assume (= [clk] false)
+
+state 281
+assume (= [clk] false)
+
+state 282
+assume (= [clk] false)
+
+state 283
+assume (= [clk] false)
+
+state 284
+assume (= [clk] false)
+
+state 285
+assume (= [clk] false)
+
+state 286
+assume (= [clk] false)
+
+state 287
+assume (= [clk] false)
+
+state 288
+assume (= [clk] false)
+
+state 289
+assume (= [clk] false)
+
+state 290
+assume (= [clk] false)
+
+state 291
+assume (= [clk] false)
+
+state 292
+assume (= [clk] false)
+
+state 293
+assume (= [clk] false)
+
+state 294
+assume (= [clk] false)
+
+state 295
+assume (= [clk] false)
+
+state 296
+assume (= [clk] false)
+
+state 297
+assume (= [clk] false)
+
+state 298
+assume (= [clk] false)
+
+state 299
+assume (= [clk] false)
+
+state 300
+assume (= [clk] false)
+
+state 301
+assume (= [clk] false)
+
+state 302
+assume (= [clk] false)
+
+state 303
+assume (= [clk] false)
+
+state 304
+assume (= [clk] false)
+
+state 305
+assume (= [clk] false)
+
+state 306
+assume (= [clk] false)
+
+state 307
+assume (= [clk] false)
+
+state 308
+assume (= [clk] false)
+
+state 309
+assume (= [clk] false)
+
+state 310
+assume (= [clk] false)
+
+state 311
+assume (= [clk] false)
+
+state 312
+assume (= [clk] false)
+
+state 313
+assume (= [clk] false)
+
+state 314
+assume (= [clk] false)
+
+state 315
+assume (= [clk] false)
+
+state 316
+assume (= [clk] false)
+
+state 317
+assume (= [clk] false)
+
+state 318
+assume (= [clk] false)
+
+state 319
+assume (= [clk] false)
+
+state 320
+assume (= [clk] false)
+
+state 321
+assume (= [clk] false)
+
+state 322
+assume (= [clk] false)
+
+state 323
+assume (= [clk] false)
+
+state 324
+assume (= [clk] false)
+
+state 325
+assume (= [clk] false)
+
+state 326
+assume (= [clk] false)
+
+state 327
+assume (= [clk] false)
+
+state 328
+assume (= [clk] false)
+
+state 329
+assume (= [clk] false)
+
+state 330
+assume (= [clk] false)
+
+state 331
+assume (= [clk] false)
+
+state 332
+assume (= [clk] false)
+
+state 333
+assume (= [clk] false)
+
+state 334
+assume (= [clk] false)
+
+state 335
+assume (= [clk] false)
+
+state 336
+assume (= [clk] false)
+
+state 337
+assume (= [clk] false)
+
+state 338
+assume (= [clk] false)
+
+state 339
+assume (= [clk] false)
+
+state 340
+assume (= [clk] false)
+
+state 341
+assume (= [clk] false)
+
+state 342
+assume (= [clk] false)
+
+state 343
+assume (= [clk] false)
+
+state 344
+assume (= [clk] false)
+
+state 345
+assume (= [clk] false)
+
+state 346
+assume (= [clk] false)
+
+state 347
+assume (= [clk] false)
+
+state 348
+assume (= [clk] false)
+
+state 349
+assume (= [clk] false)
+
+state 350
+assume (= [clk] false)
+
+state 351
+assume (= [clk] false)
+
+state 352
+assume (= [clk] false)
+
+state 353
+assume (= [clk] false)
+
+state 354
+assume (= [clk] false)
+
+state 355
+assume (= [clk] false)
+
+state 356
+assume (= [clk] false)
+
+state 357
+assume (= [clk] false)
+
+state 358
+assume (= [clk] false)
+
+state 359
+assume (= [clk] false)
+
+state 360
+assume (= [clk] false)
+
+state 361
+assume (= [clk] false)
+
+state 362
+assume (= [clk] false)
+
+state 363
+assume (= [clk] false)
+
+state 364
+assume (= [clk] false)
+
+state 365
+assume (= [clk] false)
+
+state 366
+assume (= [clk] false)
+
+state 367
+assume (= [clk] false)
+
+state 368
+assume (= [clk] false)
+
+state 369
+assume (= [clk] false)
+
+state 370
+assume (= [clk] false)
+
+state 371
+assume (= [clk] false)
+
+state 372
+assume (= [clk] false)
+
+state 373
+assume (= [clk] false)
+
+state 374
+assume (= [clk] false)
+
+state 375
+assume (= [clk] false)
+
+state 376
+assume (= [clk] false)
+
+state 377
+assume (= [clk] false)
+
+state 378
+assume (= [clk] false)
+
+state 379
+assume (= [clk] false)
+
+state 380
+assume (= [clk] false)
+
+state 381
+assume (= [clk] false)
+
+state 382
+assume (= [clk] false)
+
+state 383
+assume (= [clk] false)
+
+state 384
+assume (= [clk] false)
+
+state 385
+assume (= [clk] false)
+
+state 386
+assume (= [clk] false)
+
+state 387
+assume (= [clk] false)
+
+state 388
+assume (= [clk] false)
+
+state 389
+assume (= [clk] false)
+
+state 390
+assume (= [clk] false)
+
+state 391
+assume (= [clk] false)
+
+state 392
+assume (= [clk] false)
+
+state 393
+assume (= [clk] false)
+
+state 394
+assume (= [clk] false)
+
+state 395
+assume (= [clk] false)
+
+state 396
+assume (= [clk] false)
+
+state 397
+assume (= [clk] false)
+
+state 398
+assume (= [clk] false)
+
+state 399
+assume (= [clk] false)
+
+state 400
+assume (= [clk] false)
+
+state 401
+assume (= [clk] false)
+
+state 402
+assume (= [clk] false)
+
+state 403
+assume (= [clk] false)
+
+state 404
+assume (= [clk] false)
+
+state 405
+assume (= [clk] false)
+
+state 406
+assume (= [clk] false)
+
+state 407
+assume (= [clk] false)
+
+state 408
+assume (= [clk] false)
+
+state 409
+assume (= [clk] false)
+
+state 410
+assume (= [clk] false)
+
+state 411
+assume (= [clk] false)
+
+state 412
+assume (= [clk] false)
+
+state 413
+assume (= [clk] false)
+
+state 414
+assume (= [clk] false)
+
+state 415
+assume (= [clk] false)
+
+state 416
+assume (= [clk] false)
+
+state 417
+assume (= [clk] false)
+
+state 418
+assume (= [clk] false)
+
+state 419
+assume (= [clk] false)
+
+state 420
+assume (= [clk] false)
+
+state 421
+assume (= [clk] false)

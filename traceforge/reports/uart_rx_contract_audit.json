@@ -1,0 +1,21 @@
+{
+  "contract_file": "traceforge/contracts/uart_rx_contract_v0.1.json",
+  "common_uniform_period_ranges_cycles": [
+    [
+      413,
+      460
+    ]
+  ],
+  "in_envelope_cases": 384,
+  "in_envelope_passed": 384,
+  "out_of_envelope_cases": 184,
+  "contract_violations": [],
+  "minimized_counterexample_is_nonuniform": true,
+  "minimized_counterexample_symbols_outside_envelope": [
+    3,
+    5,
+    6,
+    7
+  ],
+  "audit_passed": true
+}

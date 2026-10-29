@@ -1,0 +1,100 @@
+SBY  5:49:16 [run_nested_loop_fault] Removing directory '/home/rattan_0500/MORPH/formal/nested_loop_fault_20261028/run_nested_loop_fault'.
+SBY  5:49:16 [run_nested_loop_fault] Copy '/home/rattan_0500/MORPH/formal/nested_loop_fault_20261028/morph_engine_v2.sv' to '/home/rattan_0500/MORPH/formal/nested_loop_fault_20261028/run_nested_loop_fault/src/morph_engine_v2.sv'.
+SBY  5:49:16 [run_nested_loop_fault] Copy '/home/rattan_0500/MORPH/formal/nested_loop_fault_20261028/morph_nested_loop_formal.sv' to '/home/rattan_0500/MORPH/formal/nested_loop_fault_20261028/run_nested_loop_fault/src/morph_nested_loop_formal.sv'.
+SBY  5:49:16 [run_nested_loop_fault] engine_0: smtbmc z3
+SBY  5:49:16 [run_nested_loop_fault] base: starting process "cd run_nested_loop_fault/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  5:49:16 [run_nested_loop_fault] base: finished (returncode=0)
+SBY  5:49:16 [run_nested_loop_fault] prep: starting process "cd run_nested_loop_fault/model; yosys -ql design_prep.log design_prep.ys"
+SBY  5:49:16 [run_nested_loop_fault] prep: finished (returncode=0)
+SBY  5:49:16 [run_nested_loop_fault] smt2: starting process "cd run_nested_loop_fault/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  5:49:16 [run_nested_loop_fault] smt2: finished (returncode=0)
+SBY  5:49:16 [run_nested_loop_fault] engine_0: starting process "cd run_nested_loop_fault; yosys-smtbmc -s z3 --presat --noprogress -t 40  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Solver: z3
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 15..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 15..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 16..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 16..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 17..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 17..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 18..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 18..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 19..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 19..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 20..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 20..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 21..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 21..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 22..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 22..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 23..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 23..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 24..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 24..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 25..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 25..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 26..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 26..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 27..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 27..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 28..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 28..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 29..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 29..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 30..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 30..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 31..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 31..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 32..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 32..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 33..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 33..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 34..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 34..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 35..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 35..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 36..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 36..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 37..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 37..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 38..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 38..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assumptions in step 39..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Checking assertions in step 39..
+SBY  5:49:16 [run_nested_loop_fault] engine_0: ##   0:00:00  Status: passed
+SBY  5:49:16 [run_nested_loop_fault] engine_0: finished (returncode=0)
+SBY  5:49:16 [run_nested_loop_fault] engine_0: Status returned by engine: pass
+SBY  5:49:16 [run_nested_loop_fault] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  5:49:16 [run_nested_loop_fault] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  5:49:16 [run_nested_loop_fault] summary: engine_0 (smtbmc z3) returned pass
+SBY  5:49:16 [run_nested_loop_fault] summary: engine_0 did not produce any traces
+SBY  5:49:16 [run_nested_loop_fault] DONE (PASS, rc=0)

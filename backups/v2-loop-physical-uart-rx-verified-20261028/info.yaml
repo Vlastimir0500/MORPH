@@ -1,0 +1,57 @@
+# Tiny Tapeout project information
+project:
+  title:        "MORPH — Modular Open Reprogrammable Protocol Hardware"      # Project title
+  author:       "Rattandeep Singh"      # Your name
+  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "8-pin programmable temporal protocol engine with bounded edge waits and fault-safe release."      # One line description of what your project does
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "6x4"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_rattandeep_morph_v2"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - "project.v"
+    - morph_engine.sv
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "Program address bit 0"
+  ui[1]: "Program address bit 1"
+  ui[2]: "Program address bit 2"
+  ui[3]: "Program address bit 3"
+  ui[4]: "Program address bit 4"
+  ui[5]: "Program address bit 5"
+  ui[6]: "Program high-byte select"
+  ui[7]: "Program mode"
+
+  # Outputs
+  uo[0]: "Shift register bit 0"
+  uo[1]: "Shift register bit 1"
+  uo[2]: "Shift register bit 2"
+  uo[3]: "Shift register bit 3"
+  uo[4]: "Shift register bit 4"
+  uo[5]: "Shift register bit 5"
+  uo[6]: "Shift register bit 6"
+  uo[7]: "Shift register bit 7"
+
+  # Bidirectional pins
+  uio[0]: "Protocol pin 0 input/output; program data bit 0"
+  uio[1]: "Protocol pin 1 input/output; program data bit 1"
+  uio[2]: "Protocol pin 2 input/output; program data bit 2"
+  uio[3]: "Protocol pin 3 input/output; program data bit 3"
+  uio[4]: "Protocol pin 4 input/output; program data bit 4"
+  uio[5]: "Protocol pin 5 input/output; program data bit 5"
+  uio[6]: "Protocol pin 6 input/output; program data bit 6"
+  uio[7]: "Protocol pin 7 input/output; program data bit 7"
+
+# Do not change!
+yaml_version: 6

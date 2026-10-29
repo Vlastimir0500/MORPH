@@ -1,0 +1,16 @@
+Variant: vote3_candidate
+Program words: 21
+Held-out input traces: 768
+Held-out payloads: 12, 69, C3, E7, 96, 2D, B4, F0
+Simulations: 100/768
+Simulations: 200/768
+Simulations: 300/768
+Simulations: 400/768
+Simulations: 500/768
+Simulations: 600/768
+Simulations: 700/768
+Simulations: 768/768
+Category counts: {'fresh_transient_glitch': 768}
+Classification counts: {'silent_misdecode': 104, 'correct_decode': 664}
+RTL/reference mismatches: 0
+JSON report: /home/rattan_0500/MORPH/traceforge/rtl_run/uart_vote3_two_dimensional_grid_20261028T111337Z/initial_210_loop_208/heldout_results.json

@@ -1,0 +1,147 @@
+{
+  "cases_compared": 980,
+  "baseline_classifications": {
+    "silent_misdecode": 342,
+    "correct_decode": 574,
+    "error_flagged": 16,
+    "malformed_rejected": 36,
+    "malformed_silent_acceptance": 12
+  },
+  "candidate_classifications": {
+    "silent_misdecode": 140,
+    "correct_decode": 773,
+    "error_flagged": 19,
+    "malformed_rejected": 44,
+    "malformed_silent_acceptance": 4
+  },
+  "paired_transitions": {
+    "silent_misdecode -> silent_misdecode": 78,
+    "correct_decode -> correct_decode": 509,
+    "correct_decode -> silent_misdecode": 62,
+    "silent_misdecode -> correct_decode": 264,
+    "correct_decode -> error_flagged": 3,
+    "malformed_rejected -> malformed_rejected": 36,
+    "malformed_silent_acceptance -> malformed_rejected": 8,
+    "malformed_silent_acceptance -> malformed_silent_acceptance": 4,
+    "error_flagged -> error_flagged": 16
+  },
+  "improvements": 264,
+  "regressions": 65,
+  "malformed_rejected": 44,
+  "malformed_silent_acceptances": 4,
+  "baseline_rtl_model_mismatches": 0,
+  "candidate_rtl_model_mismatches": 0,
+  "regression_examples": [
+    "blind2_glitch_06_w29_b0_o-13",
+    "blind2_glitch_06_w29_b1_o-19",
+    "blind2_glitch_06_w31_b1_o-19",
+    "blind2_glitch_06_w31_b5_o-19",
+    "blind2_glitch_06_w33_b1_o-19",
+    "blind2_glitch_06_w33_b5_o-19",
+    "blind2_glitch_06_w33_b6_o-19",
+    "blind2_glitch_29_w29_b0_o-13",
+    "blind2_glitch_29_w29_b1_o-19",
+    "blind2_glitch_29_w31_b1_o-19",
+    "blind2_glitch_29_w31_b5_o-19",
+    "blind2_glitch_29_w33_b1_o-19",
+    "blind2_glitch_29_w33_b5_o-19",
+    "blind2_glitch_29_w33_b6_o-19",
+    "blind2_glitch_53_w29_b0_o-13",
+    "blind2_glitch_53_w29_b1_o-19",
+    "blind2_glitch_53_w31_b1_o-19",
+    "blind2_glitch_53_w31_b5_o-19",
+    "blind2_glitch_53_w33_b1_o-19",
+    "blind2_glitch_53_w33_b5_o-19",
+    "blind2_glitch_53_w33_b6_o-19",
+    "blind2_glitch_7C_w29_b0_o-13",
+    "blind2_glitch_7C_w29_b1_o-19",
+    "blind2_glitch_7C_w31_b1_o-19",
+    "blind2_glitch_7C_w31_b5_o-19",
+    "blind2_glitch_7C_w33_b1_o-19",
+    "blind2_glitch_7C_w33_b5_o-19",
+    "blind2_glitch_7C_w33_b6_o-19",
+    "blind2_glitch_A2_w29_b0_o-13",
+    "blind2_glitch_A2_w29_b1_o-19"
+  ],
+  "by_category": {
+    "blind2_transient_glitch": {
+      "baseline": {
+        "silent_misdecode": 320,
+        "correct_decode": 448
+      },
+      "candidate": {
+        "silent_misdecode": 120,
+        "correct_decode": 648
+      },
+      "transitions": {
+        "silent_misdecode -> silent_misdecode": 64,
+        "correct_decode -> correct_decode": 392,
+        "correct_decode -> silent_misdecode": 56,
+        "silent_misdecode -> correct_decode": 256
+      }
+    },
+    "blind2_randomized_symbol_jitter": {
+      "baseline": {
+        "correct_decode": 97,
+        "silent_misdecode": 3
+      },
+      "candidate": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "transitions": {
+        "correct_decode -> correct_decode": 92,
+        "correct_decode -> error_flagged": 3,
+        "correct_decode -> silent_misdecode": 2,
+        "silent_misdecode -> correct_decode": 2,
+        "silent_misdecode -> silent_misdecode": 1
+      }
+    },
+    "negative_start_frame": {
+      "baseline": {
+        "malformed_rejected": 24
+      },
+      "candidate": {
+        "malformed_rejected": 24
+      },
+      "transitions": {
+        "malformed_rejected -> malformed_rejected": 24
+      }
+    },
+    "negative_stop_frame": {
+      "baseline": {
+        "malformed_silent_acceptance": 12,
+        "malformed_rejected": 12
+      },
+      "candidate": {
+        "malformed_rejected": 20,
+        "malformed_silent_acceptance": 4
+      },
+      "transitions": {
+        "malformed_silent_acceptance -> malformed_rejected": 8,
+        "malformed_rejected -> malformed_rejected": 12,
+        "malformed_silent_acceptance -> malformed_silent_acceptance": 4
+      }
+    },
+    "blind2_uniform_period": {
+      "baseline": {
+        "silent_misdecode": 19,
+        "correct_decode": 29,
+        "error_flagged": 16
+      },
+      "candidate": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "transitions": {
+        "silent_misdecode -> silent_misdecode": 13,
+        "silent_misdecode -> correct_decode": 6,
+        "correct_decode -> correct_decode": 25,
+        "error_flagged -> error_flagged": 16,
+        "correct_decode -> silent_misdecode": 4
+      }
+    }
+  }
+}

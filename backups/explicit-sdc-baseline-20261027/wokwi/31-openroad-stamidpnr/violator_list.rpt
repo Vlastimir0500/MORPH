@@ -1,0 +1,20 @@
+
+===========================================================================
+Violator List
+============================================================================
+[hold reg-reg] _1742_/Q -> _1965_/D : -0.061223
+[hold reg-reg] _1968_/Q -> _1969_/D : -0.043920
+[hold reg-reg] _1967_/Q -> _1968_/D : -0.042276
+[hold reg-reg] _1966_/Q -> _1967_/D : -0.040834
+[hold reg-reg] _1970_/Q -> _1971_/D : -0.040273
+[hold reg-reg] _1965_/Q -> _1966_/D : -0.038280
+[hold reg-reg] _1971_/Q -> _1972_/D : -0.037107
+[hold reg-reg] _1969_/Q -> _1970_/D : -0.036894
+[hold reg-reg] _1759_/Q -> _1743_/D : -0.036473
+[hold reg-reg] _1760_/Q -> _1757_/D : -0.027602
+Writing metric timing__hold_vio__count__corner:nom_typ_1p20V_25C: 10
+Writing metric timing__hold_r2r__ws__corner:nom_typ_1p20V_25C: -0.061223
+Writing metric timing__hold_r2r_vio__count__corner:nom_typ_1p20V_25C: 10
+Writing metric timing__setup_vio__count__corner:nom_typ_1p20V_25C: 0
+Writing metric timing__setup_r2r__ws__corner:nom_typ_1p20V_25C: 1e30
+Writing metric timing__setup_r2r_vio__count__corner:nom_typ_1p20V_25C: 0

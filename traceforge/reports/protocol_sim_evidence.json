@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "run_type": "fresh_tinytapeout_v2_cocotb_run",
+  "results_xml_sha256": "ca919c7214227494b3381ef8a87fb45dce18d6de69d2c555cb08d36d3da21540",
+  "sources": {
+    "production_rtl_sha256": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+    "tinytapeout_engine_sha256": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+    "wrapper_sha256": "dbd2fa3a8dacc012cb8c6ccbf6e7ca17a36f201f41a8c84426cc3399764bf204",
+    "test_source_sha256": "6cb91158d4fd5c3a071b6e944dfcc3fbdfc820ed5db2b5c3133869364ce55ea3",
+    "engine_matches_production_rtl": true
+  },
+  "summary": {
+    "xml_testcase_count": 15,
+    "suite_failures": 0,
+    "suite_failure_names": [],
+    "suite_skipped": 0,
+    "required_protocol_cases": 3,
+    "required_protocol_cases_passed": 3,
+    "failed_expected_tests": 0,
+    "failed_expected_test_names": []
+  },
+  "cases": [
+    {
+      "protocol": "spi",
+      "test_name": "test_spi_mode0_a5_waveform",
+      "status": "PASS",
+      "simulated_this_run": true,
+      "source_assertions_present": true,
+      "source_assertion_markers": [
+        {
+          "marker": "expected_bits = [1, 0, 1, 0, 0, 1, 0, 1]",
+          "present": true
+        },
+        {
+          "marker": "assert len(rising_cycles) == 8",
+          "present": true
+        },
+        {
+          "marker": "assert len(falling_cycles) == 8",
+          "present": true
+        },
+        {
+          "marker": "f - r == 24",
+          "present": true
+        },
+        {
+          "marker": "rising_cycles[i + 1] - rising_cycles[i] == 50",
+          "present": true
+        },
+        {
+          "marker": "cs_released_cycle - falling_cycles[-1] == 2",
+          "present": true
+        }
+      ],
+      "engine_matches_production_rtl": true,
+      "requirements": {
+        "expected_data_bits": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        "rising_edges": 8,
+        "falling_edges": 8,
+        "high_time_cycles": 24,
+        "rising_period_cycles": 50,
+        "cs_release_delay_cycles": 2
+      },
+      "program_file": "protocols/v2_spi_mode0_a5.morph",
+      "program_sha256": "029a708aeb5cae67bc6644b2f4085d9913b4be660f6ff385466114af30ecaf77",
+      "hex_file": "protocols/v2_spi_mode0_a5.hex",
+      "hex_sha256": "59e57da8e1ed1787566b24f5d1207ec90ebf3c892d657fae39f81620ea7cc278",
+      "test_time_seconds": "0.03772330284118652",
+      "failure_message": null
+    },
+    {
+      "protocol": "i2c",
+      "test_name": "test_i2c_address_probe_ack_stop",
+      "status": "PASS",
+      "simulated_this_run": true,
+      "source_assertions_present": true,
+      "source_assertion_markers": [
+        {
+          "marker": "address_bits == [1, 0, 1, 0, 0, 0, 0, 0]",
+          "present": true
+        },
+        {
+          "marker": "ack_level == 0",
+          "present": true
+        },
+        {
+          "marker": "len(start_cycles) == 1",
+          "present": true
+        },
+        {
+          "marker": "stop_cycle is not None",
+          "present": true
+        },
+        {
+          "marker": "rising_count == 10",
+          "present": true
+        },
+        {
+          "marker": "int(dut.uio_oe.value) & 0x80 == 0",
+          "present": true
+        },
+        {
+          "marker": "int(dut.uio_oe.value) & 0x06 == 0",
+          "present": true
+        }
+      ],
+      "engine_matches_production_rtl": true,
+      "requirements": {
+        "address_bits": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ack_level": 0,
+        "start_events": 1,
+        "stop_condition_required": true,
+        "rising_count": 10,
+        "nack_flag_expected": false,
+        "bus_lines_released_after_stop": true
+      },
+      "program_file": "protocols/v2_i2c_address_probe.morph",
+      "program_sha256": "f6174084a2ba2a40f753a39c26441872d530a0d4f5af525f5d3e583a44ce8dc5",
+      "hex_file": "protocols/v2_i2c_address_probe.hex",
+      "hex_sha256": "5934afc738cc933a4a193aa9d060570006073e2abaab6dc59f2fbbe8e58e3d70",
+      "test_time_seconds": "0.12384390830993652",
+      "failure_message": null
+    },
+    {
+      "protocol": "i2c",
+      "test_name": "test_i2c_nack_releases_bus",
+      "status": "PASS",
+      "simulated_this_run": true,
+      "source_assertions_present": true,
+      "source_assertion_markers": [
+        {
+          "marker": "assert released_after_nack",
+          "present": true
+        },
+        {
+          "marker": "int(dut.uio_oe.value) & 0x06 == 0",
+          "present": true
+        },
+        {
+          "marker": "int(dut.uio_out.value) & 0x80",
+          "present": true
+        }
+      ],
+      "engine_matches_production_rtl": true,
+      "requirements": {
+        "nack_flag_expected": true,
+        "sda_scl_released_after_nack": true
+      },
+      "program_file": "protocols/v2_i2c_address_probe.morph",
+      "program_sha256": "f6174084a2ba2a40f753a39c26441872d530a0d4f5af525f5d3e583a44ce8dc5",
+      "hex_file": "protocols/v2_i2c_address_probe.hex",
+      "hex_sha256": "5934afc738cc933a4a193aa9d060570006073e2abaab6dc59f2fbbe8e58e3d70",
+      "test_time_seconds": "0.11870932579040527",
+      "failure_message": null
+    }
+  ]
+}

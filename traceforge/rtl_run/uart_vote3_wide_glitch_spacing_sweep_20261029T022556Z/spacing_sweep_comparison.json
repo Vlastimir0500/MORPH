@@ -1,0 +1,470 @@
+[
+  {
+    "spacing": 12,
+    "loop_wait": 193,
+    "classifications": {
+      "silent_misdecode": 220,
+      "correct_decode": 693,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 145,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "silent_misdecode": 200,
+        "correct_decode": 568
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 13,
+    "loop_wait": 192,
+    "classifications": {
+      "silent_misdecode": 188,
+      "correct_decode": 725,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 129,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "silent_misdecode": 168,
+        "correct_decode": 600
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 14,
+    "loop_wait": 191,
+    "classifications": {
+      "silent_misdecode": 188,
+      "correct_decode": 725,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 129,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "silent_misdecode": 168,
+        "correct_decode": 600
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 15,
+    "loop_wait": 190,
+    "classifications": {
+      "silent_misdecode": 188,
+      "correct_decode": 725,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 121,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "silent_misdecode": 168,
+        "correct_decode": 600
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 16,
+    "loop_wait": 189,
+    "classifications": {
+      "silent_misdecode": 164,
+      "correct_decode": 749,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 105,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "correct_decode": 624,
+        "silent_misdecode": 144
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 17,
+    "loop_wait": 188,
+    "classifications": {
+      "silent_misdecode": 180,
+      "correct_decode": 733,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 113,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "correct_decode": 608,
+        "silent_misdecode": 160
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 18,
+    "loop_wait": 187,
+    "classifications": {
+      "silent_misdecode": 164,
+      "correct_decode": 749,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 89,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "correct_decode": 624,
+        "silent_misdecode": 144
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 19,
+    "loop_wait": 186,
+    "classifications": {
+      "silent_misdecode": 140,
+      "correct_decode": 773,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 73,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "correct_decode": 648,
+        "silent_misdecode": 120
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 20,
+    "loop_wait": 185,
+    "classifications": {
+      "silent_misdecode": 140,
+      "correct_decode": 773,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 73,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "correct_decode": 648,
+        "silent_misdecode": 120
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 21,
+    "loop_wait": 184,
+    "classifications": {
+      "silent_misdecode": 140,
+      "correct_decode": 773,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 65,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "correct_decode": 648,
+        "silent_misdecode": 120
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 22,
+    "loop_wait": 183,
+    "classifications": {
+      "silent_misdecode": 100,
+      "correct_decode": 813,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 41,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "correct_decode": 688,
+        "silent_misdecode": 80
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 23,
+    "loop_wait": 182,
+    "classifications": {
+      "silent_misdecode": 100,
+      "correct_decode": 813,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 57,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "correct_decode": 688,
+        "silent_misdecode": 80
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 94,
+        "error_flagged": 3,
+        "silent_misdecode": 3
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  },
+  {
+    "spacing": 24,
+    "loop_wait": 181,
+    "classifications": {
+      "silent_misdecode": 83,
+      "correct_decode": 830,
+      "error_flagged": 19,
+      "malformed_rejected": 48
+    },
+    "malformed_rejected": 48,
+    "malformed_silent_acceptances": 0,
+    "valid_regressions_vs_baseline": 40,
+    "rtl_model_mismatches": 0,
+    "by_category": {
+      "blind2_uniform_period": {
+        "silent_misdecode": 17,
+        "correct_decode": 31,
+        "error_flagged": 16
+      },
+      "blind2_transient_glitch": {
+        "correct_decode": 704,
+        "silent_misdecode": 64
+      },
+      "blind2_randomized_symbol_jitter": {
+        "correct_decode": 95,
+        "error_flagged": 3,
+        "silent_misdecode": 2
+      },
+      "negative_start_frame": {
+        "malformed_rejected": 24
+      },
+      "negative_stop_frame": {
+        "malformed_rejected": 24
+      }
+    }
+  }
+]

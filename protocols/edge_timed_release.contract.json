@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "name": "edge_timed_release",
+  "source": "edge_timed_release.morph",
+  "limits": {
+    "max_program_words": 16,
+    "max_wait_cycles": 16
+  },
+  "requirements": {
+    "required_mnemonics": ["EDGE", "DRIVE", "WAIT", "SAMPLE", "SHIFT", "BRANCH"],
+    "drive_sequence": [1, 0],
+    "must_have_backward_branch": true
+  },
+  "temporal_scenarios": [
+    {
+      "name": "rising_edge_timed_release",
+      "pin_trace": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      "expect": {
+        "pin_out_transitions": [
+          {"cycle": 6, "value": 1},
+          {"cycle": 18, "value": 0}
+        ],
+        "shift_reg_transitions": [
+          {"cycle": 16, "value": 1}
+        ]
+      }
+    }
+  ]
+}

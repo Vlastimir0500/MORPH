@@ -1,0 +1,14 @@
+{
+  "DESIGN_NAME": "tt_um_rattandeep_morph",
+  "VERILOG_FILES": [
+    "dir::project.v",
+    "dir::morph_engine.sv"
+  ],
+  "DIE_AREA": "0 0 1289.28 710.64",
+  "FP_DEF_TEMPLATE": "dir::../tt/tech/ihp-sg13cmos5l/def/tt_block_6x4_pgvdd.def",
+  "VDD_PIN": "VPWR",
+  "GND_PIN": "VGND",
+  "RT_MAX_LAYER": "Metal4",
+  "RUN_KLAYOUT_DRC": 1,
+  "RUN_KLAYOUT_XOR": 1
+}

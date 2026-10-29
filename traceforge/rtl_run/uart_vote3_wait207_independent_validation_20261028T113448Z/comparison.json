@@ -1,0 +1,135 @@
+{
+  "cases_compared": 932,
+  "baseline_classifications": {
+    "silent_misdecode": 468,
+    "correct_decode": 455,
+    "error_flagged": 9
+  },
+  "candidate_classifications": {
+    "silent_misdecode": 90,
+    "correct_decode": 829,
+    "error_flagged": 13
+  },
+  "paired_transitions": {
+    "correct_decode -> correct_decode": 388,
+    "silent_misdecode -> correct_decode": 441,
+    "correct_decode -> silent_misdecode": 63,
+    "silent_misdecode -> silent_misdecode": 27,
+    "correct_decode -> error_flagged": 4,
+    "error_flagged -> error_flagged": 9
+  },
+  "improvements": 441,
+  "regressions": 67,
+  "improvement_examples": [
+    "independent_glitch_0F_w17_b0_o+7",
+    "independent_glitch_0F_w17_b1_o+7",
+    "independent_glitch_0F_w17_b2_o+7",
+    "independent_glitch_0F_w17_b3_o+7",
+    "independent_glitch_0F_w17_b4_o+7",
+    "independent_glitch_0F_w17_b5_o+7",
+    "independent_glitch_0F_w17_b6_o+7",
+    "independent_glitch_0F_w17_b7_o+7",
+    "independent_glitch_0F_w19_b0_o+11",
+    "independent_glitch_0F_w19_b0_o+7",
+    "independent_glitch_0F_w19_b1_o+11",
+    "independent_glitch_0F_w19_b1_o+7",
+    "independent_glitch_0F_w19_b1_o-7",
+    "independent_glitch_0F_w19_b2_o+11",
+    "independent_glitch_0F_w19_b2_o+7",
+    "independent_glitch_0F_w19_b2_o-7",
+    "independent_glitch_0F_w19_b3_o+11",
+    "independent_glitch_0F_w19_b3_o+7",
+    "independent_glitch_0F_w19_b3_o-7",
+    "independent_glitch_0F_w19_b4_o+11",
+    "independent_glitch_0F_w19_b4_o+7",
+    "independent_glitch_0F_w19_b4_o-7",
+    "independent_glitch_0F_w19_b5_o+11",
+    "independent_glitch_0F_w19_b5_o+7",
+    "independent_glitch_0F_w19_b5_o-7"
+  ],
+  "regression_examples": [
+    "independent_glitch_0F_w17_b0_o-11",
+    "independent_glitch_0F_w17_b0_o-7",
+    "independent_glitch_0F_w17_b1_o-11",
+    "independent_glitch_0F_w19_b0_o-11",
+    "independent_glitch_0F_w19_b1_o-11",
+    "independent_glitch_0F_w21_b0_o-11",
+    "independent_glitch_0F_w21_b1_o-11",
+    "independent_glitch_33_w17_b0_o-11",
+    "independent_glitch_33_w17_b0_o-7",
+    "independent_glitch_33_w17_b1_o-11",
+    "independent_glitch_33_w19_b0_o-11",
+    "independent_glitch_33_w19_b1_o-11",
+    "independent_glitch_33_w21_b0_o-11",
+    "independent_glitch_33_w21_b1_o-11",
+    "independent_glitch_5A_w17_b0_o-11",
+    "independent_glitch_5A_w17_b0_o-7",
+    "independent_glitch_5A_w17_b1_o-11",
+    "independent_glitch_5A_w19_b0_o-11",
+    "independent_glitch_5A_w19_b1_o-11",
+    "independent_glitch_5A_w21_b0_o-11",
+    "independent_glitch_5A_w21_b1_o-11",
+    "independent_glitch_87_w17_b0_o-11",
+    "independent_glitch_87_w17_b0_o-7",
+    "independent_glitch_87_w17_b1_o-11",
+    "independent_glitch_87_w19_b0_o-11"
+  ],
+  "baseline_rtl_model_mismatches": 0,
+  "candidate_rtl_model_mismatches": 0,
+  "by_category": {
+    "independent_transient_glitch": {
+      "baseline": {
+        "correct_decode": 320,
+        "silent_misdecode": 448
+      },
+      "candidate": {
+        "correct_decode": 696,
+        "silent_misdecode": 72
+      },
+      "transitions": {
+        "correct_decode -> correct_decode": 264,
+        "silent_misdecode -> correct_decode": 432,
+        "correct_decode -> silent_misdecode": 56,
+        "silent_misdecode -> silent_misdecode": 16
+      }
+    },
+    "independent_randomized_symbol_jitter": {
+      "baseline": {
+        "correct_decode": 98,
+        "silent_misdecode": 2
+      },
+      "candidate": {
+        "correct_decode": 97,
+        "silent_misdecode": 2,
+        "error_flagged": 1
+      },
+      "transitions": {
+        "correct_decode -> correct_decode": 96,
+        "correct_decode -> silent_misdecode": 1,
+        "silent_misdecode -> correct_decode": 1,
+        "correct_decode -> error_flagged": 1,
+        "silent_misdecode -> silent_misdecode": 1
+      }
+    },
+    "independent_uniform_period": {
+      "baseline": {
+        "silent_misdecode": 18,
+        "correct_decode": 37,
+        "error_flagged": 9
+      },
+      "candidate": {
+        "silent_misdecode": 16,
+        "correct_decode": 36,
+        "error_flagged": 12
+      },
+      "transitions": {
+        "silent_misdecode -> silent_misdecode": 10,
+        "silent_misdecode -> correct_decode": 8,
+        "correct_decode -> correct_decode": 28,
+        "correct_decode -> error_flagged": 3,
+        "error_flagged -> error_flagged": 9,
+        "correct_decode -> silent_misdecode": 6
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+[WARNING ORD-0032] Invalid thread number specification: None.
+Reading timing models for corner nom_typ_1p20V_25C…
+Reading timing library for the 'nom_typ_1p20V_25C' corner at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_typ_1p20V_25C.lib'…
+Reading timing library for the 'nom_typ_1p20V_25C' corner at '/home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_typ_1p2V_3p3V_25C.lib'…
+Reading OpenROAD database at '/home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/53-odb-cellfrequencytables/tt_um_rattandeep_morph.odb'…
+Reading design constraints file at '/nix/store/6a08ghhhzl5a07nr0ly762yh1ah6m5bj-python3-3.13.13-env/lib/python3.13/site-packages/librelane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 4.0
+[INFO] Setting input delay to: 4.0
+[INFO] Setting load to: 0.006
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.15
+[INFO] Setting timing derate to: 5.0%
+[INFO] Using voltage extracted from lib (1.2V) for power nets and 0V for ground nets…
+%OL_CREATE_REPORT irdrop.rpt
++ analyze_power_grid -net VPWR -voltage_file /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/56-openroad-irdropreport/net-VPWR.csv
+[INFO PSM-0040] All shapes on net VPWR are connected.
+########## IR report #################
+Net              : VPWR
+Corner           : nom_typ_1p20V_25C
+Total power      : 1.01e-03 W
+Supply voltage   : 1.20e+00 V
+Worstcase voltage: 1.20e+00 V
+Average voltage  : 1.20e+00 V
+Average IR drop  : 4.78e-06 V
+Worstcase IR drop: 1.83e-04 V
+Percentage drop  : 0.02 %
+######################################
++ analyze_power_grid -net VGND -voltage_file /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/56-openroad-irdropreport/net-VGND.csv
+[INFO PSM-0040] All shapes on net VGND are connected.
+########## IR report #################
+Net              : VGND
+Corner           : nom_typ_1p20V_25C
+Total power      : 1.01e-03 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 1.61e-04 V
+Average voltage  : 4.19e-06 V
+Average IR drop  : 4.19e-06 V
+Worstcase IR drop: 1.61e-04 V
+Percentage drop  : 0.01 %
+######################################
+%OL_END_REPORT

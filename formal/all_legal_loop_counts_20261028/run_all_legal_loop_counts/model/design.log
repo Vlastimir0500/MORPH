@@ -1,0 +1,677 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+59 (git sha1 d85872386-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: morph_engine_v2.sv
+Parsing formal SystemVerilog input from `morph_engine_v2.sv' to AST representation.
+Storing AST representation for module `$abstract\morph_engine_v2'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: morph_all_legal_loop_counts.sv
+Parsing formal SystemVerilog input from `morph_all_legal_loop_counts.sv' to AST representation.
+Storing AST representation for module `$abstract\morph_all_legal_loop_counts'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\morph_all_legal_loop_counts'.
+Generating RTLIL representation for module `\morph_all_legal_loop_counts'.
+
+3.2.1. Analyzing design hierarchy..
+Top module:  \morph_all_legal_loop_counts
+
+3.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\morph_engine_v2'.
+Generating RTLIL representation for module `\morph_engine_v2'.
+
+3.2.3. Analyzing design hierarchy..
+Top module:  \morph_all_legal_loop_counts
+Used module:     \morph_engine_v2
+
+3.2.4. Analyzing design hierarchy..
+Top module:  \morph_all_legal_loop_counts
+Used module:     \morph_engine_v2
+Removing unused module `$abstract\morph_all_legal_loop_counts'.
+Removing unused module `$abstract\morph_engine_v2'.
+Removed 2 unused modules.
+Module morph_all_legal_loop_counts directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.3. Executing PROC pass (convert processes to netlists).
+
+3.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 20 switch rules as full_case in process $proc$morph_engine_v2.sv:34$49 in module morph_engine_v2.
+Marked 1 switch rules as full_case in process $proc$morph_all_legal_loop_counts.sv:10$33 in module morph_all_legal_loop_counts.
+Removed a total of 0 dead cases.
+
+3.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 21 assignments to connections.
+
+3.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:4$40'.
+  Set init value: \reset_seen = 1'0
+Found init rule in `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:3$39'.
+  Set init value: \phase = 10'0000000000
+
+3.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~29 debug messages>
+
+3.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+     1/59: $13$lookahead\pin_oe$48[7:0]$189
+     2/59: $12$lookahead\pin_oe$48[7:0]$187
+     3/59: $11$lookahead\pin_oe$48[7:0]$184
+     4/59: $10$lookahead\pin_oe$48[7:0]$165
+     5/59: $9$lookahead\pin_oe$48[7:0]$160
+     6/59: $8$lookahead\pin_oe$48[7:0]$158
+     7/59: $7$lookahead\pin_oe$48[7:0]$133
+     8/59: $4$bitselwrite$pos$morph_engine_v2.sv:137$44[2:0]$131
+     9/59: $5$lookahead\pin_out$47[7:0]$132
+    10/59: $4$bitselwrite$pos$morph_engine_v2.sv:136$43[2:0]$130
+    11/59: $6$lookahead\pin_oe$48[7:0]$123
+    12/59: $5$lookahead\pin_oe$48[7:0]$117
+    13/59: $4$lookahead\pin_oe$48[7:0]$100
+    14/59: $4$bitselwrite$pos$morph_engine_v2.sv:76$42[2:0]$98
+    15/59: $4$lookahead\pin_out$47[7:0]$99
+    16/59: $4$bitselwrite$pos$morph_engine_v2.sv:75$41[2:0]$97
+    17/59: $3$lookahead\pin_oe$48[7:0]$95
+    18/59: $3$lookahead\pin_out$47[7:0]$94
+    19/59: $3$bitselwrite$pos$morph_engine_v2.sv:137$44[2:0]$93
+    20/59: $3$bitselwrite$pos$morph_engine_v2.sv:136$43[2:0]$92
+    21/59: $3$bitselwrite$pos$morph_engine_v2.sv:76$42[2:0]$91
+    22/59: $3$bitselwrite$pos$morph_engine_v2.sv:75$41[2:0]$90
+    23/59: $2$lookahead\pin_oe$48[7:0]$88
+    24/59: $2$lookahead\pin_out$47[7:0]$87
+    25/59: $2$bitselwrite$pos$morph_engine_v2.sv:137$44[2:0]$86
+    26/59: $2$bitselwrite$pos$morph_engine_v2.sv:136$43[2:0]$85
+    27/59: $2$bitselwrite$pos$morph_engine_v2.sv:76$42[2:0]$84
+    28/59: $2$bitselwrite$pos$morph_engine_v2.sv:75$41[2:0]$83
+    29/59: $1$lookahead\pin_oe$48[7:0]$82
+    30/59: $1$lookahead\pin_out$47[7:0]$81
+    31/59: $0\pin_prev[7:0]
+    32/59: $1$bitselwrite$pos$morph_engine_v2.sv:137$44[2:0]$80
+    33/59: $1$bitselwrite$pos$morph_engine_v2.sv:136$43[2:0]$79
+    34/59: $1$bitselwrite$pos$morph_engine_v2.sv:76$42[2:0]$78
+    35/59: $1$bitselwrite$pos$morph_engine_v2.sv:75$41[2:0]$77
+    36/59: $2$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$71
+    37/59: $2$memwr$\prog_mem$morph_engine_v2.sv:37$45_DATA[15:0]$70
+    38/59: $2$memwr$\prog_mem$morph_engine_v2.sv:37$45_ADDR[5:0]$69
+    39/59: $2$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$74
+    40/59: $2$memwr$\prog_mem$morph_engine_v2.sv:39$46_DATA[15:0]$73
+    41/59: $2$memwr$\prog_mem$morph_engine_v2.sv:39$46_ADDR[5:0]$72
+    42/59: $1$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$68
+    43/59: $1$memwr$\prog_mem$morph_engine_v2.sv:39$46_DATA[15:0]$67
+    44/59: $1$memwr$\prog_mem$morph_engine_v2.sv:39$46_ADDR[5:0]$66
+    45/59: $1$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$65
+    46/59: $1$memwr$\prog_mem$morph_engine_v2.sv:37$45_DATA[15:0]$64
+    47/59: $1$memwr$\prog_mem$morph_engine_v2.sv:37$45_ADDR[5:0]$63
+    48/59: $0\state[2:0]
+    49/59: $0\loop_active[0:0]
+    50/59: $0\loop_target[5:0]
+    51/59: $0\loop_pc[5:0]
+    52/59: $0\loop_remaining[5:0]
+    53/59: $0\wait_count[7:0]
+    54/59: $0\ir[15:0]
+    55/59: $0\pc[5:0]
+    56/59: $0\fault[0:0]
+    57/59: $0\timed_out[0:0]
+    58/59: $0\shift_reg[7:0]
+    59/59: $0\sample_reg[0:0]
+Creating decoders for process `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:4$40'.
+Creating decoders for process `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:3$39'.
+Creating decoders for process `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:10$33'.
+     1/1: $1\program_word$func$morph_all_legal_loop_counts.sv:10$2.$result[15:0]$38
+Creating decoders for process `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:52$11'.
+     1/9: $assert$morph_all_legal_loop_counts.sv:74$31_EN
+     2/9: $assert$morph_all_legal_loop_counts.sv:73$29_EN
+     3/9: $assert$morph_all_legal_loop_counts.sv:72$27_EN
+     4/9: $assert$morph_all_legal_loop_counts.sv:71$26_EN
+     5/9: $assert$morph_all_legal_loop_counts.sv:68$23_EN
+     6/9: $assert$morph_all_legal_loop_counts.sv:65$21_EN
+     7/9: $assert$morph_all_legal_loop_counts.sv:62$18_EN
+     8/9: $0\reset_seen[0:0]
+     9/9: $0\phase[9:0]
+
+3.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\morph_all_legal_loop_counts.\program_word$func$morph_all_legal_loop_counts.sv:10$1.$result' from process `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:10$33'.
+
+3.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\morph_engine_v2.\pin_out' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1125' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\pin_oe' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1126' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\sample_reg' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1127' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\shift_reg' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1128' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\timed_out' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1129' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\fault' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1130' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\pc' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1131' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\ir' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1132' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\wait_count' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1133' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\loop_remaining' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1134' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\loop_pc' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1135' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\loop_target' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1136' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\loop_active' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1137' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\pin_prev' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1138' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\state' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1139' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$bitselwrite$pos$morph_engine_v2.sv:75$41' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1140' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$bitselwrite$pos$morph_engine_v2.sv:76$42' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1141' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$bitselwrite$pos$morph_engine_v2.sv:136$43' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1142' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$bitselwrite$pos$morph_engine_v2.sv:137$44' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1143' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:37$45_ADDR' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1144' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:37$45_DATA' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1145' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1146' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:39$46_ADDR' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1147' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:39$46_DATA' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1148' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1149' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$lookahead\pin_out$47' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1150' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$lookahead\pin_oe$48' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+  created $dff cell `$procdff$1151' with positive edge clock.
+Creating register for signal `\morph_all_legal_loop_counts.\phase' using process `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:52$11'.
+  created $dff cell `$procdff$1152' with positive edge clock.
+Creating register for signal `\morph_all_legal_loop_counts.\reset_seen' using process `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:52$11'.
+  created $dff cell `$procdff$1153' with positive edge clock.
+
+3.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 22 empty switches in `\morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+Removing empty process `morph_engine_v2.$proc$morph_engine_v2.sv:34$49'.
+Removing empty process `morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:4$40'.
+Removing empty process `morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:3$39'.
+Found and cleaned up 1 empty switch in `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:10$33'.
+Removing empty process `morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:10$33'.
+Found and cleaned up 6 empty switches in `\morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:52$11'.
+Removing empty process `morph_all_legal_loop_counts.$proc$morph_all_legal_loop_counts.sv:52$11'.
+Cleaned up 29 empty switches.
+
+3.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+<suppressed ~18 debug messages>
+Optimizing module morph_all_legal_loop_counts.
+<suppressed ~7 debug messages>
+
+3.4. Executing FUTURE pass.
+
+3.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_all_legal_loop_counts.
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module morph_engine_v2...
+Checking module morph_all_legal_loop_counts...
+Found and reported 0 problems.
+
+3.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_all_legal_loop_counts..
+Removed 74 unused cells and 333 unused wires.
+<suppressed ~76 debug messages>
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_all_legal_loop_counts.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\morph_engine_v2'.
+Computing hashes of 383 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 269 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 263 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 259 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 257 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+<suppressed ~378 debug messages>
+Finding identical cells in module `\morph_all_legal_loop_counts'.
+Computing hashes of 42 cells of `\morph_all_legal_loop_counts'.
+Finding duplicate cells in `\morph_all_legal_loop_counts'.
+Computing hashes of 41 cells of `\morph_all_legal_loop_counts'.
+Finding duplicate cells in `\morph_all_legal_loop_counts'.
+<suppressed ~3 debug messages>
+Removed a total of 127 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \morph_engine_v2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$787: \loop_active -> 1'1
+      Replacing known input bits on port B of cell $procmux$793: \loop_active -> 1'0
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$693.
+    dead port 2/2 on $mux $procmux$687.
+    dead port 2/2 on $mux $procmux$681.
+    dead port 2/2 on $mux $procmux$675.
+    dead port 2/2 on $mux $procmux$669.
+    dead port 1/2 on $mux $procmux$607.
+    dead port 1/2 on $mux $procmux$598.
+    dead port 1/2 on $mux $procmux$520.
+    dead port 2/2 on $mux $procmux$517.
+    dead port 1/2 on $mux $procmux$505.
+    dead port 2/2 on $mux $procmux$502.
+    dead port 1/2 on $mux $procmux$461.
+    dead port 2/2 on $mux $procmux$458.
+    dead port 2/2 on $mux $procmux$456.
+    dead port 1/2 on $mux $procmux$415.
+    dead port 2/2 on $mux $procmux$412.
+    dead port 2/2 on $mux $procmux$410.
+    dead port 1/2 on $mux $procmux$392.
+    dead port 2/2 on $mux $procmux$389.
+    dead port 2/2 on $mux $procmux$387.
+    dead port 1/2 on $mux $procmux$370.
+    dead port 2/2 on $mux $procmux$367.
+    dead port 2/2 on $mux $procmux$365.
+    dead port 1/2 on $mux $procmux$333.
+    dead port 2/2 on $mux $procmux$330.
+    dead port 2/2 on $mux $procmux$328.
+    dead port 1/2 on $mux $procmux$299.
+    dead port 2/2 on $mux $procmux$296.
+    dead port 2/2 on $mux $procmux$294.
+    dead port 1/2 on $mux $procmux$282.
+    dead port 2/2 on $mux $procmux$279.
+    dead port 2/2 on $mux $procmux$277.
+    dead port 1/2 on $mux $procmux$267.
+    dead port 2/2 on $mux $procmux$264.
+    dead port 2/2 on $mux $procmux$262.
+    dead port 1/2 on $mux $procmux$260.
+    dead port 1/2 on $mux $procmux$249.
+    dead port 2/2 on $mux $procmux$246.
+    dead port 2/2 on $mux $procmux$244.
+    dead port 1/2 on $mux $procmux$242.
+    dead port 2/2 on $mux $procmux$239.
+    dead port 1/2 on $mux $procmux$228.
+    dead port 2/2 on $mux $procmux$225.
+    dead port 1/2 on $mux $procmux$218.
+    dead port 2/2 on $mux $procmux$215.
+    dead port 1/2 on $mux $procmux$213.
+    dead port 1/2 on $mux $procmux$205.
+    dead port 2/2 on $mux $procmux$202.
+    dead port 1/2 on $mux $procmux$200.
+    dead port 2/2 on $mux $procmux$197.
+    dead port 2/2 on $mux $procmux$699.
+Running muxtree optimizer on module \morph_all_legal_loop_counts..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 51 multiplexer ports.
+<suppressed ~225 debug messages>
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \morph_engine_v2.
+    Consolidated identical input bits for $mux cell $procmux$667:
+      Old ports: A=16'0000000000000000, B=16'1111111100000000, Y=$procmux$667_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$667_Y [8]
+      New connections: { $procmux$667_Y [15:9] $procmux$667_Y [7:0] } = { $procmux$667_Y [8] $procmux$667_Y [8] $procmux$667_Y [8] $procmux$667_Y [8] $procmux$667_Y [8] $procmux$667_Y [8] $procmux$667_Y [8] 8'00000000 }
+    New ctrl vector for $pmux cell $procmux$491: { $procmux$968_CMP $auto$opt_reduce.cc:137:opt_pmux$1157 $procmux$976_CMP $procmux$921_CMP $procmux$986_CMP $procmux$990_CMP }
+    New ctrl vector for $pmux cell $procmux$1019: { $procmux$968_CMP $auto$opt_reduce.cc:137:opt_pmux$1159 $procmux$976_CMP $procmux$921_CMP $procmux$986_CMP $procmux$990_CMP }
+    New ctrl vector for $pmux cell $procmux$996: { $auto$opt_reduce.cc:137:opt_pmux$1161 $procmux$946_CMP $procmux$991_CMP }
+    Consolidated identical input bits for $mux cell $procmux$685:
+      Old ports: A=16'0000000011111111, B=16'0000000000000000, Y=$procmux$685_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$685_Y [0]
+      New connections: $procmux$685_Y [15:1] = { 8'00000000 $procmux$685_Y [0] $procmux$685_Y [0] $procmux$685_Y [0] $procmux$685_Y [0] $procmux$685_Y [0] $procmux$685_Y [0] $procmux$685_Y [0] }
+    New ctrl vector for $pmux cell $procmux$591: { $auto$opt_reduce.cc:137:opt_pmux$1163 $procmux$946_CMP $procmux$991_CMP }
+    New ctrl vector for $pmux cell $procmux$750: { $procmux$968_CMP $auto$opt_reduce.cc:137:opt_pmux$1165 $procmux$976_CMP $procmux$921_CMP $procmux$982_CMP $procmux$986_CMP $procmux$990_CMP }
+  Optimizing cells in module \morph_engine_v2.
+    Consolidated identical input bits for $mux cell $procmux$711:
+      Old ports: A=16'0000000000000000, B=$2$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$71, Y=$0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56
+      New ports: A=1'0, B=$procmux$667_Y [8], Y=$0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56 [8]
+      New connections: { $0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56 [15:9] $0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56 [7:0] } = { $0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$45_EN[15:0]$56 [8] 8'00000000 }
+    Consolidated identical input bits for $mux cell $procmux$702:
+      Old ports: A=16'0000000000000000, B=$2$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$74, Y=$0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59
+      New ports: A=1'0, B=$procmux$685_Y [0], Y=$0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59 [0]
+      New connections: $0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59 [15:1] = { 8'00000000 $0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59 [0] }
+  Optimizing cells in module \morph_engine_v2.
+  Optimizing cells in module \morph_all_legal_loop_counts.
+Performed a total of 9 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\morph_engine_v2'.
+Computing hashes of 211 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 198 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+<suppressed ~39 debug messages>
+Finding identical cells in module `\morph_all_legal_loop_counts'.
+Computing hashes of 41 cells of `\morph_all_legal_loop_counts'.
+Finding duplicate cells in `\morph_all_legal_loop_counts'.
+Computing hashes of 38 cells of `\morph_all_legal_loop_counts'.
+Finding duplicate cells in `\morph_all_legal_loop_counts'.
+<suppressed ~9 debug messages>
+Removed a total of 16 cells.
+
+3.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_all_legal_loop_counts..
+Removed 0 unused cells and 194 unused wires.
+<suppressed ~2 debug messages>
+
+3.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_all_legal_loop_counts.
+
+3.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \morph_engine_v2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \morph_all_legal_loop_counts..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~182 debug messages>
+
+3.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \morph_engine_v2.
+    New ctrl vector for $pmux cell $procmux$491: { $procmux$1040_CMP $auto$opt_reduce.cc:137:opt_pmux$1167 $procmux$1025_CMP $auto$opt_reduce.cc:137:opt_pmux$1157 $procmux$1020_CMP }
+    New ctrl vector for $pmux cell $procmux$1019: { $auto$opt_reduce.cc:137:opt_pmux$1169 $auto$opt_reduce.cc:137:opt_pmux$1157 $procmux$1020_CMP }
+    New ctrl vector for $pmux cell $procmux$967: { $procmux$1020_CMP $procmux$1021_CMP $auto$opt_reduce.cc:137:opt_pmux$1171 $procmux$1026_CMP $procmux$1027_CMP $procmux$1032_CMP }
+    New ctrl vector for $pmux cell $procmux$750: { $auto$opt_reduce.cc:137:opt_pmux$1173 $procmux$1032_CMP $procmux$1031_CMP $auto$opt_reduce.cc:137:opt_pmux$1165 $procmux$1020_CMP }
+  Optimizing cells in module \morph_engine_v2.
+  Optimizing cells in module \morph_all_legal_loop_counts.
+Performed a total of 4 changes.
+
+3.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\morph_engine_v2'.
+Computing hashes of 202 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 201 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\morph_all_legal_loop_counts'.
+Computing hashes of 38 cells of `\morph_all_legal_loop_counts'.
+Finding duplicate cells in `\morph_all_legal_loop_counts'.
+Removed a total of 1 cells.
+
+3.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_all_legal_loop_counts..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_all_legal_loop_counts.
+
+3.8.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \morph_engine_v2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \morph_all_legal_loop_counts..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~166 debug messages>
+
+3.8.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \morph_engine_v2.
+  Optimizing cells in module \morph_all_legal_loop_counts.
+Performed a total of 0 changes.
+
+3.8.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\morph_engine_v2'.
+Computing hashes of 201 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Finding identical cells in module `\morph_all_legal_loop_counts'.
+Computing hashes of 38 cells of `\morph_all_legal_loop_counts'.
+Finding duplicate cells in `\morph_all_legal_loop_counts'.
+Removed a total of 0 cells.
+
+3.8.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_all_legal_loop_counts..
+
+3.8.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_all_legal_loop_counts.
+
+3.8.20. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 4) from port B of cell morph_engine_v2.$le$morph_engine_v2.sv:135$129 ($le).
+Converting cell morph_engine_v2.$neg$morph_engine_v2.sv:137$145 ($neg) from signed to unsigned.
+Removed top 1 bits (of 4) from port A of cell morph_engine_v2.$neg$morph_engine_v2.sv:137$145 ($neg).
+Removed top 5 bits (of 6) from port B of cell morph_engine_v2.$eq$morph_engine_v2.sv:168$161 ($eq).
+Removed top 5 bits (of 6) from port B of cell morph_engine_v2.$gt$morph_engine_v2.sv:181$166 ($gt).
+Removed top 31 bits (of 32) from port B of cell morph_engine_v2.$le$morph_engine_v2.sv:225$188 ($le).
+Removed top 1 bits (of 3) from mux cell morph_engine_v2.$procmux$764 ($mux).
+Removed top 1 bits (of 4) from port B of cell morph_engine_v2.$procmux$921_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell morph_engine_v2.$procmux$946_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell morph_engine_v2.$procmux$950_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell morph_engine_v2.$procmux$976_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell morph_engine_v2.$procmux$977_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell morph_engine_v2.$procmux$978_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell morph_engine_v2.$procmux$982_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell morph_engine_v2.$procmux$986_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell morph_engine_v2.$procmux$990_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell morph_engine_v2.$procmux$991_CMP0 ($eq).
+Removed top 8 bits (of 16) from wire morph_engine_v2.$2$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$74.
+Removed top 1 bits (of 3) from wire morph_engine_v2.$procmux$764_Y.
+Removed top 8 bits (of 16) from wire morph_engine_v2.$0$memwr$\prog_mem$morph_engine_v2.sv:39$46_EN[15:0]$59.
+Removed top 9 bits (of 10) from port B of cell morph_all_legal_loop_counts.$ge$morph_all_legal_loop_counts.sv:7$5 ($ge).
+Removed top 6 bits (of 10) from port B of cell morph_all_legal_loop_counts.$le$morph_all_legal_loop_counts.sv:7$6 ($le).
+Removed top 9 bits (of 10) from port B of cell morph_all_legal_loop_counts.$sub$morph_all_legal_loop_counts.sv:9$8 ($sub).
+Removed top 3 bits (of 10) from port Y of cell morph_all_legal_loop_counts.$sub$morph_all_legal_loop_counts.sv:9$8 ($sub).
+Removed top 3 bits (of 10) from port A of cell morph_all_legal_loop_counts.$sub$morph_all_legal_loop_counts.sv:9$8 ($sub).
+Removed top 1 bits (of 10) from port B of cell morph_all_legal_loop_counts.$lt$morph_all_legal_loop_counts.sv:58$15 ($lt).
+Removed top 6 bits (of 10) from port B of cell morph_all_legal_loop_counts.$eq$morph_all_legal_loop_counts.sv:64$20 ($eq).
+Removed top 6 bits (of 10) from port B of cell morph_all_legal_loop_counts.$eq$morph_all_legal_loop_counts.sv:67$22 ($eq).
+Removed top 1 bits (of 10) from port B of cell morph_all_legal_loop_counts.$eq$morph_all_legal_loop_counts.sv:70$25 ($eq).
+Removed top 4 bits (of 6) from port B of cell morph_all_legal_loop_counts.$procmux$1104_CMP0 ($eq).
+Removed top 5 bits (of 6) from port B of cell morph_all_legal_loop_counts.$procmux$1105_CMP0 ($eq).
+Removed top 3 bits (of 10) from wire morph_all_legal_loop_counts.$sub$morph_all_legal_loop_counts.sv:9$8_Y.
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_all_legal_loop_counts..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~2 debug messages>
+
+3.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_all_legal_loop_counts.
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\morph_engine_v2'.
+Computing hashes of 199 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Finding identical cells in module `\morph_all_legal_loop_counts'.
+Computing hashes of 38 cells of `\morph_all_legal_loop_counts'.
+Finding duplicate cells in `\morph_all_legal_loop_counts'.
+Removed a total of 0 cells.
+
+3.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_all_legal_loop_counts..
+
+3.12.4. Finished fast OPT passes.
+
+3.13. Executing SORT pass.
+
+3.14. Printing statistics.
+
+=== morph_all_legal_loop_counts ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       40 wires
+      139 wire bits
+       18 public wires
+       90 public wire bits
+        1 ports
+        1 port bits
+       37 cells
+        1   $add
+        1   $anyconst
+        8   $check
+        2   $dff
+        5   $eq
+        1   $ge
+        1   $le
+        2   $logic_and
+        3   $logic_not
+        1   $lt
+        7   $mux
+        1   $not
+        1   $pmux
+        2   $reduce_bool
+        1   $sub
+        1 submodules
+        1   morph_engine_v2
+
+=== morph_engine_v2 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      206 wires
+      958 wire bits
+       22 public wires
+      113 public wire bits
+       13 ports
+       53 port bits
+      199 cells
+        1   $add
+        2   $and
+       15   $dff
+       16   $eq
+        1   $ge
+        2   $gt
+        2   $le
+        6   $logic_and
+        8   $logic_not
+        4   $logic_or
+        1   $lt
+        1   $mem_v2
+      106   $mux
+        1   $neg
+        1   $not
+        4   $or
+       13   $pmux
+        1   $reduce_bool
+        6   $reduce_or
+        3   $shift
+        2   $shiftx
+        3   $sub
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      236 morph_all_legal_loop_counts
+      199 morph_engine_v2
+
+        +----------Count including submodules.
+        | 
+      246 wires
+     1097 wire bits
+       40 public wires
+      203 public wire bits
+       14 ports
+       54 port bits
+        - memories
+        - memory bits
+        - processes
+      236 cells
+        2   $add
+        2   $and
+        1   $anyconst
+        8   $check
+       17   $dff
+       21   $eq
+        2   $ge
+        2   $gt
+        3   $le
+        8   $logic_and
+       11   $logic_not
+        4   $logic_or
+        2   $lt
+        1   $mem_v2
+      113   $mux
+        1   $neg
+        2   $not
+        4   $or
+       14   $pmux
+        3   $reduce_bool
+        6   $reduce_or
+        3   $shift
+        2   $shiftx
+        4   $sub
+        1 submodules
+        1   morph_engine_v2
+
+3.15. Executing CHECK pass (checking for obvious problems).
+Checking module morph_all_legal_loop_counts...
+Checking module morph_engine_v2...
+Found and reported 0 problems.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `morph_all_legal_loop_counts'. Setting top module to morph_all_legal_loop_counts.
+
+4.1. Analyzing design hierarchy..
+Top module:  \morph_all_legal_loop_counts
+Used module:     \morph_engine_v2
+
+4.2. Analyzing design hierarchy..
+Top module:  \morph_all_legal_loop_counts
+Used module:     \morph_engine_v2
+Removed 0 unused modules.
+Module morph_all_legal_loop_counts directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5. Executing jny backend.
+
+6. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 1d10481006, time: 0.07s, user: 0.07s, system: 0.02s, MEM: 21.36 MB peak
+Yosys 0.69+59 (git sha1 d85872386-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 20% 6x opt_clean (0 sec), 16% 2x hierarchy (0 sec), ...

@@ -1,0 +1,20 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1793163873" />
+    <testcase name="test_all_eight_output_pins" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="38" time="0.0008020401000976562" sim_time_ns="81.0" ratio_time="100992.45659928657" />
+    <testcase name="test_release_selected_pin" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="51" time="0.0007677078247070312" sim_time_ns="131.0" ratio_time="170637.83354037267" />
+    <testcase name="test_sample_shift_and_input_bus" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="68" time="0.0008502006530761719" sim_time_ns="131.0" ratio_time="154081.27425687044" />
+    <testcase name="test_six_bit_program_address" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="80" time="0.0017130374908447266" sim_time_ns="131.0" ratio_time="76472.34850382742" />
+    <testcase name="test_sample_conditioned_branch_taken" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="93" time="0.0015482902526855469" sim_time_ns="191.0" ratio_time="123361.88235294117" />
+    <testcase name="test_bounded_edge_timeout_releases_all_pins" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="107" time="0.0012099742889404297" sim_time_ns="241.0" ratio_time="199177.78600985222" />
+    <testcase name="test_unimplemented_opcode_fails_safe" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="120" time="0.00042891502380371094" sim_time_ns="81.0" ratio_time="188848.59588660367" />
+    <testcase name="test_uart_tx_a5_waveform" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="130" time="0.2332901954650879" sim_time_ns="45651.0" ratio_time="195683.32011977638" />
+    <testcase name="test_uart_rx_a6_frame" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="190" time="0.1582627296447754" sim_time_ns="42131.0" ratio_time="266209.2338136975" />
+    <testcase name="test_uart_rx_multiple_data_patterns" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="225" time="1.0730195045471191" sim_time_ns="292781.0" ratio_time="272857.1090826273" />
+    <testcase name="test_uart_rx_rejects_bad_start" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="271" time="0.019175052642822266" sim_time_ns="2721.0" ratio_time="141903.13062939845" />
+    <testcase name="test_uart_rx_rejects_bad_stop" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="302" time="0.14678525924682617" sim_time_ns="41981.0" ratio_time="286002.83308698604" />
+    <testcase name="test_spi_mode0_a5_waveform" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="342" time="0.030602455139160156" sim_time_ns="4971.0" ratio_time="162437.9474586307" />
+    <testcase name="test_i2c_address_probe_ack_stop" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="401" time="0.0802912712097168" sim_time_ns="12791.0" ratio_time="159307.47897353058" />
+    <testcase name="test_i2c_nack_releases_bus" classname="test" file="/home/rattan_0500/MORPH/tinytapeout-template-v2/test/test.py" lineno="480" time="0.08842730522155762" sim_time_ns="12591.0" ratio_time="142388.1454767034" />
+  </testsuite>
+</testsuites>

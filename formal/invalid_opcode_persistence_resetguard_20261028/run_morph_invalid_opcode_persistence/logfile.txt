@@ -1,0 +1,60 @@
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] Removing directory '/home/rattan_0500/MORPH/formal/invalid_opcode_persistence_resetguard_20261028/run_morph_invalid_opcode_persistence'.
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] Copy '/home/rattan_0500/MORPH/formal/invalid_opcode_persistence_resetguard_20261028/morph_engine_v2.sv' to '/home/rattan_0500/MORPH/formal/invalid_opcode_persistence_resetguard_20261028/run_morph_invalid_opcode_persistence/src/morph_engine_v2.sv'.
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] Copy '/home/rattan_0500/MORPH/formal/invalid_opcode_persistence_resetguard_20261028/morph_invalid_opcode_formal.sv' to '/home/rattan_0500/MORPH/formal/invalid_opcode_persistence_resetguard_20261028/run_morph_invalid_opcode_persistence/src/morph_invalid_opcode_formal.sv'.
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: smtbmc z3
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] base: starting process "cd run_morph_invalid_opcode_persistence/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] base: finished (returncode=0)
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] prep: starting process "cd run_morph_invalid_opcode_persistence/model; yosys -ql design_prep.log design_prep.ys"
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] prep: finished (returncode=0)
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] smt2: starting process "cd run_morph_invalid_opcode_persistence/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] smt2: finished (returncode=0)
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: starting process "cd run_morph_invalid_opcode_persistence; yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Solver: z3
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 15..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 15..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 16..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 16..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 17..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 17..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 18..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 18..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 19..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 19..
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Status: passed
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: finished (returncode=0)
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] engine_0: Status returned by engine: pass
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] summary: engine_0 (smtbmc z3) returned pass
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] summary: engine_0 did not produce any traces
+SBY  5:36:40 [run_morph_invalid_opcode_persistence] DONE (PASS, rc=0)

@@ -1,0 +1,31 @@
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] Removing directory '/home/rattan_0500/MORPH/formal/invalid_opcode_persistence_20261028/run_morph_invalid_opcode_persistence'.
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] Copy '/home/rattan_0500/MORPH/formal/invalid_opcode_persistence_20261028/morph_engine_v2.sv' to '/home/rattan_0500/MORPH/formal/invalid_opcode_persistence_20261028/run_morph_invalid_opcode_persistence/src/morph_engine_v2.sv'.
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] Copy '/home/rattan_0500/MORPH/formal/invalid_opcode_persistence_20261028/morph_invalid_opcode_formal.sv' to '/home/rattan_0500/MORPH/formal/invalid_opcode_persistence_20261028/run_morph_invalid_opcode_persistence/src/morph_invalid_opcode_formal.sv'.
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: smtbmc z3
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] base: starting process "cd run_morph_invalid_opcode_persistence/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] base: finished (returncode=0)
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] prep: starting process "cd run_morph_invalid_opcode_persistence/model; yosys -ql design_prep.log design_prep.ys"
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] prep: finished (returncode=0)
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] smt2: starting process "cd run_morph_invalid_opcode_persistence/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] smt2: finished (returncode=0)
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: starting process "cd run_morph_invalid_opcode_persistence; yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Solver: z3
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  BMC failed!
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Assert failed in morph_invalid_opcode_formal: morph_invalid_opcode_formal.sv:36.13-36.35 (_witness_.check_assert_morph_invalid_opcode_formal_sv_36_11)
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: ##   0:00:00  Status: failed
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: finished (returncode=1)
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] engine_0: Status returned by engine: FAIL
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] summary: engine_0 (smtbmc z3) returned FAIL
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] summary: counterexample trace: run_morph_invalid_opcode_persistence/engine_0/trace.vcd
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] summary:   failed assertion morph_invalid_opcode_formal._witness_.check_assert_morph_invalid_opcode_formal_sv_36_11 at morph_invalid_opcode_formal.sv:36.13-36.35 step 1
+SBY  5:34:40 [run_morph_invalid_opcode_persistence] DONE (FAIL, rc=2)

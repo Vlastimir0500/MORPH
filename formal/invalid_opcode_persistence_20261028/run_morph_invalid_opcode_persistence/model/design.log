@@ -1,0 +1,655 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+59 (git sha1 d85872386-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: morph_engine_v2.sv
+Parsing formal SystemVerilog input from `morph_engine_v2.sv' to AST representation.
+Storing AST representation for module `$abstract\morph_engine_v2'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: morph_invalid_opcode_formal.sv
+Parsing formal SystemVerilog input from `morph_invalid_opcode_formal.sv' to AST representation.
+Storing AST representation for module `$abstract\morph_invalid_opcode_formal'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\morph_invalid_opcode_formal'.
+Generating RTLIL representation for module `\morph_invalid_opcode_formal'.
+
+3.2.1. Analyzing design hierarchy..
+Top module:  \morph_invalid_opcode_formal
+
+3.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\morph_engine_v2'.
+Generating RTLIL representation for module `\morph_engine_v2'.
+
+3.2.3. Analyzing design hierarchy..
+Top module:  \morph_invalid_opcode_formal
+Used module:     \morph_engine_v2
+
+3.2.4. Analyzing design hierarchy..
+Top module:  \morph_invalid_opcode_formal
+Used module:     \morph_engine_v2
+Removing unused module `$abstract\morph_invalid_opcode_formal'.
+Removing unused module `$abstract\morph_engine_v2'.
+Removed 2 unused modules.
+Module morph_invalid_opcode_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.3. Executing PROC pass (convert processes to netlists).
+
+3.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 20 switch rules as full_case in process $proc$morph_engine_v2.sv:34$32 in module morph_engine_v2.
+Removed a total of 0 dead cases.
+
+3.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 16 assignments to connections.
+
+3.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:3$23'.
+  Set init value: \done = 1'0
+Found init rule in `\morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:2$22'.
+  Set init value: \phase = 4'0000
+
+3.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~27 debug messages>
+
+3.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+     1/59: $13$lookahead\pin_oe$31[7:0]$172
+     2/59: $12$lookahead\pin_oe$31[7:0]$170
+     3/59: $11$lookahead\pin_oe$31[7:0]$167
+     4/59: $10$lookahead\pin_oe$31[7:0]$148
+     5/59: $9$lookahead\pin_oe$31[7:0]$143
+     6/59: $8$lookahead\pin_oe$31[7:0]$141
+     7/59: $7$lookahead\pin_oe$31[7:0]$116
+     8/59: $4$bitselwrite$pos$morph_engine_v2.sv:137$27[2:0]$114
+     9/59: $5$lookahead\pin_out$30[7:0]$115
+    10/59: $4$bitselwrite$pos$morph_engine_v2.sv:136$26[2:0]$113
+    11/59: $6$lookahead\pin_oe$31[7:0]$106
+    12/59: $5$lookahead\pin_oe$31[7:0]$100
+    13/59: $4$lookahead\pin_oe$31[7:0]$83
+    14/59: $4$bitselwrite$pos$morph_engine_v2.sv:76$25[2:0]$81
+    15/59: $4$lookahead\pin_out$30[7:0]$82
+    16/59: $4$bitselwrite$pos$morph_engine_v2.sv:75$24[2:0]$80
+    17/59: $3$lookahead\pin_oe$31[7:0]$78
+    18/59: $3$lookahead\pin_out$30[7:0]$77
+    19/59: $3$bitselwrite$pos$morph_engine_v2.sv:137$27[2:0]$76
+    20/59: $3$bitselwrite$pos$morph_engine_v2.sv:136$26[2:0]$75
+    21/59: $3$bitselwrite$pos$morph_engine_v2.sv:76$25[2:0]$74
+    22/59: $3$bitselwrite$pos$morph_engine_v2.sv:75$24[2:0]$73
+    23/59: $2$lookahead\pin_oe$31[7:0]$71
+    24/59: $2$lookahead\pin_out$30[7:0]$70
+    25/59: $2$bitselwrite$pos$morph_engine_v2.sv:137$27[2:0]$69
+    26/59: $2$bitselwrite$pos$morph_engine_v2.sv:136$26[2:0]$68
+    27/59: $2$bitselwrite$pos$morph_engine_v2.sv:76$25[2:0]$67
+    28/59: $2$bitselwrite$pos$morph_engine_v2.sv:75$24[2:0]$66
+    29/59: $1$lookahead\pin_oe$31[7:0]$65
+    30/59: $1$lookahead\pin_out$30[7:0]$64
+    31/59: $0\pin_prev[7:0]
+    32/59: $1$bitselwrite$pos$morph_engine_v2.sv:137$27[2:0]$63
+    33/59: $1$bitselwrite$pos$morph_engine_v2.sv:136$26[2:0]$62
+    34/59: $1$bitselwrite$pos$morph_engine_v2.sv:76$25[2:0]$61
+    35/59: $1$bitselwrite$pos$morph_engine_v2.sv:75$24[2:0]$60
+    36/59: $2$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$54
+    37/59: $2$memwr$\prog_mem$morph_engine_v2.sv:37$28_DATA[15:0]$53
+    38/59: $2$memwr$\prog_mem$morph_engine_v2.sv:37$28_ADDR[5:0]$52
+    39/59: $2$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$57
+    40/59: $2$memwr$\prog_mem$morph_engine_v2.sv:39$29_DATA[15:0]$56
+    41/59: $2$memwr$\prog_mem$morph_engine_v2.sv:39$29_ADDR[5:0]$55
+    42/59: $1$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$51
+    43/59: $1$memwr$\prog_mem$morph_engine_v2.sv:39$29_DATA[15:0]$50
+    44/59: $1$memwr$\prog_mem$morph_engine_v2.sv:39$29_ADDR[5:0]$49
+    45/59: $1$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$48
+    46/59: $1$memwr$\prog_mem$morph_engine_v2.sv:37$28_DATA[15:0]$47
+    47/59: $1$memwr$\prog_mem$morph_engine_v2.sv:37$28_ADDR[5:0]$46
+    48/59: $0\state[2:0]
+    49/59: $0\loop_active[0:0]
+    50/59: $0\loop_target[5:0]
+    51/59: $0\loop_pc[5:0]
+    52/59: $0\loop_remaining[5:0]
+    53/59: $0\wait_count[7:0]
+    54/59: $0\ir[15:0]
+    55/59: $0\pc[5:0]
+    56/59: $0\fault[0:0]
+    57/59: $0\timed_out[0:0]
+    58/59: $0\shift_reg[7:0]
+    59/59: $0\sample_reg[0:0]
+Creating decoders for process `\morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:3$23'.
+Creating decoders for process `\morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:2$22'.
+Creating decoders for process `\morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:32$8'.
+     1/8: $assert$morph_invalid_opcode_formal.sv:47$21_EN
+     2/8: $assert$morph_invalid_opcode_formal.sv:44$18_EN
+     3/8: $assert$morph_invalid_opcode_formal.sv:43$17_EN
+     4/8: $assert$morph_invalid_opcode_formal.sv:39$15_EN
+     5/8: $assert$morph_invalid_opcode_formal.sv:38$14_EN
+     6/8: $assert$morph_invalid_opcode_formal.sv:36$11_EN
+     7/8: $0\done[0:0]
+     8/8: $0\phase[3:0]
+
+3.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\morph_engine_v2.\pin_out' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1100' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\pin_oe' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1101' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\sample_reg' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1102' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\shift_reg' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1103' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\timed_out' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1104' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\fault' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1105' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\pc' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1106' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\ir' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1107' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\wait_count' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1108' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\loop_remaining' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1109' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\loop_pc' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1110' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\loop_target' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1111' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\loop_active' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1112' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\pin_prev' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1113' with positive edge clock.
+Creating register for signal `\morph_engine_v2.\state' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1114' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$bitselwrite$pos$morph_engine_v2.sv:75$24' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1115' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$bitselwrite$pos$morph_engine_v2.sv:76$25' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1116' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$bitselwrite$pos$morph_engine_v2.sv:136$26' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1117' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$bitselwrite$pos$morph_engine_v2.sv:137$27' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1118' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:37$28_ADDR' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1119' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:37$28_DATA' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1120' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1121' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:39$29_ADDR' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1122' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:39$29_DATA' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1123' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1124' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$lookahead\pin_out$30' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1125' with positive edge clock.
+Creating register for signal `\morph_engine_v2.$lookahead\pin_oe$31' using process `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+  created $dff cell `$procdff$1126' with positive edge clock.
+Creating register for signal `\morph_invalid_opcode_formal.\phase' using process `\morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:32$8'.
+  created $dff cell `$procdff$1127' with positive edge clock.
+Creating register for signal `\morph_invalid_opcode_formal.\done' using process `\morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:32$8'.
+  created $dff cell `$procdff$1128' with positive edge clock.
+
+3.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 22 empty switches in `\morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+Removing empty process `morph_engine_v2.$proc$morph_engine_v2.sv:34$32'.
+Removing empty process `morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:3$23'.
+Removing empty process `morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:2$22'.
+Found and cleaned up 5 empty switches in `\morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:32$8'.
+Removing empty process `morph_invalid_opcode_formal.$proc$morph_invalid_opcode_formal.sv:32$8'.
+Cleaned up 27 empty switches.
+
+3.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+<suppressed ~18 debug messages>
+Optimizing module morph_invalid_opcode_formal.
+<suppressed ~4 debug messages>
+
+3.4. Executing FUTURE pass.
+
+3.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_invalid_opcode_formal.
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module morph_engine_v2...
+Checking module morph_invalid_opcode_formal...
+Found and reported 0 problems.
+
+3.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_invalid_opcode_formal..
+Removed 73 unused cells and 320 unused wires.
+<suppressed ~75 debug messages>
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_invalid_opcode_formal.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\morph_engine_v2'.
+Computing hashes of 383 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 269 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 263 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 259 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 257 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+<suppressed ~378 debug messages>
+Finding identical cells in module `\morph_invalid_opcode_formal'.
+Computing hashes of 31 cells of `\morph_invalid_opcode_formal'.
+Finding duplicate cells in `\morph_invalid_opcode_formal'.
+Computing hashes of 27 cells of `\morph_invalid_opcode_formal'.
+Finding duplicate cells in `\morph_invalid_opcode_formal'.
+<suppressed ~12 debug messages>
+Removed a total of 130 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \morph_engine_v2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$770: \loop_active -> 1'1
+      Replacing known input bits on port B of cell $procmux$776: \loop_active -> 1'0
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$676.
+    dead port 2/2 on $mux $procmux$670.
+    dead port 2/2 on $mux $procmux$664.
+    dead port 2/2 on $mux $procmux$658.
+    dead port 2/2 on $mux $procmux$652.
+    dead port 1/2 on $mux $procmux$590.
+    dead port 1/2 on $mux $procmux$581.
+    dead port 1/2 on $mux $procmux$503.
+    dead port 2/2 on $mux $procmux$500.
+    dead port 1/2 on $mux $procmux$488.
+    dead port 2/2 on $mux $procmux$485.
+    dead port 1/2 on $mux $procmux$444.
+    dead port 2/2 on $mux $procmux$441.
+    dead port 2/2 on $mux $procmux$439.
+    dead port 1/2 on $mux $procmux$398.
+    dead port 2/2 on $mux $procmux$395.
+    dead port 2/2 on $mux $procmux$393.
+    dead port 1/2 on $mux $procmux$375.
+    dead port 2/2 on $mux $procmux$372.
+    dead port 2/2 on $mux $procmux$370.
+    dead port 1/2 on $mux $procmux$353.
+    dead port 2/2 on $mux $procmux$350.
+    dead port 2/2 on $mux $procmux$348.
+    dead port 1/2 on $mux $procmux$316.
+    dead port 2/2 on $mux $procmux$313.
+    dead port 2/2 on $mux $procmux$311.
+    dead port 1/2 on $mux $procmux$282.
+    dead port 2/2 on $mux $procmux$279.
+    dead port 2/2 on $mux $procmux$277.
+    dead port 1/2 on $mux $procmux$265.
+    dead port 2/2 on $mux $procmux$262.
+    dead port 2/2 on $mux $procmux$260.
+    dead port 1/2 on $mux $procmux$250.
+    dead port 2/2 on $mux $procmux$247.
+    dead port 2/2 on $mux $procmux$245.
+    dead port 1/2 on $mux $procmux$243.
+    dead port 1/2 on $mux $procmux$232.
+    dead port 2/2 on $mux $procmux$229.
+    dead port 2/2 on $mux $procmux$227.
+    dead port 1/2 on $mux $procmux$225.
+    dead port 2/2 on $mux $procmux$222.
+    dead port 1/2 on $mux $procmux$211.
+    dead port 2/2 on $mux $procmux$208.
+    dead port 1/2 on $mux $procmux$201.
+    dead port 2/2 on $mux $procmux$198.
+    dead port 1/2 on $mux $procmux$196.
+    dead port 1/2 on $mux $procmux$188.
+    dead port 2/2 on $mux $procmux$185.
+    dead port 1/2 on $mux $procmux$183.
+    dead port 2/2 on $mux $procmux$180.
+    dead port 2/2 on $mux $procmux$682.
+Running muxtree optimizer on module \morph_invalid_opcode_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 51 multiplexer ports.
+<suppressed ~219 debug messages>
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \morph_engine_v2.
+    Consolidated identical input bits for $mux cell $procmux$650:
+      Old ports: A=16'0000000000000000, B=16'1111111100000000, Y=$procmux$650_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$650_Y [8]
+      New connections: { $procmux$650_Y [15:9] $procmux$650_Y [7:0] } = { $procmux$650_Y [8] $procmux$650_Y [8] $procmux$650_Y [8] $procmux$650_Y [8] $procmux$650_Y [8] $procmux$650_Y [8] $procmux$650_Y [8] 8'00000000 }
+    New ctrl vector for $pmux cell $procmux$474: { $procmux$951_CMP $auto$opt_reduce.cc:137:opt_pmux$1132 $procmux$959_CMP $procmux$904_CMP $procmux$969_CMP $procmux$973_CMP }
+    New ctrl vector for $pmux cell $procmux$1002: { $procmux$951_CMP $auto$opt_reduce.cc:137:opt_pmux$1134 $procmux$959_CMP $procmux$904_CMP $procmux$969_CMP $procmux$973_CMP }
+    New ctrl vector for $pmux cell $procmux$979: { $auto$opt_reduce.cc:137:opt_pmux$1136 $procmux$929_CMP $procmux$974_CMP }
+    Consolidated identical input bits for $mux cell $procmux$668:
+      Old ports: A=16'0000000011111111, B=16'0000000000000000, Y=$procmux$668_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$668_Y [0]
+      New connections: $procmux$668_Y [15:1] = { 8'00000000 $procmux$668_Y [0] $procmux$668_Y [0] $procmux$668_Y [0] $procmux$668_Y [0] $procmux$668_Y [0] $procmux$668_Y [0] $procmux$668_Y [0] }
+    New ctrl vector for $pmux cell $procmux$574: { $auto$opt_reduce.cc:137:opt_pmux$1138 $procmux$929_CMP $procmux$974_CMP }
+    New ctrl vector for $pmux cell $procmux$733: { $procmux$951_CMP $auto$opt_reduce.cc:137:opt_pmux$1140 $procmux$959_CMP $procmux$904_CMP $procmux$965_CMP $procmux$969_CMP $procmux$973_CMP }
+  Optimizing cells in module \morph_engine_v2.
+    Consolidated identical input bits for $mux cell $procmux$694:
+      Old ports: A=16'0000000000000000, B=$2$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$54, Y=$0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39
+      New ports: A=1'0, B=$procmux$650_Y [8], Y=$0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39 [8]
+      New connections: { $0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39 [15:9] $0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39 [7:0] } = { $0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39 [8] $0$memwr$\prog_mem$morph_engine_v2.sv:37$28_EN[15:0]$39 [8] 8'00000000 }
+    Consolidated identical input bits for $mux cell $procmux$685:
+      Old ports: A=16'0000000000000000, B=$2$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$57, Y=$0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42
+      New ports: A=1'0, B=$procmux$668_Y [0], Y=$0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42 [0]
+      New connections: $0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42 [15:1] = { 8'00000000 $0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42 [0] $0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42 [0] }
+  Optimizing cells in module \morph_engine_v2.
+  Optimizing cells in module \morph_invalid_opcode_formal.
+Performed a total of 9 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\morph_engine_v2'.
+Computing hashes of 211 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 198 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+<suppressed ~39 debug messages>
+Finding identical cells in module `\morph_invalid_opcode_formal'.
+Computing hashes of 27 cells of `\morph_invalid_opcode_formal'.
+Finding duplicate cells in `\morph_invalid_opcode_formal'.
+Computing hashes of 25 cells of `\morph_invalid_opcode_formal'.
+Finding duplicate cells in `\morph_invalid_opcode_formal'.
+<suppressed ~6 debug messages>
+Removed a total of 15 cells.
+
+3.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_invalid_opcode_formal..
+Removed 0 unused cells and 196 unused wires.
+<suppressed ~2 debug messages>
+
+3.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_invalid_opcode_formal.
+
+3.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \morph_engine_v2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \morph_invalid_opcode_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~178 debug messages>
+
+3.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \morph_engine_v2.
+    New ctrl vector for $pmux cell $procmux$474: { $procmux$1023_CMP $auto$opt_reduce.cc:137:opt_pmux$1142 $procmux$1008_CMP $auto$opt_reduce.cc:137:opt_pmux$1132 $procmux$1003_CMP }
+    New ctrl vector for $pmux cell $procmux$1002: { $auto$opt_reduce.cc:137:opt_pmux$1144 $auto$opt_reduce.cc:137:opt_pmux$1132 $procmux$1003_CMP }
+    New ctrl vector for $pmux cell $procmux$950: { $procmux$1003_CMP $procmux$1004_CMP $auto$opt_reduce.cc:137:opt_pmux$1146 $procmux$1009_CMP $procmux$1010_CMP $procmux$1015_CMP }
+    New ctrl vector for $pmux cell $procmux$733: { $auto$opt_reduce.cc:137:opt_pmux$1148 $procmux$1015_CMP $procmux$1014_CMP $auto$opt_reduce.cc:137:opt_pmux$1140 $procmux$1003_CMP }
+  Optimizing cells in module \morph_engine_v2.
+  Optimizing cells in module \morph_invalid_opcode_formal.
+Performed a total of 4 changes.
+
+3.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\morph_engine_v2'.
+Computing hashes of 202 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Computing hashes of 201 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\morph_invalid_opcode_formal'.
+Computing hashes of 25 cells of `\morph_invalid_opcode_formal'.
+Finding duplicate cells in `\morph_invalid_opcode_formal'.
+Removed a total of 1 cells.
+
+3.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_invalid_opcode_formal..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_invalid_opcode_formal.
+
+3.8.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \morph_engine_v2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \morph_invalid_opcode_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~162 debug messages>
+
+3.8.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \morph_engine_v2.
+  Optimizing cells in module \morph_invalid_opcode_formal.
+Performed a total of 0 changes.
+
+3.8.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\morph_engine_v2'.
+Computing hashes of 201 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Finding identical cells in module `\morph_invalid_opcode_formal'.
+Computing hashes of 25 cells of `\morph_invalid_opcode_formal'.
+Finding duplicate cells in `\morph_invalid_opcode_formal'.
+Removed a total of 0 cells.
+
+3.8.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_invalid_opcode_formal..
+
+3.8.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_invalid_opcode_formal.
+
+3.8.20. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 4) from port B of cell morph_engine_v2.$le$morph_engine_v2.sv:135$112 ($le).
+Converting cell morph_engine_v2.$neg$morph_engine_v2.sv:137$128 ($neg) from signed to unsigned.
+Removed top 1 bits (of 4) from port A of cell morph_engine_v2.$neg$morph_engine_v2.sv:137$128 ($neg).
+Removed top 5 bits (of 6) from port B of cell morph_engine_v2.$eq$morph_engine_v2.sv:168$144 ($eq).
+Removed top 5 bits (of 6) from port B of cell morph_engine_v2.$gt$morph_engine_v2.sv:181$149 ($gt).
+Removed top 31 bits (of 32) from port B of cell morph_engine_v2.$le$morph_engine_v2.sv:225$171 ($le).
+Removed top 1 bits (of 3) from mux cell morph_engine_v2.$procmux$747 ($mux).
+Removed top 1 bits (of 4) from port B of cell morph_engine_v2.$procmux$904_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell morph_engine_v2.$procmux$929_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell morph_engine_v2.$procmux$933_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell morph_engine_v2.$procmux$959_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell morph_engine_v2.$procmux$960_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell morph_engine_v2.$procmux$961_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell morph_engine_v2.$procmux$965_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell morph_engine_v2.$procmux$969_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell morph_engine_v2.$procmux$973_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell morph_engine_v2.$procmux$974_CMP0 ($eq).
+Removed top 8 bits (of 16) from wire morph_engine_v2.$2$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$57.
+Removed top 1 bits (of 3) from wire morph_engine_v2.$procmux$747_Y.
+Removed top 8 bits (of 16) from wire morph_engine_v2.$0$memwr$\prog_mem$morph_engine_v2.sv:39$29_EN[15:0]$42.
+Removed top 2 bits (of 4) from port B of cell morph_invalid_opcode_formal.$eq$morph_invalid_opcode_formal.sv:5$3 ($eq).
+Removed top 3 bits (of 4) from port B of cell morph_invalid_opcode_formal.$eq$morph_invalid_opcode_formal.sv:8$6 ($eq).
+Removed top 1 bits (of 4) from port B of cell morph_invalid_opcode_formal.$eq$morph_invalid_opcode_formal.sv:37$13 ($eq).
+Removed top 1 bits (of 4) from port B of cell morph_invalid_opcode_formal.$eq$morph_invalid_opcode_formal.sv:46$20 ($eq).
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_invalid_opcode_formal..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+3.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module morph_engine_v2.
+Optimizing module morph_invalid_opcode_formal.
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\morph_engine_v2'.
+Computing hashes of 199 cells of `\morph_engine_v2'.
+Finding duplicate cells in `\morph_engine_v2'.
+Finding identical cells in module `\morph_invalid_opcode_formal'.
+Computing hashes of 25 cells of `\morph_invalid_opcode_formal'.
+Finding duplicate cells in `\morph_invalid_opcode_formal'.
+Removed a total of 0 cells.
+
+3.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \morph_engine_v2..
+Finding unused cells or wires in module \morph_invalid_opcode_formal..
+
+3.12.4. Finished fast OPT passes.
+
+3.13. Executing SORT pass.
+
+3.14. Printing statistics.
+
+=== morph_engine_v2 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      206 wires
+      958 wire bits
+       22 public wires
+      113 public wire bits
+       13 ports
+       53 port bits
+      199 cells
+        1   $add
+        2   $and
+       15   $dff
+       16   $eq
+        1   $ge
+        2   $gt
+        2   $le
+        6   $logic_and
+        8   $logic_not
+        4   $logic_or
+        1   $lt
+        1   $mem_v2
+      106   $mux
+        1   $neg
+        1   $not
+        4   $or
+       13   $pmux
+        1   $reduce_bool
+        6   $reduce_or
+        3   $shift
+        2   $shiftx
+        3   $sub
+
+=== morph_invalid_opcode_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       26 wires
+       68 wire bits
+       14 public wires
+       50 public wire bits
+        1 ports
+        1 port bits
+       24 cells
+        1   $add
+        6   $check
+        2   $dff
+        4   $eq
+        1   $logic_not
+        1   $logic_or
+        1   $lt
+        7   $mux
+        1   $reduce_bool
+        1 submodules
+        1   morph_engine_v2
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      223 morph_invalid_opcode_formal
+      199 morph_engine_v2
+
+        +----------Count including submodules.
+        | 
+      232 wires
+     1026 wire bits
+       36 public wires
+      163 public wire bits
+       14 ports
+       54 port bits
+        - memories
+        - memory bits
+        - processes
+      223 cells
+        2   $add
+        2   $and
+        6   $check
+       17   $dff
+       20   $eq
+        1   $ge
+        2   $gt
+        2   $le
+        6   $logic_and
+        9   $logic_not
+        5   $logic_or
+        2   $lt
+        1   $mem_v2
+      113   $mux
+        1   $neg
+        1   $not
+        4   $or
+       13   $pmux
+        2   $reduce_bool
+        6   $reduce_or
+        3   $shift
+        2   $shiftx
+        3   $sub
+        1 submodules
+        1   morph_engine_v2
+
+3.15. Executing CHECK pass (checking for obvious problems).
+Checking module morph_engine_v2...
+Checking module morph_invalid_opcode_formal...
+Found and reported 0 problems.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `morph_invalid_opcode_formal'. Setting top module to morph_invalid_opcode_formal.
+
+4.1. Analyzing design hierarchy..
+Top module:  \morph_invalid_opcode_formal
+Used module:     \morph_engine_v2
+
+4.2. Analyzing design hierarchy..
+Top module:  \morph_invalid_opcode_formal
+Used module:     \morph_engine_v2
+Removed 0 unused modules.
+Module morph_invalid_opcode_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5. Executing jny backend.
+
+6. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 4a95cffaae, time: 0.06s, user: 0.06s, system: 0.02s, MEM: 21.35 MB peak
+Yosys 0.69+59 (git sha1 d85872386-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 18% 6x opt_clean (0 sec), 17% 2x hierarchy (0 sec), ...

@@ -1,0 +1,79 @@
+[
+  {
+    "initial_wait": 209,
+    "loop_wait": 209,
+    "correct_decode": 768,
+    "silent_misdecode": 0,
+    "error_flagged": 0,
+    "wins_vs_baseline": 512,
+    "regressions_vs_baseline": 0,
+    "net_correct_decode_change": 512,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "initial_wait": 210,
+    "loop_wait": 209,
+    "correct_decode": 752,
+    "silent_misdecode": 16,
+    "error_flagged": 0,
+    "wins_vs_baseline": 512,
+    "regressions_vs_baseline": 16,
+    "net_correct_decode_change": 496,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "initial_wait": 211,
+    "loop_wait": 209,
+    "correct_decode": 712,
+    "silent_misdecode": 56,
+    "error_flagged": 0,
+    "wins_vs_baseline": 496,
+    "regressions_vs_baseline": 40,
+    "net_correct_decode_change": 456,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "initial_wait": 212,
+    "loop_wait": 209,
+    "correct_decode": 648,
+    "silent_misdecode": 120,
+    "error_flagged": 0,
+    "wins_vs_baseline": 464,
+    "regressions_vs_baseline": 72,
+    "net_correct_decode_change": 392,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "initial_wait": 213,
+    "loop_wait": 209,
+    "correct_decode": 568,
+    "silent_misdecode": 200,
+    "error_flagged": 0,
+    "wins_vs_baseline": 408,
+    "regressions_vs_baseline": 96,
+    "net_correct_decode_change": 312,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "initial_wait": 214,
+    "loop_wait": 209,
+    "correct_decode": 504,
+    "silent_misdecode": 264,
+    "error_flagged": 0,
+    "wins_vs_baseline": 344,
+    "regressions_vs_baseline": 96,
+    "net_correct_decode_change": 248,
+    "rtl_model_mismatches": 0
+  },
+  {
+    "initial_wait": 215,
+    "loop_wait": 209,
+    "correct_decode": 464,
+    "silent_misdecode": 304,
+    "error_flagged": 0,
+    "wins_vs_baseline": 304,
+    "regressions_vs_baseline": 96,
+    "net_correct_decode_change": 208,
+    "rtl_model_mismatches": 0
+  }
+]

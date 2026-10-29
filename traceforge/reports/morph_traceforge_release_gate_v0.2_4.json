@@ -1,0 +1,82 @@
+{
+  "schema": "morph.traceforge-release-gate.v0.2.4",
+  "status": "PASS",
+  "production_rtl_modified": false,
+  "production_rtl_sha256_before": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "production_rtl_sha256_after": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "production_rtl_unchanged": true,
+  "tinytapeout_engine_copy_sha256_before": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "tinytapeout_engine_copy_sha256_after": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "engine_copy_matches_production_rtl": true,
+  "main_regression": {
+    "status": "PASS",
+    "tests_passed": 103,
+    "subtests_passed": 47,
+    "log": "/home/rattan_0500/MORPH/traceforge/rtl_run/release_gate_v0.2.4/pytest.log"
+  },
+  "full_tinytapeout_cocotb": {
+    "testcases": 15,
+    "failures": 0,
+    "failure_names": [],
+    "skipped": 0,
+    "skipped_names": [],
+    "status": "PASS",
+    "xml": "/home/rattan_0500/MORPH/traceforge/rtl_run/release_gate_v0.2.4/full_tt_results.xml"
+  },
+  "fresh_spi_i2c_trace_capture_cocotb": {
+    "testcases": 3,
+    "failures": 0,
+    "failure_names": [],
+    "skipped": 0,
+    "skipped_names": [],
+    "status": "PASS",
+    "xml": "/home/rattan_0500/MORPH/traceforge/reports/traceforge_protocol_trace_results.xml"
+  },
+  "spi_i2c_trace_contracts": {
+    "status": "PASS",
+    "checks_passed": 26,
+    "checks_failed": 0,
+    "negative_controls_status": "PASS",
+    "negative_controls_passed": 4,
+    "negative_controls_failed": 0
+  },
+  "uart_fresh_rtl_reference_differential": {
+    "status": "PASS",
+    "cases": 3,
+    "passed": 3,
+    "failed": [],
+    "report": "/home/rattan_0500/MORPH/traceforge/reports/uart_rx_rtl_report.json"
+  },
+  "uart_minimized_counterexample_replay": {
+    "status": "PASS",
+    "replay_passed": true,
+    "silent_misdecode_reproduced": true,
+    "rtl_reference_model_cycle_match": true,
+    "report": "/home/rattan_0500/MORPH/traceforge/reports/uart_rx_counterexample_replay_report.json"
+  },
+  "uart_timing_contract_audit": {
+    "status": "PASS",
+    "in_envelope_cases": 384,
+    "in_envelope_passed": 384,
+    "contract_violations": 0,
+    "report": "/home/rattan_0500/MORPH/traceforge/reports/uart_rx_contract_audit.json"
+  },
+  "contract_engine_unit_tests": {
+    "status": "PASS",
+    "passed": 6,
+    "log": "/home/rattan_0500/MORPH/traceforge/rtl_run/release_gate_v0.2.4/contract_engine_tests.log"
+  },
+  "uart_evidence_contract": {
+    "status": "PASS",
+    "contract_sha256_matches_audit": true,
+    "checks_passed": 12,
+    "checks_total": 12,
+    "checks_failed": 0,
+    "report": "/home/rattan_0500/MORPH/traceforge/reports/uart_rx_evidence_v0_1.audit.json"
+  },
+  "trace_sha256": {
+    "spi_mode0_a5_trace.json": "516c33a15eda2064747a696490df8e884d949d9f74db324c6cfab10534b34c0d",
+    "i2c_address_probe_ack_trace.json": "5d564ef2b7fe22c10e2858f98dd1a89140a4ca98ce8c30f32b03ab711a48818d",
+    "i2c_nack_trace.json": "ddf566a584bc20d386e41b56db3c9a207141592cb6cfae26c359a0f9f2834b13"
+  }
+}

@@ -1,0 +1,8 @@
+# running in run_all_legal_loop_counts/src/
+read -formal -sv morph_engine_v2.sv morph_all_legal_loop_counts.sv
+prep -top morph_all_legal_loop_counts
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

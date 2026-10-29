@@ -1,0 +1,32 @@
+initial
+assume (= [$auto$async2sync.cc:107:execute$1152] false)
+assume (= [$auto$async2sync.cc:107:execute$1164] false)
+assume (= [$auto$async2sync.cc:107:execute$1170] false)
+assume (= [$auto$async2sync.cc:107:execute$1182] false)
+assume (= [$auto$async2sync.cc:116:execute$1168] true)
+assume (= [$auto$async2sync.cc:116:execute$1174] true)
+assume (= [$auto$async2sync.cc:116:execute$1186] true)
+assume (= [done] false)
+assume (= [dut.fault] true)
+assume (= [dut.ir] #x0000)
+assume (= [dut.loop_active] false)
+assume (= [dut.loop_pc] #b000000)
+assume (= [dut.loop_remaining] #b000000)
+assume (= [dut.loop_target] #b000000)
+assume (= [dut.pc] #b000000)
+assume (= [dut.pin_oe] #x01)
+assume (= [dut.pin_out] #x00)
+assume (= [dut.pin_prev] #x00)
+assume (= [dut.sample_reg] true)
+assume (= [dut.shift_reg] #x00)
+assume (= [dut.state] #b000)
+assume (= [dut.timed_out] true)
+assume (= [dut.wait_count] #x00)
+assume (= [phase] #x0)
+assume (= (select [dut.prog_mem] #b000000) #x0000)
+
+state 0
+assume (= [clk] false)
+
+state 1
+assume (= [clk] false)

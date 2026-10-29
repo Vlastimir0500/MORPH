@@ -1,0 +1,14 @@
+[options]
+mode bmc
+depth 430
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv morph_engine_v2.sv morph_all_legal_loop_counts.sv
+prep -top morph_all_legal_loop_counts
+
+[files]
+morph_engine_v2.sv
+morph_all_legal_loop_counts.sv

@@ -1,0 +1,158 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+59 (git sha1 d85872386-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `morph_all_legal_loop_counts'. Setting top module to morph_all_legal_loop_counts.
+
+2.1. Analyzing design hierarchy..
+Top module:  \morph_all_legal_loop_counts
+Used module:     \morph_engine_v2
+
+2.2. Analyzing design hierarchy..
+Top module:  \morph_all_legal_loop_counts
+Used module:     \morph_engine_v2
+Removed 0 unused modules.
+Module morph_all_legal_loop_counts directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== morph_all_legal_loop_counts ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       49 wires
+      138 wire bits
+       16 public wires
+       78 public wire bits
+        1 ports
+        1 port bits
+       49 cells
+        1   $add
+        1   $anyconst
+        7   $assert
+        2   $assume
+        5   $eq
+       12   $ff
+        1   $ge
+        1   $le
+        2   $logic_and
+        3   $logic_not
+        1   $lt
+        7   $mux
+        2   $not
+        1   $pmux
+        2   $reduce_bool
+        1   $sub
+        1 submodules
+        1   morph_engine_v2
+
+=== morph_engine_v2 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      216 wires
+     1055 wire bits
+       31 public wires
+      209 public wire bits
+       13 ports
+       53 port bits
+      210 cells
+        1   $add
+        2   $and
+       15   $anyinit
+        9   $anyseq
+        1   $assume
+       16   $eq
+        1   $ge
+        2   $gt
+        2   $le
+        6   $logic_and
+        8   $logic_not
+        4   $logic_or
+        1   $lt
+        1   $mem_v2
+      106   $mux
+        1   $neg
+        2   $not
+        4   $or
+       13   $pmux
+        1   $reduce_bool
+        6   $reduce_or
+        3   $shift
+        2   $shiftx
+        3   $sub
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      259 morph_all_legal_loop_counts
+      210 morph_engine_v2
+
+        +----------Count including submodules.
+        | 
+      265 wires
+     1193 wire bits
+       47 public wires
+      287 public wire bits
+       14 ports
+       54 port bits
+        - memories
+        - memory bits
+        - processes
+      259 cells
+        2   $add
+        2   $and
+        1   $anyconst
+       15   $anyinit
+        9   $anyseq
+        7   $assert
+        3   $assume
+       21   $eq
+       12   $ff
+        2   $ge
+        2   $gt
+        3   $le
+        8   $logic_and
+       11   $logic_not
+        4   $logic_or
+        2   $lt
+        1   $mem_v2
+      113   $mux
+        1   $neg
+        4   $not
+        4   $or
+       14   $pmux
+        3   $reduce_bool
+        6   $reduce_or
+        3   $shift
+        2   $shiftx
+        4   $sub
+        1 submodules
+        1   morph_engine_v2
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module morph_engine_v2.
+Creating SMT-LIBv2 representation of module morph_all_legal_loop_counts.
+
+End of script. Logfile hash: 4e657f8acd, time: 0.01s, user: 0.01s, system: 0.01s, MEM: 17.25 MB peak
+Yosys 0.69+59 (git sha1 d85872386-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 69% 2x write_smt2 (0 sec), 17% 2x read_rtlil (0 sec), ...

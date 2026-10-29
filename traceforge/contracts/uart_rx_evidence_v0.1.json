@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "name": "uart_rx_evidence_v0_1",
+  "description": "Machine-checkable audit of recorded MORPH V2 UART verification evidence.",
+  "scope": "Empirical simulation evidence, not a universal UART specification.",
+  "checks": [
+    {
+      "id": "production_rtl_matches_evidence_revision",
+      "kind": "file_sha256_equals",
+      "file": "rtl/morph_engine_v2.sv",
+      "expected": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552"
+    },
+    {
+      "id": "matrix_records_same_production_rtl",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/uart_rx_payload_timing_matrix.json",
+      "path": "source_hashes.production_rtl_sha256",
+      "expected": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552"
+    },
+    {
+      "id": "payload_timing_matrix_has_zero_rtl_model_mismatches",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/uart_rx_payload_timing_matrix.json",
+      "path": "summary.rtl_model_mismatches",
+      "expected": 0
+    },
+    {
+      "id": "all_nominal_payload_frames_decode_correctly",
+      "kind": "all_cases_match",
+      "report": "traceforge/reports/uart_rx_payload_timing_matrix.json",
+      "cases_path": "cases",
+      "where": {
+        "bit_period_cycles": {
+          "eq": 436
+        }
+      },
+      "assertions": {
+        "classification": "correct_decode",
+        "rtl_model_match": true,
+        "error_flag_pin7": false,
+        "core_fault": false
+      },
+      "min_matches": 8
+    },
+    {
+      "id": "common_measured_period_envelope_passes",
+      "kind": "all_cases_match",
+      "report": "traceforge/reports/uart_rx_payload_timing_matrix.json",
+      "cases_path": "cases",
+      "where": {
+        "bit_period_cycles": {
+          "gte": 413,
+          "lte": 460
+        }
+      },
+      "assertions": {
+        "classification": "correct_decode",
+        "rtl_model_match": true,
+        "error_flag_pin7": false,
+        "core_fault": false
+      },
+      "min_matches": 384
+    },
+    {
+      "id": "jitter_stress_case_count_is_reproducible",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/uart_rx_jitter_stress_report.json",
+      "path": "summary.total",
+      "expected": 600
+    },
+    {
+      "id": "jitter_stress_has_zero_rtl_model_mismatches",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/uart_rx_jitter_stress_report.json",
+      "path": "summary.rtl_model_mismatches",
+      "expected": 0
+    },
+    {
+      "id": "jitter_stress_result_counts_match_recorded_run",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/uart_rx_jitter_stress_report.json",
+      "path": "summary.counts",
+      "expected": {
+        "correct_decode": 570,
+        "error_flagged": 5,
+        "silent_misdecode": 25
+      }
+    },
+    {
+      "id": "minimized_counterexample_replays_exactly",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/uart_rx_counterexample_replay_report.json",
+      "path": "replay_passed",
+      "expected": true
+    },
+    {
+      "id": "minimized_counterexample_matches_reference_model",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/uart_rx_counterexample_replay_report.json",
+      "path": "rtl_reference_model_cycle_match",
+      "expected": true
+    },
+    {
+      "id": "minimized_counterexample_is_a_silent_wrong_byte",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/uart_rx_counterexample_replay_report.json",
+      "path": "silent_misdecode_reproduced",
+      "expected": true
+    },
+    {
+      "id": "counterexample_observed_byte_is_reproducible",
+      "kind": "report_value_equals",
+      "report": "traceforge/reports/uart_rx_counterexample_replay_report.json",
+      "path": "observed_shift_register",
+      "expected": "0x01"
+    }
+  ]
+}

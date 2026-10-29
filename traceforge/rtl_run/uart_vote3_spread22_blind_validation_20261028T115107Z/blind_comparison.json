@@ -1,0 +1,93 @@
+{
+  "cases_compared": 932,
+  "baseline_classifications": {
+    "silent_misdecode": 467,
+    "correct_decode": 452,
+    "error_flagged": 13
+  },
+  "candidate_classifications": {
+    "silent_misdecode": 19,
+    "correct_decode": 894,
+    "error_flagged": 19
+  },
+  "paired_transitions": {
+    "correct_decode -> correct_decode": 440,
+    "silent_misdecode -> correct_decode": 454,
+    "correct_decode -> error_flagged": 6,
+    "silent_misdecode -> silent_misdecode": 13,
+    "correct_decode -> silent_misdecode": 6,
+    "error_flagged -> error_flagged": 13
+  },
+  "improvements": 454,
+  "regressions": 12,
+  "regression_examples": [
+    "blind_jitter_60_010",
+    "blind_jitter_80_008",
+    "blind_jitter_80_015",
+    "blind_jitter_80_020",
+    "blind_jitter_80_024",
+    "blind_uniform_01_460",
+    "blind_uniform_24_460",
+    "blind_uniform_47_460",
+    "blind_uniform_6B_460",
+    "blind_uniform_8E_460",
+    "blind_uniform_B1_460",
+    "blind_uniform_D5_464"
+  ],
+  "baseline_rtl_model_mismatches": 0,
+  "candidate_rtl_model_mismatches": 0,
+  "by_category": {
+    "blind_transient_glitch": {
+      "baseline": {
+        "correct_decode": 320,
+        "silent_misdecode": 448
+      },
+      "candidate": {
+        "correct_decode": 768
+      },
+      "transitions": {
+        "correct_decode -> correct_decode": 320,
+        "silent_misdecode -> correct_decode": 448
+      }
+    },
+    "blind_randomized_symbol_jitter": {
+      "baseline": {
+        "correct_decode": 98,
+        "silent_misdecode": 1,
+        "error_flagged": 1
+      },
+      "candidate": {
+        "correct_decode": 93,
+        "error_flagged": 3,
+        "silent_misdecode": 4
+      },
+      "transitions": {
+        "correct_decode -> correct_decode": 93,
+        "correct_decode -> error_flagged": 2,
+        "silent_misdecode -> silent_misdecode": 1,
+        "correct_decode -> silent_misdecode": 3,
+        "error_flagged -> error_flagged": 1
+      }
+    },
+    "blind_uniform_period": {
+      "baseline": {
+        "silent_misdecode": 18,
+        "correct_decode": 34,
+        "error_flagged": 12
+      },
+      "candidate": {
+        "silent_misdecode": 15,
+        "correct_decode": 33,
+        "error_flagged": 16
+      },
+      "transitions": {
+        "silent_misdecode -> silent_misdecode": 12,
+        "silent_misdecode -> correct_decode": 6,
+        "correct_decode -> correct_decode": 27,
+        "correct_decode -> error_flagged": 4,
+        "error_flagged -> error_flagged": 12,
+        "correct_decode -> silent_misdecode": 3
+      }
+    }
+  }
+}

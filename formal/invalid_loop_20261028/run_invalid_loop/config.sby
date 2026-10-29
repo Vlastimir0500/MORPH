@@ -1,0 +1,14 @@
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv morph_engine_v2.sv morph_invalid_loop_formal.sv
+prep -top morph_invalid_loop_formal
+
+[files]
+morph_engine_v2.sv
+morph_invalid_loop_formal.sv

@@ -1,0 +1,3686 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json",
+  "generator": "Yosys 0.69+59 (git sha1 d85872386-dirty, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "morph_engine_v2",
+        "cell_sorts": [
+          {
+            "type": "$mem_v2",
+            "ports": [
+                {
+                  "name": "RD_ADDR",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "RD_ARST",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "RD_CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "RD_DATA",
+                  "direction": "",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "RD_EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "RD_SRST",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "WR_ADDR",
+                  "direction": "io",
+                  "range": [12, 0]
+                },
+                {
+                  "name": "WR_CLK",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "WR_DATA",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "WR_EN",
+                  "direction": "io",
+                  "range": [32, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "prog_mem",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:17.18-17.26"
+                  },
+                  "parameters": {
+                    "ABITS": "00000000000000000000000000000110",
+                    "INIT": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                    "MEMID": "\\prog_mem",
+                    "OFFSET": "00000000000000000000000000000000",
+                    "RD_ARST_VALUE": "xxxxxxxxxxxxxxxx",
+                    "RD_CE_OVER_SRST": "0",
+                    "RD_CLK_ENABLE": "0",
+                    "RD_CLK_POLARITY": "0",
+                    "RD_COLLISION_X_MASK": "00",
+                    "RD_INIT_VALUE": "xxxxxxxxxxxxxxxx",
+                    "RD_PORTS": "00000000000000000000000000000001",
+                    "RD_SRST_VALUE": "xxxxxxxxxxxxxxxx",
+                    "RD_TRANSPARENCY_MASK": "00",
+                    "RD_WIDE_CONTINUATION": "0",
+                    "SIZE": "00000000000000000000000001000000",
+                    "WIDTH": "00000000000000000000000000010000",
+                    "WR_CLK_ENABLE": "11",
+                    "WR_CLK_POLARITY": "11",
+                    "WR_PORTS": "00000000000000000000000000000010",
+                    "WR_PRIORITY_MASK": "0000",
+                    "WR_WIDE_CONTINUATION": "00"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$sub",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [6, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$sub$morph_engine_v2.sv:176$167",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:176.55-176.70"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$sub$morph_engine_v2.sv:182$171",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:182.55-182.76"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$sub$morph_engine_v2.sv:232$194",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:232.43-232.60"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$shift",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$shift$morph_engine_v2.sv:137$146",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:137.33-137.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$shift$morph_engine_v2.sv:137$150",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:137.33-137.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$shift$morph_engine_v2.sv:75$110",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:75.33-75.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$1004",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:225.29-225.44|morph_engine_v2.sv:225.25-233.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1006",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:224.34-224.49|morph_engine_v2.sv:224.30-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1009",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:219.25-220.76|morph_engine_v2.sv:219.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1015",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:180.42-180.55|morph_engine_v2.sv:180.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1018",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:167.42-167.54|morph_engine_v2.sv:167.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1021",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:161.33-161.70|morph_engine_v2.sv:161.29-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1027",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:135.33-135.49|morph_engine_v2.sv:135.29-144.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1049",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1055",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:225.29-225.44|morph_engine_v2.sv:225.25-233.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1057",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:224.34-224.49|morph_engine_v2.sv:224.30-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1060",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:219.25-220.76|morph_engine_v2.sv:219.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1062",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:216.20-216.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1065",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1076",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:117.28-117.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$1078",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:65.20-65.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$1081",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$1096",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:87.33-87.49|morph_engine_v2.sv:87.29-95.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1098",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:84.28-84.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1100",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:65.20-65.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1103",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$199",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:225.29-225.44|morph_engine_v2.sv:225.25-233.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$214",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:224.34-224.49|morph_engine_v2.sv:224.30-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$227",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:219.25-220.76|morph_engine_v2.sv:219.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$240",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:180.42-180.55|morph_engine_v2.sv:180.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$261",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:167.42-167.54|morph_engine_v2.sv:167.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$279",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:161.33-161.70|morph_engine_v2.sv:161.29-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$296",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:135.33-135.49|morph_engine_v2.sv:135.29-144.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$330",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:135.33-135.49|morph_engine_v2.sv:135.29-144.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$389",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:87.33-87.49|morph_engine_v2.sv:87.29-95.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$412",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:74.33-74.49|morph_engine_v2.sv:74.29-83.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$458",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:74.33-74.49|morph_engine_v2.sv:74.29-83.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$608",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:65.20-65.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$650",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$653",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$671",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:36.17-36.34|morph_engine_v2.sv:36.13-39.61"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$677",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:36.17-36.34|morph_engine_v2.sv:36.13-39.61"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$683",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:36.17-36.34|morph_engine_v2.sv:36.13-39.61"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$689",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:36.17-36.34|morph_engine_v2.sv:36.13-39.61"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$695",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:36.17-36.34|morph_engine_v2.sv:36.13-39.61"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$701",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:36.17-36.34|morph_engine_v2.sv:36.13-39.61"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$706",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:35.13-35.34|morph_engine_v2.sv:35.9-40.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$709",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:35.13-35.34|morph_engine_v2.sv:35.9-40.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$712",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:35.13-35.34|morph_engine_v2.sv:35.9-40.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$715",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:35.13-35.34|morph_engine_v2.sv:35.9-40.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$718",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:35.13-35.34|morph_engine_v2.sv:35.9-40.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$721",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:35.13-35.34|morph_engine_v2.sv:35.9-40.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$727",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:225.29-225.44|morph_engine_v2.sv:225.25-233.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$729",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:224.34-224.49|morph_engine_v2.sv:224.30-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$732",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:219.25-220.76|morph_engine_v2.sv:219.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$737",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:209.25-209.40|morph_engine_v2.sv:209.21-215.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$744",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:180.42-180.55|morph_engine_v2.sv:180.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$749",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:167.42-167.54|morph_engine_v2.sv:167.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$752",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:161.33-161.70|morph_engine_v2.sv:161.29-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$764",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:109.33-109.49|morph_engine_v2.sv:109.29-116.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$768",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:99.33-99.45|morph_engine_v2.sv:99.29-105.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$776",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:74.33-74.49|morph_engine_v2.sv:74.29-83.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$782",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$791",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:181.37-181.58|morph_engine_v2.sv:181.33-190.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$793",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:180.42-180.55|morph_engine_v2.sv:180.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$797",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:168.37-168.53|morph_engine_v2.sv:168.33-179.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$799",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:167.42-167.54|morph_engine_v2.sv:167.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$802",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:161.33-161.70|morph_engine_v2.sv:161.29-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$809",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:148.33-148.52|morph_engine_v2.sv:148.29-156.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$812",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:126.33-126.96|morph_engine_v2.sv:126.29-129.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$815",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:65.20-65.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$818",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$827",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:168.37-168.53|morph_engine_v2.sv:168.33-179.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$829",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:167.42-167.54|morph_engine_v2.sv:167.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$832",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:161.33-161.70|morph_engine_v2.sv:161.29-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$834",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:158.28-158.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$836",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:65.20-65.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$839",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$848",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:168.37-168.53|morph_engine_v2.sv:168.33-179.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$850",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:167.42-167.54|morph_engine_v2.sv:167.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$853",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:161.33-161.70|morph_engine_v2.sv:161.29-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$855",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:158.28-158.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$857",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:65.20-65.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$860",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$869",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:181.37-181.58|morph_engine_v2.sv:181.33-190.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$871",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:180.42-180.55|morph_engine_v2.sv:180.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$875",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:168.37-168.53|morph_engine_v2.sv:168.33-179.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$877",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:167.42-167.54|morph_engine_v2.sv:167.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$880",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:161.33-161.70|morph_engine_v2.sv:161.29-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$887",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:148.33-148.52|morph_engine_v2.sv:148.29-156.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$890",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:126.33-126.96|morph_engine_v2.sv:126.29-129.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$893",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:65.20-65.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$896",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$904",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:224.34-224.49|morph_engine_v2.sv:224.30-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$907",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:219.25-220.76|morph_engine_v2.sv:219.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$912",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:209.25-209.40|morph_engine_v2.sv:209.21-215.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$922",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:109.33-109.49|morph_engine_v2.sv:109.29-116.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$927",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:99.33-99.45|morph_engine_v2.sv:99.29-105.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$932",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$939",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:61.25-61.25|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$942",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$947",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:219.25-220.76|morph_engine_v2.sv:219.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$952",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:209.25-209.40|morph_engine_v2.sv:209.21-215.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$958",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:181.37-181.58|morph_engine_v2.sv:181.33-190.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$960",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:180.42-180.55|morph_engine_v2.sv:180.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$964",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:168.37-168.53|morph_engine_v2.sv:168.33-179.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$966",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:167.42-167.54|morph_engine_v2.sv:167.38-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$969",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:161.33-161.70|morph_engine_v2.sv:161.29-197.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$974",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:148.33-148.52|morph_engine_v2.sv:148.29-156.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$984",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:99.33-99.45|morph_engine_v2.sv:99.29-105.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$988",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:87.33-87.49|morph_engine_v2.sv:87.29-95.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$997",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:42.13-42.35|morph_engine_v2.sv:42.9-247.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$1000",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:235.20-235.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1023",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:158.28-158.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$495",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:158.28-158.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000101",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$518",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:132.28-132.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$595",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:235.20-235.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$734",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:216.20-216.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000100",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$754",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:158.28-158.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000101",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$804",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:158.28-158.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$882",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:158.28-158.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$909",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:216.20-216.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$924",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:106.28-106.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$949",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:216.20-216.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$971",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:158.28-158.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000110",
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$1129",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$1130",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$1131",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1132",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$1133",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1134",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1135",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procdff$1136",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$1137",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$1138",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procdff$1139",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procdff$1140",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procdff$1141",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1142",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$1143",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:34.5-248.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [6, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$morph_engine_v2.sv:222$189",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:222.31-222.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000110"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$shiftx",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$shiftx$morph_engine_v2.sv:220$182",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:220.43-220.53"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$shiftx$morph_engine_v2.sv:220$185",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:220.65-220.75"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$neg",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [4, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$neg$morph_engine_v2.sv:137$149",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:137.33-137.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000100"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$and$morph_engine_v2.sv:136$141",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:136.33-136.58"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$and$morph_engine_v2.sv:137$148",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:137.33-137.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ge",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ge$morph_engine_v2.sv:161$160",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:161.56-161.69"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [5, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$auto$opt_reduce.cc:131:opt_pmux$1162",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000101",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$auto$opt_reduce.cc:131:opt_pmux$1166",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$auto$opt_reduce.cc:131:opt_pmux$1168",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$auto$opt_reduce.cc:131:opt_pmux$1170",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$auto$opt_reduce.cc:131:opt_pmux$1172",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$auto$opt_reduce.cc:131:opt_pmux$1176",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$morph_engine_v2.sv:148$153",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:148.33-148.52"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$morph_engine_v2.sv:168$165",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:168.37-168.53"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$morph_engine_v2.sv:180$168",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:180.42-180.55"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1001_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:235.20-235.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$925_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:106.28-106.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$950_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:216.20-216.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$954_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:206.20-206.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$972_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:158.28-158.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$976_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:145.28-145.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$980_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:132.28-132.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$981_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:123.28-123.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$982_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:117.28-117.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$986_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:96.28-96.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$990_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:84.28-84.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$994_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:71.28-71.28|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$995_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:65.20-65.20|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$gt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$gt$morph_engine_v2.sv:149$155",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:149.81-149.98"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$gt$morph_engine_v2.sv:181$170",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:181.37-181.58"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$or$morph_engine_v2.sv:136$144",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:136.33-136.58"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$or$morph_engine_v2.sv:137$151",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:137.33-137.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$or$morph_engine_v2.sv:75$111",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:75.33-75.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$or$morph_engine_v2.sv:76$118",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:76.33-76.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_bool",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ne$morph_engine_v2.sv:224$190",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:224.34-224.49"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$le",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$le$morph_engine_v2.sv:135$133",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:135.33-135.49"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$le$morph_engine_v2.sv:225$192",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:225.29-225.44"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$morph_engine_v2.sv:149$157",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:149.37-149.100"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$morph_engine_v2.sv:219$177",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:219.26-219.51"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$morph_engine_v2.sv:219$180",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:219.26-219.74"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$morph_engine_v2.sv:220$184",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:220.26-220.53"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$morph_engine_v2.sv:220$186",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:220.26-220.75"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$morph_engine_v2.sv:35$66",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:35.13-35.34"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$not$morph_engine_v2.sv:137$147",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:137.33-137.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_or$morph_engine_v2.sv:149$156",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:149.53-149.99"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$morph_engine_v2.sv:161$161",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:161.33-161.70"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$morph_engine_v2.sv:219$187",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:219.25-220.76"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$morph_engine_v2.sv:42$80",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:42.13-42.35"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$morph_engine_v2.sv:161$159",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:161.34-161.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$morph_engine_v2.sv:99$124",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:99.33-99.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$morph_engine_v2.sv:219$179",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:219.55-219.74"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$morph_engine_v2.sv:220$181",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:220.26-220.32"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$morph_engine_v2.sv:220$183",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:220.36-220.53"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$morph_engine_v2.sv:42$79",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:42.13-42.19"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1045_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:68.37-68.37|morph_engine_v2.sv:68.21-205.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$940_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_engine_v2.sv:61.25-61.25|morph_engine_v2.sv:61.13-246.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$morph_engine_v2.sv:149$154",
+                  "attributes": {
+                    "src": "morph_engine_v2.sv:149.54-149.75"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "hdlname": "morph_engine_v2",
+            "src": "morph_engine_v2.sv:1.1-250.10"
+        }
+      },
+      {
+        "name": "morph_legal_loop_formal",
+        "cell_sorts": [
+          {
+            "type": "morph_engine_v2",
+            "ports": [
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "fault",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pin_in",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "pin_oe",
+                  "direction": "",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "pin_out",
+                  "direction": "",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "program_addr",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "program_byte",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "program_high_byte",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "program_mode",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rst_n",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "sample_reg",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "shift_reg",
+                  "direction": "",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "timed_out",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "dut",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:33.21-47.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$sub",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [6, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$sub$morph_legal_loop_formal.sv:8$7",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:8.32-8.44"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000110"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$1117",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:65.13-65.27|morph_legal_loop_formal.sv:65.9-70.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1119",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:62.13-62.63|morph_legal_loop_formal.sv:62.9-63.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1121",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:59.13-59.63|morph_legal_loop_formal.sv:59.9-60.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1123",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:56.13-56.32|morph_legal_loop_formal.sv:56.9-57.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1125",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:50.13-50.19|morph_legal_loop_formal.sv:50.9-51.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1127",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:53.13-53.26|morph_legal_loop_formal.sv:53.9-54.35"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$ternary$morph_legal_loop_formal.sv:11$9",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:11.9-11.69"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [48, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$1107",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:25.47-25.47|morph_legal_loop_formal.sv:23.13-29.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$check",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ARGS",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "TRG",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "_witness_.check_assert_morph_legal_loop_formal_sv_57_15",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_morph_legal_loop_formal_sv_57_15",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:57.13-57.27"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_morph_legal_loop_formal_sv_60_22",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_morph_legal_loop_formal_sv_60_22",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:60.13-60.31"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_morph_legal_loop_formal_sv_63_28",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_morph_legal_loop_formal_sv_63_28",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:63.13-63.32"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111101",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_morph_legal_loop_formal_sv_66_31",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_morph_legal_loop_formal_sv_66_31",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:66.13-66.31"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111100",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_morph_legal_loop_formal_sv_67_32",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_morph_legal_loop_formal_sv_67_32",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:67.13-67.27"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111011",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_morph_legal_loop_formal_sv_68_34",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_morph_legal_loop_formal_sv_68_34",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:68.13-68.39"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111010",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_morph_legal_loop_formal_sv_69_36",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_morph_legal_loop_formal_sv_69_36",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:69.13-69.38"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111001",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [6, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$1156",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:49.5-71.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procdff$1157",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:49.5-71.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_bool",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ne$morph_legal_loop_formal.sv:5$3",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:5.19-5.32"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$morph_legal_loop_formal.sv:53$12",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:53.13-53.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_not$morph_legal_loop_formal.sv:63$29",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:63.20-63.31"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$morph_legal_loop_formal.sv:67$33",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:67.20-67.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1110_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:23.24-23.24|morph_legal_loop_formal.sv:23.13-29.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$morph_legal_loop_formal.sv:56$14",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:56.13-56.32"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$morph_legal_loop_formal.sv:6$6",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:6.25-6.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$le",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$le$morph_legal_loop_formal.sv:6$5",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:6.45-6.58"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ge",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ge$morph_legal_loop_formal.sv:6$4",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:6.26-6.39"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_or$morph_legal_loop_formal.sv:59$19",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:59.13-59.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$morph_legal_loop_formal.sv:59$21",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:59.13-59.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$morph_legal_loop_formal.sv:62$25",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:62.13-62.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$morph_legal_loop_formal.sv:62$27",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:62.13-62.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$morph_legal_loop_formal.sv:68$35",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:68.20-68.38"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$morph_legal_loop_formal.sv:59$17",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:59.13-59.27"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$morph_legal_loop_formal.sv:59$18",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:59.31-59.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000101",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$morph_legal_loop_formal.sv:59$20",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:59.49-59.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000101",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$morph_legal_loop_formal.sv:62$23",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:62.13-62.27"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$morph_legal_loop_formal.sv:62$24",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:62.31-62.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000101",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$morph_legal_loop_formal.sv:62$26",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:62.49-62.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000101",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$morph_legal_loop_formal.sv:65$30",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:65.13-65.27"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1108_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:25.47-25.47|morph_legal_loop_formal.sv:23.13-29.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000101",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$1109_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "morph_legal_loop_formal.sv:24.47-24.47|morph_legal_loop_formal.sv:23.13-29.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000101",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [6, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$morph_legal_loop_formal.sv:54$13",
+                  "attributes": {
+                    "src": "morph_legal_loop_formal.sv:54.22-54.34"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000110"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "hdlname": "morph_legal_loop_formal",
+            "top": "00000000000000000000000000000001",
+            "src": "morph_legal_loop_formal.sv:1.1-72.10"
+        }
+      }
+  ]
+}

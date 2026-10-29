@@ -1,0 +1,323 @@
+{
+  "tool": "TRACEFORGE",
+  "version": "0.1.0",
+  "validation_layer": "independent UART waveform contract; no RTL execution",
+  "parameters": {
+    "payload": "0xA6",
+    "bit_period_cycles": 436,
+    "idle_cycles": 10,
+    "tail_cycles": 240,
+    "data_bits": 8,
+    "bit_order": "LSB first",
+    "start_level": 0,
+    "stop_level": 1
+  },
+  "source_files": {
+    "uart_rx_program": "protocols/v2_uart_rx_a6.morph",
+    "uart_rx_program_sha256": "5142af4f5b79672bba45e26570b47a4c3dac6489d654e7e573d5e0835845e891",
+    "uart_rx_hex": "protocols/v2_uart_rx_a6.hex",
+    "uart_rx_hex_sha256": "5a61cb59f5ccfabe6c10e92fc70b94a8bf3da34a136b76e1cc6e07adecb2ac5a"
+  },
+  "summary": {
+    "cases": 4,
+    "expectations_met": 4,
+    "unexpected_results": []
+  },
+  "cases": [
+    {
+      "name": "valid_a6_frame",
+      "expected_valid": true,
+      "observed_valid": true,
+      "expectation_met": true,
+      "cycle_count": 4610,
+      "observation": {
+        "valid": true,
+        "errors": [],
+        "start_sample": 0,
+        "data_samples_lsb_first": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        "stop_sample": 1,
+        "decoded_payload": "0xA6",
+        "sample_cycles": {
+          "start": 228,
+          "data": [
+            664,
+            1100,
+            1536,
+            1972,
+            2408,
+            2844,
+            3280,
+            3716
+          ],
+          "stop": 4152
+        }
+      },
+      "waveform_runs": [
+        {
+          "level": 1,
+          "cycles": 10
+        },
+        {
+          "level": 0,
+          "cycles": 872
+        },
+        {
+          "level": 1,
+          "cycles": 872
+        },
+        {
+          "level": 0,
+          "cycles": 872
+        },
+        {
+          "level": 1,
+          "cycles": 436
+        },
+        {
+          "level": 0,
+          "cycles": 436
+        },
+        {
+          "level": 1,
+          "cycles": 1112
+        }
+      ]
+    },
+    {
+      "name": "bad_start_stuck_high",
+      "expected_valid": false,
+      "observed_valid": false,
+      "expectation_met": true,
+      "cycle_count": 4610,
+      "observation": {
+        "valid": false,
+        "errors": [
+          {
+            "code": "start_bit",
+            "message": "Start bit must be low at its sampling point"
+          }
+        ],
+        "start_sample": 1,
+        "data_samples_lsb_first": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        "stop_sample": 1,
+        "decoded_payload": "0xA6",
+        "sample_cycles": {
+          "start": 228,
+          "data": [
+            664,
+            1100,
+            1536,
+            1972,
+            2408,
+            2844,
+            3280,
+            3716
+          ],
+          "stop": 4152
+        }
+      },
+      "waveform_runs": [
+        {
+          "level": 1,
+          "cycles": 446
+        },
+        {
+          "level": 0,
+          "cycles": 436
+        },
+        {
+          "level": 1,
+          "cycles": 872
+        },
+        {
+          "level": 0,
+          "cycles": 872
+        },
+        {
+          "level": 1,
+          "cycles": 436
+        },
+        {
+          "level": 0,
+          "cycles": 436
+        },
+        {
+          "level": 1,
+          "cycles": 1112
+        }
+      ]
+    },
+    {
+      "name": "bad_stop_stuck_low",
+      "expected_valid": false,
+      "observed_valid": false,
+      "expectation_met": true,
+      "cycle_count": 4610,
+      "observation": {
+        "valid": false,
+        "errors": [
+          {
+            "code": "stop_bit",
+            "message": "Stop bit must be high at its sampling point"
+          }
+        ],
+        "start_sample": 0,
+        "data_samples_lsb_first": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        "stop_sample": 0,
+        "decoded_payload": "0xA6",
+        "sample_cycles": {
+          "start": 228,
+          "data": [
+            664,
+            1100,
+            1536,
+            1972,
+            2408,
+            2844,
+            3280,
+            3716
+          ],
+          "stop": 4152
+        }
+      },
+      "waveform_runs": [
+        {
+          "level": 1,
+          "cycles": 10
+        },
+        {
+          "level": 0,
+          "cycles": 872
+        },
+        {
+          "level": 1,
+          "cycles": 872
+        },
+        {
+          "level": 0,
+          "cycles": 872
+        },
+        {
+          "level": 1,
+          "cycles": 436
+        },
+        {
+          "level": 0,
+          "cycles": 436
+        },
+        {
+          "level": 1,
+          "cycles": 436
+        },
+        {
+          "level": 0,
+          "cycles": 436
+        },
+        {
+          "level": 1,
+          "cycles": 240
+        }
+      ]
+    },
+    {
+      "name": "start_shortened_by_250_cycles",
+      "expected_valid": false,
+      "observed_valid": false,
+      "expectation_met": true,
+      "cycle_count": 4360,
+      "observation": {
+        "valid": false,
+        "errors": [
+          {
+            "code": "waveform_length",
+            "message": "Expected 4610 cycles, received 4360"
+          }
+        ],
+        "start_sample": 0,
+        "data_samples_lsb_first": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        "stop_sample": 1,
+        "decoded_payload": "0xD3",
+        "sample_cycles": {
+          "start": 228,
+          "data": [
+            664,
+            1100,
+            1536,
+            1972,
+            2408,
+            2844,
+            3280,
+            3716
+          ],
+          "stop": 4152
+        }
+      },
+      "waveform_runs": [
+        {
+          "level": 1,
+          "cycles": 10
+        },
+        {
+          "level": 0,
+          "cycles": 622
+        },
+        {
+          "level": 1,
+          "cycles": 872
+        },
+        {
+          "level": 0,
+          "cycles": 872
+        },
+        {
+          "level": 1,
+          "cycles": 436
+        },
+        {
+          "level": 0,
+          "cycles": 436
+        },
+        {
+          "level": 1,
+          "cycles": 1112
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+Variant: vote3_candidate
+Program words: 21
+Held-out input traces: 940
+Held-out payloads: 12, 69, C3, E7, 96, 2D, B4, F0
+Simulations: 100/940
+Simulations: 200/940
+Simulations: 300/940
+Simulations: 400/940
+Simulations: 500/940
+Simulations: 600/940
+Simulations: 700/940
+Simulations: 800/940
+Simulations: 900/940
+Simulations: 940/940
+Category counts: {'heldout_uniform_period': 72, 'heldout_transient_glitch': 768, 'heldout_randomized_symbol_jitter': 100}
+Classification counts: {'silent_misdecode': 134, 'correct_decode': 799, 'error_flagged': 7}
+RTL/reference mismatches: 0
+JSON report: /home/rattan_0500/MORPH/traceforge/rtl_run/uart_vote3_heldout_validation_20261028T105112Z/vote3/heldout_results.json

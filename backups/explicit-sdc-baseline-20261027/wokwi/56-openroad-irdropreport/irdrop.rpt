@@ -1,0 +1,26 @@
++ analyze_power_grid -net VPWR -voltage_file /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/56-openroad-irdropreport/net-VPWR.csv
+[INFO PSM-0040] All shapes on net VPWR are connected.
+########## IR report #################
+Net              : VPWR
+Corner           : nom_typ_1p20V_25C
+Total power      : 1.01e-03 W
+Supply voltage   : 1.20e+00 V
+Worstcase voltage: 1.20e+00 V
+Average voltage  : 1.20e+00 V
+Average IR drop  : 4.78e-06 V
+Worstcase IR drop: 1.83e-04 V
+Percentage drop  : 0.02 %
+######################################
++ analyze_power_grid -net VGND -voltage_file /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/56-openroad-irdropreport/net-VGND.csv
+[INFO PSM-0040] All shapes on net VGND are connected.
+########## IR report #################
+Net              : VGND
+Corner           : nom_typ_1p20V_25C
+Total power      : 1.01e-03 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 1.61e-04 V
+Average voltage  : 4.19e-06 V
+Average IR drop  : 4.19e-06 V
+Worstcase IR drop: 1.61e-04 V
+Percentage drop  : 0.01 %
+######################################

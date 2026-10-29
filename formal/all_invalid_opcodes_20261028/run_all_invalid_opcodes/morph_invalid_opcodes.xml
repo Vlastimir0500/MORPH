@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-10-28T05:37:43" hostname="Asus" package="morph_invalid_opcodes" id="0" name="default" tests="8" errors="0" failures="0" time="0" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+</testcase>
+<testcase classname="default" name="Property ASSERT in morph_invalid_opcodes_formal at morph_invalid_opcodes_formal.sv:51.13-51.35" time="0" type="ASSERT" location="morph_invalid_opcodes_formal.sv:51.13-51.35" id="_witness_.check_assert_morph_invalid_opcodes_formal_sv_51_18">
+</testcase>
+<testcase classname="default" name="Property ASSERT in morph_invalid_opcodes_formal at morph_invalid_opcodes_formal.sv:56.13-56.26" time="0" type="ASSERT" location="morph_invalid_opcodes_formal.sv:56.13-56.26" id="_witness_.check_assert_morph_invalid_opcodes_formal_sv_56_20">
+</testcase>
+<testcase classname="default" name="Property ASSERT in morph_invalid_opcodes_formal at morph_invalid_opcodes_formal.sv:57.13-57.35" time="0" type="ASSERT" location="morph_invalid_opcodes_formal.sv:57.13-57.35" id="_witness_.check_assert_morph_invalid_opcodes_formal_sv_57_21">
+</testcase>
+<testcase classname="default" name="Property ASSERT in morph_invalid_opcodes_formal at morph_invalid_opcodes_formal.sv:61.13-61.31" time="0" type="ASSERT" location="morph_invalid_opcodes_formal.sv:61.13-61.31" id="_witness_.check_assert_morph_invalid_opcodes_formal_sv_61_24">
+</testcase>
+<testcase classname="default" name="Property ASSERT in morph_invalid_opcodes_formal at morph_invalid_opcodes_formal.sv:62.13-62.26" time="0" type="ASSERT" location="morph_invalid_opcodes_formal.sv:62.13-62.26" id="_witness_.check_assert_morph_invalid_opcodes_formal_sv_62_25">
+</testcase>
+<testcase classname="default" name="Property ASSERT in morph_invalid_opcodes_formal at morph_invalid_opcodes_formal.sv:63.13-63.35" time="0" type="ASSERT" location="morph_invalid_opcodes_formal.sv:63.13-63.35" id="_witness_.check_assert_morph_invalid_opcodes_formal_sv_63_26">
+</testcase>
+<testcase classname="default" name="Property ASSERT in morph_invalid_opcodes_formal at morph_invalid_opcodes_formal.sv:68.13-68.25" time="0" type="ASSERT" location="morph_invalid_opcodes_formal.sv:68.13-68.25" id="_witness_.check_assert_morph_invalid_opcodes_formal_sv_68_29">
+</testcase>
+<testcase classname="default" name="Property ASSERT in morph_invalid_opcodes_formal at morph_invalid_opcodes_formal.sv:69.13-69.31" time="0" type="ASSERT" location="morph_invalid_opcodes_formal.sv:69.13-69.31" id="_witness_.check_assert_morph_invalid_opcodes_formal_sv_69_30">
+</testcase>
+<system-out>SBY  5:37:42 [run_all_invalid_opcodes] Removing directory '/home/rattan_0500/MORPH/formal/all_invalid_opcodes_20261028/run_all_invalid_opcodes'.
+SBY  5:37:42 [run_all_invalid_opcodes] Copy '/home/rattan_0500/MORPH/formal/all_invalid_opcodes_20261028/morph_engine_v2.sv' to '/home/rattan_0500/MORPH/formal/all_invalid_opcodes_20261028/run_all_invalid_opcodes/src/morph_engine_v2.sv'.
+SBY  5:37:42 [run_all_invalid_opcodes] Copy '/home/rattan_0500/MORPH/formal/all_invalid_opcodes_20261028/morph_invalid_opcodes_formal.sv' to '/home/rattan_0500/MORPH/formal/all_invalid_opcodes_20261028/run_all_invalid_opcodes/src/morph_invalid_opcodes_formal.sv'.
+SBY  5:37:42 [run_all_invalid_opcodes] engine_0: smtbmc z3
+SBY  5:37:42 [run_all_invalid_opcodes] base: starting process &quot;cd run_all_invalid_opcodes/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  5:37:42 [run_all_invalid_opcodes] base: finished (returncode=0)
+SBY  5:37:42 [run_all_invalid_opcodes] prep: starting process &quot;cd run_all_invalid_opcodes/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY  5:37:43 [run_all_invalid_opcodes] prep: finished (returncode=0)
+SBY  5:37:43 [run_all_invalid_opcodes] smt2: starting process &quot;cd run_all_invalid_opcodes/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY  5:37:43 [run_all_invalid_opcodes] smt2: finished (returncode=0)
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: starting process &quot;cd run_all_invalid_opcodes; yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Solver: z3
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 15..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 15..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 16..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 16..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 17..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 17..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 18..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 18..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assumptions in step 19..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Checking assertions in step 19..
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: ##   0:00:00  Status: passed
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: finished (returncode=0)
+SBY  5:37:43 [run_all_invalid_opcodes] engine_0: Status returned by engine: pass
+SBY  5:37:43 [run_all_invalid_opcodes] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  5:37:43 [run_all_invalid_opcodes] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  5:37:43 [run_all_invalid_opcodes] summary: engine_0 (smtbmc z3) returned pass
+SBY  5:37:43 [run_all_invalid_opcodes] summary: engine_0 did not produce any traces
+SBY  5:37:43 [run_all_invalid_opcodes] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

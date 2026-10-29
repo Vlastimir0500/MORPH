@@ -1,0 +1,99 @@
+===== TRACEFORGE UART PHASE SWEEP v0.1 =====
+Run directory: /home/rattan_0500/MORPH/traceforge/rtl_run/uart_phase_resample_20261028T092938Z_42327_20261101
+Settings: [-2, 0] cycles
+Cases per setting: 1184
+Total simulations: 2368
+Production RTL and firmware remain unchanged.
+Starting phase -2, WAIT=214
+Phase -2: 100/1184 simulations
+Phase -2: 200/1184 simulations
+Phase -2: 300/1184 simulations
+Phase -2: 400/1184 simulations
+Phase -2: 500/1184 simulations
+Phase -2: 600/1184 simulations
+Phase -2: 700/1184 simulations
+Phase -2: 800/1184 simulations
+Phase -2: 900/1184 simulations
+Phase -2: 1000/1184 simulations
+Phase -2: 1100/1184 simulations
+Phase -2: 1184/1184 simulations
+Starting phase +0, WAIT=215
+Phase +0: 100/1184 simulations
+Phase +0: 200/1184 simulations
+Phase +0: 300/1184 simulations
+Phase +0: 400/1184 simulations
+Phase +0: 500/1184 simulations
+Phase +0: 600/1184 simulations
+Phase +0: 700/1184 simulations
+Phase +0: 800/1184 simulations
+Phase +0: 900/1184 simulations
+Phase +0: 1000/1184 simulations
+Phase +0: 1100/1184 simulations
+Phase +0: 1184/1184 simulations
+===== PHASE SWEEP SUMMARY =====
+shift | WAIT | matrix correct | silent | flagged | common range | jitter correct | jitter silent
+   -2 |  214 |            432 |     96 |      40 | [[412, 460]] |            574 |           19
+   +0 |  215 |            425 |    103 |      40 | [[413, 460]] |            574 |           19
+===== PAIRED DELTAS VS WAIT=215 =====
+{
+  "wait_214_phase_-2": {
+    "phase_shift_cycles": -2,
+    "correct_decode_delta": 10,
+    "silent_misdecode_delta": -10,
+    "error_flagged_delta": 0,
+    "improved_cases": 11,
+    "regressed_cases": 1,
+    "improvement_case_names": [
+      "matrix_00_period_412",
+      "matrix_55_period_412",
+      "matrix_3C_period_412",
+      "matrix_81_period_409",
+      "matrix_7E_period_412",
+      "matrix_A5_period_409",
+      "matrix_A6_period_409",
+      "jitter_80_077",
+      "minimized_counterexample_payload00",
+      "aggregate_low_run_delta_-217",
+      "aggregate_low_run_delta_-216"
+    ],
+    "regression_case_names": [
+      "jitter_80_016"
+    ],
+    "classification_transitions": [
+      {
+        "baseline": "correct_decode",
+        "setting": "correct_decode",
+        "count": 1006
+      },
+      {
+        "baseline": "correct_decode",
+        "setting": "silent_misdecode",
+        "count": 1
+      },
+      {
+        "baseline": "error_flagged",
+        "setting": "error_flagged",
+        "count": 47
+      },
+      {
+        "baseline": "malformed_rejected",
+        "setting": "malformed_rejected",
+        "count": 2
+      },
+      {
+        "baseline": "silent_misdecode",
+        "setting": "correct_decode",
+        "count": 11
+      },
+      {
+        "baseline": "silent_misdecode",
+        "setting": "silent_misdecode",
+        "count": 117
+      }
+    ]
+  }
+}
+EXECUTION GATE: PASS
+JSON REPORT: /home/rattan_0500/MORPH/traceforge/reports/uart_phase_resample_20261028T092938Z_42327_20261101.json
+MARKDOWN REPORT: /home/rattan_0500/MORPH/traceforge/reports/uart_phase_resample_20261028T092938Z_42327_20261101.md
+PRODUCTION RTL SHA256 AFTER: 6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552

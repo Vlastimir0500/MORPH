@@ -1,0 +1,106 @@
+{
+  "schema": "morph.traceforge-negative-controls.v0.1",
+  "status": "PASS",
+  "baseline_rtl_sha256": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "production_rtl_modified": false,
+  "source_traces_modified": false,
+  "temporary_workspace_only": true,
+  "scenario_count": 4,
+  "scenarios_passed": 4,
+  "scenarios_failed": 0,
+  "scenarios": [
+    {
+      "scenario": "clean_baseline",
+      "expected": "PASS",
+      "actual": "PASS",
+      "checks_passed": 26,
+      "checks_failed": 0,
+      "detected_failures": [],
+      "output_tail": [
+        "PASS: I2C lines released after STOP",
+        "PASS: I2C NACK fault is signaled",
+        "PASS: I2C NACK releases SDA/SCL",
+        "PASS: I2C NACK trace contains no slave ACK",
+        "PASS: Fresh Cocotb trace tests passed",
+        "PASS: Fresh Cocotb suite contains no failures",
+        "PASS: TinyTapeout engine matches production RTL",
+        "PASS: Production RTL unchanged by trace workflow"
+      ],
+      "test_passed": true
+    },
+    {
+      "scenario": "flip_spi_mosi_bit",
+      "expected": "FAIL with targeted contract violation",
+      "actual": "REJECTED",
+      "checks_passed": 25,
+      "checks_failed": 1,
+      "detected_failures": [
+        "SPI MOSI sequence"
+      ],
+      "targeted_failure_detected": [
+        "SPI MOSI sequence"
+      ],
+      "output_tail": [
+        "PASS: I2C lines released after STOP",
+        "PASS: I2C NACK fault is signaled",
+        "PASS: I2C NACK releases SDA/SCL",
+        "PASS: I2C NACK trace contains no slave ACK",
+        "PASS: Fresh Cocotb trace tests passed",
+        "PASS: Fresh Cocotb suite contains no failures",
+        "PASS: TinyTapeout engine matches production RTL",
+        "PASS: Production RTL unchanged by trace workflow"
+      ],
+      "test_passed": true
+    },
+    {
+      "scenario": "remove_i2c_slave_ack",
+      "expected": "FAIL with targeted contract violation",
+      "actual": "REJECTED",
+      "checks_passed": 25,
+      "checks_failed": 1,
+      "detected_failures": [
+        "I2C slave ACK level"
+      ],
+      "targeted_failure_detected": [
+        "I2C slave ACK level"
+      ],
+      "output_tail": [
+        "PASS: I2C lines released after STOP",
+        "PASS: I2C NACK fault is signaled",
+        "PASS: I2C NACK releases SDA/SCL",
+        "PASS: I2C NACK trace contains no slave ACK",
+        "PASS: Fresh Cocotb trace tests passed",
+        "PASS: Fresh Cocotb suite contains no failures",
+        "PASS: TinyTapeout engine matches production RTL",
+        "PASS: Production RTL unchanged by trace workflow"
+      ],
+      "test_passed": true
+    },
+    {
+      "scenario": "break_i2c_nack_line_release",
+      "expected": "FAIL with targeted contract violation",
+      "actual": "REJECTED",
+      "checks_passed": 24,
+      "checks_failed": 2,
+      "detected_failures": [
+        "I2C NACK fault is signaled",
+        "I2C NACK releases SDA/SCL"
+      ],
+      "targeted_failure_detected": [
+        "I2C NACK fault is signaled",
+        "I2C NACK releases SDA/SCL"
+      ],
+      "output_tail": [
+        "PASS: I2C lines released after STOP",
+        "FAIL: I2C NACK fault is signaled",
+        "FAIL: I2C NACK releases SDA/SCL",
+        "PASS: I2C NACK trace contains no slave ACK",
+        "PASS: Fresh Cocotb trace tests passed",
+        "PASS: Fresh Cocotb suite contains no failures",
+        "PASS: TinyTapeout engine matches production RTL",
+        "PASS: Production RTL unchanged by trace workflow"
+      ],
+      "test_passed": true
+    }
+  ]
+}

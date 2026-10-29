@@ -1,0 +1,6 @@
+{
+  "initial_wait": 210,
+  "loop_wait": 209,
+  "test_category": "heldout_transient_glitch",
+  "expected_cases": 768
+}

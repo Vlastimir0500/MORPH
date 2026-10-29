@@ -1,0 +1,79 @@
+{
+  "tool": "TRACEFORGE",
+  "version": "UART negative controls v0.1.0",
+  "created_utc": "2026-10-28T08:15:17.237538+00:00",
+  "status": "PASS",
+  "scenarios_passed": 7,
+  "scenarios_total": 7,
+  "scenarios_failed": 0,
+  "production_rtl_sha256": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+  "rtl_unchanged_by_test": true,
+  "source_evidence_files_modified": false,
+  "scenarios": [
+    {
+      "scenario": "clean_baseline",
+      "expected": "PASS",
+      "observed": "PASS",
+      "test_passed": true,
+      "detected": []
+    },
+    {
+      "scenario": "misclassify_nominal_uart_case",
+      "expected": "REJECT",
+      "observed": "REJECTED",
+      "test_passed": true,
+      "detected": [
+        "1 in-envelope cases violate the UART evidence contract",
+        "timing audit pass count disagrees with the matrix",
+        "one or more nominal-period UART cases fail"
+      ]
+    },
+    {
+      "scenario": "inject_rtl_reference_mismatch",
+      "expected": "REJECT",
+      "observed": "REJECTED",
+      "test_passed": true,
+      "detected": [
+        "1 in-envelope cases violate the UART evidence contract",
+        "timing audit pass count disagrees with the matrix",
+        "one or more nominal-period UART cases fail"
+      ]
+    },
+    {
+      "scenario": "erase_counterexample_reproduction",
+      "expected": "REJECT",
+      "observed": "REJECTED",
+      "test_passed": true,
+      "detected": [
+        "known silent UART misdecode was not reproduced"
+      ]
+    },
+    {
+      "scenario": "corrupt_in_envelope_pass_count",
+      "expected": "REJECT",
+      "observed": "REJECTED",
+      "test_passed": true,
+      "detected": [
+        "timing audit pass count disagrees with the matrix"
+      ]
+    },
+    {
+      "scenario": "stale_production_rtl_hash",
+      "expected": "REJECT",
+      "observed": "REJECTED",
+      "test_passed": true,
+      "detected": [
+        "timing matrix production RTL hash is stale"
+      ]
+    },
+    {
+      "scenario": "mark_evidence_audit_failed",
+      "expected": "REJECT",
+      "observed": "REJECTED",
+      "test_passed": true,
+      "detected": [
+        "UART evidence-contract audit status is not PASS"
+      ]
+    }
+  ]
+}

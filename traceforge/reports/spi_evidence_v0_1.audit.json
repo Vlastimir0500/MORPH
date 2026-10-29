@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "contract": "spi_evidence_v0_1",
+  "contract_sha256": "161a926b2535913bd1079326686988a9a44ca4472f7e7680607d1be1450ddb7a",
+  "status": "PASS",
+  "checks_passed": 3,
+  "checks_total": 3,
+  "checks": [
+    {
+      "id": "fresh_spi_mode0_test_passed",
+      "kind": "all_cases_match",
+      "passed": true,
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "matched_cases": 1,
+      "minimum_required": 1,
+      "assertions_per_case": 10,
+      "failure_count": 0,
+      "failure_samples": []
+    },
+    {
+      "id": "no_cocotb_suite_failures",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "path": "summary.suite_failures",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "id": "engine_copy_matches_production_rtl",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/protocol_sim_evidence.json",
+      "path": "sources.engine_matches_production_rtl",
+      "expected": true,
+      "actual": true
+    }
+  ]
+}

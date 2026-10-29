@@ -1,0 +1,81 @@
+{
+  "tool": "TRACEFORGE",
+  "version": "0.2.0",
+  "validation_layer": "Verilator RTL versus reference model plus UART end-state contract",
+  "parameters": {
+    "payload": "0xA6",
+    "bit_period_cycles": 436,
+    "idle_cycles": 10,
+    "tail_cycles": 240
+  },
+  "sources": {
+    "production_rtl_sha256": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+    "differential_testbench_sha256": "0f71679fa297d98829274ac8b33d1eb1147c633502a83bbd14e07df30768b9b5",
+    "isolated_testbench_sha256": "bd13cc8c3682d9ceb07b0fa7697867562363854b2214489f6338d88902544773",
+    "uart_rx_hex_sha256": "5a61cb59f5ccfabe6c10e92fc70b94a8bf3da34a136b76e1cc6e07adecb2ac5a"
+  },
+  "summary": {
+    "cases": 3,
+    "passed": 3,
+    "failed": []
+  },
+  "cases": [
+    {
+      "case": "valid_a6",
+      "expect_valid": true,
+      "cycle_by_cycle_rtl_model_match": true,
+      "first_mismatch": null,
+      "final_rtl_observation": {
+        "state": 4,
+        "pc": 13,
+        "pin_out": "0x00",
+        "pin_oe": "0x00",
+        "shift_reg": "0x65",
+        "timed_out": false,
+        "fault": false,
+        "error_flag_pin7": false
+      },
+      "contract_expectation_met": true,
+      "result": "PASS",
+      "cycles_compared": 4611
+    },
+    {
+      "case": "bad_start_glitch",
+      "expect_valid": false,
+      "cycle_by_cycle_rtl_model_match": true,
+      "first_mismatch": null,
+      "final_rtl_observation": {
+        "state": 4,
+        "pc": 15,
+        "pin_out": "0x80",
+        "pin_oe": "0x80",
+        "shift_reg": "0x00",
+        "timed_out": false,
+        "fault": false,
+        "error_flag_pin7": true
+      },
+      "contract_expectation_met": true,
+      "result": "PASS",
+      "cycles_compared": 4611
+    },
+    {
+      "case": "bad_stop_low",
+      "expect_valid": false,
+      "cycle_by_cycle_rtl_model_match": true,
+      "first_mismatch": null,
+      "final_rtl_observation": {
+        "state": 4,
+        "pc": 17,
+        "pin_out": "0x80",
+        "pin_oe": "0x80",
+        "shift_reg": "0x65",
+        "timed_out": false,
+        "fault": false,
+        "error_flag_pin7": true
+      },
+      "contract_expectation_met": true,
+      "result": "PASS",
+      "cycles_compared": 4611
+    }
+  ]
+}

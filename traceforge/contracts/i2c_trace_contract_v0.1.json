@@ -1,0 +1,17 @@
+{
+  "schema": "morph.trace-contract.v0.1",
+  "contract_id": "i2c_address_probe_trace_v0_1",
+  "protocol": "I2C address probe",
+  "ack_trace_file": "i2c_address_probe_ack_trace.json",
+  "nack_trace_file": "i2c_nack_trace.json",
+  "requirements": {
+    "address_bits": [1, 0, 1, 0, 0, 0, 0, 0],
+    "ack_level": 0,
+    "start_count": 1,
+    "stop_required": true,
+    "master_scl_rising_edges_including_stop_setup": 10,
+    "released_line_mask": 6,
+    "fault_mask": 128,
+    "fault_output_value": 128
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "name": "MORPH UART RX demonstration contract",
+  "version": "0.1.0",
+  "status": "empirically measured envelope, not a universal UART specification",
+  "nominal_bit_period_cycles": 436,
+  "tested_uniform_period_range_cycles": [
+    400,
+    470
+  ],
+  "payloads_tested": [
+    "0x00",
+    "0xFF",
+    "0x55",
+    "0x3C",
+    "0x81",
+    "0x7E",
+    "0xA5",
+    "0xA6"
+  ],
+  "common_observed_correct_decode_ranges_cycles": [
+    [
+      413,
+      460
+    ]
+  ],
+  "in_envelope_requirements": [
+    "Correct byte in the shift register",
+    "No UART error indication on pin 7",
+    "No core fault",
+    "RTL and reference model match cycle by cycle"
+  ],
+  "evidence": {
+    "uniform_period_cases_in_common_ranges": 384,
+    "uniform_period_cases_in_common_ranges_passed": 384,
+    "uniform_period_cases_outside_common_ranges": 184,
+    "payload_timing_matrix_total_cases": 568,
+    "rtl_model_mismatches_in_matrix": 0,
+    "randomized_jitter_cases": 150,
+    "randomized_jitter_correct_decodes": 150,
+    "randomized_jitter_max_abs_offset_cycles": 20,
+    "randomized_jitter_exhaustive": false
+  },
+  "minimized_variable_timing_counterexample": {
+    "expected_shift_register": "0x00",
+    "observed_shift_register": "0x01",
+    "symbol_durations_cycles": [
+      427,
+      436,
+      421,
+      379,
+      436,
+      400,
+      396,
+      377,
+      436,
+      436
+    ],
+    "symbols_outside_uniform_period_envelope": [
+      3,
+      5,
+      6,
+      7
+    ],
+    "classification": "silent_misdecode",
+    "interpretation": "Exploratory nonuniform timing case; outside the uniform-period contract."
+  },
+  "limitations": [
+    "The period range is measured from a finite payload set and finite sweep.",
+    "Randomized per-symbol jitter tests are samples, not exhaustive verification.",
+    "Behavior outside the stated uniform-period envelope is exploratory; an error flag is not guaranteed.",
+    "This contract does not prove operation on fabricated silicon."
+  ]
+}

@@ -1,0 +1,8 @@
+# running in run_morph_invalid_opcode_persistence/src/
+read -formal -sv morph_engine_v2.sv morph_invalid_opcode_formal.sv
+prep -top morph_invalid_opcode_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "contract": "uart_rx_evidence_v0_1",
+  "contract_sha256": "2f3529e9ad7f154a20b4b75ed8975e65b4218ac4ac064badaea9f0250b802e0b",
+  "status": "PASS",
+  "checks_passed": 12,
+  "checks_total": 12,
+  "checks": [
+    {
+      "id": "production_rtl_matches_evidence_revision",
+      "kind": "file_sha256_equals",
+      "passed": true,
+      "file": "rtl/morph_engine_v2.sv",
+      "expected": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+      "actual": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552"
+    },
+    {
+      "id": "matrix_records_same_production_rtl",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_payload_timing_matrix.json",
+      "path": "source_hashes.production_rtl_sha256",
+      "expected": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552",
+      "actual": "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552"
+    },
+    {
+      "id": "payload_timing_matrix_has_zero_rtl_model_mismatches",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_payload_timing_matrix.json",
+      "path": "summary.rtl_model_mismatches",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "id": "all_nominal_payload_frames_decode_correctly",
+      "kind": "all_cases_match",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_payload_timing_matrix.json",
+      "matched_cases": 8,
+      "minimum_required": 8,
+      "assertions_per_case": 4,
+      "failure_count": 0,
+      "failure_samples": []
+    },
+    {
+      "id": "common_measured_period_envelope_passes",
+      "kind": "all_cases_match",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_payload_timing_matrix.json",
+      "matched_cases": 384,
+      "minimum_required": 384,
+      "assertions_per_case": 4,
+      "failure_count": 0,
+      "failure_samples": []
+    },
+    {
+      "id": "jitter_stress_case_count_is_reproducible",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_jitter_stress_report.json",
+      "path": "summary.total",
+      "expected": 600,
+      "actual": 600
+    },
+    {
+      "id": "jitter_stress_has_zero_rtl_model_mismatches",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_jitter_stress_report.json",
+      "path": "summary.rtl_model_mismatches",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "id": "jitter_stress_result_counts_match_recorded_run",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_jitter_stress_report.json",
+      "path": "summary.counts",
+      "expected": {
+        "correct_decode": 570,
+        "error_flagged": 5,
+        "silent_misdecode": 25
+      },
+      "actual": {
+        "correct_decode": 570,
+        "error_flagged": 5,
+        "silent_misdecode": 25
+      }
+    },
+    {
+      "id": "minimized_counterexample_replays_exactly",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_counterexample_replay_report.json",
+      "path": "replay_passed",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "minimized_counterexample_matches_reference_model",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_counterexample_replay_report.json",
+      "path": "rtl_reference_model_cycle_match",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "minimized_counterexample_is_a_silent_wrong_byte",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_counterexample_replay_report.json",
+      "path": "silent_misdecode_reproduced",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "counterexample_observed_byte_is_reproducible",
+      "kind": "report_value_equals",
+      "passed": true,
+      "report": "traceforge/reports/uart_rx_counterexample_replay_report.json",
+      "path": "observed_shift_register",
+      "expected": "0x01",
+      "actual": "0x01"
+    }
+  ]
+}

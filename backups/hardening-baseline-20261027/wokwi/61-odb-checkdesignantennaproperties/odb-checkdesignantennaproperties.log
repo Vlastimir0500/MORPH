@@ -1,0 +1,12 @@
+[WARNING ORD-0039] .openroad ignored with -python
+[INFO ODB-0227] LEF file: /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_tech.lef, created 15 layers, 52 vias
+[INFO ODB-0227] LEF file: /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef, created 84 library cells
+[INFO ODB-0227] LEF file: /home/rattan_0500/ttsetup/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef, created 22 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/60-magic-writelef/tt_um_rattandeep_morph.lef at line 2.
+
+[INFO ODB-0227] LEF file: /home/rattan_0500/MORPH/tinytapeout-template/runs/wokwi/60-magic-writelef/tt_um_rattandeep_morph.lef, created 1 library cells
+[INFO ODB-0127] Reading DEF file: /tmp/tmpjsq6lks5
+[INFO ODB-0128] Design: empty
+[INFO ODB-0134] Finished DEF file: /tmp/tmpjsq6lks5
+[WARNING] Cell 'tt_um_rattandeep_morph' has (1) input pin(s) without antenna gate information. They might not be connected to a gate.

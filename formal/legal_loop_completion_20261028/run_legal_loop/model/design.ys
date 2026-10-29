@@ -1,0 +1,8 @@
+# running in run_legal_loop/src/
+read -formal -sv morph_engine_v2.sv morph_legal_loop_formal.sv
+prep -top morph_legal_loop_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

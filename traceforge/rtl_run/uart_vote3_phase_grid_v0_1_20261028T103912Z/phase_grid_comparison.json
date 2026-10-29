@@ -1,0 +1,477 @@
+[
+  {
+    "initial_wait": 212,
+    "loop_wait": 209,
+    "classification_counts": {
+      "correct_decode": 456,
+      "silent_misdecode": 24
+    },
+    "wins": 200,
+    "regressions": 16,
+    "net_gain": 184,
+    "offset_wins_regressions": {
+      "-4": [
+        12,
+        12
+      ],
+      "-2": [
+        28,
+        4
+      ],
+      "0": [
+        64,
+        0
+      ],
+      "2": [
+        96,
+        0
+      ]
+    },
+    "width_wins_regressions": {
+      "1": [
+        16,
+        0
+      ],
+      "2": [
+        16,
+        0
+      ],
+      "3": [
+        32,
+        6
+      ],
+      "4": [
+        32,
+        6
+      ],
+      "6": [
+        46,
+        4
+      ],
+      "8": [
+        58,
+        0
+      ]
+    }
+  },
+  {
+    "initial_wait": 212,
+    "loop_wait": 210,
+    "classification_counts": {
+      "correct_decode": 352,
+      "silent_misdecode": 128
+    },
+    "wins": 160,
+    "regressions": 80,
+    "net_gain": 80,
+    "offset_wins_regressions": {
+      "-4": [
+        0,
+        48
+      ],
+      "-2": [
+        0,
+        32
+      ],
+      "0": [
+        64,
+        0
+      ],
+      "2": [
+        96,
+        0
+      ]
+    },
+    "width_wins_regressions": {
+      "1": [
+        16,
+        0
+      ],
+      "2": [
+        16,
+        0
+      ],
+      "3": [
+        32,
+        32
+      ],
+      "4": [
+        32,
+        32
+      ],
+      "6": [
+        32,
+        16
+      ],
+      "8": [
+        32,
+        0
+      ]
+    }
+  },
+  {
+    "initial_wait": 212,
+    "loop_wait": 211,
+    "classification_counts": {
+      "correct_decode": 378,
+      "silent_misdecode": 102
+    },
+    "wins": 144,
+    "regressions": 38,
+    "net_gain": 106,
+    "offset_wins_regressions": {
+      "-4": [
+        10,
+        8
+      ],
+      "-2": [
+        18,
+        8
+      ],
+      "0": [
+        42,
+        0
+      ],
+      "2": [
+        74,
+        0
+      ],
+      "4": [
+        0,
+        22
+      ]
+    },
+    "width_wins_regressions": {
+      "1": [
+        16,
+        0
+      ],
+      "2": [
+        16,
+        0
+      ],
+      "3": [
+        24,
+        10
+      ],
+      "4": [
+        24,
+        10
+      ],
+      "6": [
+        30,
+        10
+      ],
+      "8": [
+        34,
+        8
+      ]
+    }
+  },
+  {
+    "initial_wait": 213,
+    "loop_wait": 209,
+    "classification_counts": {
+      "correct_decode": 436,
+      "silent_misdecode": 44
+    },
+    "wins": 186,
+    "regressions": 22,
+    "net_gain": 164,
+    "offset_wins_regressions": {
+      "-4": [
+        10,
+        14
+      ],
+      "-2": [
+        24,
+        8
+      ],
+      "0": [
+        56,
+        0
+      ],
+      "2": [
+        96,
+        0
+      ]
+    },
+    "width_wins_regressions": {
+      "1": [
+        16,
+        0
+      ],
+      "2": [
+        16,
+        0
+      ],
+      "3": [
+        30,
+        8
+      ],
+      "4": [
+        30,
+        8
+      ],
+      "6": [
+        42,
+        6
+      ],
+      "8": [
+        52,
+        0
+      ]
+    }
+  },
+  {
+    "initial_wait": 213,
+    "loop_wait": 210,
+    "classification_counts": {
+      "correct_decode": 320,
+      "silent_misdecode": 160
+    },
+    "wins": 96,
+    "regressions": 48,
+    "net_gain": 48,
+    "offset_wins_regressions": {
+      "-4": [
+        0,
+        16
+      ],
+      "-2": [
+        0,
+        32
+      ],
+      "2": [
+        96,
+        0
+      ]
+    },
+    "width_wins_regressions": {
+      "1": [
+        16,
+        0
+      ],
+      "2": [
+        16,
+        0
+      ],
+      "3": [
+        16,
+        16
+      ],
+      "4": [
+        16,
+        16
+      ],
+      "6": [
+        16,
+        16
+      ],
+      "8": [
+        16,
+        0
+      ]
+    }
+  },
+  {
+    "initial_wait": 213,
+    "loop_wait": 211,
+    "classification_counts": {
+      "correct_decode": 394,
+      "silent_misdecode": 86
+    },
+    "wins": 150,
+    "regressions": 28,
+    "net_gain": 122,
+    "offset_wins_regressions": {
+      "-4": [
+        12,
+        2
+      ],
+      "-2": [
+        22,
+        4
+      ],
+      "0": [
+        42,
+        0
+      ],
+      "2": [
+        74,
+        0
+      ],
+      "4": [
+        0,
+        22
+      ]
+    },
+    "width_wins_regressions": {
+      "1": [
+        16,
+        0
+      ],
+      "2": [
+        16,
+        0
+      ],
+      "3": [
+        24,
+        6
+      ],
+      "4": [
+        24,
+        6
+      ],
+      "6": [
+        32,
+        8
+      ],
+      "8": [
+        38,
+        8
+      ]
+    }
+  },
+  {
+    "initial_wait": 214,
+    "loop_wait": 209,
+    "classification_counts": {
+      "correct_decode": 414,
+      "silent_misdecode": 66
+    },
+    "wins": 164,
+    "regressions": 22,
+    "net_gain": 142,
+    "offset_wins_regressions": {
+      "-4": [
+        8,
+        14
+      ],
+      "-2": [
+        20,
+        8
+      ],
+      "0": [
+        48,
+        0
+      ],
+      "2": [
+        88,
+        0
+      ]
+    },
+    "width_wins_regressions": {
+      "1": [
+        16,
+        0
+      ],
+      "2": [
+        16,
+        0
+      ],
+      "3": [
+        26,
+        8
+      ],
+      "4": [
+        26,
+        8
+      ],
+      "6": [
+        36,
+        6
+      ],
+      "8": [
+        44,
+        0
+      ]
+    }
+  },
+  {
+    "initial_wait": 214,
+    "loop_wait": 210,
+    "classification_counts": {
+      "correct_decode": 304,
+      "silent_misdecode": 176
+    },
+    "wins": 32,
+    "regressions": 0,
+    "net_gain": 32,
+    "offset_wins_regressions": {
+      "2": [
+        32,
+        0
+      ]
+    },
+    "width_wins_regressions": {
+      "1": [
+        16,
+        0
+      ],
+      "2": [
+        16,
+        0
+      ]
+    }
+  },
+  {
+    "initial_wait": 214,
+    "loop_wait": 211,
+    "classification_counts": {
+      "correct_decode": 414,
+      "silent_misdecode": 66
+    },
+    "wins": 164,
+    "regressions": 22,
+    "net_gain": 142,
+    "offset_wins_regressions": {
+      "-4": [
+        14,
+        0
+      ],
+      "-2": [
+        26,
+        0
+      ],
+      "0": [
+        50,
+        0
+      ],
+      "2": [
+        74,
+        0
+      ],
+      "4": [
+        0,
+        22
+      ]
+    },
+    "width_wins_regressions": {
+      "1": [
+        16,
+        0
+      ],
+      "2": [
+        16,
+        0
+      ],
+      "3": [
+        26,
+        4
+      ],
+      "4": [
+        26,
+        4
+      ],
+      "6": [
+        36,
+        6
+      ],
+      "8": [
+        44,
+        8
+      ]
+    }
+  }
+]
