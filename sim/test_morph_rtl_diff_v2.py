@@ -168,5 +168,10 @@ class RTLComparisonV2Tests(unittest.TestCase):
         self.run_diff_words(assemble(source), pins)
 
 
+    def test_load_immediate_and_open_drain_shift(self):
+        source = "LOAD_IMM 0xA5\nOD_SHIFT 0\nOD_SHIFT 1\nLOAD_IMM 0xA5\nDRIVE_SHIFT 2\nDRIVE_SHIFT 3\nHALT"
+        self.run_diff_words(assemble(source), [0] * 32)
+
+
 if __name__ == "__main__":
     unittest.main()

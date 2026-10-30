@@ -197,6 +197,46 @@ module morph_engine_v2 (
                             end
                         end
 
+                        4'hA: begin
+                            if (ir[11:8] == 4'd0) begin
+                                shift_reg <= ir[7:0];
+                                pc <= pc + 1'b1;
+                                state <= FETCH;
+                            end else begin
+                                fault <= 1'b1;
+                                pin_oe <= 8'd0;
+                                state <= HALT;
+                            end
+                        end
+
+                        4'hB: begin
+                            if ((ir[11:8] <= 4'd7) && (ir[7:0] == 8'd0)) begin
+                                pin_out[ir[10:8]] <= 1'b0;
+                                pin_oe[ir[10:8]] <= ~shift_reg[7];
+                                shift_reg <= {shift_reg[6:0], 1'b0};
+                                pc <= pc + 1'b1;
+                                state <= FETCH;
+                            end else begin
+                                fault <= 1'b1;
+                                pin_oe <= 8'd0;
+                                state <= HALT;
+                            end
+                        end
+
+                        4'hC: begin
+                            if ((ir[11:8] <= 4'd7) && (ir[7:0] == 8'd0)) begin
+                                pin_out[ir[10:8]] <= shift_reg[7];
+                                pin_oe[ir[10:8]] <= 1'b1;
+                                shift_reg <= {shift_reg[6:0], 1'b0};
+                                pc <= pc + 1'b1;
+                                state <= FETCH;
+                            end else begin
+                                fault <= 1'b1;
+                                pin_oe <= 8'd0;
+                                state <= HALT;
+                            end
+                        end
+
                         default: begin
                             fault <= 1'b1;
                             pin_oe <= 8'd0;

@@ -17,6 +17,9 @@ OPCODES = {
     "RELEASE": 0x7,
     "BRANCH_SAMPLE": 0x8,
     "LOOP": 0x9,
+    "LOAD_IMM": 0xA,
+    "OD_SHIFT": 0xB,
+    "DRIVE_SHIFT": 0xC,
 }
 
 OPCODE_NAMES = {v: k for k, v in OPCODES.items()}
@@ -154,6 +157,18 @@ def assemble(source):
                 raise AssemblyError(f"line {line_number}: LOOP target must be an earlier instruction")
             word |= (loop_count << 6) | target
 
+        elif mnemonic == "LOAD_IMM":
+            if len(operands) != 1:
+                raise AssemblyError(f"line {line_number}: LOAD_IMM requires one 8-bit immediate")
+            immediate = _number(operands[0], 0, 255, "LOAD_IMM immediate", line_number)
+            word |= immediate
+
+        elif mnemonic in ("OD_SHIFT", "DRIVE_SHIFT"):
+            if len(operands) != 1:
+                raise AssemblyError(f"line {line_number}: {mnemonic} requires one pin")
+            pin = _number(operands[0], 0, 7, "pin", line_number)
+            word |= pin << 8
+
         words.append(word)
 
     return words
@@ -221,11 +236,26 @@ def disassemble(words):
                 raise AssemblyError(f"address {address}: invalid LOOP encoding or non-backward target")
             text = f"LOOP {loop_count}, {target}"
 
-        else:
+        elif name == "BRANCH_SAMPLE":
             target = word & 0x3F
             if word & 0x0F40 or target >= len(words):
                 raise AssemblyError(f"address {address}: invalid BRANCH_SAMPLE encoding or target")
             text = f"BRANCH_SAMPLE {(word >> 7) & 1}, {target}"
+
+        elif name == "LOAD_IMM":
+            if selector != 0:
+                raise AssemblyError(f"address {address}: invalid LOAD_IMM encoding")
+            text = f"LOAD_IMM {low}"
+
+        elif name == "OD_SHIFT":
+            if selector > 7 or low != 0:
+                raise AssemblyError(f"address {address}: invalid OD_SHIFT encoding")
+            text = f"OD_SHIFT {selector}"
+
+        elif name == "DRIVE_SHIFT":
+            if selector > 7 or low != 0:
+                raise AssemblyError(f"address {address}: invalid DRIVE_SHIFT encoding")
+            text = f"DRIVE_SHIFT {selector}"
 
         result.append(text)
 

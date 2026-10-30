@@ -35,6 +35,23 @@ class ISAModelV2Tests(unittest.TestCase):
         self.assertEqual(model.sample_reg, 1)
         self.assertEqual(model.shift_reg, 1)
 
+    def test_load_immediate_and_open_drain_serial_shift(self):
+        model = self.make_model("LOAD_IMM 0xA5\nOD_SHIFT 0\nOD_SHIFT 1\nHALT")
+        self.run_cycles(model, 8)
+        self.assertEqual(model.shift_reg, 0x94)
+        self.assertEqual(model.pin_oe & 0x01, 0)
+        self.assertEqual(model.pin_oe & 0x02, 0x02)
+        self.assertEqual(model.pin_out & 0x03, 0)
+        self.assertFalse(model.fault)
+
+    def test_push_pull_serial_shift(self):
+        model = self.make_model("LOAD_IMM 0xA5\nDRIVE_SHIFT 2\nDRIVE_SHIFT 3\nHALT")
+        self.run_cycles(model, 8)
+        self.assertEqual(model.pin_oe & 0x0C, 0x0C)
+        self.assertEqual(model.pin_out & 0x0C, 0x04)
+        self.assertEqual(model.shift_reg, 0x94)
+        self.assertFalse(model.fault)
+
     def test_wait_completes(self):
         model = self.make_model("DRIVE 0, 1\nWAIT 3\nDRIVE 0, 0\nHALT")
         self.run_cycles(model, 7)
@@ -127,7 +144,7 @@ class ISAModelV2Tests(unittest.TestCase):
 
     def test_invalid_opcode_faults_and_releases_outputs(self):
         model = MorphISAModelV2()
-        model.load_program([0x1101, 0xA000])
+        model.load_program([0x1101, 0xD000])
         model.step(rst_n=False)
         self.run_cycles(model, 6)
         self.assertTrue(model.fault)
