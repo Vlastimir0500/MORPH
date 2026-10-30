@@ -514,3 +514,90 @@ async def test_i2c_nack_releases_bus(dut):
     assert int(dut.uio_oe.value) & 0x06 == 0
     assert int(dut.uio_out.value) & 0x80
     dut._log.info("PASS: I2C NACK signals failure and releases SDA/SCL")
+
+@cocotb.test()
+async def test_i2c_write_zero_byte(dut):
+    await initialize(dut)
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
+    program = root / "protocols" / "v2_i2c_write_00.hex"
+    words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
+    assert len(words) == 61
+
+    for address, word in enumerate(words):
+        await write_word(dut, address, word)
+
+    await start_program(dut, pin_value=0xFF)
+
+    cycle = 0
+    previous_master_scl_low = False
+    previous_bus_sda = 1
+    previous_bus_scl = 1
+    rising_count = 0
+    address_bits = []
+    data_bits = []
+    ack_levels = {}
+    slave_ack_active = False
+    start_cycles = []
+    stop_cycle = None
+
+    for _ in range(6000):
+        await RisingEdge(dut.clk)
+        await Timer(1, unit="ns")
+        cycle += 1
+
+        oe = int(dut.uio_oe.value)
+        out = int(dut.uio_out.value)
+
+        master_sda_low = bool((oe & 0x02) and not (out & 0x02))
+        master_scl_low = bool((oe & 0x04) and not (out & 0x04))
+
+        on_rising = previous_master_scl_low and not master_scl_low
+
+        if on_rising:
+            rising_count += 1
+            if rising_count in (9, 18):
+                slave_ack_active = True
+
+        if master_scl_low and not previous_master_scl_low and rising_count in (9, 18):
+            slave_ack_active = False
+
+        bus_scl = 0 if master_scl_low else 1
+        bus_sda = 0 if master_sda_low or slave_ack_active else 1
+
+        if previous_bus_scl and bus_scl and previous_bus_sda and not bus_sda:
+            start_cycles.append(cycle)
+
+        if previous_bus_scl and bus_scl and not previous_bus_sda and bus_sda:
+            stop_cycle = cycle if stop_cycle is None else stop_cycle
+
+        if on_rising:
+            if 1 <= rising_count <= 8:
+                address_bits.append(bus_sda)
+            elif 10 <= rising_count <= 17:
+                data_bits.append(bus_sda)
+            elif rising_count in (9, 18):
+                ack_levels[rising_count] = bus_sda
+
+        bus_input = 0xFF
+        if not bus_scl:
+            bus_input &= ~0x04
+        if not bus_sda:
+            bus_input &= ~0x02
+        dut.uio_in.value = bus_input
+
+        previous_master_scl_low = master_scl_low
+        previous_bus_scl = bus_scl
+        previous_bus_sda = bus_sda
+
+        if stop_cycle is not None and cycle >= stop_cycle + 10:
+            break
+
+    assert address_bits == [1, 0, 1, 0, 0, 0, 0, 0], f"Address: {address_bits}"
+    assert data_bits == [0] * 8, f"Data: {data_bits}"
+    assert ack_levels == {9: 0, 18: 0}, f"ACK levels: {ack_levels}"
+    assert len(start_cycles) == 1, f"START events: {start_cycles}"
+    assert stop_cycle is not None, "STOP condition not observed"
+    assert rising_count == 19, f"Expected 19 SCL rising edges, got {rising_count}"
+    assert int(dut.uio_oe.value) & 0x80 == 0, "Unexpected I2C error marker"
+    assert int(dut.uio_oe.value) & 0x06 == 0, "SDA/SCL not released after STOP"
+    dut._log.info("PASS: I2C address 0x50, data 0x00, two ACKs and STOP")
