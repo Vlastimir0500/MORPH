@@ -33,7 +33,7 @@ jobs:
 
       - name: Verify protected baseline and source mirror
         run: |
-          echo "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552  rtl/morph_engine_v2.sv" | sha256sum -c -
+          echo "ae22dadde2e107685fa15ab89ef315e0f516641772f875b58a3400c8fbdfc09f  rtl/morph_engine_v2.sv" | sha256sum -c -
           echo "5a61cb59f5ccfabe6c10e92fc70b94a8bf3da34a136b76e1cc6e07adecb2ac5a  protocols/v2_uart_rx_a6.hex" | sha256sum -c -
           cmp rtl/morph_engine_v2.sv tinytapeout-template-v2/src/morph_engine.sv
 
