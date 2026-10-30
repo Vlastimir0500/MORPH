@@ -130,7 +130,7 @@ async def test_unimplemented_opcode_fails_safe(dut):
 @cocotb.test()
 async def test_uart_tx_a5_waveform(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_uart_tx_a5.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 31
@@ -190,7 +190,7 @@ async def test_uart_tx_a5_waveform(dut):
 @cocotb.test()
 async def test_uart_rx_a6_frame(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_uart_rx_a6.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 18
@@ -225,7 +225,7 @@ async def test_uart_rx_a6_frame(dut):
 @cocotb.test()
 async def test_uart_rx_multiple_data_patterns(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_uart_rx_a6.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 18
@@ -271,7 +271,7 @@ async def test_uart_rx_multiple_data_patterns(dut):
 @cocotb.test()
 async def test_uart_rx_rejects_bad_start(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_uart_rx_a6.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 18
@@ -302,7 +302,7 @@ async def test_uart_rx_rejects_bad_start(dut):
 @cocotb.test()
 async def test_uart_rx_rejects_bad_stop(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_uart_rx_a6.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 18
@@ -342,7 +342,7 @@ async def test_uart_rx_rejects_bad_stop(dut):
 @cocotb.test()
 async def test_spi_mode0_a5_waveform(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_spi_mode0_a5.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 44
@@ -401,7 +401,7 @@ async def test_spi_mode0_a5_waveform(dut):
 @cocotb.test()
 async def test_i2c_address_probe_ack_stop(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_i2c_address_probe.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 44
@@ -480,7 +480,7 @@ async def test_i2c_address_probe_ack_stop(dut):
 @cocotb.test()
 async def test_i2c_nack_releases_bus(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_i2c_address_probe.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 44
