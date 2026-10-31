@@ -33,9 +33,12 @@ jobs:
 
       - name: Verify protected baseline and source mirror
         run: |
-          echo "6a395e2d635920070fd31c1c20c9722e4aafcad64c8c37a3921dd26ef5399552  rtl/morph_engine_v2.sv" | sha256sum -c -
+          echo "ae22dadde2e107685fa15ab89ef315e0f516641772f875b58a3400c8fbdfc09f  rtl/morph_engine_v2.sv" | sha256sum -c -
           echo "5a61cb59f5ccfabe6c10e92fc70b94a8bf3da34a136b76e1cc6e07adecb2ac5a  protocols/v2_uart_rx_a6.hex" | sha256sum -c -
           cmp rtl/morph_engine_v2.sv tinytapeout-template-v2/src/morph_engine.sv
+
+      - name: Run V2 temporal contract and emit evidence
+        run: python compiler/morph_contract_v2.py protocols/v2_edge_timed_release.contract.json -o build/v2_edge_timed_release.contract-report.json -a build/v2_edge_timed_release.generated.morph
 
       - name: Run software and RTL differential regressions
         run: python -m pytest -q sim
@@ -53,6 +56,14 @@ jobs:
         with:
           name: morph-engine-v2-synthesis
           path: build/morph_engine_v2_yosys.log
+          if-no-files-found: warn
+
+      - name: Publish V2 temporal contract evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: morph-v2-contract-evidence
+          path: build/v2_edge_timed_release.contract-report.json
           if-no-files-found: warn
 
   tinytapeout-rtl:
@@ -150,5 +161,16 @@ jobs:
           cp -a tinytapeout-template-v2/docs/. docs/
           cp tinytapeout-template-v2/info.yaml info.yaml
           cp tinytapeout-template-v2/LICENSE LICENSE
+
+      - name: Stage root TinyTapeout gate-test harness
+        run: |
+          test ! -e test
+          cp -a tinytapeout-template-v2/test test
+          test -d test
+          test -f test/Makefile
+          test -f test/requirements.txt
+          test -f test/tb.v
+          test -f test/test.py
+          cmp rtl/morph_engine_v2.sv src/morph_engine.sv
 
       - uses: TinyTapeout/tt-gds-action/gl_test@ihp-cmos5l

@@ -48,6 +48,12 @@ class AssemblerV2Tests(unittest.TestCase):
         words = assemble(source)
         self.assertEqual(assemble("\n".join(disassemble(words))), words)
 
+    def test_load_immediate_and_open_drain_shift_encodings(self):
+        source = "LOAD_IMM 0xA5\nOD_SHIFT 3\nDRIVE_SHIFT 4\nHALT"
+        words = assemble(source)
+        self.assertEqual(words, [0xA0A5, 0xB300, 0xC400, 0x0000])
+        self.assertEqual(assemble("\n".join(disassemble(words))), words)
+
     def test_counted_loop_encoding_and_round_trip(self):
         source = "start: SAMPLE 0\nSHIFT\nLOOP 3, start\nHALT"
         words = assemble(source)
@@ -122,7 +128,7 @@ class AssemblerV2Tests(unittest.TestCase):
             assemble("\n".join(["HALT"] * 65))
 
     def test_disassembler_rejects_invalid_encoding(self):
-        for word in (0x1002, 0x2800, 0x6100, 0x7001, 0x8040, 0x9000, 0x9040, 0xA000):
+        for word in (0x1002, 0x2800, 0x6100, 0x7001, 0x8040, 0x9000, 0x9040, 0xA100, 0xB001, 0xB800, 0xC001, 0xC800):
             with self.subTest(word=hex(word)), self.assertRaises(AssemblyError):
                 disassemble([word])
 

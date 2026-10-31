@@ -1,7 +1,13 @@
 import cocotb
+import sys
 from pathlib import Path
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles, Timer, RisingEdge
+
+ROOT = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
+sys.path.insert(0, str(ROOT / "compiler"))
+from morph_i2c_write_v2 import build_program
+from morph_spi_tx_v2 import build_program as build_spi_program
 
 
 async def initialize(dut):
@@ -130,7 +136,7 @@ async def test_unimplemented_opcode_fails_safe(dut):
 @cocotb.test()
 async def test_uart_tx_a5_waveform(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_uart_tx_a5.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 31
@@ -190,7 +196,7 @@ async def test_uart_tx_a5_waveform(dut):
 @cocotb.test()
 async def test_uart_rx_a6_frame(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_uart_rx_a6.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 18
@@ -225,7 +231,7 @@ async def test_uart_rx_a6_frame(dut):
 @cocotb.test()
 async def test_uart_rx_multiple_data_patterns(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_uart_rx_a6.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 18
@@ -271,7 +277,7 @@ async def test_uart_rx_multiple_data_patterns(dut):
 @cocotb.test()
 async def test_uart_rx_rejects_bad_start(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_uart_rx_a6.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 18
@@ -302,7 +308,7 @@ async def test_uart_rx_rejects_bad_start(dut):
 @cocotb.test()
 async def test_uart_rx_rejects_bad_stop(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_uart_rx_a6.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 18
@@ -342,7 +348,7 @@ async def test_uart_rx_rejects_bad_stop(dut):
 @cocotb.test()
 async def test_spi_mode0_a5_waveform(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_spi_mode0_a5.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 44
@@ -401,7 +407,7 @@ async def test_spi_mode0_a5_waveform(dut):
 @cocotb.test()
 async def test_i2c_address_probe_ack_stop(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_i2c_address_probe.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 44
@@ -480,7 +486,7 @@ async def test_i2c_address_probe_ack_stop(dut):
 @cocotb.test()
 async def test_i2c_nack_releases_bus(dut):
     await initialize(dut)
-    root = Path(__file__).resolve().parents[2]
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
     program = root / "protocols" / "v2_i2c_address_probe.hex"
     words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
     assert len(words) == 44
@@ -514,3 +520,291 @@ async def test_i2c_nack_releases_bus(dut):
     assert int(dut.uio_oe.value) & 0x06 == 0
     assert int(dut.uio_out.value) & 0x80
     dut._log.info("PASS: I2C NACK signals failure and releases SDA/SCL")
+
+@cocotb.test()
+async def test_i2c_write_zero_byte(dut):
+    await initialize(dut)
+    root = next(parent for parent in Path(__file__).resolve().parents if (parent / "protocols").is_dir())
+    program = root / "protocols" / "v2_i2c_write_00.hex"
+    words = [int(line.strip(), 16) for line in program.read_text().splitlines() if line.strip()]
+    assert len(words) == 61
+
+    for address, word in enumerate(words):
+        await write_word(dut, address, word)
+
+    await start_program(dut, pin_value=0xFF)
+
+    cycle = 0
+    previous_master_scl_low = False
+    previous_bus_sda = 1
+    previous_bus_scl = 1
+    rising_count = 0
+    address_bits = []
+    data_bits = []
+    ack_levels = {}
+    slave_ack_active = False
+    start_cycles = []
+    stop_cycle = None
+
+    for _ in range(6000):
+        await RisingEdge(dut.clk)
+        await Timer(1, unit="ns")
+        cycle += 1
+
+        oe = int(dut.uio_oe.value)
+        out = int(dut.uio_out.value)
+
+        master_sda_low = bool((oe & 0x02) and not (out & 0x02))
+        master_scl_low = bool((oe & 0x04) and not (out & 0x04))
+
+        on_rising = previous_master_scl_low and not master_scl_low
+
+        if on_rising:
+            rising_count += 1
+            if rising_count in (9, 18):
+                slave_ack_active = True
+
+        if master_scl_low and not previous_master_scl_low and rising_count in (9, 18):
+            slave_ack_active = False
+
+        bus_scl = 0 if master_scl_low else 1
+        bus_sda = 0 if master_sda_low or slave_ack_active else 1
+
+        if previous_bus_scl and bus_scl and previous_bus_sda and not bus_sda:
+            start_cycles.append(cycle)
+
+        if previous_bus_scl and bus_scl and not previous_bus_sda and bus_sda:
+            stop_cycle = cycle if stop_cycle is None else stop_cycle
+
+        if on_rising:
+            if 1 <= rising_count <= 8:
+                address_bits.append(bus_sda)
+            elif 10 <= rising_count <= 17:
+                data_bits.append(bus_sda)
+            elif rising_count in (9, 18):
+                ack_levels[rising_count] = bus_sda
+
+        bus_input = 0xFF
+        if not bus_scl:
+            bus_input &= ~0x04
+        if not bus_sda:
+            bus_input &= ~0x02
+        dut.uio_in.value = bus_input
+
+        previous_master_scl_low = master_scl_low
+        previous_bus_scl = bus_scl
+        previous_bus_sda = bus_sda
+
+        if stop_cycle is not None and cycle >= stop_cycle + 10:
+            break
+
+    assert address_bits == [1, 0, 1, 0, 0, 0, 0, 0], f"Address: {address_bits}"
+    assert data_bits == [0] * 8, f"Data: {data_bits}"
+    assert ack_levels == {9: 0, 18: 0}, f"ACK levels: {ack_levels}"
+    assert len(start_cycles) == 1, f"START events: {start_cycles}"
+    assert stop_cycle is not None, "STOP condition not observed"
+    assert rising_count == 19, f"Expected 19 SCL rising edges, got {rising_count}"
+    assert int(dut.uio_oe.value) & 0x80 == 0, "Unexpected I2C error marker"
+    assert int(dut.uio_oe.value) & 0x06 == 0, "SDA/SCL not released after STOP"
+    dut._log.info("PASS: I2C address 0x50, data 0x00, two ACKs and STOP")
+
+
+async def run_i2c_program(dut, words, payload_count, ack_edges, limit=12000):
+    for address, word in enumerate(words):
+        await write_word(dut, address, word)
+    await start_program(dut, pin_value=0xFF)
+
+    ack_clock_indices = {9 + 9 * index for index in range(payload_count + 1)}
+    ack_edges = set(ack_edges)
+    previous_master_scl_low = False
+    previous_bus_sda = 1
+    previous_bus_scl = 1
+    slave_ack_active = False
+    rising_count = 0
+    cycle = 0
+    address_bits = []
+    data_bits = [[] for _ in range(payload_count)]
+    ack_levels = {}
+    start_cycles = []
+    stop_cycle = None
+    error_seen = False
+
+    for _ in range(limit):
+        await RisingEdge(dut.clk)
+        await Timer(1, unit="ns")
+        cycle += 1
+
+        oe = int(dut.uio_oe.value)
+        out = int(dut.uio_out.value)
+        master_sda_low = bool((oe & 0x02) and not (out & 0x02))
+        master_scl_low = bool((oe & 0x04) and not (out & 0x04))
+        on_rising = previous_master_scl_low and not master_scl_low
+
+        if on_rising:
+            rising_count += 1
+            if rising_count in ack_edges:
+                slave_ack_active = True
+
+        if master_scl_low and not previous_master_scl_low and rising_count in ack_clock_indices:
+            slave_ack_active = False
+
+        bus_scl = 0 if master_scl_low else 1
+        bus_sda = 0 if master_sda_low or slave_ack_active else 1
+
+        if previous_bus_scl and bus_scl and previous_bus_sda and not bus_sda:
+            start_cycles.append(cycle)
+        if previous_bus_scl and bus_scl and not previous_bus_sda and bus_sda:
+            stop_cycle = cycle if stop_cycle is None else stop_cycle
+
+        if on_rising:
+            if 1 <= rising_count <= 8:
+                address_bits.append(bus_sda)
+            for index in range(payload_count):
+                first_bit = 10 + index * 9
+                if first_bit <= rising_count < first_bit + 8:
+                    data_bits[index].append(bus_sda)
+            if rising_count in ack_clock_indices:
+                ack_levels[rising_count] = bus_sda
+
+        bus_input = 0xFF
+        if not bus_scl:
+            bus_input &= ~0x04
+        if not bus_sda:
+            bus_input &= ~0x02
+        dut.uio_in.value = bus_input
+
+        previous_master_scl_low = master_scl_low
+        previous_bus_scl = bus_scl
+        previous_bus_sda = bus_sda
+
+        if (oe & 0x80) and (out & 0x80) and (oe & 0x06) == 0:
+            error_seen = True
+            break
+        if stop_cycle is not None and cycle >= stop_cycle + 10:
+            break
+
+    return {
+        "address_bits": address_bits,
+        "data_bits": data_bits,
+        "ack_levels": ack_levels,
+        "start_cycles": start_cycles,
+        "stop_cycle": stop_cycle,
+        "rising_count": rising_count,
+        "error_seen": error_seen,
+        "pin_oe": int(dut.uio_oe.value),
+        "pin_out": int(dut.uio_out.value),
+    }
+
+
+@cocotb.test()
+async def test_i2c_write_two_arbitrary_bytes(dut):
+    await initialize(dut)
+    _, words = build_program(0x50, [0xA5, 0x3C])
+    assert len(words) == 58
+    result = await run_i2c_program(dut, words, 2, {9, 18, 27})
+
+    assert result["address_bits"] == [1, 0, 1, 0, 0, 0, 0, 0]
+    assert result["data_bits"] == [
+        [1, 0, 1, 0, 0, 1, 0, 1],
+        [0, 0, 1, 1, 1, 1, 0, 0],
+    ], f"Data bits: {result['data_bits']}"
+    assert result["ack_levels"] == {9: 0, 18: 0, 27: 0}, f"ACK levels: {result['ack_levels']}"
+    assert len(result["start_cycles"]) == 1, f"START events: {result['start_cycles']}"
+    assert result["stop_cycle"] is not None, "STOP condition not observed"
+    assert result["rising_count"] == 28, f"Expected 28 SCL rising edges, got {result['rising_count']}"
+    assert not result["error_seen"]
+    assert result["pin_oe"] & 0x80 == 0
+    assert result["pin_oe"] & 0x06 == 0
+    dut._log.info("PASS: I2C address 0x50, data bytes 0xA5 and 0x3C, three ACKs and STOP")
+
+
+@cocotb.test()
+async def test_i2c_write_nack_on_second_byte(dut):
+    await initialize(dut)
+    _, words = build_program(0x50, [0xA5, 0x3C])
+    result = await run_i2c_program(dut, words, 2, {9})
+
+    assert result["address_bits"] == [1, 0, 1, 0, 0, 0, 0, 0]
+    assert result["data_bits"][0] == [1, 0, 1, 0, 0, 1, 0, 1]
+    assert result["ack_levels"].get(9) == 0
+    assert result["ack_levels"].get(18) == 1
+    assert result["error_seen"], "NACK on data byte did not raise the error marker"
+    assert result["pin_oe"] & 0x80
+    assert result["pin_oe"] & 0x06 == 0
+    dut._log.info("PASS: I2C data-byte NACK raises error marker and releases SDA/SCL")
+
+
+async def run_spi_mode_tx(dut, mode, data=0xA5):
+    await initialize(dut)
+    _, words = build_spi_program(mode, data)
+    assert len(words) == 11
+    for address, word in enumerate(words):
+        await write_word(dut, address, word)
+    await start_program(dut)
+
+    cpol = (mode >> 1) & 1
+    cpha = mode & 1
+    expected_bits = [(data >> bit) & 1 for bit in range(7, -1, -1)]
+    previous_clock = None
+    initial_clock = None
+    leading_cycles = []
+    trailing_cycles = []
+    sampled_bits = []
+    final_clock = None
+    cs_deasserted = False
+
+    for cycle in range(2500):
+        await RisingEdge(dut.clk)
+        await Timer(1, unit="ns")
+        oe = int(dut.uio_oe.value)
+        out = int(dut.uio_out.value)
+        cs_enabled = bool(oe & 0x01)
+        cs_high = bool(out & 0x01)
+        clock_enabled = bool(oe & 0x04)
+        clock_value = (out >> 2) & 1
+
+        if cs_enabled and clock_enabled and not cs_high:
+            if initial_clock is None:
+                initial_clock = clock_value
+            elif clock_value != previous_clock:
+                if previous_clock == cpol and clock_value == 1 - cpol:
+                    leading_cycles.append(cycle)
+                    if cpha == 0:
+                        assert oe & 0x02, "MOSI must be actively driven at CPHA=0 sample edge"
+                        sampled_bits.append((out >> 1) & 1)
+                elif previous_clock == 1 - cpol and clock_value == cpol:
+                    trailing_cycles.append(cycle)
+                    if cpha == 1:
+                        assert oe & 0x02, "MOSI must be actively driven at CPHA=1 sample edge"
+                        sampled_bits.append((out >> 1) & 1)
+            previous_clock = clock_value
+
+        if cs_enabled and cs_high:
+            final_clock = clock_value
+            cs_deasserted = True
+            break
+
+    assert initial_clock == cpol, f"Mode {mode}: idle clock should be {cpol}, got {initial_clock}"
+    assert len(leading_cycles) == 8, f"Mode {mode}: expected 8 leading edges, got {leading_cycles}"
+    assert len(trailing_cycles) == 8, f"Mode {mode}: expected 8 trailing edges, got {trailing_cycles}"
+    assert sampled_bits == expected_bits, f"Mode {mode}: expected {expected_bits}, got {sampled_bits}"
+    assert cs_deasserted, f"Mode {mode}: chip select was never deasserted"
+    assert final_clock == cpol, f"Mode {mode}: clock did not return to idle polarity"
+    assert len(set(b - a for a, b in zip(leading_cycles, leading_cycles[1:]))) == 1
+    assert len(set(b - a for a, b in zip(trailing_cycles, trailing_cycles[1:]))) == 1
+    dut._log.info(f"PASS: SPI Mode {mode} transmitted 0x{data:02X}, 8 sample edges, correct CPOL/CPHA")
+
+
+@cocotb.test()
+async def test_spi_mode1_a5_waveform(dut):
+    await run_spi_mode_tx(dut, 1, 0xA5)
+
+
+@cocotb.test()
+async def test_spi_mode2_a5_waveform(dut):
+    await run_spi_mode_tx(dut, 2, 0xA5)
+
+
+@cocotb.test()
+async def test_spi_mode3_a5_waveform(dut):
+    await run_spi_mode_tx(dut, 3, 0xA5)

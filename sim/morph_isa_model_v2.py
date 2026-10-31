@@ -221,6 +221,54 @@ class MorphISAModelV2:
                         self.state = "HALT"
                         executed = "NESTED_LOOP_FAULT"
 
+                elif opcode == 0xA:
+                    if selector == 0:
+                        self.shift_reg = low
+                        self.pc = (self.pc + 1) & 0x3F
+                        self.state = "FETCH"
+                        executed = "LOAD_IMM"
+                    else:
+                        self.fault = True
+                        self.pin_oe = 0
+                        self.state = "HALT"
+                        executed = "INVALID_LOAD_IMM"
+
+                elif opcode == 0xB:
+                    if selector <= 7 and low == 0:
+                        bit = 1 << pin
+                        self.pin_out &= ~bit
+                        if self.shift_reg & 0x80:
+                            self.pin_oe &= ~bit
+                        else:
+                            self.pin_oe |= bit
+                        self.shift_reg = (self.shift_reg << 1) & 0xFF
+                        self.pc = (self.pc + 1) & 0x3F
+                        self.state = "FETCH"
+                        executed = "OD_SHIFT"
+                    else:
+                        self.fault = True
+                        self.pin_oe = 0
+                        self.state = "HALT"
+                        executed = "INVALID_OD_SHIFT"
+
+                elif opcode == 0xC:
+                    if selector <= 7 and low == 0:
+                        bit = 1 << pin
+                        if self.shift_reg & 0x80:
+                            self.pin_out |= bit
+                        else:
+                            self.pin_out &= ~bit
+                        self.pin_oe |= bit
+                        self.shift_reg = (self.shift_reg << 1) & 0xFF
+                        self.pc = (self.pc + 1) & 0x3F
+                        self.state = "FETCH"
+                        executed = "DRIVE_SHIFT"
+                    else:
+                        self.fault = True
+                        self.pin_oe = 0
+                        self.state = "HALT"
+                        executed = "INVALID_DRIVE_SHIFT"
+
                 else:
                     self.fault = True
                     self.pin_oe = 0
