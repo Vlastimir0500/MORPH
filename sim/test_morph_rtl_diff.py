@@ -26,6 +26,7 @@ class RTLComparisonTests(unittest.TestCase):
     def setUpClass(cls):
         cls.build_dir = ROOT / "build" / "obj_dir_morph_diff"
         shutil.rmtree(cls.build_dir, ignore_errors=True)
+        cls.build_dir.mkdir(parents=True, exist_ok=True)
 
         command = [
             "verilator",
