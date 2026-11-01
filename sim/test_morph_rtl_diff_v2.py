@@ -22,6 +22,7 @@ class RTLComparisonV2Tests(unittest.TestCase):
 
         cls.build_dir = ROOT / "build" / "obj_dir_morph_v2_diff"
         shutil.rmtree(cls.build_dir, ignore_errors=True)
+        cls.build_dir.mkdir(parents=True, exist_ok=True)
         command = [
             "verilator", "--binary", "--timing", "-Wno-fatal",
             "--top-module", "morph_engine_v2_diff_tb",
@@ -91,6 +92,8 @@ class RTLComparisonV2Tests(unittest.TestCase):
             )
             self.assertEqual(got, want, f"Mismatch at trace index {index}\nRTL={got}\nModel={want}")
 
+        return model
+
     def test_contract_generated_scenarios_match_rtl(self):
         contract_path = ROOT / "protocols" / "v2_edge_timed_release.contract.json"
         report_path = ROOT / "build" / "v2_edge_timed_release.model-conformance-report.json"
@@ -155,6 +158,45 @@ class RTLComparisonV2Tests(unittest.TestCase):
             with self.subTest(words=words):
                 self.run_diff_words(words, [0] * 24)
 
+    def test_halt_preserves_pin_output_enable(self):
+        model = self.run_diff_words(assemble("DRIVE 0, 1\nHALT"), [0] * 16)
+        self.assertEqual(model.state, "HALT")
+        self.assertEqual(model.pin_out & 0x01, 0x01)
+        self.assertEqual(model.pin_oe & 0x01, 0x01)
+        self.assertFalse(model.fault)
+
+    def test_reserved_fields_and_invalid_opcodes_fault_and_release_outputs(self):
+        invalid_words = (
+            0x0001,
+            0x1102,
+            0x2101,
+            0x3101,
+            0x4801,
+            0x5001,
+            0x6040,
+            0x7101,
+            0x8040,
+            0x8100,
+            0x9000,
+            0xA100,
+            0xB101,
+            0xC101,
+            0x1800,
+            0x2800,
+            0x7800,
+            0xB800,
+            0xC800,
+            0xD000,
+            0xE000,
+            0xF000,
+        )
+        for word in invalid_words:
+            with self.subTest(word=f"0x{word:04X}"):
+                model = self.run_diff_words([0x1001, word], [0] * 12)
+                self.assertTrue(model.fault)
+                self.assertEqual(model.pin_oe, 0)
+                self.assertEqual(model.state, "HALT")
+
     def test_invalid_opcode_fault_path(self):
         self.run_diff_words([0x1101, 0xA000], [0] * 20)
 
@@ -171,6 +213,55 @@ class RTLComparisonV2Tests(unittest.TestCase):
     def test_load_immediate_and_open_drain_shift(self):
         source = "LOAD_IMM 0xA5\nOD_SHIFT 0\nOD_SHIFT 1\nLOAD_IMM 0xA5\nDRIVE_SHIFT 2\nDRIVE_SHIFT 3\nHALT"
         self.run_diff_words(assemble(source), [0] * 32)
+
+
+    def test_every_reserved_bit_faults_in_rtl_and_model(self):
+        reserved_masks = {
+            0x0: 0x0FFF,
+            0x1: 0x00FE,
+            0x2: 0x00FF,
+            0x3: 0x0F00,
+            0x5: 0x0FFF,
+            0x6: 0x0FC0,
+            0x7: 0x00FF,
+            0x8: 0x0F40,
+            0xA: 0x0F00,
+            0xB: 0x00FF,
+            0xC: 0x00FF,
+        }
+        for opcode, mask in reserved_masks.items():
+            for bit in range(16):
+                if mask & (1 << bit):
+                    word = (opcode << 12) | (1 << bit)
+                    with self.subTest(opcode=opcode, bit=bit, word=f"0x{word:04X}"):
+                        model = self.run_diff_words([0x1001, word], [0] * 12)
+                        self.assertTrue(model.fault)
+                        self.assertEqual(model.pin_oe, 0)
+                        self.assertEqual(model.state, "HALT")
+
+    def test_all_invalid_pin_selectors_fault_in_rtl(self):
+        pin_opcodes = (0x1, 0x2, 0x4, 0x7, 0xB, 0xC)
+        for opcode in pin_opcodes:
+            for selector in range(8, 16):
+                word = (opcode << 12) | (selector << 8)
+                with self.subTest(opcode=opcode, selector=selector, word=f"0x{word:04X}"):
+                    model = self.run_diff_words([0x1001, word], [0] * 12)
+                    self.assertTrue(model.fault)
+                    self.assertEqual(model.pin_oe, 0)
+                    self.assertEqual(model.state, "HALT")
+
+    def test_loop_equal_and_forward_targets_fault_in_rtl(self):
+        invalid_loop_words = (
+            0x9041,  # count=1, target=1 (equal to LOOP address 1)
+            0x9042,  # count=1, target=2 (forward from LOOP address 1)
+        )
+        for word in invalid_loop_words:
+            with self.subTest(word=f"0x{word:04X}"):
+                model = self.run_diff_words([0x1001, word], [0] * 12)
+                self.assertTrue(model.fault)
+                self.assertEqual(model.pin_oe, 0)
+                self.assertEqual(model.state, "HALT")
+
 
 
 if __name__ == "__main__":

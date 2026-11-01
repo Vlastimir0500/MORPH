@@ -128,9 +128,49 @@ class AssemblerV2Tests(unittest.TestCase):
             assemble("\n".join(["HALT"] * 65))
 
     def test_disassembler_rejects_invalid_encoding(self):
-        for word in (0x1002, 0x2800, 0x6100, 0x7001, 0x8040, 0x9000, 0x9040, 0xA100, 0xB001, 0xB800, 0xC001, 0xC800):
+        for word in (
+            0x0001, 0x1002, 0x1102, 0x2101, 0x2800, 0x3101, 0x4801,
+            0x5001, 0x6040, 0x6100, 0x7001, 0x7101, 0x8040, 0x8100,
+            0x9000, 0x9040, 0xA100, 0xB001, 0xB101, 0xB800, 0xC001,
+            0xC101, 0xC800, 0xD000, 0xE000, 0xF000,
+        ):
             with self.subTest(word=hex(word)), self.assertRaises(AssemblyError):
                 disassemble([word])
+
+
+    def test_disassembler_rejects_every_reserved_bit(self):
+        reserved_masks = {
+            0x0: 0x0FFF,
+            0x1: 0x00FE,
+            0x2: 0x00FF,
+            0x3: 0x0F00,
+            0x5: 0x0FFF,
+            0x6: 0x0FC0,
+            0x7: 0x00FF,
+            0x8: 0x0F40,
+            0xA: 0x0F00,
+            0xB: 0x00FF,
+            0xC: 0x00FF,
+        }
+        for opcode, mask in reserved_masks.items():
+            for bit in range(16):
+                if mask & (1 << bit):
+                    word = (opcode << 12) | (1 << bit)
+                    with self.subTest(opcode=opcode, bit=bit, word=f"0x{word:04X}"):
+                        with self.assertRaises(AssemblyError):
+                            disassemble([word])
+
+    def test_disassembler_rejects_equal_and_forward_loop_targets(self):
+        # LOOP is at address 1. Its target must be strictly less than 1.
+        invalid_programs = (
+            [0x0000, 0x9041],  # count=1, target=1 (equal to LOOP address)
+            [0x0000, 0x9042],  # count=1, target=2 (forward target)
+        )
+        for program in invalid_programs:
+            with self.subTest(program=[f"0x{word:04X}" for word in program]):
+                with self.assertRaises(AssemblyError):
+                    disassemble(program)
+
 
 
 if __name__ == "__main__":

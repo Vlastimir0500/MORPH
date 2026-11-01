@@ -67,11 +67,17 @@ module morph_engine_v2 (
                 EXEC: begin
                     case (ir[15:12])
                         4'h0: begin
-                            state <= HALT;
+                            if (ir[11:0] == 12'd0) begin
+                                state <= HALT;
+                            end else begin
+                                fault <= 1'b1;
+                                pin_oe <= 8'd0;
+                                state <= HALT;
+                            end
                         end
 
                         4'h1: begin
-                            if (ir[11:8] <= 4'd7) begin
+                            if ((ir[11:8] <= 4'd7) && (ir[7:1] == 7'd0)) begin
                                 pin_out[ir[10:8]] <= ir[0];
                                 pin_oe[ir[10:8]] <= 1'b1;
                                 pc <= pc + 1'b1;
@@ -84,7 +90,7 @@ module morph_engine_v2 (
                         end
 
                         4'h2: begin
-                            if (ir[11:8] <= 4'd7) begin
+                            if ((ir[11:8] <= 4'd7) && (ir[7:0] == 8'd0)) begin
                                 sample_reg <= pin_in[ir[10:8]];
                                 pc <= pc + 1'b1;
                                 state <= FETCH;
@@ -96,7 +102,11 @@ module morph_engine_v2 (
                         end
 
                         4'h3: begin
-                            if (ir[7:0] == 0) begin
+                            if (ir[11:8] != 4'd0) begin
+                                fault <= 1'b1;
+                                pin_oe <= 8'd0;
+                                state <= HALT;
+                            end else if (ir[7:0] == 8'd0) begin
                                 pc <= pc + 1'b1;
                                 state <= FETCH;
                             end else begin
@@ -117,22 +127,34 @@ module morph_engine_v2 (
                         end
 
                         4'h5: begin
-                            shift_reg <= {shift_reg[6:0], sample_reg};
-                            pc <= pc + 1'b1;
-                            state <= FETCH;
+                            if (ir[11:0] == 12'd0) begin
+                                shift_reg <= {shift_reg[6:0], sample_reg};
+                                pc <= pc + 1'b1;
+                                state <= FETCH;
+                            end else begin
+                                fault <= 1'b1;
+                                pin_oe <= 8'd0;
+                                state <= HALT;
+                            end
                         end
 
                         4'h6: begin
-                            if (loop_active && ((ir[5:0] < loop_target) || (ir[5:0] > loop_pc))) begin
-                                loop_active <= 1'b0;
-                                loop_remaining <= 6'd0;
+                            if (ir[11:6] != 6'd0) begin
+                                fault <= 1'b1;
+                                pin_oe <= 8'd0;
+                                state <= HALT;
+                            end else begin
+                                if (loop_active && ((ir[5:0] < loop_target) || (ir[5:0] > loop_pc))) begin
+                                    loop_active <= 1'b0;
+                                    loop_remaining <= 6'd0;
+                                end
+                                pc <= ir[5:0];
+                                state <= FETCH;
                             end
-                            pc <= ir[5:0];
-                            state <= FETCH;
                         end
 
                         4'h7: begin
-                            if (ir[11:8] <= 4'd7) begin
+                            if ((ir[11:8] <= 4'd7) && (ir[7:0] == 8'd0)) begin
                                 pin_out[ir[10:8]] <= 1'b0;
                                 pin_oe[ir[10:8]] <= 1'b0;
                                 pc <= pc + 1'b1;
@@ -145,16 +167,22 @@ module morph_engine_v2 (
                         end
 
                         4'h8: begin
-                            if (sample_reg == ir[7]) begin
-                                if (loop_active && ((ir[5:0] < loop_target) || (ir[5:0] > loop_pc))) begin
-                                    loop_active <= 1'b0;
-                                    loop_remaining <= 6'd0;
-                                end
-                                pc <= ir[5:0];
+                            if (ir[11:8] != 4'd0 || ir[6] != 1'b0) begin
+                                fault <= 1'b1;
+                                pin_oe <= 8'd0;
+                                state <= HALT;
                             end else begin
-                                pc <= pc + 1'b1;
+                                if (sample_reg == ir[7]) begin
+                                    if (loop_active && ((ir[5:0] < loop_target) || (ir[5:0] > loop_pc))) begin
+                                        loop_active <= 1'b0;
+                                        loop_remaining <= 6'd0;
+                                    end
+                                    pc <= ir[5:0];
+                                end else begin
+                                    pc <= pc + 1'b1;
+                                end
+                                state <= FETCH;
                             end
-                            state <= FETCH;
                         end
 
                         4'h9: begin

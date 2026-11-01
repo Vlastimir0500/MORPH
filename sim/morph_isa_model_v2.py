@@ -86,11 +86,17 @@ class MorphISAModelV2:
                 pin = selector & 7
 
                 if opcode == 0x0:
-                    self.state = "HALT"
-                    executed = "HALT"
+                    if self.ir & 0x0FFF:
+                        self.fault = True
+                        self.pin_oe = 0
+                        self.state = "HALT"
+                        executed = "INVALID_ENCODING"
+                    else:
+                        self.state = "HALT"
+                        executed = "HALT"
 
                 elif opcode == 0x1:
-                    if selector <= 7:
+                    if selector <= 7 and (low & 0xFE) == 0:
                         bit = 1 << pin
                         if self.ir & 1:
                             self.pin_out |= bit
@@ -104,10 +110,10 @@ class MorphISAModelV2:
                         self.fault = True
                         self.pin_oe = 0
                         self.state = "HALT"
-                        executed = "INVALID_PIN"
+                        executed = "INVALID_PIN" if selector > 7 else "INVALID_ENCODING"
 
                 elif opcode == 0x2:
-                    if selector <= 7:
+                    if selector <= 7 and low == 0:
                         self.sample_reg = (pin_in >> pin) & 1
                         self.pc = (self.pc + 1) & 0x3F
                         self.state = "FETCH"
@@ -116,16 +122,22 @@ class MorphISAModelV2:
                         self.fault = True
                         self.pin_oe = 0
                         self.state = "HALT"
-                        executed = "INVALID_PIN"
+                        executed = "INVALID_PIN" if selector > 7 else "INVALID_ENCODING"
 
                 elif opcode == 0x3:
-                    if low == 0:
+                    if selector != 0:
+                        self.fault = True
+                        self.pin_oe = 0
+                        self.state = "HALT"
+                        executed = "INVALID_ENCODING"
+                    elif low == 0:
                         self.pc = (self.pc + 1) & 0x3F
                         self.state = "FETCH"
+                        executed = "WAIT"
                     else:
                         self.wait_count = low
                         self.state = "WAIT"
-                    executed = "WAIT"
+                        executed = "WAIT"
 
                 elif opcode == 0x4:
                     if selector <= 7:
@@ -136,25 +148,37 @@ class MorphISAModelV2:
                         self.fault = True
                         self.pin_oe = 0
                         self.state = "HALT"
-                        executed = "INVALID_PIN"
+                        executed = "INVALID_PIN" if selector > 7 else "INVALID_ENCODING"
 
                 elif opcode == 0x5:
-                    self.shift_reg = ((self.shift_reg << 1) | self.sample_reg) & 0xFF
-                    self.pc = (self.pc + 1) & 0x3F
-                    self.state = "FETCH"
-                    executed = "SHIFT"
+                    if self.ir & 0x0FFF:
+                        self.fault = True
+                        self.pin_oe = 0
+                        self.state = "HALT"
+                        executed = "INVALID_ENCODING"
+                    else:
+                        self.shift_reg = ((self.shift_reg << 1) | self.sample_reg) & 0xFF
+                        self.pc = (self.pc + 1) & 0x3F
+                        self.state = "FETCH"
+                        executed = "SHIFT"
 
                 elif opcode == 0x6:
-                    target = self.ir & 0x3F
-                    if self.loop_active and not (self.loop_target <= target <= self.loop_pc):
-                        self.loop_active = False
-                        self.loop_remaining = 0
-                    self.pc = target
-                    self.state = "FETCH"
-                    executed = "BRANCH"
+                    if self.ir & 0x0FC0:
+                        self.fault = True
+                        self.pin_oe = 0
+                        self.state = "HALT"
+                        executed = "INVALID_ENCODING"
+                    else:
+                        target = self.ir & 0x3F
+                        if self.loop_active and not (self.loop_target <= target <= self.loop_pc):
+                            self.loop_active = False
+                            self.loop_remaining = 0
+                        self.pc = target
+                        self.state = "FETCH"
+                        executed = "BRANCH"
 
                 elif opcode == 0x7:
-                    if selector <= 7:
+                    if selector <= 7 and low == 0:
                         bit = 1 << pin
                         self.pin_out &= ~bit
                         self.pin_oe &= ~bit
@@ -165,19 +189,25 @@ class MorphISAModelV2:
                         self.fault = True
                         self.pin_oe = 0
                         self.state = "HALT"
-                        executed = "INVALID_PIN"
+                        executed = "INVALID_PIN" if selector > 7 else "INVALID_ENCODING"
 
                 elif opcode == 0x8:
-                    if self.sample_reg == ((self.ir >> 7) & 1):
-                        target = self.ir & 0x3F
-                        if self.loop_active and not (self.loop_target <= target <= self.loop_pc):
-                            self.loop_active = False
-                            self.loop_remaining = 0
-                        self.pc = target
+                    if self.ir & 0x0F40:
+                        self.fault = True
+                        self.pin_oe = 0
+                        self.state = "HALT"
+                        executed = "INVALID_ENCODING"
                     else:
-                        self.pc = (self.pc + 1) & 0x3F
-                    self.state = "FETCH"
-                    executed = "BRANCH_SAMPLE"
+                        if self.sample_reg == ((self.ir >> 7) & 1):
+                            target = self.ir & 0x3F
+                            if self.loop_active and not (self.loop_target <= target <= self.loop_pc):
+                                self.loop_active = False
+                                self.loop_remaining = 0
+                            self.pc = target
+                        else:
+                            self.pc = (self.pc + 1) & 0x3F
+                        self.state = "FETCH"
+                        executed = "BRANCH_SAMPLE"
 
                 elif opcode == 0x9:
                     loop_count = (self.ir >> 6) & 0x3F
@@ -249,7 +279,7 @@ class MorphISAModelV2:
                         self.fault = True
                         self.pin_oe = 0
                         self.state = "HALT"
-                        executed = "INVALID_OD_SHIFT"
+                        executed = "INVALID_PIN" if selector > 7 else "INVALID_ENCODING"
 
                 elif opcode == 0xC:
                     if selector <= 7 and low == 0:
@@ -267,7 +297,7 @@ class MorphISAModelV2:
                         self.fault = True
                         self.pin_oe = 0
                         self.state = "HALT"
-                        executed = "INVALID_DRIVE_SHIFT"
+                        executed = "INVALID_PIN" if selector > 7 else "INVALID_ENCODING"
 
                 else:
                     self.fault = True

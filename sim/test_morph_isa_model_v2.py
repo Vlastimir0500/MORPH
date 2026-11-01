@@ -142,6 +142,49 @@ class ISAModelV2Tests(unittest.TestCase):
         self.assertEqual(model.state, "FETCH")
         self.assertEqual(model.memory, program)
 
+    def test_halt_preserves_pin_output_enable(self):
+        model = self.make_model("DRIVE 0, 1\nHALT")
+        self.run_cycles(model, 12)
+        self.assertEqual(model.state, "HALT")
+        self.assertEqual(model.pin_out & 0x01, 0x01)
+        self.assertEqual(model.pin_oe & 0x01, 0x01)
+        self.assertFalse(model.fault)
+
+    def test_reserved_fields_and_invalid_opcodes_fault_and_release_outputs(self):
+        invalid_words = (
+            0x0001,  # HALT reserved bits
+            0x1102,  # DRIVE reserved bits
+            0x2101,  # SAMPLE reserved bits
+            0x3101,  # WAIT reserved selector
+            0x4801,  # EDGE invalid pin selector
+            0x5001,  # SHIFT reserved bits
+            0x6040,  # BRANCH reserved bits
+            0x7101,  # RELEASE reserved bits
+            0x8040,  # BRANCH_SAMPLE reserved bit 6
+            0x8100,  # BRANCH_SAMPLE reserved selector
+            0x9000,  # LOOP zero count
+            0xA100,  # LOAD_IMM reserved selector
+            0xB101,  # OD_SHIFT reserved bits
+            0xC101,  # DRIVE_SHIFT reserved bits
+            0x1800,  # DRIVE invalid pin selector
+            0x2800,  # SAMPLE invalid pin selector
+            0x7800,  # RELEASE invalid pin selector
+            0xB800,  # OD_SHIFT invalid pin selector
+            0xC800,  # DRIVE_SHIFT invalid pin selector
+            0xD000,
+            0xE000,
+            0xF000,
+        )
+        for word in invalid_words:
+            with self.subTest(word=f"0x{word:04X}"):
+                model = MorphISAModelV2()
+                model.load_program([0x1001, word])
+                model.step(rst_n=False)
+                self.run_cycles(model, 8)
+                self.assertTrue(model.fault)
+                self.assertEqual(model.pin_oe, 0)
+                self.assertEqual(model.state, "HALT")
+
     def test_invalid_opcode_faults_and_releases_outputs(self):
         model = MorphISAModelV2()
         model.load_program([0x1101, 0xD000])
@@ -190,6 +233,68 @@ class ISAModelV2Tests(unittest.TestCase):
         model = MorphISAModelV2()
         with self.assertRaises(ValueError):
             model.load_program([0x10000])
+
+
+    def test_every_reserved_bit_faults_and_releases_outputs(self):
+        reserved_masks = {
+            0x0: 0x0FFF,
+            0x1: 0x00FE,
+            0x2: 0x00FF,
+            0x3: 0x0F00,
+            0x5: 0x0FFF,
+            0x6: 0x0FC0,
+            0x7: 0x00FF,
+            0x8: 0x0F40,
+            0xA: 0x0F00,
+            0xB: 0x00FF,
+            0xC: 0x00FF,
+        }
+        for opcode, mask in reserved_masks.items():
+            for bit in range(16):
+                if mask & (1 << bit):
+                    word = (opcode << 12) | (1 << bit)
+                    with self.subTest(opcode=opcode, bit=bit, word=f"0x{word:04X}"):
+                        model = MorphISAModelV2()
+                        model.load_program([0x1001, word])
+                        model.step(rst_n=False)
+                        self.run_cycles(model, 8)
+                        self.assertTrue(model.fault)
+                        self.assertEqual(model.pin_oe, 0)
+                        self.assertEqual(model.state, "HALT")
+
+    def test_all_invalid_pin_selectors_are_rejected(self):
+        pin_opcodes = (0x1, 0x2, 0x4, 0x7, 0xB, 0xC)
+        for opcode in pin_opcodes:
+            for selector in range(8, 16):
+                word = (opcode << 12) | (selector << 8)
+                with self.subTest(opcode=opcode, selector=selector, word=f"0x{word:04X}"):
+                    model = MorphISAModelV2()
+                    model.load_program([0x1001, word])
+                    model.step(rst_n=False)
+                    model.step()
+                    model.step()
+                    model.step()
+                    snapshot = model.step()
+                    self.assertTrue(snapshot.fault)
+                    self.assertEqual(snapshot.pin_oe, 0)
+                    self.assertEqual(snapshot.state, "HALT")
+                    self.assertEqual(snapshot.executed, "INVALID_PIN")
+
+    def test_loop_equal_and_forward_targets_fault_and_release_outputs(self):
+        invalid_loop_words = (
+            0x9041,  # count=1, target=1 (equal to LOOP address 1)
+            0x9042,  # count=1, target=2 (forward from LOOP address 1)
+        )
+        for word in invalid_loop_words:
+            with self.subTest(word=f"0x{word:04X}"):
+                model = MorphISAModelV2()
+                model.load_program([0x1001, word])
+                model.step(rst_n=False)
+                self.run_cycles(model, 8)
+                self.assertTrue(model.fault)
+                self.assertEqual(model.pin_oe, 0)
+                self.assertEqual(model.state, "HALT")
+
 
 
 if __name__ == "__main__":
