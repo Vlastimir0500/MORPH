@@ -700,7 +700,7 @@ async def run_i2c_program(dut, words, payload_count, ack_edges, limit=12000):
 async def test_i2c_write_two_arbitrary_bytes(dut):
     await initialize(dut)
     _, words = build_program(0x50, [0xA5, 0x3C])
-    assert len(words) == 58
+    assert len(words) == 56
     result = await run_i2c_program(dut, words, 2, {9, 18, 27})
 
     assert result["address_bits"] == [1, 0, 1, 0, 0, 0, 0, 0]

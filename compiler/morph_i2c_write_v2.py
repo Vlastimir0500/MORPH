@@ -45,14 +45,12 @@ def build_source(address, data_bytes, half_period=58):
         ])
 
     lines.extend([
-        "DRIVE 1, 0",
-        "WAIT 2",
-        "RELEASE 2",
-        "WAIT 2",
-        "RELEASE 1",
-        "HALT",
+        "BRANCH stop",
         "nack: DRIVE 7, 1",
+        "stop: DRIVE 1, 0",
+        "WAIT 2",
         "RELEASE 2",
+        "WAIT 2",
         "RELEASE 1",
         "HALT",
     ])

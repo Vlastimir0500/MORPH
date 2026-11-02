@@ -10,6 +10,7 @@ sys.path.insert(0, str(ROOT / "compiler"))
 sys.path.insert(0, str(ROOT / "sim"))
 
 from morph_assembler_v2 import assemble
+from morph_i2c_write_v2 import build_program
 from morph_isa_model_v2 import MorphISAModelV2, STATE_CODES
 from morph_contract_v2 import run_contract
 
@@ -93,6 +94,54 @@ class RTLComparisonV2Tests(unittest.TestCase):
             self.assertEqual(got, want, f"Mismatch at trace index {index}\nRTL={got}\nModel={want}")
 
         return model
+
+    def _i2c_write_vectors(self, nack_sample=None):
+        _, words = build_program(0x50, [0xA5, 0x3C], half_period=2)
+
+        model = MorphISAModelV2()
+        model.load_program(words)
+        model.step(rst_n=False, pin_in=0)
+
+        pins = []
+        sample_count = 0
+
+        for _ in range(5000):
+            pin_in = 0
+
+            if model.state == "EXEC" and (model.ir >> 12) == 0x2:
+                sample_count += 1
+                if sample_count == nack_sample:
+                    pin_in = 0x02
+
+            pins.append(pin_in)
+            snapshot = model.step(pin_in=pin_in)
+
+            if snapshot.state == "HALT":
+                break
+        else:
+            self.fail("I2C transaction did not reach HALT")
+
+        expected_samples = 3 if nack_sample is None else nack_sample
+        self.assertEqual(sample_count, expected_samples)
+        return words, pins
+
+    def test_i2c_ack_stop_matches_rtl(self):
+        words, pins = self._i2c_write_vectors()
+        model = self.run_diff_words(words, pins)
+
+        self.assertEqual(model.state, "HALT")
+        self.assertFalse(model.fault)
+        self.assertEqual(model.pin_oe, 0)
+
+    def test_i2c_nack_stop_matches_rtl(self):
+        words, pins = self._i2c_write_vectors(nack_sample=2)
+        model = self.run_diff_words(words, pins)
+
+        self.assertEqual(model.state, "HALT")
+        self.assertFalse(model.fault)
+        self.assertEqual(model.pin_oe & 0x03, 0)
+        self.assertEqual(model.pin_oe & 0x80, 0x80)
+        self.assertEqual(model.pin_out & 0x80, 0x80)
 
     def test_contract_generated_scenarios_match_rtl(self):
         contract_path = ROOT / "protocols" / "v2_edge_timed_release.contract.json"
