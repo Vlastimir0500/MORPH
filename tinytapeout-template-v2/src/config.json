@@ -28,5 +28,8 @@
   "VERILOG_FILES": [
     "dir::project.v",
     "dir::morph_engine.sv"
-  ]
+  ],
+  "CTS_SINK_CLUSTERING_SIZE": 8,
+  "DRT_ANTENNA_REPAIR_JUMPER_ONLY": true,
+  "GRT_ANTENNA_REPAIR_JUMPER_ONLY": true
 }
