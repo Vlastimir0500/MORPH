@@ -1,0 +1,156 @@
+{
+  "schema_version": 2,
+  "name": "v2_edge_timed_release",
+  "limits": {
+    "max_program_words": 8,
+    "max_wait_cycles": 0,
+    "max_edge_timeout_cycles": 6
+  },
+  "requirements": {
+    "required_mnemonics": [
+      "DRIVE",
+      "EDGE",
+      "RELEASE",
+      "HALT"
+    ]
+  },
+  "program": [
+    {
+      "op": "drive",
+      "pin": 0,
+      "value": 1
+    },
+    {
+      "op": "wait_edge",
+      "pin": 0,
+      "edge": "rising",
+      "timeout_cycles": 6
+    },
+    {
+      "op": "release",
+      "pin": 0
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "assumptions": {
+    "cycle_convention": "Cycle 1 is reset; pin_trace[0] is sampled at cycle 2.",
+    "input_model": "Each pin_trace sample presents an 8-bit input bus value at a rising clock edge. The candidate passes each pin through a two-stage synchronizer before sampling.",
+    "electrical_scope": "The model checks digital pin values and output-enable behavior. Two-stage digital input synchronization latency is modeled; analogue metastability, pull-ups and board-level electrical effects are not."
+  },
+  "scenarios": [
+    {
+      "name": "rising_edge_releases_pin",
+      "pin_trace": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "expect": {
+        "transitions": {
+          "pin_out": [
+            {
+              "cycle": 3,
+              "value": 1
+            },
+            {
+              "cycle": 11,
+              "value": 0
+            }
+          ],
+          "pin_oe": [
+            {
+              "cycle": 3,
+              "value": 1
+            },
+            {
+              "cycle": 11,
+              "value": 0
+            }
+          ],
+          "fault": [],
+          "timed_out": []
+        },
+        "final": {
+          "state": "HALT",
+          "pin_out": 0,
+          "pin_oe": 0,
+          "fault": false,
+          "timed_out": false
+        }
+      }
+    },
+    {
+      "name": "missing_edge_times_out_and_releases_pin",
+      "pin_trace": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expect": {
+        "transitions": {
+          "pin_out": [
+            {
+              "cycle": 3,
+              "value": 1
+            }
+          ],
+          "pin_oe": [
+            {
+              "cycle": 3,
+              "value": 1
+            },
+            {
+              "cycle": 11,
+              "value": 0
+            }
+          ],
+          "fault": [
+            {
+              "cycle": 11,
+              "value": 1
+            }
+          ],
+          "timed_out": [
+            {
+              "cycle": 11,
+              "value": 1
+            }
+          ]
+        },
+        "final": {
+          "state": "HALT",
+          "pin_out": 1,
+          "pin_oe": 0,
+          "fault": true,
+          "timed_out": true
+        }
+      }
+    }
+  ]
+}
