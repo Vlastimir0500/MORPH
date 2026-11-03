@@ -31,5 +31,6 @@
     "dir::project.v",
     "dir::morph_engine.sv"
   ],
-  "CTS_SINK_CLUSTERING_SIZE": 4
+  "CTS_SINK_CLUSTERING_SIZE": 4,
+  "GRT_ANTENNA_REPAIR_MARGIN": 0
 }
