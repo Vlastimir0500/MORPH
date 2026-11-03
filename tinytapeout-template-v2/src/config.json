@@ -30,5 +30,6 @@
   "VERILOG_FILES": [
     "dir::project.v",
     "dir::morph_engine.sv"
-  ]
+  ],
+  "CTS_SINK_CLUSTERING_SIZE": 4
 }

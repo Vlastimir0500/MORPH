@@ -140,6 +140,78 @@ jobs:
         with:
           pdk: ihp-sg13cmos5l
 
+
+  physical-signoff:
+    name: Final post-route physical gate
+    needs: gds
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download LibreLane physical reports
+        uses: actions/download-artifact@v7
+        with:
+          name: GDS_logs
+          path: .
+
+      - name: Verify applied physical configuration
+        run: |
+          python3 - <<'PYCFG'
+          import json
+          from pathlib import Path
+
+          config = json.loads(Path("src/config_merged.json").read_text())
+          expected = {
+              "PNR_SDC_FILE": "dir::morph_pnr.sdc",
+              "SIGNOFF_SDC_FILE": "dir::morph_signoff.sdc",
+              "CTS_SINK_CLUSTERING_SIZE": 4,
+          }
+
+          for key, value in expected.items():
+              if config.get(key) != value:
+                  raise SystemExit(f"{key}: expected {value!r}, got {config.get(key)!r}")
+
+          for filename in ("morph_pnr.sdc", "morph_signoff.sdc"):
+              if not Path("src", filename).is_file():
+                  raise SystemExit(f"Missing SDC file: {filename}")
+
+          # Verify the PnR SDC reached the implementation configuration.
+          pnr = json.loads(
+              Path("runs/wokwi/13-openroad-floorplan/config.json").read_text()
+          )
+          pnr_sdc = str(pnr.get("PNR_SDC_FILE") or "").replace("\\", "/")
+          if not pnr_sdc.endswith("morph_pnr.sdc"):
+              raise SystemExit(f"PnR SDC was not applied: {pnr_sdc!r}")
+
+          # Verify the signoff SDC reached final post-route STA.
+          signoff = json.loads(
+              Path("runs/wokwi/55-openroad-stapostpnr/config.json").read_text()
+          )
+          signoff_sdc = str(
+              signoff.get("SIGNOFF_SDC_FILE") or ""
+          ).replace("\\", "/")
+          if not signoff_sdc.endswith("morph_signoff.sdc"):
+              raise SystemExit(
+                  f"Signoff SDC was not applied: {signoff_sdc!r}"
+              )
+
+          print("Merged, PnR and signoff SDC configurations verified.")
+          PYCFG
+
+      - name: Enforce final physical signoff reports
+        run: |
+          python3 scripts/check_physical_signoff.py \
+            --reports-dir runs/wokwi/55-openroad-stapostpnr \
+            --report-json build/physical-signoff-gate.json
+
+      - name: Publish physical signoff gate report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: morph-physical-signoff-gate
+          path: build/physical-signoff-gate.json
+          if-no-files-found: warn
+
   precheck:
     needs: gds
     runs-on: ubuntu-24.04
