@@ -17,8 +17,8 @@
   ],
   "assumptions": {
     "cycle_convention": "Cycle 1 is reset; pin_trace[0] is sampled at cycle 2.",
-    "input_model": "Each pin_trace sample is an 8-bit synchronous pin bus value sampled on one rising clock edge.",
-    "electrical_scope": "The model checks digital pin values and output-enable behavior; it does not model analogue timing, synchronizers, pull-ups or board-level electrical effects."
+    "input_model": "Each pin_trace sample is an 8-bit external pin bus value; the engine observes it through a two-stage input synchronizer with two cycles of digital input latency.",
+    "electrical_scope": "The model checks digital pin values, two-cycle synchronizer latency and output-enable behavior; it does not model analogue metastability, MTBF, pull-ups or board-level electrical effects."
   },
   "scenarios": [
     {
@@ -28,11 +28,11 @@
         "transitions": {
           "pin_out": [
             {"cycle": 3, "value": 1},
-            {"cycle": 9, "value": 0}
+            {"cycle": 11, "value": 0}
           ],
           "pin_oe": [
             {"cycle": 3, "value": 1},
-            {"cycle": 9, "value": 0}
+            {"cycle": 11, "value": 0}
           ],
           "fault": [],
           "timed_out": []

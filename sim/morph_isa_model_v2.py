@@ -32,6 +32,8 @@ class MorphISAModelV2:
     def __init__(self):
         self.memory = [0] * PROGRAM_DEPTH
         self.cycle = 0
+        self.pin_sync_1 = 0
+        self.pin_sync_2 = 0
         self._reset_registers(0)
 
     def _reset_registers(self, pin_in):
@@ -67,13 +69,16 @@ class MorphISAModelV2:
 
         self.cycle += 1
         executed = "-"
+        synchronized_pin = self.pin_sync_2
+        self.pin_sync_2 = self.pin_sync_1
+        self.pin_sync_1 = pin_in
         previous_pin = self.pin_prev
 
         if not rst_n or program_mode:
-            self._reset_registers(pin_in)
+            self._reset_registers(synchronized_pin)
             executed = "RESET" if not rst_n else "PROGRAM_MODE"
         else:
-            self.pin_prev = pin_in
+            self.pin_prev = synchronized_pin
 
             if self.state == "FETCH":
                 self.ir = self.memory[self.pc]
@@ -114,7 +119,7 @@ class MorphISAModelV2:
 
                 elif opcode == 0x2:
                     if selector <= 7 and low == 0:
-                        self.sample_reg = (pin_in >> pin) & 1
+                        self.sample_reg = (synchronized_pin >> pin) & 1
                         self.pc = (self.pc + 1) & 0x3F
                         self.state = "FETCH"
                         executed = "SAMPLE"
@@ -316,7 +321,7 @@ class MorphISAModelV2:
 
             elif self.state == "EDGE_WAIT":
                 pin = (self.ir >> 8) & 7
-                current = (pin_in >> pin) & 1
+                current = (synchronized_pin >> pin) & 1
                 previous = (previous_pin >> pin) & 1
                 rising = current == 1 and previous == 0
                 falling = current == 0 and previous == 1

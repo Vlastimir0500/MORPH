@@ -25,6 +25,8 @@
   "MAGIC_DEF_LABELS": 0,
   "MAGIC_WRITE_LEF_PINONLY": 1,
   "DESIGN_NAME": "tt_um_rattandeep_morph_v2",
+  "PNR_SDC_FILE": "dir::morph_pnr.sdc",
+  "SIGNOFF_SDC_FILE": "dir::morph_signoff.sdc",
   "VERILOG_FILES": [
     "dir::project.v",
     "dir::morph_engine.sv"

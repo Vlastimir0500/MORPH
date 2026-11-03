@@ -24,7 +24,7 @@ class V2TemporalContractTests(unittest.TestCase):
         self.assertEqual(report["words_hex"], ["1001", "400D", "7000", "0000"])
         self.assertEqual([item["status"] for item in report["scenarios"]], ["PASS", "PASS"])
         self.assertEqual(report["scenarios"][0]["observed_transitions"]["pin_oe"], [
-            {"cycle": 3, "value": 1}, {"cycle": 9, "value": 0}
+            {"cycle": 3, "value": 1}, {"cycle": 11, "value": 0}
         ])
         self.assertEqual(report["scenarios"][1]["observed_transitions"]["pin_oe"], [
             {"cycle": 3, "value": 1}, {"cycle": 11, "value": 0}

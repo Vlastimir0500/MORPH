@@ -38,6 +38,14 @@ async def write_word(dut, address, word):
 async def start_program(dut, pin_value=0):
     dut.ui_in.value = 0
     dut.uio_in.value = pin_value
+
+    # Hold the engine in reset while the two-stage input
+    # synchronizer captures the initial external pin state.
+    dut.rst_n.value = 0
+    await ClockCycles(dut.clk, 2)
+    await Timer(1, unit="ns")
+
+    dut.rst_n.value = 1
     await Timer(1, unit="ns")
 
 

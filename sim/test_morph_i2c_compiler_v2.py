@@ -43,17 +43,47 @@ class I2CCompilerV2Tests(unittest.TestCase):
         _, words = build_program(0x50, [0xA5, 0x3C])
         self.assertLessEqual(len(words), 64)
 
+        # Discover SAMPLE cycles using an all-zero input trace.
+        probe = MorphISAModelV2()
+        probe.load_program(words)
+        sample_cycles = []
+
+        for cycle in range(5000):
+            if probe.state == "EXEC" and (probe.ir >> 12) == 0x2:
+                sample_cycles.append(cycle)
+
+            snapshot = probe.step(pin_in=0)
+            if snapshot.state == "HALT":
+                break
+        else:
+            self.fail("I2C probe program did not halt within 5000 cycles")
+
+        expected_samples = 3 if nack_sample is None else nack_sample
+        scheduled_inputs = {}
+
+        if nack_sample is not None:
+            if not 1 <= nack_sample <= len(sample_cycles):
+                self.fail(f"Invalid NACK sample index: {nack_sample}")
+
+            # A pin value supplied two steps before SAMPLE reaches pin_sync_2
+            # in time for that SAMPLE instruction.
+            drive_cycle = sample_cycles[nack_sample - 1] - 2
+            if drive_cycle < 0:
+                self.fail("Cannot schedule NACK two cycles before SAMPLE")
+
+            scheduled_inputs[drive_cycle] = 1 << 1
+
+        # Replay with the scheduled NACK input.
         model = MorphISAModelV2()
         model.load_program(words)
         snapshots = []
         sample_count = 0
 
-        for _ in range(5000):
-            pin_in = 0
+        for cycle in range(5000):
+            pin_in = scheduled_inputs.get(cycle, 0)
+
             if model.state == "EXEC" and (model.ir >> 12) == 0x2:
                 sample_count += 1
-                if sample_count == nack_sample:
-                    pin_in = 1 << 1
 
             snapshot = model.step(pin_in=pin_in)
             snapshots.append(snapshot)
@@ -63,9 +93,9 @@ class I2CCompilerV2Tests(unittest.TestCase):
         else:
             self.fail("I2C program did not halt within 5000 cycles")
 
+        self.assertEqual(sample_count, expected_samples)
         self.assertFalse(model.fault)
         return model, snapshots, sample_count
-
     def _assert_explicit_stop(self, snapshots):
         stop_drives = [
             i for i, s in enumerate(snapshots)

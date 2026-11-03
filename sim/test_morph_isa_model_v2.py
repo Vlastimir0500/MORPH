@@ -10,11 +10,27 @@ from morph_isa_model_v2 import MorphISAModelV2
 
 
 class ISAModelV2Tests(unittest.TestCase):
-    def make_model(self, source):
+    def make_model(self, source, initial_pin=0):
         model = MorphISAModelV2()
         model.load_program(assemble(source))
-        model.step(rst_n=False)
+        for _ in range(3):
+            model.step(rst_n=False, pin_in=initial_pin)
         return model
+
+    def test_two_stage_input_synchronizer_latency(self):
+        model = MorphISAModelV2()
+        model.step(rst_n=False, pin_in=0)
+
+        model.step(pin_in=0x04)
+        self.assertEqual(model.pin_sync_1, 0x04)
+        self.assertEqual(model.pin_sync_2, 0x00)
+
+        model.step(pin_in=0x00)
+        self.assertEqual(model.pin_sync_1, 0x00)
+        self.assertEqual(model.pin_sync_2, 0x04)
+
+        model.step(pin_in=0x00)
+        self.assertEqual(model.pin_sync_2, 0x00)
 
     def run_cycles(self, model, count, pin=0):
         for _ in range(count):
@@ -30,7 +46,7 @@ class ISAModelV2Tests(unittest.TestCase):
         self.assertEqual(model.pin_out, 0)
 
     def test_sample_selected_pin_and_shift(self):
-        model = self.make_model("SAMPLE 5\nSHIFT\nHALT")
+        model = self.make_model("SAMPLE 5\nSHIFT\nHALT", initial_pin=0x20)
         self.run_cycles(model, 6, pin=0x20)
         self.assertEqual(model.sample_reg, 1)
         self.assertEqual(model.shift_reg, 1)
@@ -61,16 +77,16 @@ class ISAModelV2Tests(unittest.TestCase):
         self.assertFalse(model.fault)
 
     def test_rising_edge_completes_without_fault(self):
-        model = self.make_model("EDGE 2, RISE, 7\nDRIVE 4, 1\nHALT")
-        for pin in (0, 0, 0, 0x04, 0x04, 0x04, 0x04):
+        model = self.make_model("EDGE 2, RISE, 12\nDRIVE 4, 1\nHALT")
+        for pin in (0, 0, 0) + (0x04,) * 12:
             model.step(pin_in=pin)
         self.assertEqual(model.pin_oe & 0x10, 0x10)
         self.assertFalse(model.timed_out)
         self.assertFalse(model.fault)
 
     def test_falling_edge_completes(self):
-        model = self.make_model("EDGE 1, FALL, 7\nDRIVE 6, 1\nHALT")
-        for pin in (0x02, 0x02, 0x02, 0x00, 0x00, 0x00, 0x00):
+        model = self.make_model("EDGE 1, FALL, 7\nDRIVE 6, 1\nHALT", initial_pin=0x02)
+        for pin in (0x02,) * 4 + (0x00,) * 12:
             model.step(pin_in=pin)
         self.assertEqual(model.pin_oe & 0x40, 0x40)
         self.assertFalse(model.fault)
@@ -92,7 +108,8 @@ class ISAModelV2Tests(unittest.TestCase):
 
     def test_conditional_branch_taken(self):
         model = self.make_model(
-            "SAMPLE 5\nBRANCH_SAMPLE 1, yes\nDRIVE 1, 1\nyes: DRIVE 2, 1\nHALT"
+            "SAMPLE 5\nBRANCH_SAMPLE 1, yes\nDRIVE 1, 1\nyes: DRIVE 2, 1\nHALT",
+            initial_pin=0x20,
         )
         self.run_cycles(model, 14, pin=0x20)
         self.assertEqual(model.pin_oe & 0x04, 0x04)
@@ -107,14 +124,14 @@ class ISAModelV2Tests(unittest.TestCase):
         self.assertEqual(model.pin_oe & 0x04, 0x04)
 
     def test_counted_loop_repeats_exactly(self):
-        model = self.make_model("start: SAMPLE 0\nSHIFT\nLOOP 3, start\nHALT")
+        model = self.make_model("start: SAMPLE 0\nSHIFT\nLOOP 3, start\nHALT", initial_pin=0x01)
         self.run_cycles(model, 30, pin=0x01)
         self.assertEqual(model.shift_reg, 0x07)
         self.assertFalse(model.fault)
         self.assertEqual(model.state, "HALT")
 
     def test_counted_loop_one_pass_does_not_repeat(self):
-        model = self.make_model("start: SAMPLE 0\nSHIFT\nLOOP 1, start\nHALT")
+        model = self.make_model("start: SAMPLE 0\nSHIFT\nLOOP 1, start\nHALT", initial_pin=0x01)
         self.run_cycles(model, 20, pin=0x01)
         self.assertEqual(model.shift_reg, 0x01)
         self.assertFalse(model.fault)
@@ -212,7 +229,9 @@ class ISAModelV2Tests(unittest.TestCase):
         self.assertEqual(model.pin_oe, 0)
         self.assertEqual(model.pc, 0)
         self.assertEqual(model.state, "FETCH")
-        self.assertEqual(model.pin_prev, 0x20)
+        self.assertEqual(model.pin_prev, 0x00)
+        self.assertEqual(model.pin_sync_1, 0x20)
+        self.assertEqual(model.pin_sync_2, 0x00)
         self.assertFalse(model.fault)
         self.assertFalse(model.timed_out)
 
@@ -222,7 +241,9 @@ class ISAModelV2Tests(unittest.TestCase):
         model.step(pin_in=0x08, program_mode=True)
         self.assertEqual(model.pc, 0)
         self.assertEqual(model.pin_oe, 0)
-        self.assertEqual(model.pin_prev, 0x08)
+        self.assertEqual(model.pin_prev, 0x00)
+        self.assertEqual(model.pin_sync_1, 0x08)
+        self.assertEqual(model.pin_sync_2, 0x00)
 
     def test_program_depth_enforced(self):
         model = MorphISAModelV2()

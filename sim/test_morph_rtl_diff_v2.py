@@ -98,6 +98,39 @@ class RTLComparisonV2Tests(unittest.TestCase):
     def _i2c_write_vectors(self, nack_sample=None):
         _, words = build_program(0x50, [0xA5, 0x3C], half_period=2)
 
+        # First pass: discover SAMPLE instruction cycles with ACK inputs.
+        probe = MorphISAModelV2()
+        probe.load_program(words)
+        probe.step(rst_n=False, pin_in=0)
+
+        sample_cycles = []
+
+        for cycle in range(5000):
+            if probe.state == "EXEC" and (probe.ir >> 12) == 0x2:
+                sample_cycles.append(cycle)
+
+            snapshot = probe.step(pin_in=0)
+            if snapshot.state == "HALT":
+                break
+        else:
+            self.fail("I2C probe transaction did not reach HALT")
+
+        expected_samples = 3 if nack_sample is None else nack_sample
+
+        if nack_sample is not None:
+            if not 1 <= nack_sample <= len(sample_cycles):
+                self.fail(f"Invalid NACK sample index: {nack_sample}")
+
+            # Input applied at cycle k is visible to SAMPLE at cycle k+2.
+            drive_cycle = sample_cycles[nack_sample - 1] - 2
+            if drive_cycle < 0:
+                self.fail("NACK input cannot be scheduled two cycles early")
+
+            scheduled_inputs = {drive_cycle: 0x02}
+        else:
+            scheduled_inputs = {}
+
+        # Second pass: generate the actual pin trace and count executed SAMPLEs.
         model = MorphISAModelV2()
         model.load_program(words)
         model.step(rst_n=False, pin_in=0)
@@ -105,13 +138,11 @@ class RTLComparisonV2Tests(unittest.TestCase):
         pins = []
         sample_count = 0
 
-        for _ in range(5000):
-            pin_in = 0
+        for cycle in range(5000):
+            pin_in = scheduled_inputs.get(cycle, 0)
 
             if model.state == "EXEC" and (model.ir >> 12) == 0x2:
                 sample_count += 1
-                if sample_count == nack_sample:
-                    pin_in = 0x02
 
             pins.append(pin_in)
             snapshot = model.step(pin_in=pin_in)
@@ -121,10 +152,8 @@ class RTLComparisonV2Tests(unittest.TestCase):
         else:
             self.fail("I2C transaction did not reach HALT")
 
-        expected_samples = 3 if nack_sample is None else nack_sample
         self.assertEqual(sample_count, expected_samples)
         return words, pins
-
     def test_i2c_ack_stop_matches_rtl(self):
         words, pins = self._i2c_write_vectors()
         model = self.run_diff_words(words, pins)

@@ -23,6 +23,8 @@ module morph_engine_v2 (
     logic [5:0] loop_target;
     logic loop_active;
     logic [7:0] pin_prev;
+    (* ASYNC_REG = "TRUE" *) logic [7:0] pin_sync_1;
+    (* ASYNC_REG = "TRUE" *) logic [7:0] pin_sync_2;
     logic [2:0] state;
 
     localparam FETCH = 3'd0;
@@ -32,6 +34,9 @@ module morph_engine_v2 (
     localparam HALT = 3'd4;
 
     always_ff @(posedge clk) begin
+        pin_sync_1 <= pin_in;
+        pin_sync_2 <= pin_sync_1;
+
         if (rst_n && program_mode) begin
             if (program_high_byte)
                 prog_mem[program_addr][15:8] <= program_byte;
@@ -47,7 +52,7 @@ module morph_engine_v2 (
             loop_pc <= 6'd0;
             loop_target <= 6'd0;
             loop_active <= 1'b0;
-            pin_prev <= pin_in;
+            pin_prev <= pin_sync_2;
             sample_reg <= 1'b0;
             shift_reg <= 8'd0;
             pin_out <= 8'd0;
@@ -56,7 +61,7 @@ module morph_engine_v2 (
             fault <= 1'b0;
             state <= FETCH;
         end else begin
-            pin_prev <= pin_in;
+            pin_prev <= pin_sync_2;
 
             case (state)
                 FETCH: begin
@@ -91,7 +96,7 @@ module morph_engine_v2 (
 
                         4'h2: begin
                             if ((ir[11:8] <= 4'd7) && (ir[7:0] == 8'd0)) begin
-                                sample_reg <= pin_in[ir[10:8]];
+                                sample_reg <= pin_sync_2[ir[10:8]];
                                 pc <= pc + 1'b1;
                                 state <= FETCH;
                             end else begin
@@ -284,8 +289,8 @@ module morph_engine_v2 (
                 end
 
                 EDGE_WAIT: begin
-                    if ((ir[0] && pin_in[ir[10:8]] && !pin_prev[ir[10:8]]) ||
-                        (!ir[0] && !pin_in[ir[10:8]] && pin_prev[ir[10:8]])) begin
+                    if ((ir[0] && pin_sync_2[ir[10:8]] && !pin_prev[ir[10:8]]) ||
+                        (!ir[0] && !pin_sync_2[ir[10:8]] && pin_prev[ir[10:8]])) begin
                         wait_count <= 8'd0;
                         pc <= pc + 1'b1;
                         state <= FETCH;
