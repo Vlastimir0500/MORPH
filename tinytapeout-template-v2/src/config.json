@@ -32,5 +32,20 @@
     "dir::morph_engine.sv"
   ],
   "CTS_SINK_CLUSTERING_SIZE": 4,
-  "GRT_ANTENNA_REPAIR_MARGIN": 0
+  "GRT_ANTENNA_REPAIR_MARGIN": 0,
+  "RUN_POST_GRT_DESIGN_REPAIR": true,
+  "meta": {
+    "version": 2,
+    "flow": "Classic",
+    "substituting_steps": [
+      [
+        "OpenROAD.RepairDesignPostGRT",
+        null
+      ],
+      [
+        "+OpenROAD.RepairAntennas",
+        "OpenROAD.RepairDesignPostGRT"
+      ]
+    ]
+  }
 }

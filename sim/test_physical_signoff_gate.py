@@ -38,12 +38,12 @@ max cap violation count 0
 
 
 def _make_reports(tmp_path: Path, fanout: int = 0, setup: int = 0) -> Path:
-    reports_dir = tmp_path / "55-openroad-stapostpnr"
+    reports_dir = tmp_path / "56-openroad-stapostpnr"
     reports_dir.mkdir()
     (reports_dir / "config.json").write_text(
         json.dumps({"STA_CORNERS": CORNERS}), encoding="utf-8"
     )
-    route_dir = tmp_path / "44-openroad-detailedrouting"
+    route_dir = tmp_path / "45-openroad-detailedrouting"
     route_dir.mkdir()
     (route_dir / "openroad-detailedrouting.log").write_text(
         "[INFO ANT-0002] Found 0 net violations.\n"
@@ -93,7 +93,7 @@ def test_signoff_gate_fails_closed_when_corner_report_is_missing(tmp_path):
 
 def test_signoff_gate_rejects_residual_antenna_violations(tmp_path):
     reports_dir = _make_reports(tmp_path)
-    route_dir = tmp_path / "44-openroad-detailedrouting"
+    route_dir = tmp_path / "45-openroad-detailedrouting"
     (route_dir / "openroad-detailedrouting.log").write_text(
         "[INFO ANT-0002] Found 2 net violations.\n"
         "[INFO ANT-0001] Found 1 pin violations.\n",
@@ -149,7 +149,7 @@ def test_signoff_gate_rejects_detailed_route_drc_error(tmp_path):
     reports_dir = _make_reports(tmp_path)
     metrics_path = (
         reports_dir.parent
-        / "44-openroad-detailedrouting"
+        / "45-openroad-detailedrouting"
         / "or_metrics_out.json"
     )
 
@@ -166,7 +166,7 @@ def test_signoff_gate_rejects_missing_antenna_metric(tmp_path):
     reports_dir = _make_reports(tmp_path)
     metrics_path = (
         reports_dir.parent
-        / "44-openroad-detailedrouting"
+        / "45-openroad-detailedrouting"
         / "or_metrics_out.json"
     )
 

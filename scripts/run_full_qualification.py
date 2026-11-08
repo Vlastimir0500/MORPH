@@ -328,7 +328,7 @@ class Qualification:
         if shutil.which("gh") is None:
             raise BlockedStage("GitHub CLI (gh) is required for --github-run-id")
 
-        metadata = self.command(
+        self.command(
             "github-run-metadata",
             [
                 "gh", "run", "view", str(self.args.github_run_id),
@@ -340,9 +340,9 @@ class Qualification:
             run = json.loads(metadata_path.read_text(encoding="utf-8"))
         except json.JSONDecodeError as exc:
             raise RuntimeError("gh run view did not return valid JSON") from exc
-        if run.get("status") != "completed" or run.get("conclusion") != "success":
+        if run.get("status") != "completed":
             raise RuntimeError(
-                "GitHub run is not fully successful: "
+                "GitHub Actions run has not completed: "
                 f"status={run.get('status')!r}, conclusion={run.get('conclusion')!r}"
             )
 
@@ -353,8 +353,6 @@ class Qualification:
             "gds": {"gds"},
             "precheck": {"precheck"},
             "gate-level-test": {"gate-level-test"},
-            # The workflow assigns this job a human-readable display name.
-            "physical-signoff": {"physical-signoff", "Final post-route physical gate"},
         }
         missing: list[str] = []
         failed: dict[str, Any] = {}
@@ -372,9 +370,25 @@ class Qualification:
                 }
         if missing or failed:
             raise RuntimeError(
-                "GitHub run is missing required successful qualification jobs: "
+                "GitHub run is missing required successful RTL/GDS qualification jobs: "
                 + json.dumps({"missing": missing, "not_successful": failed})
             )
+
+        signoff_matches = [
+            job for job in jobs
+            if job.get("name") in {"physical-signoff", "Final post-route physical gate"}
+        ]
+        signoff_job = signoff_matches[-1] if signoff_matches else None
+        self.github_run_summary = {
+            "run_id": self.args.github_run_id,
+            "url": run.get("url"),
+            "workflow_conclusion": run.get("conclusion"),
+            "physical_signoff_job": None if signoff_job is None else {
+                "name": signoff_job.get("name"),
+                "status": signoff_job.get("status"),
+                "conclusion": signoff_job.get("conclusion"),
+            },
+        }
 
         destination = self.build_dir / "gds-artifact"
         if destination.exists():
@@ -397,35 +411,68 @@ class Qualification:
                 return parent
         return None
 
+    @staticmethod
+    def find_unique_step_dir(run_root: Path, suffix: str) -> Path:
+        matches = sorted(
+            path for path in run_root.glob(f"*-{suffix}") if path.is_dir()
+        )
+        if len(matches) != 1:
+            raise RuntimeError(
+                f"expected exactly one *-{suffix} stage under {run_root}, found {len(matches)}"
+            )
+        return matches[0]
+
     def physical_gate(self) -> dict[str, Any]:
         downloaded_root = self.download_gds_artifact()
         reports_arg = self.args.reports_dir
+
         if reports_arg:
-            reports_dir = Path(reports_arg).expanduser().resolve()
-        elif downloaded_root:
-            reports_dir = downloaded_root / "runs" / "wokwi" / "55-openroad-stapostpnr"
+            requested_reports = Path(reports_arg).expanduser().resolve()
+            artifact_root = self.find_artifact_root(requested_reports)
+            if artifact_root is None:
+                raise BlockedStage(
+                    "Could not locate src/config_merged.json above --reports-dir; "
+                    "provide the full extracted GDS_logs artifact tree, not an isolated report folder."
+                )
         else:
-            reports_dir = self.root / "runs" / "wokwi" / "55-openroad-stapostpnr"
+            artifact_root = downloaded_root or self.root
 
-        if not reports_dir.is_dir():
-            raise BlockedStage(
-                f"Post-route reports not found at {reports_dir}. Supply --github-run-id <completed GDS run> "
-                "or --reports-dir <.../runs/wokwi/55-openroad-stapostpnr>."
-            )
+        run_root = artifact_root / "runs" / "wokwi"
 
-        artifact_root = self.find_artifact_root(reports_dir)
-        if artifact_root is None:
-            raise BlockedStage(
-                "Could not locate src/config_merged.json above the reports directory; "
-                "use the complete extracted GDS_logs artifact, not only the STA subfolder."
+        def one_step(suffix: str) -> Path:
+            matches = sorted(path for path in run_root.glob(f"*-{suffix}") if path.is_dir())
+            if len(matches) != 1:
+                raise BlockedStage(
+                    f"expected exactly one *-{suffix} stage under {run_root}, found {len(matches)}"
+                )
+            return matches[0]
+
+        floorplan_dir = one_step("openroad-floorplan")
+        antenna_dir = one_step("openroad-repairantennas")
+        repair_dir = one_step("openroad-repairdesignpostgrt")
+        detailed_dir = one_step("openroad-detailedrouting")
+        signoff_dir = one_step("openroad-stapostpnr")
+        reports_dir = signoff_dir
+        ordinal = lambda path: int(path.name.split("-", 1)[0])
+        if not (
+            ordinal(antenna_dir) < ordinal(repair_dir)
+            < ordinal(detailed_dir) < ordinal(signoff_dir)
+        ):
+            raise RuntimeError(
+                "Physical flow order must be RepairAntennas -> RepairDesignPostGRT -> "
+                "DetailedRouting -> STAPostPNR; found "
+                + repr([p.name for p in (antenna_dir, repair_dir, detailed_dir, signoff_dir)])
             )
 
         merged_path = artifact_root / "src" / "config_merged.json"
+        if not merged_path.is_file():
+            raise BlockedStage(f"Missing merged LibreLane configuration: {merged_path}")
         merged = json.loads(merged_path.read_text(encoding="utf-8"))
         expected = {
             "CTS_SINK_CLUSTERING_SIZE": 4,
             "PNR_SDC_FILE": "dir::morph_pnr.sdc",
             "SIGNOFF_SDC_FILE": "dir::morph_signoff.sdc",
+            "RUN_POST_GRT_DESIGN_REPAIR": True,
         }
         mismatches = {
             key: {"expected": value, "actual": merged.get(key)}
@@ -433,25 +480,43 @@ class Qualification:
             if merged.get(key) != value
         }
         if mismatches:
-            raise RuntimeError("Generated GDS merged config does not prove CTS4/custom SDC: " + json.dumps(mismatches))
+            raise RuntimeError(
+                "Generated GDS merged config does not prove CTS4/custom SDC/post-antenna repair: "
+                + json.dumps(mismatches)
+            )
 
-        pnr_cfg = artifact_root / "runs" / "wokwi" / "13-openroad-floorplan" / "config.json"
-        sta_cfg = artifact_root / "runs" / "wokwi" / "55-openroad-stapostpnr" / "config.json"
-        for path in (pnr_cfg, sta_cfg):
+        expected_substitutions = [
+            ["OpenROAD.RepairDesignPostGRT", None],
+            ["+OpenROAD.RepairAntennas", "OpenROAD.RepairDesignPostGRT"],
+        ]
+        meta = merged.get("meta") or {}
+        if meta.get("flow") != "Classic" or meta.get("substituting_steps") != expected_substitutions:
+            raise RuntimeError(
+                "Generated GDS config does not prove the intended post-antenna step substitution: "
+                + json.dumps(meta)
+            )
+
+        for filename in ("morph_pnr.sdc", "morph_signoff.sdc"):
+            if not (artifact_root / "src" / filename).is_file():
+                raise RuntimeError(f"GDS artifact is missing src/{filename}")
+
+        pnr_cfg = floorplan_dir / "config.json"
+        sta_cfg = signoff_dir / "config.json"
+        repair_cfg = repair_dir / "config.json"
+        for path in (pnr_cfg, sta_cfg, repair_cfg):
             if not path.is_file():
                 raise RuntimeError(f"Missing resolved LibreLane step configuration: {path}")
         pnr_json = json.loads(pnr_cfg.read_text(encoding="utf-8"))
         sta_json = json.loads(sta_cfg.read_text(encoding="utf-8"))
+        repair_json = json.loads(repair_cfg.read_text(encoding="utf-8"))
         pnr_sdc = str(pnr_json.get("PNR_SDC_FILE") or "").replace("\\", "/")
         signoff_sdc = str(sta_json.get("SIGNOFF_SDC_FILE") or "").replace("\\", "/")
         if not pnr_sdc.endswith("morph_pnr.sdc"):
             raise RuntimeError(f"Resolved PnR step did not load morph_pnr.sdc: {pnr_sdc!r}")
         if not signoff_sdc.endswith("morph_signoff.sdc"):
             raise RuntimeError(f"Resolved post-route STA step did not load morph_signoff.sdc: {signoff_sdc!r}")
-
-        for name in ("morph_pnr.sdc", "morph_signoff.sdc"):
-            if not (artifact_root / "src" / name).is_file():
-                raise RuntimeError(f"GDS artifact is missing src/{name}")
+        if (repair_json.get("meta") or {}).get("step") != "OpenROAD.RepairDesignPostGRT":
+            raise RuntimeError("Resolved post-antenna repair stage is not OpenROAD.RepairDesignPostGRT")
 
         checker = self.root / "scripts" / "check_physical_signoff.py"
         if not checker.is_file():
@@ -476,6 +541,8 @@ class Qualification:
             "resolved_pnr_sdc": pnr_sdc,
             "merged_signoff_sdc": merged.get("SIGNOFF_SDC_FILE"),
             "resolved_signoff_sdc": signoff_sdc,
+            "post_antenna_repair_stage": str(repair_dir.relative_to(artifact_root)),
+            "github_run": getattr(self, "github_run_summary", {}),
             "signoff_checker": command,
             "signoff_report": str(physical_report.relative_to(self.root)),
             "signoff_report_status": report_json.get("status", "checker-exit-0"),
@@ -547,7 +614,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--reports-dir", type=Path,
-        help="Existing runs/wokwi/55-openroad-stapostpnr directory from an extracted GDS_logs artifact.",
+        help="Existing final *-openroad-stapostpnr directory from an extracted GDS_logs artifact.",
     )
     parser.add_argument(
         "--output", default="build/qualification/qualification-report.json",

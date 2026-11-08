@@ -154,54 +154,81 @@ jobs:
           name: GDS_logs
           path: .
 
-      - name: Verify applied physical configuration
+      - name: Verify applied flow order and physical configuration
         run: |
           python3 - <<'PYCFG'
           import json
           from pathlib import Path
 
+          root = Path("runs/wokwi")
           config = json.loads(Path("src/config_merged.json").read_text())
           expected = {
               "PNR_SDC_FILE": "dir::morph_pnr.sdc",
               "SIGNOFF_SDC_FILE": "dir::morph_signoff.sdc",
               "CTS_SINK_CLUSTERING_SIZE": 4,
+              "RUN_POST_GRT_DESIGN_REPAIR": True,
           }
-
           for key, value in expected.items():
               if config.get(key) != value:
                   raise SystemExit(f"{key}: expected {value!r}, got {config.get(key)!r}")
 
+          meta = config.get("meta") or {}
+          expected_substitutions = [
+              ["OpenROAD.RepairDesignPostGRT", None],
+              ["+OpenROAD.RepairAntennas", "OpenROAD.RepairDesignPostGRT"],
+          ]
+          if meta.get("flow") != "Classic":
+              raise SystemExit(f"Expected LibreLane Classic flow, got {meta.get('flow')!r}")
+          if meta.get("substituting_steps") != expected_substitutions:
+              raise SystemExit(
+                  "Unexpected post-antenna flow substitution: "
+                  + repr(meta.get("substituting_steps"))
+              )
+
+          def one_step(suffix):
+              matches = sorted(p for p in root.glob(f"*-{suffix}") if p.is_dir())
+              if len(matches) != 1:
+                  raise SystemExit(f"Expected one *-{suffix} stage, found {len(matches)}")
+              return matches[0]
+
+          floorplan = one_step("openroad-floorplan")
+          antenna = one_step("openroad-repairantennas")
+          repair = one_step("openroad-repairdesignpostgrt")
+          detailed = one_step("openroad-detailedrouting")
+          signoff = one_step("openroad-stapostpnr")
+          ordinal = lambda p: int(p.name.split("-", 1)[0])
+          if not (ordinal(antenna) < ordinal(repair) < ordinal(detailed) < ordinal(signoff)):
+              raise SystemExit(
+                  "Required order is RepairAntennas -> RepairDesignPostGRT -> "
+                  "DetailedRouting -> STAPostPNR; got "
+                  + repr([p.name for p in (antenna, repair, detailed, signoff)])
+              )
+
+          repair_config = json.loads((repair / "config.json").read_text())
+          if (repair_config.get("meta") or {}).get("step") != "OpenROAD.RepairDesignPostGRT":
+              raise SystemExit("The post-antenna design-repair stage did not resolve to OpenROAD.RepairDesignPostGRT")
+
           for filename in ("morph_pnr.sdc", "morph_signoff.sdc"):
               if not Path("src", filename).is_file():
                   raise SystemExit(f"Missing SDC file: {filename}")
-
-          # Verify the PnR SDC reached the implementation configuration.
-          pnr = json.loads(
-              Path("runs/wokwi/13-openroad-floorplan/config.json").read_text()
-          )
+          pnr = json.loads((floorplan / "config.json").read_text())
           pnr_sdc = str(pnr.get("PNR_SDC_FILE") or "").replace("\\", "/")
           if not pnr_sdc.endswith("morph_pnr.sdc"):
               raise SystemExit(f"PnR SDC was not applied: {pnr_sdc!r}")
-
-          # Verify the signoff SDC reached final post-route STA.
-          signoff = json.loads(
-              Path("runs/wokwi/55-openroad-stapostpnr/config.json").read_text()
-          )
-          signoff_sdc = str(
-              signoff.get("SIGNOFF_SDC_FILE") or ""
-          ).replace("\\", "/")
+          signoff_cfg = json.loads((signoff / "config.json").read_text())
+          signoff_sdc = str(signoff_cfg.get("SIGNOFF_SDC_FILE") or "").replace("\\", "/")
           if not signoff_sdc.endswith("morph_signoff.sdc"):
-              raise SystemExit(
-                  f"Signoff SDC was not applied: {signoff_sdc!r}"
-              )
+              raise SystemExit(f"Signoff SDC was not applied: {signoff_sdc!r}")
 
-          print("Merged, PnR and signoff SDC configurations verified.")
+          print("CTS4, custom SDCs, and post-antenna fanout-repair ordering verified.")
           PYCFG
 
       - name: Enforce final physical signoff reports
         run: |
+          REPORTS_DIR="$(find runs/wokwi -maxdepth 1 -type d -name '*-openroad-stapostpnr' -print -quit)"
+          test -n "$REPORTS_DIR"
           python3 scripts/check_physical_signoff.py \
-            --reports-dir runs/wokwi/55-openroad-stapostpnr \
+            --reports-dir "$REPORTS_DIR" \
             --report-json build/physical-signoff-gate.json
 
       - name: Publish physical signoff gate report

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Fail the MORPH physical-design job on final post-route electrical/timing violations.
 
-The TinyTapeout/LibreLane flow can finish its GDS generation while the final
-parasitic STA reports still contain max-fanout, max-slew, max-capacitance, setup,
-or hold violations.  This gate reads the *final* 55-openroad-stapostpnr reports,
-not intermediate pre-antenna-repair reports.
+The TinyTapeout/LibreLane flow can finish GDS generation while final parasitic
+STA reports still contain max-fanout, max-slew, max-capacitance, setup, or hold
+violations. This gate discovers the final post-PNR STA and detailed-routing stages
+by their step IDs, so flow-step substitutions do not break report discovery.
 """
 
 from __future__ import annotations
@@ -101,10 +101,18 @@ def check_signoff_directory(reports_dir: Path) -> dict[str, Any]:
     results: dict[str, Any] = {}
     failures: list[str] = []
 
-    # Detailed routing performs a second antenna-repair pass after global routing.
-    # That pass can add diode loads after intermediate timing repair has completed,
-    # so validate its *final* metrics as well as the later parasitic STA reports.
-    route_dir = reports_dir.parent / "44-openroad-detailedrouting"
+    # Detailed routing performs a second antenna check after global routing.
+    # Discover the stage by its step ID rather than assuming a fixed ordinal: the
+    # project deliberately moves post-GRT design repair to after antenna repair.
+    route_dirs = sorted(
+        path for path in reports_dir.parent.glob("*-openroad-detailedrouting")
+        if path.is_dir()
+    )
+    if len(route_dirs) != 1:
+        raise SignoffReportError(
+            f"expected exactly one *-openroad-detailedrouting stage beside {reports_dir}, found {len(route_dirs)}"
+        )
+    route_dir = route_dirs[0]
     route_log_path = route_dir / "openroad-detailedrouting.log"
     route_metrics_path = route_dir / "or_metrics_out.json"
     route_log = _read_text(route_log_path)
@@ -179,8 +187,8 @@ def main() -> int:
     parser.add_argument(
         "--reports-dir",
         type=Path,
-        default=Path("runs/wokwi/55-openroad-stapostpnr"),
-        help="final post-PNR STA report directory",
+        default=None,
+        help="final post-PNR STA report directory (auto-discovered under runs/wokwi when omitted)",
     )
     parser.add_argument(
         "--report-json",
@@ -190,12 +198,24 @@ def main() -> int:
     )
     args = parser.parse_args()
 
+    reports_dir = args.reports_dir
     try:
-        result = check_signoff_directory(args.reports_dir)
+        if reports_dir is None:
+            run_root = Path("runs/wokwi")
+            candidates = sorted(
+                path for path in run_root.glob("*-openroad-stapostpnr")
+                if path.is_dir()
+            )
+            if len(candidates) != 1:
+                raise SignoffReportError(
+                    f"expected exactly one *-openroad-stapostpnr stage under {run_root}, found {len(candidates)}"
+                )
+            reports_dir = candidates[0]
+        result = check_signoff_directory(reports_dir)
     except (SignoffReportError, json.JSONDecodeError) as exc:
         result = {
             "status": "ERROR",
-            "reports_dir": str(args.reports_dir),
+            "reports_dir": str(reports_dir or Path("runs/wokwi")),
             "failures": [str(exc)],
         }
 
