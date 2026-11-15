@@ -165,7 +165,7 @@ jobs:
           expected = {
               "PNR_SDC_FILE": "dir::morph_pnr.sdc",
               "SIGNOFF_SDC_FILE": "dir::morph_signoff.sdc",
-              "CTS_SINK_CLUSTERING_SIZE": 4,
+              "CTS_SINK_CLUSTERING_SIZE": 8,
               "RUN_POST_GRT_DESIGN_REPAIR": True,
           }
           for key, value in expected.items():
