@@ -136,7 +136,7 @@ jobs:
           cp tinytapeout-template-v2/LICENSE LICENSE
           cmp rtl/morph_engine_v2.sv src/morph_engine.sv
 
-      - uses: TinyTapeout/tt-gds-action@ihp-cmos5l
+      - uses: TinyTapeout/tt-gds-action@ttihp27a
         with:
           pdk: ihp-sg13cmos5l
 
@@ -243,7 +243,7 @@ jobs:
     needs: gds
     runs-on: ubuntu-24.04
     steps:
-      - uses: TinyTapeout/tt-gds-action/precheck@ihp-cmos5l
+      - uses: TinyTapeout/tt-gds-action/precheck@ttihp27a
 
   gate-level-test:
     needs: gds
@@ -272,4 +272,4 @@ jobs:
           test -f test/test.py
           cmp rtl/morph_engine_v2.sv src/morph_engine.sv
 
-      - uses: TinyTapeout/tt-gds-action/gl_test@ihp-cmos5l
+      - uses: TinyTapeout/tt-gds-action/gl_test@ttihp27a
