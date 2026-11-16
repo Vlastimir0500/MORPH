@@ -166,6 +166,7 @@ jobs:
               "PNR_SDC_FILE": "dir::morph_pnr.sdc",
               "SIGNOFF_SDC_FILE": "dir::morph_signoff.sdc",
               "CTS_SINK_CLUSTERING_SIZE": 4,
+              "CTS_DISTANCE_BETWEEN_BUFFERS": 36,
               "RUN_POST_GRT_DESIGN_REPAIR": True,
           }
           if config.get("CTS_SINK_CLUSTERING_ENABLE") is not None:
@@ -193,6 +194,13 @@ jobs:
                   raise SystemExit(f"Expected one *-{suffix} stage, found {len(matches)}")
               return matches[0]
 
+          cts = one_step("openroad-cts")
+          cts_config = json.loads((cts / "config.json").read_text())
+          if cts_config.get("CTS_DISTANCE_BETWEEN_BUFFERS") != 36:
+              raise SystemExit("CTS step did not receive the 36um buffer-distance setting")
+          cts_log = (cts / "openroad-cts.log").read_text()
+          if "-distance_between_buffers 36" not in cts_log:
+              raise SystemExit("OpenROAD CTS did not apply the 36um buffer distance")
           floorplan = one_step("openroad-floorplan")
           antenna = one_step("openroad-repairantennas")
           repair = one_step("openroad-repairdesignpostgrt")
