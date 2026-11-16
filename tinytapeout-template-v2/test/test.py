@@ -816,3 +816,59 @@ async def test_spi_mode2_a5_waveform(dut):
 @cocotb.test()
 async def test_spi_mode3_a5_waveform(dut):
     await run_spi_mode_tx(dut, 3, 0xA5)
+
+
+@cocotb.test()
+async def test_reprogram_reset_and_output_gating(dut):
+    await initialize(dut)
+
+    await write_word(dut, 0, 0x1001)
+    await write_word(dut, 1, 0x0000)
+    await start_program(dut)
+
+    await ClockCycles(dut.clk, 2)
+    await Timer(1, unit="ns")
+
+    assert int(dut.uio_oe.value) == 0x01
+    assert int(dut.uio_out.value) & 0x01
+
+    dut.ena.value = 0
+    await Timer(1, unit="ns")
+
+    assert int(dut.uio_oe.value) == 0
+
+    dut.ena.value = 1
+    await Timer(1, unit="ns")
+
+    assert int(dut.uio_oe.value) == 0x01
+
+    dut.ui_in.value = 0x80
+    await Timer(1, unit="ns")
+
+    assert int(dut.uio_oe.value) == 0
+
+    await write_word(dut, 0, 0x1201)
+    await write_word(dut, 1, 0x0000)
+    await start_program(dut)
+
+    await ClockCycles(dut.clk, 2)
+    await Timer(1, unit="ns")
+
+    assert int(dut.uio_oe.value) == 0x04
+    assert int(dut.uio_out.value) & 0x04
+
+    dut.rst_n.value = 0
+    await Timer(1, unit="ns")
+
+    assert int(dut.uio_oe.value) == 0
+
+    await ClockCycles(dut.clk, 2)
+    await Timer(1, unit="ns")
+
+    dut.rst_n.value = 1
+
+    await ClockCycles(dut.clk, 2)
+    await Timer(1, unit="ns")
+
+    assert int(dut.uio_oe.value) == 0x04
+    assert int(dut.uio_out.value) & 0x04
