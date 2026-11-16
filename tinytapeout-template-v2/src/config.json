@@ -47,5 +47,5 @@
       ]
     ]
   },
-  "CTS_SINK_CLUSTERING_ENABLE": true
+  "CTS_SINK_CLUSTERING_SIZE": 4
 }
