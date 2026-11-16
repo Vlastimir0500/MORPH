@@ -1,0 +1,16 @@
+[options]
+mode prove
+timeout 300
+
+[engines]
+abc pdr
+
+[script]
+read -formal -sv morph_engine_v2.sv project.v morph_formal_gating.sv
+prep -top morph_formal_gating -flatten
+chformal -lower
+
+[files]
+rtl/morph_engine_v2.sv
+tinytapeout-template-v2/src/project.v
+formal/qualification/morph_formal_gating.sv

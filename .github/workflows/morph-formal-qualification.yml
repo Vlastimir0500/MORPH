@@ -1,0 +1,45 @@
+name: MORPH V2 Formal Qualification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  formal-qualification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: YosysHQ/setup-oss-cad-suite@v4
+        with:
+          github-token: ${{ github.token }}
+
+      - name: Verify protected production design
+        run: |
+          echo 'ebaad3f79ba71e2f958133a92d7d24a269396c161d89b4f51fda201d0895de98  rtl/morph_engine_v2.sv' | sha256sum -c -
+          echo '5a61cb59f5ccfabe6c10e92fc70b94a8bf3da34a136b76e1cc6e07adecb2ac5a  protocols/v2_uart_rx_a6.hex' | sha256sum -c -
+          cmp rtl/morph_engine_v2.sv tinytapeout-template-v2/src/morph_engine.sv
+
+      - name: Prove MORPH safety invariants
+        run: bash formal/qualification/run.sh
+
+      - name: Publish formal proof logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: morph-v2-formal-proofs
+          path: |
+            build/formal/gating/logfile.txt
+            build/formal/gating/status
+            build/formal/gating/engine_0/logfile.txt
+            build/formal/fault/logfile.txt
+            build/formal/fault/status
+            build/formal/fault/engine_0/logfile.txt
+          if-no-files-found: warn

@@ -1,0 +1,15 @@
+[options]
+mode prove
+timeout 300
+
+[engines]
+abc pdr
+
+[script]
+read -formal -sv morph_engine_v2.sv morph_formal_fault.sv
+prep -top morph_formal_fault -flatten
+chformal -lower
+
+[files]
+rtl/morph_engine_v2.sv
+formal/qualification/morph_formal_fault.sv
