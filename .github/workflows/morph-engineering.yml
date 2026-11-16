@@ -165,9 +165,11 @@ jobs:
           expected = {
               "PNR_SDC_FILE": "dir::morph_pnr.sdc",
               "SIGNOFF_SDC_FILE": "dir::morph_signoff.sdc",
-              "CTS_SINK_CLUSTERING_SIZE": 8,
+              "CTS_SINK_CLUSTERING_ENABLE": True,
               "RUN_POST_GRT_DESIGN_REPAIR": True,
           }
+          if config.get("CTS_SINK_CLUSTERING_SIZE") is not None:
+              raise SystemExit("CTS clustering should be automatic")
           for key, value in expected.items():
               if config.get(key) != value:
                   raise SystemExit(f"{key}: expected {value!r}, got {config.get(key)!r}")
@@ -220,7 +222,7 @@ jobs:
           if not signoff_sdc.endswith("morph_signoff.sdc"):
               raise SystemExit(f"Signoff SDC was not applied: {signoff_sdc!r}")
 
-          print("CTS4, custom SDCs, and post-antenna fanout-repair ordering verified.")
+          print("CTS-auto, custom SDCs, and post-antenna fanout-repair ordering verified.")
           PYCFG
 
       - name: Enforce final physical signoff reports
