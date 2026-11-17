@@ -6,7 +6,7 @@ SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v morph_engine.sv
+PROJECT_SOURCES = project.v morph_engine.sv morph_x_trace_capture.sv
 
 ifneq ($(GATES),yes)
 

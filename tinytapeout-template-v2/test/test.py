@@ -872,3 +872,70 @@ async def test_reprogram_reset_and_output_gating(dut):
 
     assert int(dut.uio_oe.value) == 0x04
     assert int(dut.uio_out.value) & 0x04
+
+
+@cocotb.test()
+async def test_morph_x_capture_timestamp_and_readback(dut):
+    await initialize(dut)
+    await write_word(dut, 0, 0x0000)
+    await start_program(dut, pin_value=0x00)
+    await ClockCycles(dut.clk, 6)
+    await Timer(1, unit="ns")
+
+    dut.uio_in.value = 0x01
+    await ClockCycles(dut.clk, 5)
+    await Timer(1, unit="ns")
+    dut.uio_in.value = 0x03
+    await ClockCycles(dut.clk, 5)
+    await Timer(1, unit="ns")
+
+    dut.ui_in.value = 0x60
+    await Timer(1, unit="ns")
+    status = int(dut.uo_out.value)
+    assert status & 0x0F == 2, f"Expected two edges, status=0x{status:02X}"
+    assert status & 0x10 == 0
+
+    def select(slot, page):
+        return 0x40 | (page << 3) | slot
+
+    values = []
+    for slot in (0, 1):
+        record = []
+        for page in range(4):
+            dut.ui_in.value = select(slot, page)
+            await Timer(1, unit="ns")
+            record.append(int(dut.uo_out.value))
+        values.append(record)
+    assert values[0][:2] == [0x01, 0x01], f"First event: {values[0]}"
+    assert values[1][:2] == [0x03, 0x02], f"Second event: {values[1]}"
+    first_time = values[0][2] | (values[0][3] << 8)
+    second_time = values[1][2] | (values[1][3] << 8)
+    assert 0 < (second_time - first_time) & 0xFFFF <= 6
+    assert int(dut.uio_oe.value) == 0
+
+
+@cocotb.test()
+async def test_morph_x_trace_overflow_and_reset(dut):
+    await initialize(dut)
+    await write_word(dut, 0, 0x0000)
+    await start_program(dut, pin_value=0x00)
+    await ClockCycles(dut.clk, 6)
+    await Timer(1, unit="ns")
+
+    for n in range(9):
+        dut.uio_in.value = (n + 1) & 1
+        await ClockCycles(dut.clk, 5)
+        await Timer(1, unit="ns")
+
+    dut.ui_in.value = 0x60
+    await Timer(1, unit="ns")
+    status = int(dut.uo_out.value)
+    assert status & 0x0F == 8, f"Count did not saturate: {status:02X}"
+    assert status & 0x20, "Full bit missing"
+    assert status & 0x10, "Overflow bit missing"
+
+    dut.rst_n.value = 0
+    await ClockCycles(dut.clk, 2)
+    await Timer(1, unit="ns")
+    status = int(dut.uo_out.value)
+    assert status & 0x3F == 0, f"Reset did not clear trace: {status:02X}"

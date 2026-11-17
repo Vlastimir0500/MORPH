@@ -6,11 +6,12 @@ timeout 300
 abc pdr
 
 [script]
-read -formal -sv morph_engine_v2.sv project.v morph_formal_gating.sv
+read -formal -sv morph_engine_v2.sv morph_x_trace_capture.sv project.v morph_formal_gating.sv
 prep -top morph_formal_gating -flatten
 chformal -lower
 
 [files]
 rtl/morph_engine_v2.sv
 tinytapeout-template-v2/src/project.v
+tinytapeout-template-v2/src/morph_x_trace_capture.sv
 formal/qualification/morph_formal_gating.sv
