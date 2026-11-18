@@ -92,3 +92,26 @@ AI-assisted work is part of the engineering workflow. Generated changes are
 reviewed and validated with executable tests and physical reports, and the
 competition submission should disclose AI assistance accurately. Fabrication
 and actual silicon measurements have not taken place.
+
+<!-- MORPH_X_M6_V07_START -->
+## MORPH X: reproducibility and release qualification (M6)
+
+MORPH X adds bounded digital-event capture/readback, host-compiled single-
+and multi-pin temporal replay, and independent protocol-neutral waveform
+verification to the frozen V2 hardware engine. The M6 source audit and
+release-evidence requirements are documented in
+[`docs/MORPH_X_M6_RELEASE_CHECKLIST.md`](docs/MORPH_X_M6_RELEASE_CHECKLIST.md).
+
+Run `python3 scripts/morph_x_m6_release.py audit --strict` to check the
+protected V2 hashes, TinyTapeout source list, CI gates, and source inventory.
+The audit is read-only; it classifies legacy/backups artifacts for separate
+review and **does not delete files**. The release is qualified only by a
+successful exact-commit GitHub engineering/formal run and by the repository's
+existing full qualification runner against the same commit's physical reports.
+
+The limits are explicit in
+[`docs/MORPH_X_M6_LIMITATIONS.md`](docs/MORPH_X_M6_LIMITATIONS.md):
+8 capture events, non-simultaneous output transitions only, no autonomous
+protocol semantics, and no claimed blind external evaluation or fabricated
+silicon measurements.
+<!-- MORPH_X_M6_V07_END -->

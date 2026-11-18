@@ -40,6 +40,9 @@ jobs:
       - name: Run V2 temporal contract and emit evidence
         run: python compiler/morph_contract_v2.py protocols/v2_edge_timed_release.contract.json -o build/v2_edge_timed_release.contract-report.json -a build/v2_edge_timed_release.generated.morph
 
+      - name: M6 frozen-source and reproducibility audit
+        run: python3 scripts/morph_x_m6_release.py audit --strict
+
       - name: Run software and RTL differential regressions
         run: python -m pytest -q sim
 
