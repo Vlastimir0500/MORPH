@@ -939,3 +939,117 @@ async def test_morph_x_trace_overflow_and_reset(dut):
     await Timer(1, unit="ns")
     status = int(dut.uo_out.value)
     assert status & 0x3F == 0, f"Reset did not clear trace: {status:02X}"
+
+# MORPH X M3: true top-level pin capture -> readback -> compiler -> replay.
+# MORPH_X_E2E_V04_BEGIN
+async def morph_x_e2e_roundtrip(dut, pin, with_noise):
+    from morph_x_host import read_capture_async
+    from morph_x_replay import capture_to_ir, compile_and_verify
+    from morph_x_trace import decode_capture
+
+    await initialize(dut)
+    await write_word(dut, 0, 0x0000)  # HALT while capturing; no protocol pins driven
+    await start_program(dut, pin_value=0)
+    await ClockCycles(dut.clk, 6)
+    await Timer(1, unit="ns")
+
+    selected = 1 << pin
+    other = 1 << ((pin + 3) % 8)
+    if with_noise:
+        # An unrelated input transition between selected-pin transitions:
+        # pin timeline: high@0, low@6, high@12.
+        stimulus = [(0, selected), (4, selected | other),
+                    (6, other), (12, selected | other)]
+    else:
+        stimulus = [(0, selected), (6, 0), (12, selected)]
+
+    prev = 0
+    for tick, level in stimulus:
+        if tick > prev:
+            await ClockCycles(dut.clk, tick - prev)
+            await Timer(1, unit="ns")
+        dut.uio_in.value = level
+        await Timer(1, unit="ns")
+        prev = tick
+
+    # Two synchronizer stages plus record bookkeeping must settle.
+    await ClockCycles(dut.clk, 6)
+    await Timer(1, unit="ns")
+
+    async def read_register(ui_value):
+        dut.ui_in.value = ui_value
+        await Timer(1, unit="ns")
+        return int(dut.uo_out.value)
+
+    frame = await read_capture_async(read_register)
+    decoded = decode_capture(frame)
+    assert decoded["count"] == len(stimulus), (
+        f"capture missed events: {decoded!r}"
+    )
+    assert not decoded["overflow"], "Unexpected capture overflow"
+    assert [e["changed"] for e in decoded["events"]] == [
+        selected if (a == 0 or not with_noise or a >= 2) else other
+        for a in range(len(stimulus))
+    ], "capture event pin masks do not match physical input changes"
+
+    ir = capture_to_ir(frame, pin)
+    expected = [
+        {"cycle": 0, "value": 1},
+        {"cycle": 6, "value": 0},
+        {"cycle": 12, "value": 1},
+    ]
+    assert ir["events"] == expected, f"captured schedule: {ir['events']!r}"
+    generated = compile_and_verify(ir)
+    words = [int(line, 16) for line in generated["hex"].splitlines()]
+    assert len(words) <= 64
+    assert generated["report"]["verification"]["model_verified"] is True
+    assert not int(dut.uio_oe.value), "Capture-only HALT should not drive pins"
+
+    # Real chip loader: assert ui_in[7] and load each 16-bit instruction in
+    # the same two byte writes used by the existing 24 Cocotb tests.
+    for address, word in enumerate(words):
+        await write_word(dut, address, word)
+    await start_program(dut, pin_value=0)
+
+    observed = []
+    previous_level = None
+    released = False
+    for tick in range(160):
+        await RisingEdge(dut.clk)
+        await Timer(1, unit="ns")
+        oe = int(dut.uio_oe.value)
+        value = int(dut.uio_out.value)
+        assert oe & ~selected == 0, f"unexpected enabled pin(s): 0x{oe:02X}"
+        if oe & selected:
+            level = 1 if value & selected else 0
+            if previous_level is None or level != previous_level:
+                observed.append({"cycle": tick, "value": level})
+                previous_level = level
+        elif observed:
+            released = True
+            break
+
+    assert released, "replay did not release its output pin"
+    relative = [
+        {"cycle": e["cycle"] - observed[0]["cycle"], "value": e["value"]}
+        for e in observed
+    ]
+    assert relative == expected, f"top-level replay mismatch: {relative!r}"
+    await ClockCycles(dut.clk, 6)
+    await Timer(1, unit="ns")
+    assert int(dut.uio_oe.value) == 0, "pins re-enabled after release"
+    dut._log.info(
+        "MORPH X TOP E2E PASS pin=%d noisy=%s captured=%d words=%d transitions=%s",
+        pin, with_noise, decoded["count"], len(words), relative,
+    )
+
+
+@cocotb.test()
+async def test_morph_x_end_to_end_pin0(dut):
+    await morph_x_e2e_roundtrip(dut, pin=0, with_noise=False)
+
+
+@cocotb.test()
+async def test_morph_x_end_to_end_pin5_background_traffic(dut):
+    await morph_x_e2e_roundtrip(dut, pin=5, with_noise=True)
+# MORPH_X_E2E_V04_END
