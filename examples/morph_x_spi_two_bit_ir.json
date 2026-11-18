@@ -1,0 +1,51 @@
+{
+  "schema": "morph-x.multi-pin-ir.v1",
+  "clock_hz": 50000000,
+  "pins": [
+    0,
+    1,
+    2
+  ],
+  "events": [
+    {
+      "cycle": 0,
+      "pin": 2,
+      "value": 0
+    },
+    {
+      "cycle": 4,
+      "pin": 1,
+      "value": 1
+    },
+    {
+      "cycle": 8,
+      "pin": 0,
+      "value": 1
+    },
+    {
+      "cycle": 12,
+      "pin": 0,
+      "value": 0
+    },
+    {
+      "cycle": 16,
+      "pin": 1,
+      "value": 0
+    },
+    {
+      "cycle": 20,
+      "pin": 0,
+      "value": 1
+    },
+    {
+      "cycle": 24,
+      "pin": 0,
+      "value": 0
+    },
+    {
+      "cycle": 28,
+      "pin": 2,
+      "value": 1
+    }
+  ]
+}

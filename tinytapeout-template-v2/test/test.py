@@ -1053,3 +1053,111 @@ async def test_morph_x_end_to_end_pin0(dut):
 async def test_morph_x_end_to_end_pin5_background_traffic(dut):
     await morph_x_e2e_roundtrip(dut, pin=5, with_noise=True)
 # MORPH_X_E2E_V04_END
+
+
+# MORPH X M4: cross-pin capture-to-firmware and protocol choreography.
+# MORPH_X_MULTIPIN_V05_BEGIN
+async def morph_x_m4_observe_replay(dut, ir, words):
+    from cocotb.triggers import RisingEdge, Timer
+
+    for addr, word in enumerate(words):
+        await write_word(dut, addr, word)
+    await start_program(dut, pin_value=0)
+
+    selected = sum(1 << pin for pin in ir["pins"])
+    previous = {}
+    observed = []
+    release_complete = False
+    for tick in range(700):
+        await RisingEdge(dut.clk)
+        await Timer(1, unit="ns")
+        oe = int(dut.uio_oe.value)
+        out = int(dut.uio_out.value)
+        assert (oe & ~selected) == 0, f"M4 enabled undeclared pins: 0x{oe:02X}"
+        for pin in ir["pins"]:
+            if oe & (1 << pin):
+                value = (out >> pin) & 1
+                if pin not in previous or previous[pin] != value:
+                    observed.append({"cycle": tick, "pin": pin, "value": value})
+                    previous[pin] = value
+        if len(observed) >= len(ir["events"]) and oe == 0:
+            release_complete = True
+            break
+
+    assert release_complete, "M4 firmware did not release all output pins"
+    assert len(observed) == len(ir["events"]), f"M4 replay count mismatch: {observed!r}"
+    relative = [{**e, "cycle": e["cycle"] - observed[0]["cycle"]} for e in observed]
+    assert relative == ir["events"], (
+        f"M4 top-level replay drift: requested={ir['events']!r} observed={relative!r}"
+    )
+    await ClockCycles(dut.clk, 4)
+    await Timer(1, unit="ns")
+    assert int(dut.uio_oe.value) == 0, "M4 pins did not remain released"
+    return relative
+
+
+@cocotb.test()
+async def test_morph_x_m4_two_pin_real_capture_and_replay(dut):
+    from morph_x_host import read_capture_async
+    from morph_x_multireplay import capture_to_multi_ir, compile_and_verify_multi
+    from morph_x_trace import decode_capture
+
+    await initialize(dut)
+    await write_word(dut, 0, 0x0000)  # Baseline HALT; capture-only mode
+    await start_program(dut, pin_value=0)
+    await ClockCycles(dut.clk, 6)
+    await Timer(1, unit="ns")
+
+    # Exactly eight distinct 6-cycle-spaced edges across two signal pins.
+    input_levels = [1, 3, 2, 0, 1, 3, 2, 0]
+    for i, level in enumerate(input_levels):
+        if i:
+            await ClockCycles(dut.clk, 6)
+            await Timer(1, unit="ns")
+        dut.uio_in.value = level
+        await Timer(1, unit="ns")
+    await ClockCycles(dut.clk, 6)
+    await Timer(1, unit="ns")
+
+    async def read_register(address):
+        dut.ui_in.value = address
+        await Timer(1, unit="ns")
+        return int(dut.uo_out.value)
+
+    frame = await read_capture_async(read_register)
+    decoded = decode_capture(frame)
+    assert decoded["count"] == 8 and decoded["full"]
+    assert not decoded["overflow"]
+    ir = capture_to_multi_ir(frame, [0, 1])
+    assert [e["cycle"] for e in ir["events"]] == list(range(0, 48, 6))
+
+    generated = compile_and_verify_multi(ir)
+    assert generated["report"]["verification"]["model_verified"]
+    words = [int(w, 16) for w in generated["hex"].splitlines()]
+    assert len(words) == 18
+    assert int(dut.uio_oe.value) == 0
+    observed = await morph_x_m4_observe_replay(dut, ir, words)
+    dut._log.info("MORPH X M4 TOP E2E PASS pins=[0,1] captures=8 words=%d events=%s", len(words), observed)
+
+
+@cocotb.test()
+async def test_morph_x_m4_three_pin_spi_like_sequence(dut):
+    from morph_x_multireplay import SCHEMA, compile_and_verify_multi
+
+    ir = {
+        "schema": SCHEMA, "clock_hz": 50_000_000, "pins": [0, 1, 2],
+        "events": [
+            {"cycle": tick, "pin": pin, "value": value}
+            for tick, pin, value in [
+                (0, 2, 0), (4, 1, 1), (8, 0, 1), (12, 0, 0),
+                (16, 1, 0), (20, 0, 1), (24, 0, 0), (28, 2, 1),
+            ]
+        ],
+    }
+    generated = compile_and_verify_multi(ir)
+    words = [int(w, 16) for w in generated["hex"].splitlines()]
+    assert len(words) == 19
+    await initialize(dut)
+    observed = await morph_x_m4_observe_replay(dut, ir, words)
+    dut._log.info("MORPH X M4 SPI-LIKE PASS pins=[0,1,2] words=%d events=%s", len(words), observed)
+# MORPH_X_MULTIPIN_V05_END
