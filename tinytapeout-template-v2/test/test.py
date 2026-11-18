@@ -1161,3 +1161,99 @@ async def test_morph_x_m4_three_pin_spi_like_sequence(dut):
     observed = await morph_x_m4_observe_replay(dut, ir, words)
     dut._log.info("MORPH X M4 SPI-LIKE PASS pins=[0,1,2] words=%d events=%s", len(words), observed)
 # MORPH_X_MULTIPIN_V05_END
+
+# MORPH X M5: protocol-neutral challenge, external oracle and four-line replay.
+# MORPH_X_PROTOCOL_ZERO_V06_BEGIN
+async def morph_x_m5_real_capture_challenge(dut, spec):
+    """One independent test stimulus -> real trace -> firmware -> actual uio outputs."""
+    from morph_x_host import read_capture_async
+    from morph_x_multireplay import compile_and_verify_multi
+    from morph_x_protocol_zero import (
+        validate_spec, spec_to_ir, compare_capture_to_spec,
+        judge_observation, make_observation,
+    )
+
+    validate_spec(spec)
+    assert spec["initial_levels"] == 0, "M5 top-level self-tests start with low inputs"
+    assert len(spec["events"]) <= 8
+    await initialize(dut)
+    await write_word(dut, 0, 0x0000)  # Capturing with HALT firmware.
+    await start_program(dut, pin_value=spec["initial_levels"])
+    await ClockCycles(dut.clk, 6)
+    await Timer(1, unit="ns")
+
+    levels = spec["initial_levels"]
+    last_cycle = 0
+    for i, event in enumerate(spec["events"]):
+        assert not i or event["cycle"] > last_cycle, "No coincident edges in supported V2 profile"
+        if i:
+            await ClockCycles(dut.clk, event["cycle"] - last_cycle)
+            await Timer(1, unit="ns")
+        bit = 1 << event["pin"]
+        levels = (levels & ~bit) | (event["value"] << event["pin"])
+        dut.uio_in.value = levels
+        await Timer(1, unit="ns")
+        last_cycle = event["cycle"]
+    await ClockCycles(dut.clk, 6)
+    await Timer(1, unit="ns")
+
+    async def read_register(address):
+        dut.ui_in.value = address
+        await Timer(1, unit="ns")
+        return int(dut.uo_out.value)
+
+    frame = await read_capture_async(read_register)
+    capture_report = compare_capture_to_spec(frame, spec)
+    assert capture_report["capture_verified"]
+    assert capture_report["event_count"] == len(spec["events"])
+    ir = spec_to_ir(spec)
+    generated = compile_and_verify_multi(ir)
+    words = [int(w, 16) for w in generated["hex"].splitlines()]
+    observed = await morph_x_m4_observe_replay(dut, ir, words)
+    verdict = judge_observation(spec, make_observation(
+        spec, observed, source="rtl-top", released=int(dut.uio_oe.value) == 0
+    ))
+    assert verdict["accepted"], f"M5 oracle rejected observed top-level transitions: {verdict}"
+    assert not verdict["blind_external_evaluation_claimed"]
+    dut._log.info(
+        "M5 SELFTEST RTL TOP PASS challenge=%s four-pin=%s capture=%d words=%d accepted=%s",
+        spec["challenge_id"], spec["pins"], len(spec["events"]), len(words), verdict["accepted"]
+    )
+
+
+@cocotb.test()
+async def test_morph_x_m5_pulse_link_capture_oracle_replay(dut):
+    import json
+    from pathlib import Path
+    from morph_x_protocol_zero import validate_spec
+    path = ROOT / "examples" / "morph_x_pulse_link_challenge.json"
+    spec = json.loads(path.read_text(encoding="utf-8"))
+    validate_spec(spec)
+    await morph_x_m5_real_capture_challenge(dut, spec)
+
+
+@cocotb.test()
+async def test_morph_x_m5_seeded_challenge_capture_oracle_replay(dut):
+    from morph_x_protocol_zero import generate_selftest_spec
+    spec = generate_selftest_spec(0x5EED17)
+    await morph_x_m5_real_capture_challenge(dut, spec)
+
+
+@cocotb.test()
+async def test_morph_x_m5_second_seed_direct_output_oracle(dut):
+    from morph_x_multireplay import compile_and_verify_multi
+    from morph_x_protocol_zero import (
+        generate_selftest_spec, spec_to_ir, make_observation, judge_observation,
+    )
+    spec = generate_selftest_spec(0xB105D)
+    ir = spec_to_ir(spec)
+    compiled = compile_and_verify_multi(ir)
+    words = [int(word, 16) for word in compiled["hex"].splitlines()]
+    await initialize(dut)
+    observed = await morph_x_m4_observe_replay(dut, ir, words)
+    verdict = judge_observation(spec, make_observation(
+        spec, observed, source="rtl-top", released=int(dut.uio_oe.value) == 0
+    ))
+    assert verdict["accepted"], verdict
+    dut._log.info("M5 SELFTEST DIRECT RTL PASS challenge=%s words=%d", spec["challenge_id"], len(words))
+# MORPH_X_PROTOCOL_ZERO_V06_END
