@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Vlastimir0500/MORPH/actions/workflows/morph-engineering.yml"><img src="https://github.com/Vlastimir0500/MORPH/actions/workflows/morph-engineering.yml/badge.svg?branch=feat%2Fmorph-x" alt="MORPH engineering gates workflow status on feat/morph-x" /></a>
-  <a href="https://github.com/Vlastimir0500/MORPH/actions/workflows/morph-formal-qualification.yml"><img src="https://github.com/Vlastimir0500/MORPH/actions/workflows/morph-formal-qualification.yml/badge.svg?branch=feat%2Fmorph-x" alt="MORPH formal qualification workflow status on feat/morph-x" /></a>
+  <a href="https://github.com/Vlastimir0500/MORPH/actions/workflows/morph-engineering.yml"><img src="https://github.com/Vlastimir0500/MORPH/actions/workflows/morph-engineering.yml/badge.svg?branch=submission%2Fmorph-x-2027" alt="MORPH engineering gates workflow status on feat/morph-x" /></a>
+  <a href="https://github.com/Vlastimir0500/MORPH/actions/workflows/morph-formal-qualification.yml"><img src="https://github.com/Vlastimir0500/MORPH/actions/workflows/morph-formal-qualification.yml/badge.svg?branch=submission%2Fmorph-x-2027" alt="MORPH formal qualification workflow status on feat/morph-x" /></a>
   <a href="https://github.com/Vlastimir0500/MORPH/tree/morph-x-m6-v0.7"><img src="https://img.shields.io/badge/release-M6%20verified-69f0bc?style=flat-square" alt="M6 verified release" /></a>
   <img src="https://img.shields.io/badge/process-IHP%20SG13CMOS5L-65e4ff?style=flat-square" alt="IHP SG13CMOS5L process target" />
   <img src="https://img.shields.io/badge/clock%20target-50%20MHz-ad92ff?style=flat-square" alt="Nominal 50 MHz design target, not a silicon measurement" />
@@ -25,6 +25,9 @@
   <a href="#reproduce-it">Reproduce</a> ·
   <a href="#research-frontier">Roadmap</a>
 </p>
+
+> [!TIP]
+> **Jane Street judges:** Start with the [submission and reproducibility guide](SUBMISSION.md). The release branch must pass its own exact-commit GDS/precheck and formal workflows; earlier M6 evidence is linked below.
 
 > [!IMPORTANT]
 > **Engineering-qualified RTL and GDS flow ≠ manufactured silicon.** MORPH X has passed the tests and GitHub physical-design gates linked below, but no fabricated-device performance, analog compliance, or third-party blind protocol adaptation is claimed. The opening hero is **concept artwork**; the routed GDS shown later is a **real KLayout inspection**.
@@ -337,7 +340,7 @@ These boundaries are tracked in [`docs/MORPH_X_M6_LIMITATIONS.md`](docs/MORPH_X_
 
 ## Author & provenance
 
-**Rattandeep Singh** · [GitHub @Vlastimir0500](https://github.com/Vlastimir0500) · MORPH X research and engineering.
+**VLastimir** · [GitHub @Vlastimir0500](https://github.com/Vlastimir0500) · MORPH X research and engineering.
 
 The design is developed with AI-assisted support for parts of coding, review, documentation and visualization. Source changes and engineering claims are checked against executable tests and evidence; AI assistance does not replace independent validation. This README's custom illustration is **concept art**; the diagrams and animated self-test waveform are explanatory graphics, and the KLayout panels derive from an actual GDS screenshot. Full media provenance is in [`assets/readme/PROVENANCE.md`](assets/readme/PROVENANCE.md).
 
