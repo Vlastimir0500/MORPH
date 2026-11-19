@@ -1,7 +1,7 @@
 # Tiny Tapeout project information
 project:
   title:        "MORPH — Modular Open Reprogrammable Protocol Hardware"      # Project title
-  author:       "Rattandeep Singh"      # Your name
+  author:       "VLastimir"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "Reprogrammable temporal protocol engine with contract-driven timing verification."      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
