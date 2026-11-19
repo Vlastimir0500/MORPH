@@ -337,7 +337,7 @@ These boundaries are tracked in [`docs/MORPH_X_M6_LIMITATIONS.md`](docs/MORPH_X_
 
 ## Author & provenance
 
-**Rattandeep Singh** · [GitHub @Vlastimir0500](https://github.com/Vlastimir0500) · MORPH X research and engineering.
+**VLastimir** · [GitHub @Vlastimir0500](https://github.com/Vlastimir0500) · MORPH X research and engineering.
 
 The design is developed with AI-assisted support for parts of coding, review, documentation and visualization. Source changes and engineering claims are checked against executable tests and evidence; AI assistance does not replace independent validation. This README's custom illustration is **concept art**; the diagrams and animated self-test waveform are explanatory graphics, and the KLayout panels derive from an actual GDS screenshot. Full media provenance is in [`assets/readme/PROVENANCE.md`](assets/readme/PROVENANCE.md).
 
