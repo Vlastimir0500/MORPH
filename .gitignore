@@ -41,3 +41,8 @@ net-VPWR.csv
 **/sim_build/
 *.vvp
 results.xml
+
+/backups/
+/tinytapeout-template/
+/traceforge/rtl_run/*2026*/
+/formal/*_20*/run_*/
