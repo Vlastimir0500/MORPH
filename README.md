@@ -318,8 +318,7 @@ The strongest next experiment is **Protocol Zero**: freeze the hardware, publish
 
 ### Read the research manuscript
 
-[**MORPH X: Architecture, Compilation, Verification and Physical Design — technical research draft (PDF)**](docs/research/MORPH_X_Research_Paper.pdf)
-
+[**MORPH X: Architecture, Compilation, Verification and Physical Design — technical research draft (PDF)**](docs/research/MORPH_X_Research_Paper.pd
 This companion manuscript is a **technical draft**, not a peer-reviewed publication. Claims of novelty or superiority require controlled comparisons and independently reproducible measurements.
 
 <details>
