@@ -1,0 +1,9 @@
+Protocol: SPI Mode 0
+CPOL: 0
+CPHA: 0
+Bit order: MSB first
+CS: pin 0, active-low
+SCLK: pin 1
+MOSI: pin 2
+Instructions: 20
+Program capacity: 64 words
